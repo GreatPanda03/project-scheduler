@@ -32,7 +32,7 @@ As all projects are managed with my laptop, it makes sense to leverage ***techno
 This leaves me with a mixed bag of solutions to choose from. While it's feasible to combine them, it wouldn't be sustainable as the routine of using them would be hard to maintain. I would also prefer a tool which is personalised to my specific pitfalls and habits.
 
 ## Development Process
-The app was developed with ***WinUI 3*** as it provides Windows integration for app blocking, scheduling, and resource management. It also has plenty of official documentation and is similar to web development (XAML & CS and used like HTML & JavaScript).
+The app was developed with ***WinUI 3*** as it provides Windows integration for app blocking, scheduling, and resource management. It also has plenty of official documentation and is similar to web development (XAML & C# and used like HTML & JavaScript).
 
 I had originally planned to learn WinUI 3 myself. To start with, I created a plan for the app by capturing my requirements and iteratively refining them against screen designs and process flows. This was all done over a week, after which I hadn't worked on the project for 2 months! So, I decided to reduce the friction and use this opportunity to fully code an app with ChatGPT (GPT-6 as of 2026/11/10), which I'd never done before.
 
@@ -49,9 +49,10 @@ The ***"Project Scheduler"*** is a personalised app which addresses the gaps ide
 
 ## Project Artefacts
 The repository includes other artefacts to help understand the context of the application, what has been implemented, and where improvements could be made:
-* [**Planning Diagram:**](broken) a `.drawio` diagram with initial requirements gathering and planning, including screen designs and process flows.
+* [**Planning Diagram:**](./Planning%20Diagram%20%282026-11-10%29.drawio) a `.drawio` diagram with initial requirements gathering and planning, including screen designs and process flows.
 * [**Requirements Backlog:**](broken) an Azure DevOps backlog which tracks the projects requirements with their descriptions, acceptance criteria, statuses, and more.
-* [**Changelog:**](broken) a list of all features, bug fixes, and other changes added to the project code.
+* [**Changelog:**](./CHANGELOG.md) a list of all features, bug fixes, and other changes added to the project code.
+* [**Project Scheduler:**](./Project%20Scheduler) the source code for the project.
 
 ## App Installation
 *(work in progress)*
