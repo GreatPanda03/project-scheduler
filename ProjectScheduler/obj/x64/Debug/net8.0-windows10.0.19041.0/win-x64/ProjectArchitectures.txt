@@ -1,0 +1,1 @@
+C:\Users\mobot\OneDrive\Desktop\Programming\VSC2026 Code\ProjectScheduler\ProjectScheduler\ProjectScheduler.csproj;x64

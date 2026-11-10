@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "ProjectScheduler (Package)": {
+      "commandName": "MsixPackage"
+    },
+    "ProjectScheduler (Unpackaged)": {
+      "commandName": "Project"
+    }
+  }
+}

@@ -1,0 +1,74 @@
+<Window
+    x:Class="ProjectScheduler.MainWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:ProjectScheduler"
+    Title="Scheduling App">
+
+    <NavigationView
+        x:Name="RootNavigation"
+        PaneDisplayMode="Left"
+        IsPaneOpen="True"
+        IsBackButtonVisible="Collapsed"
+        IsSettingsVisible="False"
+        IsPaneToggleButtonVisible="True"
+        SelectionChanged="RootNavigation_SelectionChanged">
+
+        <NavigationView.MenuItems>
+
+            <NavigationViewItem
+                x:Name="HomeNavigationItem"
+                Content="Home"
+                Tag="Home">
+                <NavigationViewItem.Icon>
+                    <SymbolIcon Symbol="Home"/>
+                </NavigationViewItem.Icon>
+            </NavigationViewItem>
+
+            <NavigationViewItem
+                Content="Schedules"
+                Tag="Schedules">
+                <NavigationViewItem.Icon>
+                    <SymbolIcon Symbol="Calendar"/>
+                </NavigationViewItem.Icon>
+            </NavigationViewItem>
+
+            <NavigationViewItem
+                Content="Projects"
+                Tag="Projects">
+                <NavigationViewItem.Icon>
+                    <SymbolIcon Symbol="Folder"/>
+                </NavigationViewItem.Icon>
+            </NavigationViewItem>
+
+            <NavigationViewItem
+                Content="Resources"
+                Tag="Resources">
+                <NavigationViewItem.Icon>
+                    <SymbolIcon Symbol="Library"/>
+                </NavigationViewItem.Icon>
+            </NavigationViewItem>
+
+            <NavigationViewItem
+                Content="Subslots"
+                Tag="Subslots">
+                <NavigationViewItem.Icon>
+                    <SymbolIcon Symbol="ViewAll"/>
+                </NavigationViewItem.Icon>
+            </NavigationViewItem>
+
+            <NavigationViewItem
+                Content="Pre-work Checklist"
+                Tag="Pre-work Checklist">
+                <NavigationViewItem.Icon>
+                    <SymbolIcon Symbol="List"/>
+                </NavigationViewItem.Icon>
+            </NavigationViewItem>
+
+        </NavigationView.MenuItems>
+
+        <Frame x:Name="ContentFrame"/>
+        
+    </NavigationView>
+    
+</Window>

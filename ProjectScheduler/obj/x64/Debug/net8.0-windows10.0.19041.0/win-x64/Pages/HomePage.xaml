@@ -1,0 +1,65 @@
+﻿<Page
+    x:Class="ProjectScheduler.Pages.HomePage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <ScrollViewer>
+        <Grid Padding="32">
+
+            <StackPanel Spacing="24">
+
+                <!-- Welcome message -->
+                <StackPanel Spacing="8">
+                    <TextBlock
+                        Text="Welcome back!"
+                        FontSize="32"
+                        FontWeight="SemiBold"/>
+
+                    <TextBlock
+                        Text="Before you get started, please complete your pre-work checklist. These items will help you prepare for your upcoming work session."
+                        FontSize="16"
+                        TextWrapping="Wrap"
+                        Opacity="0.7"/>
+                </StackPanel>
+
+                <!-- Pre-work checklist -->
+                <StackPanel Spacing="16">
+
+                    <TextBlock
+                        Text="Pre-work Checklist"
+                        FontSize="22"
+                        FontWeight="SemiBold"/>
+
+                    <StackPanel Spacing="12">
+
+                        <CheckBox
+                            Content="Drink a glass of water"
+                            IsChecked="False"
+                            FontSize="16"/>
+
+                        <CheckBox
+                            Content="Complete a couple of stretches"
+                            IsChecked="False"
+                            FontSize="16"/>
+
+                        <CheckBox
+                            Content="Enable required applications and plugins"
+                            IsChecked="False"
+                            FontSize="16"/>
+
+                        <CheckBox
+                            Content="Prepare your workspace"
+                            IsChecked="False"
+                            FontSize="16"/>
+
+                    </StackPanel>
+
+                </StackPanel>
+
+            </StackPanel>
+
+        </Grid>
+    </ScrollViewer>
+
+</Page>
+
