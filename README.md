@@ -3,7 +3,7 @@ A personalised WinUI 3 project to help me complete projects through scheduling a
 
 ***Disclaimer:** GenAI was almost entirely used to write the WinUI 3 code for the project. All other artefacts are human-made.*
 
-# Contents
+## Contents
 1. [Problem Definition](#problem-definition)
 2. [Existing Services](#existing-services)
 3. [Development Process](#development-process)
