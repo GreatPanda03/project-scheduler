@@ -30,29 +30,33 @@
                         FontSize="22"
                         FontWeight="SemiBold"/>
 
-                    <StackPanel Spacing="12">
+                    <ItemsControl
+                        x:Name="HomeChecklistItems">
 
-                        <CheckBox
-                            Content="Drink a glass of water"
-                            IsChecked="False"
-                            FontSize="16"/>
+                        <ItemsControl.ItemTemplate>
+                            <DataTemplate>
 
-                        <CheckBox
-                            Content="Complete a couple of stretches"
-                            IsChecked="False"
-                            FontSize="16"/>
+                                <CheckBox
+                                    Content="{Binding Title}"
+                                    IsChecked="{Binding IsCompleted, Mode=TwoWay}"
+                                    FontSize="16"
+                                    Margin="0,4"/>
 
-                        <CheckBox
-                            Content="Enable required applications and plugins"
-                            IsChecked="False"
-                            FontSize="16"/>
+                            </DataTemplate>
+                        </ItemsControl.ItemTemplate>
 
-                        <CheckBox
-                            Content="Prepare your workspace"
-                            IsChecked="False"
-                            FontSize="16"/>
+                    </ItemsControl>
 
-                    </StackPanel>
+                    <Button
+                        x:Name="StartScheduleButton"
+                        Content="Start Schedule"
+                        Click="StartScheduleButton_Click"
+                        IsEnabled="False"
+                        HorizontalAlignment="Stretch"
+                        Margin="0,24,0,0"
+                        Padding="12,10"
+                        Width="200"
+                        FontSize="16"/>
 
                 </StackPanel>
 

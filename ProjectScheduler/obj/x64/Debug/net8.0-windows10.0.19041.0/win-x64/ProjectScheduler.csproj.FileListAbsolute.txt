@@ -277,3 +277,9 @@ C:\Users\mobot\OneDrive\Desktop\Programming\VSC2026 Code\ProjectScheduler\Projec
 C:\Users\mobot\OneDrive\Desktop\Programming\VSC2026 Code\ProjectScheduler\ProjectScheduler\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\Pages\HomePage.xaml
 C:\Users\mobot\OneDrive\Desktop\Programming\VSC2026 Code\ProjectScheduler\ProjectScheduler\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\Pages\HomePage.xbf
 C:\Users\mobot\OneDrive\Desktop\Programming\VSC2026 Code\ProjectScheduler\ProjectScheduler\bin\x64\Debug\net8.0-windows10.0.19041.0\win-x64\Pages\HomePage.xbf
+C:\Users\mobot\OneDrive\Desktop\Programming\VSC2026 Code\ProjectScheduler\ProjectScheduler\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\ProjectScheduler.sourcelink.json
+C:\Users\mobot\OneDrive\Desktop\Programming\VSC2026 Code\ProjectScheduler\ProjectScheduler\bin\x64\Debug\net8.0-windows10.0.19041.0\win-x64\Pages\PreWorkChecklistPage.xbf
+C:\Users\mobot\OneDrive\Desktop\Programming\VSC2026 Code\ProjectScheduler\ProjectScheduler\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\Pages\PreWorkChecklistPage.g.i.cs
+C:\Users\mobot\OneDrive\Desktop\Programming\VSC2026 Code\ProjectScheduler\ProjectScheduler\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\Pages\PreWorkChecklistPage.g.cs
+C:\Users\mobot\OneDrive\Desktop\Programming\VSC2026 Code\ProjectScheduler\ProjectScheduler\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\Pages\PreWorkChecklistPage.xaml
+C:\Users\mobot\OneDrive\Desktop\Programming\VSC2026 Code\ProjectScheduler\ProjectScheduler\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\Pages\PreWorkChecklistPage.xbf

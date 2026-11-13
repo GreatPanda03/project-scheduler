@@ -11,10 +11,13 @@
     <None Update="Package.appxmanifest">
       <SubType>Designer</SubType>
     </None>
-    <Page Update="Pages\HomePage.xaml">
+    <Page Update="Pages\PlaceholderPage.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="Pages\PlaceholderPage.xaml">
+    <Page Update="Pages\PreWorkChecklistPage.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Pages\HomePage.xaml">
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>
