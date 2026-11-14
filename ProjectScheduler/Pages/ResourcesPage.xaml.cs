@@ -62,7 +62,7 @@ namespace ProjectScheduler.Pages {
             }
             catch (Exception ex)
             {
-                System.Diagnostics.Debug.WriteLine(
+                Debug.WriteLine(
                     $"Could not load resources: {ex.Message}"
                 );
 
@@ -122,7 +122,8 @@ namespace ProjectScheduler.Pages {
                 Header = "Description",
                 PlaceholderText = "Enter a description",
                 AcceptsReturn = true,
-                TextWrapping = TextWrapping.Wrap
+                TextWrapping = TextWrapping.Wrap,
+                MinHeight = 80
             };
 
             var typeComboBox = new ComboBox
@@ -547,7 +548,7 @@ namespace ProjectScheduler.Pages {
             }
             catch (Exception ex)
             {
-                System.Diagnostics.Debug.WriteLine(
+                Debug.WriteLine(
                     $"Could not save resources: {ex.Message}"
                 );
 

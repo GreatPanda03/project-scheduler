@@ -32,9 +32,8 @@
                 Grid.Row="0"
                 PlaceholderText="Search resources..."
                                                        
-                InputScope="Default">
-            </TextBox>
-            
+                InputScope="Default"/>
+
             <!-- Add Resource Button -->
             <Button x:ConnectionId='12'
                 Grid.Row="1"

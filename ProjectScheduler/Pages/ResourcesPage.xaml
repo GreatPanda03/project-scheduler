@@ -32,9 +32,8 @@
                 Grid.Row="0"
                 PlaceholderText="Search resources..."
                 TextChanged="SearchTextBox_TextChanged"
-                InputScope="Default">
-            </TextBox>
-            
+                InputScope="Default"/>
+
             <!-- Add Resource Button -->
             <Button
                 Grid.Row="1"

@@ -7,28 +7,12 @@
       "RelativeMoniker": "D:0:0:{CA8D76CE-3A2D-8BF7-A0F3-861EE2F88DFF}|ProjectScheduler\\ProjectScheduler.csproj|solutionrelative:projectscheduler\\pages\\subslotspage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{CA8D76CE-3A2D-8BF7-A0F3-861EE2F88DFF}|ProjectScheduler\\ProjectScheduler.csproj|c:\\users\\mobot\\onedrive\\desktop\\programming\\vsc2026 code\\projectscheduler\\projectscheduler\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{CA8D76CE-3A2D-8BF7-A0F3-861EE2F88DFF}|ProjectScheduler\\ProjectScheduler.csproj|solutionrelative:projectscheduler\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{CA8D76CE-3A2D-8BF7-A0F3-861EE2F88DFF}|ProjectScheduler\\ProjectScheduler.csproj|c:\\users\\mobot\\onedrive\\desktop\\programming\\vsc2026 code\\projectscheduler\\projectscheduler\\pages\\resourcespage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
       "RelativeMoniker": "D:0:0:{CA8D76CE-3A2D-8BF7-A0F3-861EE2F88DFF}|ProjectScheduler\\ProjectScheduler.csproj|solutionrelative:projectscheduler\\pages\\resourcespage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{CA8D76CE-3A2D-8BF7-A0F3-861EE2F88DFF}|ProjectScheduler\\ProjectScheduler.csproj|c:\\users\\mobot\\onedrive\\desktop\\programming\\vsc2026 code\\projectscheduler\\projectscheduler\\pages\\resourcespage.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{CA8D76CE-3A2D-8BF7-A0F3-861EE2F88DFF}|ProjectScheduler\\ProjectScheduler.csproj|solutionrelative:projectscheduler\\pages\\resourcespage.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{CA8D76CE-3A2D-8BF7-A0F3-861EE2F88DFF}|ProjectScheduler\\ProjectScheduler.csproj|c:\\users\\mobot\\onedrive\\desktop\\programming\\vsc2026 code\\projectscheduler\\projectscheduler\\models\\preworkitem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{CA8D76CE-3A2D-8BF7-A0F3-861EE2F88DFF}|ProjectScheduler\\ProjectScheduler.csproj|solutionrelative:projectscheduler\\models\\preworkitem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{CA8D76CE-3A2D-8BF7-A0F3-861EE2F88DFF}|ProjectScheduler\\ProjectScheduler.csproj|c:\\users\\mobot\\onedrive\\desktop\\programming\\vsc2026 code\\projectscheduler\\projectscheduler\\models\\resourceitem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{CA8D76CE-3A2D-8BF7-A0F3-861EE2F88DFF}|ProjectScheduler\\ProjectScheduler.csproj|solutionrelative:projectscheduler\\models\\resourceitem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{CA8D76CE-3A2D-8BF7-A0F3-861EE2F88DFF}|ProjectScheduler\\ProjectScheduler.csproj|c:\\users\\mobot\\onedrive\\desktop\\programming\\vsc2026 code\\projectscheduler\\projectscheduler\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{CA8D76CE-3A2D-8BF7-A0F3-861EE2F88DFF}|ProjectScheduler\\ProjectScheduler.csproj|solutionrelative:projectscheduler\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{CA8D76CE-3A2D-8BF7-A0F3-861EE2F88DFF}|ProjectScheduler\\ProjectScheduler.csproj|c:\\users\\mobot\\onedrive\\desktop\\programming\\vsc2026 code\\projectscheduler\\projectscheduler\\pages\\subslotspage.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CA8D76CE-3A2D-8BF7-A0F3-861EE2F88DFF}|ProjectScheduler\\ProjectScheduler.csproj|solutionrelative:projectscheduler\\pages\\subslotspage.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -43,14 +27,14 @@
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "MainWindow.xaml",
-              "DocumentMoniker": "C:\\Users\\mobot\\OneDrive\\Desktop\\Programming\\VSC2026 Code\\ProjectScheduler\\ProjectScheduler\\MainWindow.xaml",
-              "RelativeDocumentMoniker": "ProjectScheduler\\MainWindow.xaml",
-              "ToolTip": "C:\\Users\\mobot\\OneDrive\\Desktop\\Programming\\VSC2026 Code\\ProjectScheduler\\ProjectScheduler\\MainWindow.xaml",
-              "RelativeToolTip": "ProjectScheduler\\MainWindow.xaml",
-              "ViewState": "AgIAABsAAAAAAAAAAAAAADYAAAApAAAAAAAAAA==",
+              "Title": "ResourcesPage.xaml",
+              "DocumentMoniker": "C:\\Users\\mobot\\OneDrive\\Desktop\\Programming\\VSC2026 Code\\ProjectScheduler\\ProjectScheduler\\Pages\\ResourcesPage.xaml",
+              "RelativeDocumentMoniker": "ProjectScheduler\\Pages\\ResourcesPage.xaml",
+              "ToolTip": "C:\\Users\\mobot\\OneDrive\\Desktop\\Programming\\VSC2026 Code\\ProjectScheduler\\ProjectScheduler\\Pages\\ResourcesPage.xaml",
+              "RelativeToolTip": "ProjectScheduler\\Pages\\ResourcesPage.xaml",
+              "ViewState": "AgIAAE4AAAAAAAAAAAAAACMAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2026-11-14T08:15:45.789Z",
+              "WhenOpened": "2026-11-14T09:31:46.901Z",
               "EditorCaption": ""
             },
             {
@@ -61,74 +45,23 @@
               "RelativeDocumentMoniker": "ProjectScheduler\\Pages\\SubslotsPage.xaml",
               "ToolTip": "C:\\Users\\mobot\\OneDrive\\Desktop\\Programming\\VSC2026 Code\\ProjectScheduler\\ProjectScheduler\\Pages\\SubslotsPage.xaml",
               "RelativeToolTip": "ProjectScheduler\\Pages\\SubslotsPage.xaml",
-              "ViewState": "AgIAAFUAAAAAAAAAAAAIwG8AAAAZAAAAAAAAAA==",
+              "ViewState": "AgIAABMAAAAAAAAAAAD4vy4AAAAoAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2026-11-14T07:55:24.515Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "ResourcesPage.xaml.cs",
-              "DocumentMoniker": "C:\\Users\\mobot\\OneDrive\\Desktop\\Programming\\VSC2026 Code\\ProjectScheduler\\ProjectScheduler\\Pages\\ResourcesPage.xaml.cs",
-              "RelativeDocumentMoniker": "ProjectScheduler\\Pages\\ResourcesPage.xaml.cs",
-              "ToolTip": "C:\\Users\\mobot\\OneDrive\\Desktop\\Programming\\VSC2026 Code\\ProjectScheduler\\ProjectScheduler\\Pages\\ResourcesPage.xaml.cs",
-              "RelativeToolTip": "ProjectScheduler\\Pages\\ResourcesPage.xaml.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAALAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-11-13T18:20:39.074Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "PreWorkItem.cs",
-              "DocumentMoniker": "C:\\Users\\mobot\\OneDrive\\Desktop\\Programming\\VSC2026 Code\\ProjectScheduler\\ProjectScheduler\\Models\\PreWorkItem.cs",
-              "RelativeDocumentMoniker": "ProjectScheduler\\Models\\PreWorkItem.cs",
-              "ToolTip": "C:\\Users\\mobot\\OneDrive\\Desktop\\Programming\\VSC2026 Code\\ProjectScheduler\\ProjectScheduler\\Models\\PreWorkItem.cs",
-              "RelativeToolTip": "ProjectScheduler\\Models\\PreWorkItem.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAxAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-11-13T18:39:37.003Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "ResourceItem.cs",
-              "DocumentMoniker": "C:\\Users\\mobot\\OneDrive\\Desktop\\Programming\\VSC2026 Code\\ProjectScheduler\\ProjectScheduler\\Models\\ResourceItem.cs",
-              "RelativeDocumentMoniker": "ProjectScheduler\\Models\\ResourceItem.cs",
-              "ToolTip": "C:\\Users\\mobot\\OneDrive\\Desktop\\Programming\\VSC2026 Code\\ProjectScheduler\\ProjectScheduler\\Models\\ResourceItem.cs",
-              "RelativeToolTip": "ProjectScheduler\\Models\\ResourceItem.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAFAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-11-13T18:34:48.741Z",
+              "WhenOpened": "2026-11-14T09:31:09.09Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "ResourcesPage.xaml",
-              "DocumentMoniker": "C:\\Users\\mobot\\OneDrive\\Desktop\\Programming\\VSC2026 Code\\ProjectScheduler\\ProjectScheduler\\Pages\\ResourcesPage.xaml",
-              "RelativeDocumentMoniker": "ProjectScheduler\\Pages\\ResourcesPage.xaml",
-              "ToolTip": "C:\\Users\\mobot\\OneDrive\\Desktop\\Programming\\VSC2026 Code\\ProjectScheduler\\ProjectScheduler\\Pages\\ResourcesPage.xaml",
-              "RelativeToolTip": "ProjectScheduler\\Pages\\ResourcesPage.xaml",
-              "ViewState": "AgIAAF0AAAAAAAAAAAAAAG8AAAAQAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2026-11-13T18:23:00.666Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "MainWindow.xaml.cs",
-              "DocumentMoniker": "C:\\Users\\mobot\\OneDrive\\Desktop\\Programming\\VSC2026 Code\\ProjectScheduler\\ProjectScheduler\\MainWindow.xaml.cs",
-              "RelativeDocumentMoniker": "ProjectScheduler\\MainWindow.xaml.cs",
-              "ToolTip": "C:\\Users\\mobot\\OneDrive\\Desktop\\Programming\\VSC2026 Code\\ProjectScheduler\\ProjectScheduler\\MainWindow.xaml.cs",
-              "RelativeToolTip": "ProjectScheduler\\MainWindow.xaml.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAFUAAAAQAAAAAAAAAA==",
+              "Title": "SubslotsPage.xaml.cs",
+              "DocumentMoniker": "C:\\Users\\mobot\\OneDrive\\Desktop\\Programming\\VSC2026 Code\\ProjectScheduler\\ProjectScheduler\\Pages\\SubslotsPage.xaml.cs",
+              "RelativeDocumentMoniker": "ProjectScheduler\\Pages\\SubslotsPage.xaml.cs",
+              "ToolTip": "C:\\Users\\mobot\\OneDrive\\Desktop\\Programming\\VSC2026 Code\\ProjectScheduler\\ProjectScheduler\\Pages\\SubslotsPage.xaml.cs",
+              "RelativeToolTip": "ProjectScheduler\\Pages\\SubslotsPage.xaml.cs",
+              "ViewState": "AgIAAJ0AAAAAAAAAAAAMwK8AAAAaAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-11-13T18:20:51.842Z"
+              "WhenOpened": "2026-11-14T09:30:29.343Z",
+              "EditorCaption": ""
             }
           ]
         }

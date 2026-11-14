@@ -4,6 +4,27 @@ The changelog lists changes to the application. Each entry includes the date, ne
 Versions are in the form `X.Y.Z`, where `X` is a significant development stage, `Y` is a set of features, and `Z` is a minor change or hotfix. 
 
 
+
+<details>
+<summary><h3>
+  Version 0.4.0 - Subslot Management
+</h3></summary>
+
+**Date:** 2026/11/14
+
+**Features:**
+* Implemented the Subslots page:
+  * Subslots can now be created, edited, and deleted.
+  * Subslots can be given a Name, Description, and additional Rules.
+  * Currently, the only rule is "Lock Resources", which disables access to project resources.
+* Adjusted listing code:
+  * On refresh, both the Resource and Subslot lists now only refresh the entry of the changed item, not the entire list.
+
+**Bug Fixes:** No new bugs discovered or existing bugs fixed.
+
+</details>
+
+
 <details>
 <summary><h3>
   Version 0.3.0 - Resource Management

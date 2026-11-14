@@ -26,14 +26,19 @@
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
 
+            <!-- Search Bar -->
             <TextBox
                 x:Name="SearchTextBox"
                 Grid.Row="0"
-                PlaceholderText="Search subslots..."/>
+                PlaceholderText="Search subslots..."
+                TextChanged="SearchTextBox_TextChanged"
+                InputScope="Default"/>
 
+            <!-- Add Subslot -->
             <Button
                 Grid.Row="1"
-                HorizontalAlignment="Stretch">
+                HorizontalAlignment="Stretch"
+                Click="AddSubslotButton_Click">
 
                 <StackPanel
                     Orientation="Horizontal"
@@ -45,10 +50,12 @@
                 </StackPanel>
             </Button>
 
+            <!-- Subslot List -->
             <ListView
                 x:Name="SubslotsListView"
                 Grid.Row="2"
-                SelectionMode="Single">
+                SelectionMode="Single"
+                SelectionChanged="SubslotsListView_SelectionChanged">
 
                 <ListView.ItemTemplate>
                     <DataTemplate>
@@ -62,7 +69,7 @@
 
                             <FontIcon
                                 Grid.Column="0"
-                                Glyph="&#xE8FD;"
+                                Glyph="&#xE917;"
                                 FontSize="18"
                                 Margin="0,0,12,0"
                                 VerticalAlignment="Center"
@@ -145,15 +152,10 @@
                         MinHeight="100"/>
 
 
-                    <CheckBox>
-                        <StackPanel>
-                            <TextBlock
-                                Text="Lock Resources"/>
-
-                            <SymbolIcon Symbol="Library"
-                                        ToolTipService.ToolTip="Disables project resource access during the Subslot"/>
-                        </StackPanel>
-                    </CheckBox>
+                    <CheckBox
+                        x:Name="SubslotLockResourcesCheckBox"
+                        Content="Lock Resources"
+                        ToolTipService.ToolTip="Disables access to all of the current project's resources"/>
 
                     <StackPanel
                         Orientation="Horizontal"
@@ -161,10 +163,12 @@
                         Margin="0,12,0,0">
 
                         <Button
-                            Content="Save Changes"/>
+                            Content="Save Changes"
+                            Click="SaveSubslotButton_Click"/>
 
                         <Button
                             Content="Delete Subslot"
+                            Click="DeleteSubslotButton_Click"
                             Style="{ThemeResource DefaultButtonStyle}"/>
 
                     </StackPanel>
