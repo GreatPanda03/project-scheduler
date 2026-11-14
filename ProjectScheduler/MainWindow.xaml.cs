@@ -1,8 +1,10 @@
 
+using Microsoft.UI;
 using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Controls;
 using ProjectScheduler.Pages;
 using ProjectScheduler.Services;
+using System;
 
 namespace ProjectScheduler;
 
@@ -78,6 +80,10 @@ public sealed partial class MainWindow : Window
 
             case "Pre-work Checklist":
                 ContentFrame.Navigate(typeof(PreWorkChecklistPage));
+                break;
+
+            case "Resources":
+                ContentFrame.Navigate(typeof(ResourcesPage));
                 break;
 
             default:
