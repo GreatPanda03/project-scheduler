@@ -32,9 +32,8 @@
                 Grid.Row="0"
                 PlaceholderText="Search resources..."
                                                        
-                InputScope="Default">
-            </TextBox>
-            
+                InputScope="Default"/>
+
             <!-- Add Resource Button -->
             <Button x:ConnectionId='12'
                 Grid.Row="1"
@@ -148,14 +147,14 @@
                     <TextBox x:ConnectionId='4'  
                         x:Name="ResourceNameTextBox"
                         Header="Name"
-                        PlaceholderText="Enter a resource name">
-                    </TextBox>
+                        PlaceholderText="No resource name"/>
+
 
                     <!-- Resource Description -->
                     <TextBox x:ConnectionId='5'
                         x:Name="ResourceDescriptionTextBox"
                         Header="Description"
-                        PlaceholderText="No description provided"
+                        PlaceholderText="No resource description"
                         AcceptsReturn="True"
                         TextWrapping="Wrap"
                         MinHeight="100"/>
