@@ -148,14 +148,14 @@
                     <TextBox  
                         x:Name="ResourceNameTextBox"
                         Header="Name"
-                        PlaceholderText="Enter a resource name">
-                    </TextBox>
+                        PlaceholderText="No resource name"/>
+
 
                     <!-- Resource Description -->
                     <TextBox
                         x:Name="ResourceDescriptionTextBox"
                         Header="Description"
-                        PlaceholderText="No description provided"
+                        PlaceholderText="No resource description"
                         AcceptsReturn="True"
                         TextWrapping="Wrap"
                         MinHeight="100"/>

@@ -226,7 +226,7 @@ namespace ProjectScheduler.ProjectScheduler_XamlTypeInfo
         
         private void InitTypeTables()
         {
-            _typeNameTable = new string[41];
+            _typeNameTable = new string[42];
             _typeNameTable[0] = "Microsoft.UI.Xaml.Controls.XamlControlsResources";
             _typeNameTable[1] = "Microsoft.UI.Xaml.ResourceDictionary";
             _typeNameTable[2] = "Object";
@@ -265,11 +265,12 @@ namespace ProjectScheduler.ProjectScheduler_XamlTypeInfo
             _typeNameTable[35] = "ProjectScheduler.Pages.PlaceholderPage";
             _typeNameTable[36] = "ProjectScheduler.Pages.PreWorkChecklistPage";
             _typeNameTable[37] = "ProjectScheduler.Pages.ResourcesPage";
-            _typeNameTable[38] = "Microsoft.UI.Xaml.Controls.TreeViewNode";
-            _typeNameTable[39] = "System.Collections.Generic.IList`1<Microsoft.UI.Xaml.Controls.TreeViewNode>";
-            _typeNameTable[40] = "Int32";
+            _typeNameTable[38] = "ProjectScheduler.Pages.SubslotsPage";
+            _typeNameTable[39] = "Microsoft.UI.Xaml.Controls.TreeViewNode";
+            _typeNameTable[40] = "System.Collections.Generic.IList`1<Microsoft.UI.Xaml.Controls.TreeViewNode>";
+            _typeNameTable[41] = "Int32";
 
-            _typeTable = new global::System.Type[41];
+            _typeTable = new global::System.Type[42];
             _typeTable[0] = typeof(global::Microsoft.UI.Xaml.Controls.XamlControlsResources);
             _typeTable[1] = typeof(global::Microsoft.UI.Xaml.ResourceDictionary);
             _typeTable[2] = typeof(global::System.Object);
@@ -308,9 +309,10 @@ namespace ProjectScheduler.ProjectScheduler_XamlTypeInfo
             _typeTable[35] = typeof(global::ProjectScheduler.Pages.PlaceholderPage);
             _typeTable[36] = typeof(global::ProjectScheduler.Pages.PreWorkChecklistPage);
             _typeTable[37] = typeof(global::ProjectScheduler.Pages.ResourcesPage);
-            _typeTable[38] = typeof(global::Microsoft.UI.Xaml.Controls.TreeViewNode);
-            _typeTable[39] = typeof(global::System.Collections.Generic.IList<global::Microsoft.UI.Xaml.Controls.TreeViewNode>);
-            _typeTable[40] = typeof(global::System.Int32);
+            _typeTable[38] = typeof(global::ProjectScheduler.Pages.SubslotsPage);
+            _typeTable[39] = typeof(global::Microsoft.UI.Xaml.Controls.TreeViewNode);
+            _typeTable[40] = typeof(global::System.Collections.Generic.IList<global::Microsoft.UI.Xaml.Controls.TreeViewNode>);
+            _typeTable[41] = typeof(global::System.Int32);
         }
 
         private int LookupTypeIndexByName(string typeName)
@@ -355,7 +357,8 @@ namespace ProjectScheduler.ProjectScheduler_XamlTypeInfo
         private object Activate_35_PlaceholderPage() { return new global::ProjectScheduler.Pages.PlaceholderPage(); }
         private object Activate_36_PreWorkChecklistPage() { return new global::ProjectScheduler.Pages.PreWorkChecklistPage(); }
         private object Activate_37_ResourcesPage() { return new global::ProjectScheduler.Pages.ResourcesPage(); }
-        private object Activate_38_TreeViewNode() { return new global::Microsoft.UI.Xaml.Controls.TreeViewNode(); }
+        private object Activate_38_SubslotsPage() { return new global::ProjectScheduler.Pages.SubslotsPage(); }
+        private object Activate_39_TreeViewNode() { return new global::Microsoft.UI.Xaml.Controls.TreeViewNode(); }
         private void StaticInitializer_0_XamlControlsResources() => global::System.Runtime.CompilerServices.RuntimeHelpers.RunClassConstructor(typeof(global::Microsoft.UI.Xaml.Controls.XamlControlsResources).TypeHandle);
         private void StaticInitializer_4_NavigationView() => global::System.Runtime.CompilerServices.RuntimeHelpers.RunClassConstructor(typeof(global::Microsoft.UI.Xaml.Controls.NavigationView).TypeHandle);
         private void StaticInitializer_6_NavigationViewPaneDisplayMode() => global::System.Runtime.CompilerServices.RuntimeHelpers.RunClassConstructor(typeof(global::Microsoft.UI.Xaml.Controls.NavigationViewPaneDisplayMode).TypeHandle);
@@ -376,8 +379,9 @@ namespace ProjectScheduler.ProjectScheduler_XamlTypeInfo
         private void StaticInitializer_35_PlaceholderPage() => global::System.Runtime.CompilerServices.RuntimeHelpers.RunClassConstructor(typeof(global::ProjectScheduler.Pages.PlaceholderPage).TypeHandle);
         private void StaticInitializer_36_PreWorkChecklistPage() => global::System.Runtime.CompilerServices.RuntimeHelpers.RunClassConstructor(typeof(global::ProjectScheduler.Pages.PreWorkChecklistPage).TypeHandle);
         private void StaticInitializer_37_ResourcesPage() => global::System.Runtime.CompilerServices.RuntimeHelpers.RunClassConstructor(typeof(global::ProjectScheduler.Pages.ResourcesPage).TypeHandle);
-        private void StaticInitializer_38_TreeViewNode() => global::System.Runtime.CompilerServices.RuntimeHelpers.RunClassConstructor(typeof(global::Microsoft.UI.Xaml.Controls.TreeViewNode).TypeHandle);
-        private void StaticInitializer_39_IList() => global::System.Runtime.CompilerServices.RuntimeHelpers.RunClassConstructor(typeof(global::System.Collections.Generic.IList<global::Microsoft.UI.Xaml.Controls.TreeViewNode>).TypeHandle);
+        private void StaticInitializer_38_SubslotsPage() => global::System.Runtime.CompilerServices.RuntimeHelpers.RunClassConstructor(typeof(global::ProjectScheduler.Pages.SubslotsPage).TypeHandle);
+        private void StaticInitializer_39_TreeViewNode() => global::System.Runtime.CompilerServices.RuntimeHelpers.RunClassConstructor(typeof(global::Microsoft.UI.Xaml.Controls.TreeViewNode).TypeHandle);
+        private void StaticInitializer_40_IList() => global::System.Runtime.CompilerServices.RuntimeHelpers.RunClassConstructor(typeof(global::System.Collections.Generic.IList<global::Microsoft.UI.Xaml.Controls.TreeViewNode>).TypeHandle);
         private void MapAdd_0_XamlControlsResources(object instance, object key, object item)
         {
             var collection = (global::System.Collections.Generic.IDictionary<global::System.Object, global::System.Object>)instance;
@@ -391,7 +395,7 @@ namespace ProjectScheduler.ProjectScheduler_XamlTypeInfo
             var newItem = (global::System.Object)item;
             collection.Add(newItem);
         }
-        private void VectorAdd_39_IList(object instance, object item)
+        private void VectorAdd_40_IList(object instance, object item)
         {
             var collection = (global::System.Collections.Generic.ICollection<global::Microsoft.UI.Xaml.Controls.TreeViewNode>)instance;
             var newItem = (global::Microsoft.UI.Xaml.Controls.TreeViewNode)item;
@@ -684,10 +688,18 @@ namespace ProjectScheduler.ProjectScheduler_XamlTypeInfo
                 xamlType = userType;
                 break;
 
-            case 38:   //  Microsoft.UI.Xaml.Controls.TreeViewNode
+            case 38:   //  ProjectScheduler.Pages.SubslotsPage
+                userType = new global::ProjectScheduler.ProjectScheduler_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Microsoft.UI.Xaml.Controls.Page"));
+                userType.Activator = Activate_38_SubslotsPage;
+                userType.StaticInitializer = StaticInitializer_38_SubslotsPage;
+                userType.SetIsLocalType();
+                xamlType = userType;
+                break;
+
+            case 39:   //  Microsoft.UI.Xaml.Controls.TreeViewNode
                 userType = new global::ProjectScheduler.ProjectScheduler_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Microsoft.UI.Xaml.DependencyObject"));
-                userType.Activator = Activate_38_TreeViewNode;
-                userType.StaticInitializer = StaticInitializer_38_TreeViewNode;
+                userType.Activator = Activate_39_TreeViewNode;
+                userType.StaticInitializer = StaticInitializer_39_TreeViewNode;
                 userType.AddMemberName("Children");
                 userType.AddMemberName("Content");
                 userType.AddMemberName("Depth");
@@ -699,15 +711,15 @@ namespace ProjectScheduler.ProjectScheduler_XamlTypeInfo
                 xamlType = userType;
                 break;
 
-            case 39:   //  System.Collections.Generic.IList`1<Microsoft.UI.Xaml.Controls.TreeViewNode>
+            case 40:   //  System.Collections.Generic.IList`1<Microsoft.UI.Xaml.Controls.TreeViewNode>
                 userType = new global::ProjectScheduler.ProjectScheduler_XamlTypeInfo.XamlUserType(this, typeName, type, null);
-                userType.StaticInitializer = StaticInitializer_39_IList;
-                userType.CollectionAdd = VectorAdd_39_IList;
+                userType.StaticInitializer = StaticInitializer_40_IList;
+                userType.CollectionAdd = VectorAdd_40_IList;
                 userType.SetIsReturnTypeStub();
                 xamlType = userType;
                 break;
 
-            case 40:   //  Int32
+            case 41:   //  Int32
                 xamlType = new global::ProjectScheduler.ProjectScheduler_XamlTypeInfo.XamlSystemBaseType(typeName, type);
                 break;
             }

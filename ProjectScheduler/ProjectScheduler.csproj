@@ -20,6 +20,7 @@
     <None Remove="Pages\PlaceholderPage.xaml" />
     <None Remove="Pages\PreWorkChecklistPage.xaml" />
     <None Remove="Pages\ResourcesPage.xaml" />
+    <None Remove="Pages\SubslotsPage.xaml" />
   </ItemGroup>
 
   <ItemGroup>
@@ -47,6 +48,11 @@
   <ItemGroup>
     <PackageReference Include="Microsoft.Windows.SDK.BuildTools" Version="10.0.28000.2957" />
     <PackageReference Include="Microsoft.WindowsAppSDK" Version="2.6.5" />
+  </ItemGroup>
+  <ItemGroup>
+    <Page Update="Pages\SubslotsPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Page Update="Pages\ResourcesPage.xaml">

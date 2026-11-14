@@ -86,6 +86,10 @@ public sealed partial class MainWindow : Window
                 ContentFrame.Navigate(typeof(ResourcesPage));
                 break;
 
+            case "Subslots":
+                ContentFrame.Navigate(typeof(SubslotsPage));
+                break;
+
             default:
                 ContentFrame.Navigate(
                     typeof(PlaceholderPage),
