@@ -712,6 +712,9 @@
     <AppxPackagedFile Include="C:\Users\mobot\OneDrive\Desktop\Programming\VSC2026 Code\ProjectScheduler\ProjectScheduler\bin\x64\Debug\net8.0-windows10.0.19041.0\win-x64\ProjectScheduler.deps.json">
       <PackagePath>ProjectScheduler.deps.json</PackagePath>
     </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\mobot\OneDrive\Desktop\Programming\VSC2026 Code\ProjectScheduler\ProjectScheduler\Assets\app-icon.png">
+      <PackagePath>Assets\app-icon.png</PackagePath>
+    </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\mobot\OneDrive\Desktop\Programming\VSC2026 Code\ProjectScheduler\ProjectScheduler\Assets\LockScreenLogo.scale-200.png">
       <PackagePath>Assets\LockScreenLogo.scale-200.png</PackagePath>
     </AppxPackagedFile>

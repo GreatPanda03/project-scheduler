@@ -6,6 +6,25 @@ Versions are in the form `X.Y.Z`, where `X` is a significant development stage, 
 
 <details>
 <summary><h3>
+  Version 0.3.0 - Resource Management
+</h3></summary>
+
+**Date:** 2026/11/14
+
+**Features:**
+* Implemented the Resources page:
+  * Resources can now be created, edited, and deleted.
+  * Resources can be given a Name, Description, Type, and Directory.
+  * There are 3 resource types: Documents, Apps, and Websites.
+  * Web resources are opened in the user's default browser.
+
+**Bug Fixes:** No new bugs discovered or existing bugs fixed.
+
+</details>
+
+
+<details>
+<summary><h3>
   Version 0.2.0 - Pre-work Schedule Customisation
 </h3></summary>
 
