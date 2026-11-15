@@ -19,7 +19,7 @@ namespace ProjectScheduler.Models
         public int IncompleteTaskCount => CountTasks(Tasks, completed: false);
 
         // Display labels for XAML convenience
-        public string CreatedDateLabel => CreatedDate.ToString("d");
+        public string CreatedDateLabel => CreatedDate.ToString("G");
         public string IncompleteTaskCountLabel => $"{IncompleteTaskCount} task(s) ongoing";
 
 

@@ -66,8 +66,7 @@
                 HorizontalAlignment="Center"
                 VerticalAlignment="Top"
                 Spacing="12"
-                Margin="0,25,0,0"
-                Visibility="Collapsed">
+                Margin="0,25,0,0">
 
                 <SymbolIcon Symbol="Folder"/>
 
@@ -78,7 +77,7 @@
                     HorizontalAlignment="Center"/>
 
                 <TextBlock
-                    Text="Create your a brand new project"
+                    Text="Create a brand new project"
                     Foreground="{ThemeResource TextFillColorSecondaryBrush}"
                     HorizontalAlignment="Center"/>
 
@@ -89,8 +88,7 @@
                 x:Name="ProjectsListView"
                 Grid.Row="3"
                 SelectionMode="Single"
-                                                                    
-                Visibility="Visible">
+                                                                    >
 
                 <ListView.ItemTemplate>
                     <DataTemplate>
@@ -149,8 +147,7 @@
                 Text="No projects found"
                 HorizontalAlignment="Center"
                 Foreground="{ThemeResource TextFillColorSecondaryBrush}"
-                Margin="0,12,0,0"
-                Visibility="Collapsed"/>
+                Margin="0,12,0,0"/>
 
         </Grid>
         
@@ -257,7 +254,7 @@
                             <Button x:ConnectionId='27'
                                 Grid.Column="1"
                                 HorizontalAlignment="Stretch"
-                                                               >
+                                                                      >
 
                                 <StackPanel
                                     Orientation="Horizontal"
@@ -464,7 +461,7 @@
                                             ColumnSpacing="6">
 
                                             <Grid.ColumnDefinitions>
-                                                <ColumnDefinition Width="Auto"/>
+                                                <ColumnDefinition Width="28"/>
                                                 <ColumnDefinition Width="Auto"/>
                                                 <ColumnDefinition Width="Auto"/>
                                                 <ColumnDefinition Width="*"/>

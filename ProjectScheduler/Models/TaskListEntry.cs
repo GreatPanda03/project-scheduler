@@ -25,7 +25,7 @@ namespace ProjectScheduler.Models
 
         // XAML convenience attributes
         public string SubtaskProgress => HasSubtasks
-            ? $"{IncompleteSubtaskCount}/{TotalSubtaskCount} complete"
+            ? $"{TotalSubtaskCount - IncompleteSubtaskCount}/{TotalSubtaskCount} task(s) complete"
             : string.Empty;
 
         public string ExpandGlyph { get; set; } = "\uE76C";
@@ -34,8 +34,9 @@ namespace ProjectScheduler.Models
             new Thickness(Depth * 12, 0, 0, 0);
 
         public string DateLabel =>
-            Task.CompletedDate?.ToString("d")
-            ?? Task.CreatedDate.ToString("d");
+            Task.CompletedDate?.ToString("G") != null
+                ? $"{Task.CreatedDate.ToString("G")}   (completed {Task.CompletedDate?.ToString("G")})"
+                : Task.CreatedDate.ToString("G");
 
 
         // [[ CONSTRUCTOR ]] //

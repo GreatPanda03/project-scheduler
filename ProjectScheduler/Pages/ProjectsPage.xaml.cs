@@ -24,6 +24,8 @@ namespace ProjectScheduler.Pages
 {
     public sealed partial class ProjectsPage : Page
     {
+        private readonly ProjectService _projectService = new();
+        private bool _isLoadingProjects;
         private readonly ObservableCollection<ProjectItem> _projects = new();
         private readonly ObservableCollection<ProjectItem> _filteredProjects = new();
 
@@ -56,7 +58,55 @@ namespace ProjectScheduler.Pages
             object sender,
             RoutedEventArgs e)
         {
+            await LoadProjectsAsync();
             await LoadResourcesAsync();
+        }
+
+        private async Task LoadProjectsAsync()
+        {
+            try
+            {
+                _isLoadingProjects = true;
+
+                var savedProjects = await _projectService.LoadAsync();
+
+                _projects.Clear();
+
+                foreach (var project in savedProjects)
+                {
+                    _projects.Add(project);
+                }
+
+                RefreshProjectList();
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine($"Could not load projects: {ex.Message}");
+            }
+            finally
+            {
+                _isLoadingProjects = false;
+            }
+        }
+
+        private async Task SaveProjectsAsync()
+        {
+            if (_isLoadingProjects)
+            {
+                return;
+            }
+
+            try
+            {
+                await _projectService.SaveAsync(_projects);
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine($"Could not save projects: {ex.Message}");
+
+                await ShowErrorDialogue(
+                    "Could not save projects. Your latest changes may not be preserved.");
+            }
         }
 
         private async Task LoadResourcesAsync()
@@ -163,6 +213,8 @@ namespace ProjectScheduler.Pages
 
             _projects.Add(newProject);
 
+            await SaveProjectsAsync();
+
             RefreshProjectList();
 
             ProjectsListView.SelectedItem =
@@ -191,6 +243,22 @@ namespace ProjectScheduler.Pages
             {
                 _filteredProjects.Add(project);
             }
+
+            // Update the visibility of the project list and placeholders
+            ProjectsListViewEmpty.Visibility =
+                _projects.Count == 0
+                ? Visibility.Visible
+                : Visibility.Collapsed;
+
+            ProjectsListView.Visibility =
+                _filteredProjects.Count > 0
+                ? Visibility.Visible
+                : Visibility.Collapsed;
+
+            ProjectsListViewNoResults.Visibility =
+                _projects.Count > 0 && _filteredProjects.Count == 0
+                ? Visibility.Visible
+                : Visibility.Collapsed;
         }
 
         private void SearchProjectsTextBox_TextChanged(
@@ -284,6 +352,8 @@ namespace ProjectScheduler.Pages
             project.Priority = priority;
             project.Notes = ProjectNotesTextBox.Text.Trim();
 
+            await SaveProjectsAsync();
+
             RefreshProjectList();
 
             ProjectsListView.SelectedItem =
@@ -291,11 +361,41 @@ namespace ProjectScheduler.Pages
                     item => item.Id == project.Id);
         }
 
-        private void DeleteProjectButton_Click(
+        private async void DeleteProjectButton_Click(
             object sender,
             RoutedEventArgs e)
         {
+            if (ProjectsListView.SelectedItem is not ProjectItem project)
+            {
+                return;
+            }
 
+            // Ask the user to confirm deletion
+            ContentDialog dialogue = new()
+            {
+                Title = "Delete Project",
+                Content = $"Are you sure you want to delete \"{project.Name}\"? " +
+                    "This will also delete all its tasks and subtasks.",
+                PrimaryButtonText = "Delete",
+                CloseButtonText = "Cancel",
+                DefaultButton = ContentDialogButton.Close,
+                XamlRoot = XamlRoot
+            };
+
+            var result = await dialogue.ShowAsync();
+
+            if (result != ContentDialogResult.Primary)
+            {
+                return;
+            }
+
+            _projects.Remove(project);
+
+            await SaveProjectsAsync();
+
+            RefreshProjectList();
+
+            ProjectsListView.SelectedItem = null;
         }
 
 
@@ -379,7 +479,7 @@ namespace ProjectScheduler.Pages
             }
         }
 
-        private async void AddResourceButton_Click(
+        private async void AddProjectResourceButton_Click(
             object sender,
             RoutedEventArgs e)
         {
@@ -491,6 +591,8 @@ namespace ProjectScheduler.Pages
 
             project.ResourceIds.Add(selectedResource.Id);
 
+            await SaveProjectsAsync();
+
             RefreshProjectResources(project);
         }
 
@@ -501,7 +603,7 @@ namespace ProjectScheduler.Pages
             Debug.WriteLine("Resource access via project is a WIP");
         }
 
-        private void RemoveProjectResourceButton_Click(
+        private async void RemoveProjectResourceButton_Click(
             object sender,
             RoutedEventArgs e)
         {
@@ -520,6 +622,8 @@ namespace ProjectScheduler.Pages
             ProjectResourcesListView.SelectedItem = null;
             
             project.ResourceIds.Remove(resource.Id);
+
+            await SaveProjectsAsync();
 
             _projectResources.Remove(resource);
 
@@ -708,6 +812,8 @@ namespace ProjectScheduler.Pages
 
             project.Tasks.Add(newTask);
 
+            await SaveProjectsAsync();
+
             RefreshTasks(project);
         }
 
@@ -760,6 +866,8 @@ namespace ProjectScheduler.Pages
             parentTask.AddSubtask(newSubtask);
 
             _collapsedTaskIds.Remove(parentTask.Id); // ie. visible
+
+            await SaveProjectsAsync();
 
             RefreshTasks(project);
         }
@@ -814,6 +922,8 @@ namespace ProjectScheduler.Pages
             task.Name = details.Value.Name;
             task.Description = details.Value.Description;
 
+            await SaveProjectsAsync();
+
             RefreshTasks(project);
         }
 
@@ -859,17 +969,23 @@ namespace ProjectScheduler.Pages
 
             parentCollection?.Remove(task);
 
+            await SaveProjectsAsync();
+
             RefreshTasks(project);
         }
 
-        private void TaskCompletionCheckBox_Click(
+        private async void TaskCompletionCheckBox_Click(
             object sender,
             RoutedEventArgs e)
         {
-            if (ProjectsListView.SelectedItem is ProjectItem project)
+            if (ProjectsListView.SelectedItem is not ProjectItem project)
             {
-                RefreshTasks(project);
+                return;
             }
+
+            await SaveProjectsAsync();
+
+            RefreshTasks(project);
         }
 
         private ObservableCollection<TaskItem>? FindParentCollection(
