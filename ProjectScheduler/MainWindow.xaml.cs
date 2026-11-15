@@ -82,6 +82,10 @@ public sealed partial class MainWindow : Window
                 ContentFrame.Navigate(typeof(PreWorkChecklistPage));
                 break;
 
+            case "Projects":
+                ContentFrame.Navigate(typeof(ProjectsPage));
+                break;
+
             case "Resources":
                 ContentFrame.Navigate(typeof(ResourcesPage));
                 break;

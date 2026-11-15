@@ -7,10 +7,10 @@
 
     <NavigationView
         x:Name="RootNavigation"
-        PaneDisplayMode="Left"
+        PaneDisplayMode="Top"
         IsPaneOpen="True"
         IsBackButtonVisible="Collapsed"
-        IsSettingsVisible="False"
+        IsSettingsVisible="True"
         IsPaneToggleButtonVisible="True"
         SelectionChanged="RootNavigation_SelectionChanged">
 

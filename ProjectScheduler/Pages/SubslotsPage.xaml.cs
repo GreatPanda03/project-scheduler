@@ -1,5 +1,8 @@
+using Microsoft.UI.System;
+using Microsoft.UI.Text;
 using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Controls;
+using Microsoft.UI.Xaml.Media;
 using ProjectScheduler.Models;
 using ProjectScheduler.Services;
 using System;
@@ -7,6 +10,7 @@ using System.Collections.ObjectModel;
 using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
+using Windows.UI.Text;
 
 namespace ProjectScheduler.Pages
 {
@@ -72,7 +76,7 @@ namespace ProjectScheduler.Pages
             // Creating the dialogue box
             TextBox nameTextBox = new()
             {
-                Header = "Subslot Name",
+                Header = "Name",
                 PlaceholderText = "Enter a subslot name"
             };
 
@@ -83,6 +87,13 @@ namespace ProjectScheduler.Pages
                 AcceptsReturn = true,
                 TextWrapping = TextWrapping.Wrap,
                 MinHeight = 80
+            };
+
+            TextBlock rulesHeader = new()
+            {
+                Text = "RULES",
+                FontSize = 12,
+                FontWeight = FontWeights.SemiBold
             };
 
             CheckBox lockResourcesCheckBox = new()
@@ -97,6 +108,7 @@ namespace ProjectScheduler.Pages
 
             dialogueContent.Children.Add(nameTextBox);
             dialogueContent.Children.Add(descriptionTextBox);
+            dialogueContent.Children.Add(rulesHeader);
             dialogueContent.Children.Add(lockResourcesCheckBox);
 
             ContentDialog dialogue = new()

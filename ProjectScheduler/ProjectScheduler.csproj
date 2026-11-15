@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <OutputType>WinExe</OutputType>
     <TargetFramework>net8.0-windows10.0.19041.0</TargetFramework>
@@ -19,6 +19,7 @@
   <ItemGroup>
     <None Remove="Pages\PlaceholderPage.xaml" />
     <None Remove="Pages\PreWorkChecklistPage.xaml" />
+    <None Remove="Pages\ProjectsPage.xaml" />
     <None Remove="Pages\ResourcesPage.xaml" />
     <None Remove="Pages\SubslotsPage.xaml" />
   </ItemGroup>
@@ -48,6 +49,11 @@
   <ItemGroup>
     <PackageReference Include="Microsoft.Windows.SDK.BuildTools" Version="10.0.28000.2957" />
     <PackageReference Include="Microsoft.WindowsAppSDK" Version="2.6.5" />
+  </ItemGroup>
+  <ItemGroup>
+    <Page Update="Pages\ProjectsPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Page Update="Pages\SubslotsPage.xaml">

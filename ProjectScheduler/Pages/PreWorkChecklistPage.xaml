@@ -43,9 +43,17 @@
                             KeyDown="NewItemTextBox_KeyDown"/>
 
                         <Button
-                            Content="Add"
                             Grid.Column="1"
-                            Click="AddItemButton_Click"/>
+                            Click="AddItemButton_Click">
+
+                            <StackPanel
+                                Orientation="Horizontal"
+                                Spacing="8">
+
+                                <SymbolIcon Symbol="Add"/>
+                                <TextBlock Text="Add"/>
+                            </StackPanel>
+                        </Button>
 
                     </Grid>
 
@@ -98,16 +106,32 @@
 
                                     <!-- Edit button -->
                                     <Button
-                                        Content="Edit"
                                         Grid.Column="2"
-                                        Click="EditItemButton_Click"/>
+                                        Click="EditItemButton_Click">
+
+                                        <StackPanel
+                                            Orientation="Horizontal"
+                                            Spacing="12">
+
+                                            <SymbolIcon Symbol="Edit"/>
+                                            <TextBlock Text="Edit"/>
+                                        </StackPanel>
+                                    </Button>
 
                                     <!-- Remove button -->
                                     <Button
-                                        Content="Remove"
                                         Grid.Column="3"
-                                        Click="RemoveItemButton_Click"/>
+                                        Click="RemoveItemButton_Click">
 
+                                        <StackPanel
+                                            Orientation="Horizontal"
+                                            Spacing="12">
+
+                                            <SymbolIcon Symbol="Delete"/>
+                                            <TextBlock Text="Delete"/>
+                                        </StackPanel>
+                                    </Button>
+                                    
                                 </Grid>
 
                             </DataTemplate>
