@@ -1,16 +1,16 @@
 # Changelog
 The changelog lists changes to the application. Each entry includes the date, new or removed features, identified issues, and bug fixes.
 
-Versions are in the form `X.Y.Z`, where `X` is a significant development stage, `Y` is a set of features, and `Z` is a minor change or hotfix. 
+Dates are in `YYYY/MM/DD`. Versions are in the form `X.Y.Z`, where `X` is a significant development stage, `Y` is a set of features, and `Z` is a minor change or hotfix. 
 
+---
 
+### Version 0.5.0 - Tasks & Project Managament
 <details>
-<summary><h3>
-  Version 0.5.0 - Tasks & Project Managament
-</h3></summary>
-
-**Date:** 2026/11/15
-
+<summary>
+  <b>Date:</b> 2026/11/15
+</summary>
+  
 **Features:**
 * Implemented the Projects page:
   * Projects can now be created, edited, and deleted
@@ -31,13 +31,13 @@ Versions are in the form `X.Y.Z`, where `X` is a significant development stage, 
 
 </details>
 
+---
 
+### Version 0.4.0 - Subslot Management
 <details>
-<summary><h3>
-  Version 0.4.0 - Subslot Management
-</h3></summary>
-
-**Date:** 2026/11/14
+<summary>
+  <b>Date:</b> 2026/11/14
+</summary>
 
 **Features:**
 * Implemented the Subslots page:
@@ -49,13 +49,13 @@ Versions are in the form `X.Y.Z`, where `X` is a significant development stage, 
 
 </details>
 
+---
 
+### Version 0.3.0 - Resource Management
 <details>
-<summary><h3>
-  Version 0.3.0 - Resource Management
-</h3></summary>
-
-**Date:** 2026/11/14
+<summary>
+  <b>Date: 2026/11/14</b> 
+</summary>
 
 **Features:**
 * Implemented the Resources page:
@@ -68,13 +68,13 @@ Versions are in the form `X.Y.Z`, where `X` is a significant development stage, 
 
 </details>
 
+---
 
+### Version 0.2.0 - Pre-work Schedule Customisation
 <details>
-<summary><h3>
-  Version 0.2.0 - Pre-work Schedule Customisation
-</h3></summary>
-
-**Date:** 2026/11/13
+<summary>
+  <b>Date:</b> 2026/11/13
+</summary>
 
 **Features:**
 * Updated the Home Page:
@@ -86,15 +86,16 @@ Versions are in the form `X.Y.Z`, where `X` is a significant development stage, 
   * Pre-work Checklist items save are now saved to the local storage
 
 **Bug Fixes:** No new bugs discovered or existing bugs fixed.
+
 </details>
 
+---
 
+### Version 0.1.0 - Navigation & Pre-work Checklist
 <details>
-<summary><h3>
-  Version 0.1.0 - Navigation & Pre-work Checklist
-</h3></summary>
-  
-**Date:** 2026/11/10
+<summary>
+  <b>Date:</b> 2026/11/10
+</summary>
 
 **Features:**
 * Created the base of the application from a WinUI 3 template
@@ -102,4 +103,5 @@ Versions are in the form `X.Y.Z`, where `X` is a significant development stage, 
 * Implemented a hard-coded, completable prework checklist on the home page
 
 **Bug Fixes:** No new bugs discovered or existing bugs fixed.
+
 </details>
