@@ -6,10 +6,10 @@ Versions are in the form `X.Y.Z`, where `X` is a significant development stage, 
 
 <details>
 <summary><h3>
-  Version 0.4.0 - Tasks & Project Managament
+  Version 0.5.0 - Tasks & Project Managament
 </h3></summary>
 
-**Date:** 2026/11/14
+**Date:** 2026/11/15
 
 **Features:**
 * Implemented the Projects page:

@@ -33,6 +33,7 @@ namespace ProjectScheduler.Pages
         private readonly ObservableCollection<ResourceItem> _filteredProjectResources = new();
         
         private readonly ObservableCollection<TaskListEntry> _filteredProjectTasks = new();
+        private readonly HashSet<Guid> _collapsedTaskIds = new();
 
 
         // [[ CONSTRUCTOR ]] //
@@ -527,6 +528,35 @@ namespace ProjectScheduler.Pages
 
 
         // [[ PROJECT TASK LIST ]] //
+        private void ToggleTaskExpansionButton_Click(
+            object sender,
+            RoutedEventArgs e)
+        {
+            if (sender is not Button button ||
+                button.DataContext is not TaskListEntry entry)
+            {
+                return;
+            }
+
+            Guid taskId = entry.Task.Id;
+
+            // Toggle the task's collapsed state (find & add / remove)
+            if (_collapsedTaskIds.Contains(taskId))
+            {
+                _collapsedTaskIds.Remove(taskId);
+            }
+            else
+            {
+                _collapsedTaskIds.Add(taskId);
+            }
+
+            // Refresh the visible task hierarchy
+            if (ProjectsListView.SelectedItem is ProjectItem project)
+            {
+                RefreshTasks(project);
+            }
+        }
+
         private async Task<(string Name, string Description)?>
             ShowTaskEditorDialogueAsync(string title, TaskItem? existingTask = null)
         {
@@ -729,6 +759,8 @@ namespace ProjectScheduler.Pages
 
             parentTask.AddSubtask(newSubtask);
 
+            _collapsedTaskIds.Remove(parentTask.Id); // ie. visible
+
             RefreshTasks(project);
         }
 
@@ -927,14 +959,25 @@ namespace ProjectScheduler.Pages
 
             foreach (var task in orderedTasks)
             {
-                // Add the parent task first, then its subtasks (depth-first traversal)
-                entries.Add(new TaskListEntry(task, depth));
+                bool isCollapsed = _collapsedTaskIds.Contains(task.Id);
 
-                AddTaskAndSubtasksToList(
-                    task.Subtasks,
-                    depth + 1,
-                    entries,
-                    descending);
+                // Create the entry with the appropriate expansion glyph
+                TaskListEntry entry = new(task, depth)
+                {
+                    ExpandGlyph = isCollapsed ? "\uE76C" : "\uE70D"
+                };
+
+                // Add the parent task first, then its subtasks (depth-first traversal)
+                // * only add Subtasks if the parent is expanded
+                entries.Add(entry);
+
+                if (!isCollapsed) {
+                    AddTaskAndSubtasksToList(
+                        task.Subtasks,
+                        depth + 1,
+                        entries,
+                        descending);
+                }
             }
         }
 

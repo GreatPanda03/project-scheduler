@@ -35,7 +35,7 @@
                 FontWeight="SemiBold"/>
             
             <!-- Search Bar -->
-            <TextBox x:ConnectionId='27'
+            <TextBox x:ConnectionId='28'
                 x:Name="SearchProjectsTextBox"
                 Grid.Row="1"
                 PlaceholderText="Search projects..."
@@ -43,7 +43,7 @@
                 InputScope="Default"/>
             
             <!-- Add Project Button -->
-            <Button x:ConnectionId='28'
+            <Button x:ConnectionId='29'
                 Grid.Row="2"
                 HorizontalAlignment="Stretch"
                                               >
@@ -60,7 +60,7 @@
             </Button>
 
             <!-- Empty Project List Placeholder -->
-            <StackPanel x:ConnectionId='29'
+            <StackPanel x:ConnectionId='30'
                 x:Name="ProjectsListViewEmpty"
                 Grid.Row="3"
                 HorizontalAlignment="Center"
@@ -85,7 +85,7 @@
             </StackPanel>
 
             <!-- Project List -->
-            <ListView x:ConnectionId='30'
+            <ListView x:ConnectionId='31'
                 x:Name="ProjectsListView"
                 Grid.Row="3"
                 SelectionMode="Single"
@@ -108,13 +108,33 @@
                                 Margin="0,0,12,0"
                                 VerticalAlignment="Center"/>
 
-                            <TextBlock
+                            <StackPanel
                                 Grid.Column="1"
-                                Text="{Binding Name}"
-                                FontSize="15"
-                                VerticalAlignment="Center"
-                                TextTrimming="CharacterEllipsis"/>
+                                Spacing="2"
+                                VerticalAlignment="Center">
                             
+                                <TextBlock
+                                    Text="{Binding Name}"
+                                    FontSize="15"
+                                    TextTrimming="CharacterEllipsis"/>
+
+                                <StackPanel
+                                    Orientation="Horizontal"
+                                    Spacing="8">
+
+                                    <TextBlock
+                                        Text="{Binding CreatedDateLabel}"
+                                        FontSize="11"
+                                        Foreground="{ThemeResource TextFillColorSecondaryBrush}"/>
+
+                                    <TextBlock
+                                        Text="{Binding IncompleteTaskCountLabel}"
+                                        FontSize="11"
+                                        Foreground="{ThemeResource TextFillColorSecondaryBrush}"/>
+
+                                </StackPanel>
+
+                            </StackPanel>
                         </Grid>
                         
                     </DataTemplate>
@@ -123,7 +143,7 @@
             </ListView>
             
             <!-- No Project Search Results -->
-            <TextBlock x:ConnectionId='31'
+            <TextBlock x:ConnectionId='32'
                 x:Name="ProjectsListViewNoResults"
                 Grid.Row="3"
                 Text="No projects found"
@@ -175,8 +195,8 @@
             <Grid>
 
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="*"/>
-                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="0.9*"/>
+                    <ColumnDefinition Width="1.1*"/>
                 </Grid.ColumnDefinitions>
                 
                 <!-- LEFT COLUMN: PROJECT INFORMATION -->
@@ -196,13 +216,13 @@
                             Foreground="{ThemeResource TextFillColorSecondaryBrush}"/>
                         
                         <!-- Project Name -->
-                        <TextBox x:ConnectionId='15'
+                        <TextBox x:ConnectionId='16'
                             x:Name="ProjectNameTextBox"
                             Header="Name"
                             PlaceholderText="No project name"/>
 
                         <!-- Project Description -->
-                        <TextBox x:ConnectionId='16'
+                        <TextBox x:ConnectionId='17'
                             x:Name="ProjectDescriptionTextBox"
                             Header="Description"
                             PlaceholderText="No project description"
@@ -211,7 +231,7 @@
                             MinHeight="80"/>
 
                         <!-- Project Priority -->
-                        <NumberBox x:ConnectionId='17'
+                        <NumberBox x:ConnectionId='18'
                             x:Name="ProjectPriorityNumberBox"
                             Header="Priority"
                             PlaceholderText="No project priority"
@@ -234,7 +254,7 @@
                                 Foreground="{ThemeResource TextFillColorSecondaryBrush}"
                                 Margin="0,8,0,0"/>
 
-                            <Button x:ConnectionId='26'
+                            <Button x:ConnectionId='27'
                                 Grid.Column="1"
                                 HorizontalAlignment="Stretch"
                                                                >
@@ -251,7 +271,7 @@
 
                         </Grid>
 
-                        <ListView x:ConnectionId='18'
+                        <ListView x:ConnectionId='19'
                             x:Name="ProjectResourcesListView"
                             SelectionMode="Single"
                                                                                        
@@ -287,7 +307,7 @@
                                             Spacing="5"
                                             Visibility="Collapsed">
 
-                                            <Button x:ConnectionId='24'
+                                            <Button x:ConnectionId='25'
                                                                                        
                                                 ToolTipService.ToolTip="Open Resource"
                                                 ToolTipService.Placement="Bottom">
@@ -295,7 +315,7 @@
                                                 <SymbolIcon Symbol="OpenFile"/>
                                             </Button>
 
-                                            <Button x:ConnectionId='25'
+                                            <Button x:ConnectionId='26'
                                                                                          
                                                 ToolTipService.ToolTip="Remove Resource"
                                                 ToolTipService.Placement="Bottom">
@@ -313,7 +333,7 @@
                         </ListView>
 
                         <!-- Project Notes -->
-                        <TextBox x:ConnectionId='19'
+                        <TextBox x:ConnectionId='20'
                            x:Name="ProjectNotesTextBox"
                            Header="Notes"
                            PlaceholderText="No additional notes"
@@ -328,12 +348,12 @@
                             Spacing="12"
                             Margin="0,12,0,0">
                             
-                            <Button x:ConnectionId='20'
+                            <Button x:ConnectionId='21'
                                Content="Save Changes"
                                                               
                                HorizontalAlignment="Stretch"/>
 
-                            <Button x:ConnectionId='21'
+                            <Button x:ConnectionId='22'
                                 Content="Delete Project"
                                                                  
                                 HorizontalAlignment="Stretch"/>
@@ -376,7 +396,7 @@
                                 Foreground="{ThemeResource TextFillColorSecondaryBrush}"/>
 
                             <!-- Add Task -->
-                            <Button x:ConnectionId='14'
+                            <Button x:ConnectionId='15'
                                 Grid.Column="1"
                                 HorizontalAlignment="Stretch"
                                                            >
@@ -398,7 +418,7 @@
                             Grid.Row="1"
                             Spacing="10">
 
-                            <ComboBox x:ConnectionId='12'
+                            <ComboBox x:ConnectionId='13'
                                 x:Name="TaskCompletionFilterComboBox"
                                 Header="Completion"
                                 HorizontalAlignment="Stretch"
@@ -411,7 +431,7 @@
 
                             </ComboBox>
 
-                            <ComboBox x:ConnectionId='13'
+                            <ComboBox x:ConnectionId='14'
                                 x:Name="TaskDateSortComboBox"
                                 Header="Sort by Date"
                                 HorizontalAlignment="Stretch"
@@ -440,26 +460,47 @@
 
                                         <Grid
                                             Padding="6"
-                                            ColumnSpacing="10">
+                                            Margin="{Binding IndentMargin}"
+                                            ColumnSpacing="6">
 
                                             <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="Auto"/>
+                                                <ColumnDefinition Width="Auto"/>
                                                 <ColumnDefinition Width="Auto"/>
                                                 <ColumnDefinition Width="*"/>
                                                 <ColumnDefinition Width="Auto"/>
                                             </Grid.ColumnDefinitions>
 
-                                            <!-- Task Checkbox -->
-                                            <CheckBox x:ConnectionId='7'
+                                            <!-- Expand / Collapse Control -->
+                                            <Button x:ConnectionId='7'
                                                 Grid.Column="0"
+                                                Width="28"
+                                                Height="32"
+                                                Padding="0"
+                                                Background="Transparent"
+                                                BorderBrush="Transparent"
+                                                VerticalAlignment="Center"
+                                                Visibility="{Binding ExpandVisibility}"
+                                                                                       >
+
+                                                <FontIcon
+                                                    Glyph="{Binding ExpandGlyph}"
+                                                    FontSize="12"/>
+
+                                            </Button>
+                                            
+                                            <!-- Task Checkbox -->
+                                            <CheckBox x:ConnectionId='8'
+                                                Grid.Column="1"
                                                 IsChecked="{Binding Task.IsCompleted, Mode=TwoWay}"
                                                 VerticalAlignment="Center"
-                                                MinWidth="32"
+                                                MinWidth="0"
                                                                                     />
+                                                <!-- excluding MinWidth makes it insanely long... -->
 
                                             <!-- Task Details -->
                                             <StackPanel
-                                                Grid.Column="1"
-                                                Margin="{Binding IndentMargin}"
+                                                Grid.Column="3"
                                                 VerticalAlignment="Center">
 
                                                 <TextBlock
@@ -467,22 +508,33 @@
                                                     TextWrapping="Wrap"
                                                     FontWeight="SemiBold"/>
 
-                                                <TextBlock
-                                                    Text="{Binding DateLabel}"
-                                                    FontSize="11"
-                                                    Foreground="{ThemeResource TextFillColorSecondaryBrush}"/>
+                                                <StackPanel
+                                                    Orientation="Horizontal"
+                                                    Spacing="8">
+                                                    
+                                                    <TextBlock
+                                                        Text="{Binding DateLabel}"
+                                                        FontSize="11"
+                                                        Foreground="{ThemeResource TextFillColorSecondaryBrush}"/>
+
+                                                    <TextBlock
+                                                        Text="{Binding SubtaskProgress}"
+                                                        FontSize="11"
+                                                        Foreground="{ThemeResource TextFillColorSecondaryBrush}"/>
+
+                                                </StackPanel>
 
                                             </StackPanel>
 
                                             <!-- Task Actions -->
                                             <StackPanel
                                                 x:Name="TaskActionsPanel"
-                                                Grid.Column="2"
+                                                Grid.Column="4"
                                                 Orientation="Horizontal"
                                                 Spacing="5"
                                                 Visibility="Collapsed">
 
-                                                <Button x:ConnectionId='9'
+                                                <Button x:ConnectionId='10'
                                                                                   
                                                     ToolTipService.ToolTip="Add Subtask"
                                                     ToolTipService.Placement="Bottom">
@@ -490,7 +542,7 @@
                                                     <SymbolIcon Symbol="Add"/>
                                                 </Button>
 
-                                                <Button x:ConnectionId='10'
+                                                <Button x:ConnectionId='11'
                                                                                 
                                                     ToolTipService.ToolTip="Edit Task"
                                                     ToolTipService.Placement="Bottom">
@@ -498,7 +550,7 @@
                                                     <SymbolIcon Symbol="Edit"/>
                                                 </Button>
 
-                                                <Button x:ConnectionId='11'
+                                                <Button x:ConnectionId='12'
                                                                                   
                                                     ToolTipService.ToolTip="Delete Task"
                                                     ToolTipService.Placement="Bottom">

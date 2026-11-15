@@ -9,9 +9,19 @@ using System.Threading.Tasks;
 
 namespace ProjectScheduler.Models
 {
-    internal class ProjectItem : INotifyPropertyChanged
+    public class ProjectItem : INotifyPropertyChanged
     {
+
+        // [[ ATTRIBUTES ]] //
         public Guid Id { get; set; } = Guid.NewGuid();
+
+        public DateTime CreatedDate { get; set; } = DateTime.Now;
+        public int IncompleteTaskCount => CountTasks(Tasks, completed: false);
+
+        // Display labels for XAML convenience
+        public string CreatedDateLabel => CreatedDate.ToString("d");
+        public string IncompleteTaskCountLabel => $"{IncompleteTaskCount} task(s) ongoing";
+
 
         private string _name = string.Empty;
         public string Name
@@ -80,6 +90,24 @@ namespace ProjectScheduler.Models
         public List<Guid> ResourceIds { get; set; } = new();
 
         public ObservableCollection<TaskItem> Tasks { get; set; } = new();
+
+
+        // [[ METHODS ]] //
+
+        public static int CountTasks(
+            IEnumerable<TaskItem> tasks,
+            bool completed) 
+        {
+            int count = 0;
+
+            foreach (var task in tasks)
+            {
+                if (task.IsCompleted == completed) count++;
+                count += CountTasks(task.Subtasks, completed);
+            }
+
+            return count;
+        }
 
         public event PropertyChangedEventHandler? PropertyChanged;
         private void OnPropertyChanged(
