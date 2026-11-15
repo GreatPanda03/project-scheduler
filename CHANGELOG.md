@@ -25,7 +25,7 @@ Versions are in the form `X.Y.Z`, where `X` is a significant development stage, 
 * Updated Resources:
   * Deleting a Resource removes it from any Project which uses it
 * Updated screen designs:
-  * Slightly adjusted the designs for Resources and Subslots
+  * Slightly adjusted the designs for the Resources and Subslots pages
 
 **Bug Fixes:** No new bugs discovered or existing bugs fixed.
 
