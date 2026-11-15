@@ -52,7 +52,7 @@
                         Content="Start Schedule"
                         Click="StartScheduleButton_Click"
                         IsEnabled="False"
-                        HorizontalAlignment="Stretch"
+                        HorizontalAlignment="Left"
                         Margin="0,24,0,0"
                         Padding="12,10"
                         Width="200"

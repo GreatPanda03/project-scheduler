@@ -11,7 +11,7 @@
     <Grid>
 
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="320"/>
+            <ColumnDefinition Width="400"/>
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
 
@@ -175,8 +175,8 @@
             <Grid>
 
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="*"/>
-                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="0.9*"/>
+                    <ColumnDefinition Width="1.1*"/>
                 </Grid.ColumnDefinitions>
                 
                 <!-- LEFT COLUMN: PROJECT INFORMATION -->
@@ -241,9 +241,9 @@
 
                                 <StackPanel
                                     Orientation="Horizontal"
-                                    Spacing="8">        
+                                    Spacing="8">
 
-                                    <FontIcon Glyph="&#xE710;"/>
+                                    <SymbolIcon Symbol="Add"/>
                                     <TextBlock Text="Add Resource"/>
 
                                 </StackPanel>
@@ -356,7 +356,6 @@
                         <Grid.RowDefinitions>
                             <RowDefinition Height="Auto"/>
                             <RowDefinition Height="Auto"/>
-                            <RowDefinition Height="Auto"/>
                             <RowDefinition Height="*"/>
                         </Grid.RowDefinitions>
                         
@@ -366,7 +365,6 @@
 
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="*"/>
-                                <ColumnDefinition Width="Auto"/>
                                 <ColumnDefinition Width="Auto"/>
                             </Grid.ColumnDefinitions>
 
@@ -393,22 +391,6 @@
                                 </StackPanel>
                             </Button>
 
-                            <!-- Add Subtask -->
-                            <Button
-                                Grid.Column="2"
-                                HorizontalAlignment="Stretch"
-                                Click="AddSubtaskButton_Click">
-
-                                <StackPanel
-                                    Orientation="Horizontal"
-                                    Spacing="8">
-
-                                    <FontIcon Glyph="&#xE710;"/>
-                                    <TextBlock Text="Add Subtask"/>
-
-                                </StackPanel>
-                            </Button>
-                            
                         </Grid>
 
                         <!-- Task Filters -->
@@ -440,43 +422,18 @@
                                 <ComboBoxItem Content="Descending"/>
 
                             </ComboBox>
-                            
-                        </StackPanel>
 
-                        <!-- Add Task Button -->
-                        <StackPanel
-                            Grid.Row="2"
-                            Spacing="8">
-
-                            <StackPanel
-                                Orientation="Horizontal"
-                                Spacing="8"
-                                Margin="0,12,0,0">
-
-                                <Button
-                                    Content="Edit"
-                                    Click="EditTaskButton_Click"
-                                    HorizontalAlignment="Stretch"
-                                    Width="100"/>
-
-                                <Button
-                                    Content="Delete"
-                                    Click="DeleteTaskButton_Click"
-                                    HorizontalAlignment="Stretch"
-                                    Width="100"/>
-
-                            </StackPanel>
-                            
                         </StackPanel>
 
                         <!-- Task List -->
                         <Grid
-                            Grid.Row="3">
+                            Grid.Row="2">
 
                             <ListView
                                 x:Name="TasksListView"
                                 SelectionMode="Single"
-                                VerticalAlignment="Stretch">
+                                VerticalAlignment="Stretch"
+                                SelectionChanged="TasksListView_SelectionChanged">
 
                                 <ListView.ItemTemplate>
                                     <DataTemplate>
@@ -488,8 +445,10 @@
                                             <Grid.ColumnDefinitions>
                                                 <ColumnDefinition Width="Auto"/>
                                                 <ColumnDefinition Width="*"/>
+                                                <ColumnDefinition Width="Auto"/>
                                             </Grid.ColumnDefinitions>
 
+                                            <!-- Task Checkbox -->
                                             <CheckBox
                                                 Grid.Column="0"
                                                 IsChecked="{Binding Task.IsCompleted, Mode=TwoWay}"
@@ -497,6 +456,7 @@
                                                 MinWidth="32"
                                                 Click="TaskCompletionCheckBox_Click"/>
 
+                                            <!-- Task Details -->
                                             <StackPanel
                                                 Grid.Column="1"
                                                 Margin="{Binding IndentMargin}"
@@ -514,6 +474,40 @@
 
                                             </StackPanel>
 
+                                            <!-- Task Actions -->
+                                            <StackPanel
+                                                x:Name="TaskActionsPanel"
+                                                Grid.Column="2"
+                                                Orientation="Horizontal"
+                                                Spacing="5"
+                                                Visibility="Collapsed">
+
+                                                <Button
+                                                    Click="AddSubtaskButton_Click"
+                                                    ToolTipService.ToolTip="Add Subtask"
+                                                    ToolTipService.Placement="Bottom">
+
+                                                    <SymbolIcon Symbol="Add"/>
+                                                </Button>
+
+                                                <Button
+                                                    Click="EditTaskButton_Click"
+                                                    ToolTipService.ToolTip="Edit Task"
+                                                    ToolTipService.Placement="Bottom">
+
+                                                    <SymbolIcon Symbol="Edit"/>
+                                                </Button>
+
+                                                <Button
+                                                    Click="DeleteTaskButton_Click"
+                                                    ToolTipService.ToolTip="Delete Task"
+                                                    ToolTipService.Placement="Bottom">
+
+                                                    <SymbolIcon Symbol="Delete"/>
+                                                </Button>
+
+                                            </StackPanel>
+                                            
                                         </Grid>
                                         
                                     </DataTemplate>
@@ -524,7 +518,7 @@
                             <!-- Empty Task List Placeholder -->
                             <StackPanel
                                 x:Name="TasksListViewEmpty"
-                                Grid.Row="3"
+                                Grid.Row="2"
                                 HorizontalAlignment="Center"
                                 VerticalAlignment="Top"
                                 Spacing="12"

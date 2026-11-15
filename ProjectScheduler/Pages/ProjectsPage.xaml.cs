@@ -205,6 +205,9 @@ namespace ProjectScheduler.Pages
             object sender,
             SelectionChangedEventArgs e)
         {
+            ProjectResourcesListView.SelectedItem = null;
+            TasksListView.SelectedItem = null;
+
             if (ProjectsListView.SelectedItem is ProjectItem project)
             {
                 DisplayProjectDetails(project);
@@ -595,6 +598,51 @@ namespace ProjectScheduler.Pages
             }
         }
 
+        private void TasksListView_SelectionChanged(
+            object sender,
+            SelectionChangedEventArgs e)
+        {
+            // Hide the action buttons for every visible task
+            foreach (var taskEntry in _filteredProjectTasks)
+            {
+                var container = TasksListView.ContainerFromItem(taskEntry)
+                    as DependencyObject;
+
+                if (container == null)
+                {
+                    continue;
+                }
+
+                var actionsPanel = FindNamedElement<StackPanel>(
+                    container,
+                    "TaskActionsPanel");
+
+                if (actionsPanel != null)
+                {
+                    actionsPanel.Visibility = Visibility.Collapsed;
+                }
+            }
+
+            // Display the action buttons for the selected task
+            if (TasksListView.SelectedItem is TaskListEntry selectedEntry)
+            {
+                var container = TasksListView.ContainerFromItem(selectedEntry)
+                    as DependencyObject;
+
+                if (container != null)
+                {
+                    var actionsPanel = FindNamedElement<StackPanel>(
+                        container,
+                        "TaskActionsPanel");
+                    
+                    if (actionsPanel != null)
+                    {
+                        actionsPanel.Visibility = Visibility.Visible;
+                    }
+                }
+            }
+        }
+
         private async void AddTaskButton_Click(
             object sender,
             RoutedEventArgs e)
@@ -612,7 +660,9 @@ namespace ProjectScheduler.Pages
             }
 
             if (project.Tasks.Any(task =>
-                task.Name.Equals(details.Value.Name, StringComparison.OrdinalIgnoreCase)))
+                task.Name.Equals(
+                    details.Value.Name, 
+                    StringComparison.OrdinalIgnoreCase)))
             {
                 await ShowErrorDialogue(
                         "A task with this name already exists for this project.");
@@ -640,16 +690,17 @@ namespace ProjectScheduler.Pages
                 return;
             }
 
-            if (TasksListView.SelectedItem is not TaskListEntry selectedEntry)
-            {
-                await ShowErrorDialogue(
-                    "Please select a task before adding a subtask.");
+            // Retrieving the task to add a subtask to
+            TaskListEntry? selectedEntry = GetTaskEntryFromButton(sender);
 
+            if (selectedEntry == null)
+            {
                 return;
             }
 
             TaskItem parentTask = selectedEntry.Task;
 
+            // Prompting for the new subtask's name
             var details = await ShowTaskEditorDialogueAsync("Add Subtask");
 
             if (details == null)
@@ -657,8 +708,11 @@ namespace ProjectScheduler.Pages
                 return;
             }
 
+            // Validating the new details (local uniqueness)
             if (parentTask.Subtasks.Any(task =>
-                task.Name.Equals(details.Value.Name, StringComparison.OrdinalIgnoreCase)))
+                task.Name.Equals(
+                    details.Value.Name,
+                    StringComparison.OrdinalIgnoreCase)))
             {
                 await ShowErrorDialogue(
                     "A subtask with this name already exists at this level");
@@ -666,6 +720,7 @@ namespace ProjectScheduler.Pages
                 return;
             }
 
+            // Creating the new subtask under the target task
             TaskItem newSubtask = new()
             {
                 Name = details.Value.Name,
@@ -686,16 +741,17 @@ namespace ProjectScheduler.Pages
                 return;
             }
 
-            if (TasksListView.SelectedItem is not TaskListEntry selectedEntry)
-            {
-                await ShowErrorDialogue(
-                    "Please select a task to edit.");
+            // Retrieving the task associated with the button
+            TaskListEntry? selectedEntry = GetTaskEntryFromButton(sender);
 
+            if (selectedEntry == null)
+            {
                 return;
             }
 
             TaskItem task = selectedEntry.Task;
 
+            // Prompting for updated task details
             var details = await ShowTaskEditorDialogueAsync("Edit Task", task);
 
             if (details == null)
@@ -710,9 +766,12 @@ namespace ProjectScheduler.Pages
                 return;
             }
 
+            // Validating the new task details (local uniqueness)
             if (siblingTasks.Any(other =>
                 other.Id != task.Id && 
-                other.Name.Equals(details.Value.Name, StringComparison.OrdinalIgnoreCase)))
+                other.Name.Equals(
+                    details.Value.Name,
+                    StringComparison.OrdinalIgnoreCase)))
             {
                 await ShowErrorDialogue(
                     "A task with this name already exists at this level.");
@@ -722,6 +781,8 @@ namespace ProjectScheduler.Pages
 
             task.Name = details.Value.Name;
             task.Description = details.Value.Description;
+
+            RefreshTasks(project);
         }
 
         private async void DeleteTaskButton_Click(
@@ -733,16 +794,17 @@ namespace ProjectScheduler.Pages
                 return;
             }
 
-            if (TasksListView.SelectedItem is not TaskListEntry selectedEntry)
-            {
-                await ShowErrorDialogue(
-                    "Please select a task to delete.");
+            // Retrieving the button's associated task
+            TaskListEntry? selectedEntry = GetTaskEntryFromButton(sender);
 
+            if (selectedEntry == null)
+            {
                 return;
             }
 
             TaskItem task = selectedEntry.Task;
 
+            // Prompting the user to confirm deletion
             ContentDialog confirmation = new()
             {
                 Title = "Delete Task",
@@ -760,6 +822,7 @@ namespace ProjectScheduler.Pages
                 return;
             }
 
+            // Deleting the task and its subtasks if confirmed
             var parentCollection = FindParentCollection(project.Tasks, task);
 
             parentCollection?.Remove(task);
@@ -802,18 +865,23 @@ namespace ProjectScheduler.Pages
 
         private void RefreshTasks(ProjectItem project)
         {
+            // Remember the selected task to restore its selection
+            Guid? selectedTaskId =
+                (TasksListView.SelectedItem as TaskListEntry)?.Task.Id;
+
             _filteredProjectTasks.Clear();
 
             var allTasks = new List<TaskListEntry>();
 
-            foreach (var task in project.Tasks)
-            {
-                AddTaskAndSubtasksToList(task, 0, allTasks);
-            }
+            bool descending = TaskDateSortComboBox.SelectedIndex == 1;
+
+            // Build the hierarchy and sort tasks at each level
+            AddTaskAndSubtasksToList(
+                project.Tasks, 0, allTasks, descending);
 
             int completionFilter = TaskCompletionFilterComboBox.SelectedIndex;
 
-            IEnumerable<TaskListEntry> filteredTasks = allTasks;
+            IEnumerable <TaskListEntry> filteredTasks = allTasks;
 
             // Completion filter (All = 0, Complete, Incomplete)
             if (completionFilter == 1)
@@ -827,17 +895,7 @@ namespace ProjectScheduler.Pages
                     entry => !entry.Task.IsCompleted);
             }
 
-            // Date sort: oldest / newest
-            if (TaskDateSortComboBox.SelectedIndex == 1)
-            {
-                filteredTasks = filteredTasks
-                    .OrderByDescending(entry => entry.Task.CreatedDate);
-            }
-            else
-            {
-                filteredTasks = filteredTasks
-                    .OrderBy(entry => entry.Task.CreatedDate);
-            }
+            // * NOTE: Date sorting done in AddTaskAndSubtasksToList()
 
             // Refreshing the list
             foreach (var entry in filteredTasks)
@@ -845,22 +903,38 @@ namespace ProjectScheduler.Pages
                 _filteredProjectTasks.Add(entry);
             }
 
+            // Restore the selection if the task is still visible
+            if (selectedTaskId.HasValue)
+            {
+                TasksListView.SelectedItem =
+                    _filteredProjectTasks.FirstOrDefault(
+                        entry => entry.Task.Id == selectedTaskId.Value);
+            }
+
             RefreshTaskPlaceholder(project);
         }
 
         private void AddTaskAndSubtasksToList(
-            TaskItem task,
+            IEnumerable<TaskItem> tasks,
             int depth,
-            List<TaskListEntry> entries)
+            List<TaskListEntry> entries,
+            bool descending)
         {
-            entries.Add(new TaskListEntry(task, depth));
+            // Sort only tasks that share the same parent
+            var orderedTasks = descending
+                ? tasks.OrderByDescending(task => task.CreatedDate)
+                : tasks.OrderBy(task => task.CreatedDate);
 
-            foreach (var subtask in task.Subtasks)
+            foreach (var task in orderedTasks)
             {
+                // Add the parent task first, then its subtasks (depth-first traversal)
+                entries.Add(new TaskListEntry(task, depth));
+
                 AddTaskAndSubtasksToList(
-                    subtask,
+                    task.Subtasks,
                     depth + 1,
-                    entries);
+                    entries,
+                    descending);
             }
         }
 
@@ -873,7 +947,7 @@ namespace ProjectScheduler.Pages
         }
 
 
-        // [[ AUXILIARY: FIND ELEMENT IN ITEM ]] //
+        // [[ AUXILIARY METHODS ]] //
         private T? FindNamedElement<T>(
             DependencyObject parent,
             string elementName)
@@ -900,6 +974,18 @@ namespace ProjectScheduler.Pages
 
             return null;
         }   
+
+        private TaskListEntry? GetTaskEntryFromButton(object sender)
+        {
+            if (sender is Button button &&
+                button.DataContext is TaskListEntry entry)
+            {
+                TasksListView.SelectedItem = entry;
+                return entry;
+            }
+
+            return null;
+        }
 
 
         // [[ ERROR DIALOGUE ]] //
