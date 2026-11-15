@@ -54,7 +54,7 @@ Dates are in `YYYY/MM/DD`. Versions are in the form `X.Y.Z`, where `X` is a sign
 ### Version 0.3.0 - Resource Management
 <details>
 <summary>
-  <b>Date: 2026/11/14</b> 
+  <b>Date:</b> 2026/11/14
 </summary>
 
 **Features:**
