@@ -24,6 +24,8 @@ Versions are in the form `X.Y.Z`, where `X` is a significant development stage, 
   * Tasks can have Subtasks, which in turn can have Subtasks (ie. task breakdown)
 * Updated Resources:
   * Deleting a Resource removes it from any Project which uses it
+* Updated screen designs:
+  * Slightly adjusted the designs for Resources and Subslots
 
 **Bug Fixes:** No new bugs discovered or existing bugs fixed.
 

@@ -17,6 +17,8 @@ using ProjectScheduler.Models;
 using ProjectScheduler.Services;
 using System.Threading.Tasks;
 using System.Diagnostics;
+using Windows.Gaming.Input;
+using Windows.ApplicationModel.Appointments;
 
 namespace ProjectScheduler.Pages
 {
@@ -29,9 +31,8 @@ namespace ProjectScheduler.Pages
         private readonly List<ResourceItem> _allResources = new();
         private readonly ObservableCollection<ResourceItem> _projectResources = new();
         private readonly ObservableCollection<ResourceItem> _filteredProjectResources = new();
-
-        // temp task names until task model is implemented
-        private readonly ObservableCollection<string> _taskNames = new();
+        
+        private readonly ObservableCollection<TaskListEntry> _filteredProjectTasks = new();
 
 
         // [[ CONSTRUCTOR ]] //
@@ -42,7 +43,7 @@ namespace ProjectScheduler.Pages
 
             ProjectsListView.ItemsSource = _filteredProjects;
             ProjectResourcesListView.ItemsSource = _filteredProjectResources;
-            TasksListView.ItemsSource = _taskNames;
+            TasksListView.ItemsSource = _filteredProjectTasks;
 
             Loaded += ProjectsPage_Loaded;
         }
@@ -222,9 +223,9 @@ namespace ProjectScheduler.Pages
             ProjectNotesTextBox.Text = project.Notes;
 
             RefreshProjectResources(project);
-            _taskNames.Clear();
+            RefreshTasks(project);
 
-            RefreshTaskPlaceholder();
+            RefreshTaskPlaceholder(project);
 
             ProjectPlaceholderPanel.Visibility = Visibility.Collapsed;
             ProjectDetailsPanel.Visibility = Visibility.Visible;
@@ -237,9 +238,9 @@ namespace ProjectScheduler.Pages
 
             _projectResources.Clear();
             _filteredProjectResources.Clear();
-            _taskNames.Clear();
+            _filteredProjectTasks.Clear();
 
-            RefreshTaskPlaceholder();
+            TasksListViewEmpty.Visibility = Visibility.Visible;
         }
 
 
@@ -316,14 +317,7 @@ namespace ProjectScheduler.Pages
 
         private void RefreshProjectResourcesList()
         {
-            string searchText =
-                ProjectResourceSearchTextBox?.Text ?? string.Empty;
-
             var filtered = _projectResources
-                .Where(resource =>
-                    resource.Name.Contains(
-                        searchText,
-                        StringComparison.OrdinalIgnoreCase))
                 .OrderBy(resource => resource.Name)
                 .ToList();
 
@@ -335,11 +329,50 @@ namespace ProjectScheduler.Pages
             }
         }
 
-        private void ProjectResourceSearchTextBox_TextChanged(
+        private async void ProjectResourcesListView_SelectedChanged(
             object sender,
-            TextChangedEventArgs e)
+            SelectionChangedEventArgs e)
         {
-            RefreshProjectResourcesList();
+            // Hide the action buttons for every visible Resource
+            foreach (var resource in _filteredProjectResources)
+            {
+                var container = ProjectResourcesListView.ContainerFromItem(resource)
+                    as DependencyObject;
+
+                if (container == null)
+                {
+                    continue;
+                }
+
+                var actionsPanel = FindNamedElement<StackPanel>(
+                    container,
+                    "ResourceActionsPanel");
+
+                if (actionsPanel != null)
+                {
+                    actionsPanel.Visibility = Visibility.Collapsed;
+                }
+            }
+
+            // Display the action buttons for the selected Resource
+            // * TODO: combine this with the above if statement if possible
+            if (ProjectResourcesListView.SelectedItem is ResourceItem selectedResource)
+            {
+                var container = ProjectResourcesListView.ContainerFromItem(selectedResource)
+                    as DependencyObject;
+
+                if (container != null)
+                {
+                    var actionsPanel = FindNamedElement<StackPanel>(
+                        container,
+                        "ResourceActionsPanel");
+
+                    if (actionsPanel != null)
+                    {
+                        actionsPanel.Visibility = Visibility.Visible;
+                    }
+                }
+            }
         }
 
         private async void AddResourceButton_Click(
@@ -457,6 +490,13 @@ namespace ProjectScheduler.Pages
             RefreshProjectResources(project);
         }
 
+        private void OpenProjectResourceButton_Click(
+            object sender,
+            RoutedEventArgs e)
+        {
+            Debug.WriteLine("Resource access via project is a WIP");
+        }
+
         private void RemoveProjectResourceButton_Click(
             object sender,
             RoutedEventArgs e)
@@ -466,70 +506,400 @@ namespace ProjectScheduler.Pages
                 return;
             }
 
-            if (ProjectResourcesListView.SelectedItem is not ResourceItem resource)
+            if (sender is not Button button ||
+                button.DataContext is not ResourceItem resource)
             {
                 return;
             }
 
-            // Remove the association
+            // Remove the Resource's association from the Project
+            ProjectResourcesListView.SelectedItem = null;
+            
             project.ResourceIds.Remove(resource.Id);
+
+            _projectResources.Remove(resource);
 
             RefreshProjectResources(project);
         }
 
 
         // [[ PROJECT TASK LIST ]] //
-
-        private async void AddTaskButton_Click(
-            object sender,
-            RoutedEventArgs e)
+        private async Task<(string Name, string Description)?>
+            ShowTaskEditorDialogueAsync(string title, TaskItem? existingTask = null)
         {
-            TextBox taskNameTextBox = new()
+            TextBox nameTextBox = new()
             {
-                Header = "Task Name",
-                PlaceholderText = "Enter a task name"
+                Header = "Name",
+                PlaceholderText = "Enter a task name",
+                Text = existingTask?.Name ?? string.Empty
             };
+
+            TextBox descriptionTextBox = new()
+            {
+                Header = "Description",
+                PlaceholderText = "Enter a task description",
+                Text = existingTask?.Description ?? string.Empty,
+                AcceptsReturn = true,
+                TextWrapping = TextWrapping.Wrap,
+                MinHeight = 80
+            };
+
+            StackPanel content = new()
+            {
+                Spacing = 12,
+                MinWidth = 300
+            };
+
+            content.Children.Add(nameTextBox);
+            content.Children.Add(descriptionTextBox);
 
             ContentDialog dialogue = new()
             {
-                Title = "Add Task",
-                Content = taskNameTextBox,
-                PrimaryButtonText = "Add",
+                Title = title,
+                Content = content,
+                PrimaryButtonText = "Save",
                 CloseButtonText = "Cancel",
                 DefaultButton = ContentDialogButton.Primary,
                 XamlRoot = XamlRoot
             };
 
+            // Awaiting user input
             var result = await dialogue.ShowAsync();
+
+            if (result != ContentDialogResult.Primary)
+            {
+                return null;
+            }
+
+            string name = nameTextBox.Text.Trim();
+
+            if (string.IsNullOrWhiteSpace(name))
+            {
+                await ShowErrorDialogue("Please enter a task name.");
+                return null;
+            }
+
+            return (
+                name, 
+                descriptionTextBox.Text.Trim()
+            );
+        }
+
+        private void TaskFilters_SelectionChanged(
+            object sender,
+            SelectionChangedEventArgs e)
+        {
+            if (ProjectsListView.SelectedItem is ProjectItem project)
+            {
+                RefreshTasks(project);
+            }
+        }
+
+        private async void AddTaskButton_Click(
+            object sender,
+            RoutedEventArgs e)
+        {
+            if (ProjectsListView.SelectedItem is not ProjectItem project)
+            {
+                return;
+            }
+
+            var details = await ShowTaskEditorDialogueAsync("Add Task");
+
+            if (details == null)
+            {
+                return;
+            }
+
+            if (project.Tasks.Any(task =>
+                task.Name.Equals(details.Value.Name, StringComparison.OrdinalIgnoreCase)))
+            {
+                await ShowErrorDialogue(
+                        "A task with this name already exists for this project.");
+
+                return;
+            }
+
+            TaskItem newTask = new()
+            {
+                Name = details.Value.Name,
+                Description = details.Value.Description
+            };
+
+            project.Tasks.Add(newTask);
+
+            RefreshTasks(project);
+        }
+
+        private async void AddSubtaskButton_Click(
+            object sender,
+            RoutedEventArgs e)
+        {
+            if (ProjectsListView.SelectedItem is not ProjectItem project)
+            {
+                return;
+            }
+
+            if (TasksListView.SelectedItem is not TaskListEntry selectedEntry)
+            {
+                await ShowErrorDialogue(
+                    "Please select a task before adding a subtask.");
+
+                return;
+            }
+
+            TaskItem parentTask = selectedEntry.Task;
+
+            var details = await ShowTaskEditorDialogueAsync("Add Subtask");
+
+            if (details == null)
+            {
+                return;
+            }
+
+            if (parentTask.Subtasks.Any(task =>
+                task.Name.Equals(details.Value.Name, StringComparison.OrdinalIgnoreCase)))
+            {
+                await ShowErrorDialogue(
+                    "A subtask with this name already exists at this level");
+
+                return;
+            }
+
+            TaskItem newSubtask = new()
+            {
+                Name = details.Value.Name,
+                Description = details.Value.Description
+            };
+
+            parentTask.AddSubtask(newSubtask);
+
+            RefreshTasks(project);
+        }
+
+        private async void EditTaskButton_Click(
+            object sender,
+            RoutedEventArgs e)
+        {
+            if (ProjectsListView.SelectedItem is not ProjectItem project)
+            {
+                return;
+            }
+
+            if (TasksListView.SelectedItem is not TaskListEntry selectedEntry)
+            {
+                await ShowErrorDialogue(
+                    "Please select a task to edit.");
+
+                return;
+            }
+
+            TaskItem task = selectedEntry.Task;
+
+            var details = await ShowTaskEditorDialogueAsync("Edit Task", task);
+
+            if (details == null)
+            {
+                return;
+            }
+
+            var siblingTasks = FindParentCollection(project.Tasks, task);
+
+            if (siblingTasks == null)
+            {
+                return;
+            }
+
+            if (siblingTasks.Any(other =>
+                other.Id != task.Id && 
+                other.Name.Equals(details.Value.Name, StringComparison.OrdinalIgnoreCase)))
+            {
+                await ShowErrorDialogue(
+                    "A task with this name already exists at this level.");
+
+                return;
+            }
+
+            task.Name = details.Value.Name;
+            task.Description = details.Value.Description;
+        }
+
+        private async void DeleteTaskButton_Click(
+            object sender,
+            RoutedEventArgs e)
+        {
+            if (ProjectsListView.SelectedItem is not ProjectItem project)
+            {
+                return;
+            }
+
+            if (TasksListView.SelectedItem is not TaskListEntry selectedEntry)
+            {
+                await ShowErrorDialogue(
+                    "Please select a task to delete.");
+
+                return;
+            }
+
+            TaskItem task = selectedEntry.Task;
+
+            ContentDialog confirmation = new()
+            {
+                Title = "Delete Task",
+                Content = $"Are you sure you want to delete \"{task.Name}\" and its subtasks?",
+                PrimaryButtonText = "Delete",
+                CloseButtonText = "Cancel",
+                DefaultButton = ContentDialogButton.Close,
+                XamlRoot = XamlRoot
+            };
+
+            var result = await confirmation.ShowAsync();
 
             if (result != ContentDialogResult.Primary)
             {
                 return;
             }
 
-            string taskName = taskNameTextBox.Text.Trim();
+            var parentCollection = FindParentCollection(project.Tasks, task);
 
-            if (string.IsNullOrWhiteSpace(taskName))
+            parentCollection?.Remove(task);
+
+            RefreshTasks(project);
+        }
+
+        private void TaskCompletionCheckBox_Click(
+            object sender,
+            RoutedEventArgs e)
+        {
+            if (ProjectsListView.SelectedItem is ProjectItem project)
             {
-                await ShowErrorDialogue(
-                    "Please enter a name for the task.");
+                RefreshTasks(project);
+            }
+        }
 
-                return;
+        private ObservableCollection<TaskItem>? FindParentCollection(
+            ObservableCollection<TaskItem> tasks,
+            TaskItem target)
+        {
+            foreach (var task in tasks)
+            {
+                if (task.Id == target.Id)
+                {
+                    return tasks;
+                }
+
+                var result = FindParentCollection(task.Subtasks, target);
+
+                if (result != null)
+                {
+                    return result;
+                }
             }
 
-            // temporary implementation until TaskItem is created
-            _taskNames.Add(taskName);
 
-            RefreshTaskPlaceholder();
+            return null;
         }
 
-        private void RefreshTaskPlaceholder()
+        private void RefreshTasks(ProjectItem project)
         {
-            NoTasksTextBlock.Visibility =
-                _taskNames.Count == 0
-                    ? Visibility.Visible
-                    : Visibility.Collapsed;
+            _filteredProjectTasks.Clear();
+
+            var allTasks = new List<TaskListEntry>();
+
+            foreach (var task in project.Tasks)
+            {
+                AddTaskAndSubtasksToList(task, 0, allTasks);
+            }
+
+            int completionFilter = TaskCompletionFilterComboBox.SelectedIndex;
+
+            IEnumerable<TaskListEntry> filteredTasks = allTasks;
+
+            // Completion filter (All = 0, Complete, Incomplete)
+            if (completionFilter == 1)
+            {
+                filteredTasks = filteredTasks.Where(
+                    entry => entry.Task.IsCompleted);
+            }
+            else if (completionFilter == 2)
+            {
+                filteredTasks = filteredTasks.Where(
+                    entry => !entry.Task.IsCompleted);
+            }
+
+            // Date sort: oldest / newest
+            if (TaskDateSortComboBox.SelectedIndex == 1)
+            {
+                filteredTasks = filteredTasks
+                    .OrderByDescending(entry => entry.Task.CreatedDate);
+            }
+            else
+            {
+                filteredTasks = filteredTasks
+                    .OrderBy(entry => entry.Task.CreatedDate);
+            }
+
+            // Refreshing the list
+            foreach (var entry in filteredTasks)
+            {
+                _filteredProjectTasks.Add(entry);
+            }
+
+            RefreshTaskPlaceholder(project);
         }
+
+        private void AddTaskAndSubtasksToList(
+            TaskItem task,
+            int depth,
+            List<TaskListEntry> entries)
+        {
+            entries.Add(new TaskListEntry(task, depth));
+
+            foreach (var subtask in task.Subtasks)
+            {
+                AddTaskAndSubtasksToList(
+                    subtask,
+                    depth + 1,
+                    entries);
+            }
+        }
+
+        private void RefreshTaskPlaceholder(ProjectItem project)
+        {
+            bool hasTasks = project.Tasks.Count > 0;
+
+            TasksListViewEmpty.Visibility =
+                hasTasks ? Visibility.Collapsed : Visibility.Visible;
+        }
+
+
+        // [[ AUXILIARY: FIND ELEMENT IN ITEM ]] //
+        private T? FindNamedElement<T>(
+            DependencyObject parent,
+            string elementName)
+            where T : FrameworkElement
+        {
+            int childCount = VisualTreeHelper.GetChildrenCount(parent);
+
+            for (int i = 0; i < childCount; i++)
+            {
+                var child = VisualTreeHelper.GetChild(parent, i);
+
+                if (child is T element && element.Name == elementName)
+                {
+                    return element;
+                }
+
+                var result = FindNamedElement<T>(child, elementName);
+
+                if (result != null)
+                {
+                    return result;
+                }
+            }
+
+            return null;
+        }   
 
 
         // [[ ERROR DIALOGUE ]] //

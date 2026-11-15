@@ -14,7 +14,7 @@
             <ColumnDefinition Width="320"/>
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
-        
+
         <!-- LEFT PANEL: PROJECT LIST-->
         <Grid
             Grid.Column="0"
@@ -24,20 +24,27 @@
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
+
+            <TextBlock
+                Grid.Row="0"
+                Text="Projects"
+                FontSize="20"
+                FontWeight="SemiBold"/>
             
             <!-- Search Bar -->
             <TextBox
                 x:Name="SearchProjectsTextBox"
-                Grid.Row="0"
+                Grid.Row="1"
                 PlaceholderText="Search projects..."
                 TextChanged="SearchProjectsTextBox_TextChanged"
                 InputScope="Default"/>
             
             <!-- Add Project Button -->
             <Button
-                Grid.Row="1"
+                Grid.Row="2"
                 HorizontalAlignment="Stretch"
                 Click="AddProjectButton_Click">
 
@@ -49,18 +56,41 @@
                     <TextBlock Text="Add Project"/>
 
                 </StackPanel>
-                
+
             </Button>
 
-            <Line HorizontalAlignment="Stretch" Margin="50, 10, 50, 10" Stroke="Black" StrokeThickness="4" />
+            <!-- Empty Project List Placeholder -->
+            <StackPanel
+                x:Name="ProjectsListViewEmpty"
+                Grid.Row="3"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Top"
+                Spacing="12"
+                Margin="0,25,0,0"
+                Visibility="Collapsed">
 
+                <SymbolIcon Symbol="Folder"/>
+
+                <TextBlock
+                    Text="No projects"
+                    FontSize="20"
+                    FontWeight="SemiBold"
+                    HorizontalAlignment="Center"/>
+
+                <TextBlock
+                    Text="Create your a brand new project"
+                    Foreground="{ThemeResource TextFillColorSecondaryBrush}"
+                    HorizontalAlignment="Center"/>
+
+            </StackPanel>
 
             <!-- Project List -->
             <ListView
                 x:Name="ProjectsListView"
-                Grid.Row="2"
+                Grid.Row="3"
                 SelectionMode="Single"
-                SelectionChanged="ProjectsListView_SelectionChanged">
+                SelectionChanged="ProjectsListView_SelectionChanged"
+                Visibility="Visible">
 
                 <ListView.ItemTemplate>
                     <DataTemplate>
@@ -91,6 +121,16 @@
                 </ListView.ItemTemplate>
                 
             </ListView>
+            
+            <!-- No Project Search Results -->
+            <TextBlock
+                x:Name="ProjectsListViewNoResults"
+                Grid.Row="3"
+                Text="No projects found"
+                HorizontalAlignment="Center"
+                Foreground="{ThemeResource TextFillColorSecondaryBrush}"
+                Margin="0,12,0,0"
+                Visibility="Collapsed"/>
 
         </Grid>
         
@@ -117,7 +157,7 @@
 
                 <TextBlock
                     Text="Choose a project from the list to view its details"
-                    Foreground="{ThemeResource AccentTextFillColorPrimaryBrush}"
+                    Foreground="{ThemeResource TextFillColorSecondaryBrush}"
                     HorizontalAlignment="Center"/>
 
             </StackPanel>
@@ -178,42 +218,50 @@
                             HorizontalAlignment="Stretch"/>
                         
                         <!-- Project Resources -->
-                        <TextBlock
-                            Text="RESOURCES"
-                            FontSize="12"
-                            FontWeight="SemiBold"
-                            Foreground="{ThemeResource TextFillColorSecondaryBrush}"
-                            Margin="0,8,0,0"/>
+                        <Grid
+                            Margin="0,12,0,0">
 
-                        <TextBox
-                            x:Name="ProjectResourceSearchTextBox"
-                            PlaceholderText="Search project resources..."
-                            TextChanged="ProjectResourceSearchTextBox_TextChanged"/>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="Auto"/>
+                            </Grid.ColumnDefinitions>
 
-                        <Button
-                            HorizontalAlignment="Stretch"
-                            Click="AddResourceButton_Click">
+                            <TextBlock
+                                Grid.Column="0"
+                                Text="RESOURCES"
+                                FontSize="12"
+                                FontWeight="SemiBold"
+                                Foreground="{ThemeResource TextFillColorSecondaryBrush}"
+                                Margin="0,8,0,0"/>
 
-                            <StackPanel
-                                Orientation="Horizontal"
-                                Spacing="8">
+                            <Button
+                                Grid.Column="1"
+                                HorizontalAlignment="Stretch"
+                                Click="AddResourceButton_Click">
 
-                                <FontIcon Glyph="&#xE710;"/>
-                                <TextBlock Text="Add Resource"/>
+                                <StackPanel
+                                    Orientation="Horizontal"
+                                    Spacing="8">        
 
-                            </StackPanel>
-                        </Button>
+                                    <FontIcon Glyph="&#xE710;"/>
+                                    <TextBlock Text="Add Resource"/>
+
+                                </StackPanel>
+                            </Button>
+
+                        </Grid>
 
                         <ListView
                             x:Name="ProjectResourcesListView"
                             SelectionMode="Single"
+                            SelectionChanged="ProjectResourcesListView_SelectedChanged"
                             MaxHeight="200">
 
                             <ListView.ItemTemplate>
                                 <DataTemplate>
 
                                     <Grid Padding="6">
-                                        
+
                                         <Grid.ColumnDefinitions>
                                             <ColumnDefinition Width="Auto"/>
                                             <ColumnDefinition Width="*"/>
@@ -223,7 +271,6 @@
                                         <FontIcon
                                             Grid.Column="0"
                                             Glyph="{Binding IconGlyph}"
-                                            FontSize="16"
                                             Margin="0,0,10,0"
                                             VerticalAlignment="Center"/>
 
@@ -233,27 +280,37 @@
                                             VerticalAlignment="Center"
                                             TextTrimming="CharacterEllipsis"/>
 
+                                        <StackPanel
+                                            x:Name="ResourceActionsPanel"
+                                            Grid.Column="2"
+                                            Orientation="Horizontal"
+                                            Spacing="5"
+                                            Visibility="Collapsed">
+
+                                            <Button
+                                                Click="OpenProjectResourceButton_Click"
+                                                ToolTipService.ToolTip="Open Resource"
+                                                ToolTipService.Placement="Bottom">
+
+                                                <SymbolIcon Symbol="OpenFile"/>
+                                            </Button>
+
+                                            <Button
+                                                Click="RemoveProjectResourceButton_Click"
+                                                ToolTipService.ToolTip="Remove Resource"
+                                                ToolTipService.Placement="Bottom">
+
+                                                <SymbolIcon Symbol="Delete"/>
+                                            </Button>
+
+                                        </StackPanel>
+
                                     </Grid>
 
                                 </DataTemplate>
                             </ListView.ItemTemplate>
 
                         </ListView>
-
-                        <StackPanel
-                            Orientation="Horizontal"
-                            Spacing="12">
-                            
-                            <Button
-                                Content="Open Selected Resource"
-                                HorizontalAlignment="Stretch"/>
-
-                            <Button
-                                Content="Remove Selected Resource"
-                                Click="RemoveProjectResourceButton_Click"
-                                HorizontalAlignment="Stretch"/>
-                            
-                        </StackPanel>
 
                         <!-- Project Notes -->
                         <TextBox
@@ -304,40 +361,67 @@
                         </Grid.RowDefinitions>
                         
                         <!-- Tasks Heading -->
-                        <TextBlock
-                            Grid.Row="0"
-                            Text="TASKS"
-                            FontSize="12"
-                            FontWeight="SemiBold"
-                            Foreground="{ThemeResource TextFillColorSecondaryBrush}"/>
+                        <Grid
+                            ColumnSpacing="5">
 
-                        <!-- Add Task Button -->
-                        <Button
-                            Grid.Row="1"
-                            HorizontalAlignment="Stretch"
-                            Click="AddTaskButton_Click">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="Auto"/>
+                            </Grid.ColumnDefinitions>
 
-                            <StackPanel
-                                Orientation="Horizontal"
-                                Spacing="8">
+                            <TextBlock
+                                Grid.Row="0"
+                                Text="TASKS"
+                                FontSize="12"
+                                FontWeight="SemiBold"
+                                Foreground="{ThemeResource TextFillColorSecondaryBrush}"/>
 
-                                <FontIcon Glyph="&#xE710;"/>
-                                <TextBlock Text="Add Task"/>
+                            <!-- Add Task -->
+                            <Button
+                                Grid.Column="1"
+                                HorizontalAlignment="Stretch"
+                                Click="AddTaskButton_Click">
 
-                            </StackPanel>
+                                <StackPanel
+                                    Orientation="Horizontal"
+                                    Spacing="8">
+
+                                    <FontIcon Glyph="&#xE710;"/>
+                                    <TextBlock Text="Add Task"/>
+
+                                </StackPanel>
+                            </Button>
+
+                            <!-- Add Subtask -->
+                            <Button
+                                Grid.Column="2"
+                                HorizontalAlignment="Stretch"
+                                Click="AddSubtaskButton_Click">
+
+                                <StackPanel
+                                    Orientation="Horizontal"
+                                    Spacing="8">
+
+                                    <FontIcon Glyph="&#xE710;"/>
+                                    <TextBlock Text="Add Subtask"/>
+
+                                </StackPanel>
+                            </Button>
                             
-                        </Button>
-                        
+                        </Grid>
+
                         <!-- Task Filters -->
                         <StackPanel
-                            Grid.Row="2"
+                            Grid.Row="1"
                             Spacing="10">
 
                             <ComboBox
                                 x:Name="TaskCompletionFilterComboBox"
                                 Header="Completion"
                                 HorizontalAlignment="Stretch"
-                                SelectedIndex="0">
+                                SelectedIndex="0"
+                                SelectionChanged="TaskFilters_SelectionChanged">
 
                                 <ComboBoxItem Content="All"/>
                                 <ComboBoxItem Content="Completed"/>
@@ -349,7 +433,8 @@
                                 x:Name="TaskDateSortComboBox"
                                 Header="Sort by Date"
                                 HorizontalAlignment="Stretch"
-                                SelectedIndex="0">
+                                SelectedIndex="0"
+                                SelectionChanged="TaskFilters_SelectionChanged">
 
                                 <ComboBoxItem Content="Ascending"/>
                                 <ComboBoxItem Content="Descending"/>
@@ -357,36 +442,109 @@
                             </ComboBox>
                             
                         </StackPanel>
-                        
+
+                        <!-- Add Task Button -->
+                        <StackPanel
+                            Grid.Row="2"
+                            Spacing="8">
+
+                            <StackPanel
+                                Orientation="Horizontal"
+                                Spacing="8"
+                                Margin="0,12,0,0">
+
+                                <Button
+                                    Content="Edit"
+                                    Click="EditTaskButton_Click"
+                                    HorizontalAlignment="Stretch"
+                                    Width="100"/>
+
+                                <Button
+                                    Content="Delete"
+                                    Click="DeleteTaskButton_Click"
+                                    HorizontalAlignment="Stretch"
+                                    Width="100"/>
+
+                            </StackPanel>
+                            
+                        </StackPanel>
+
                         <!-- Task List -->
-                        <Grid Grid.Row="3">
+                        <Grid
+                            Grid.Row="3">
 
                             <ListView
                                 x:Name="TasksListView"
-                                SelectionMode="None"
+                                SelectionMode="Single"
                                 VerticalAlignment="Stretch">
 
                                 <ListView.ItemTemplate>
                                     <DataTemplate>
 
-                                        <TextBlock
-                                            Text="{Binding}"
-                                            TextWrapping="Wrap"
-                                            Padding="6">
-                                            
-                                        </TextBlock>
+                                        <Grid
+                                            Padding="6"
+                                            ColumnSpacing="10">
+
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="Auto"/>
+                                                <ColumnDefinition Width="*"/>
+                                            </Grid.ColumnDefinitions>
+
+                                            <CheckBox
+                                                Grid.Column="0"
+                                                IsChecked="{Binding Task.IsCompleted, Mode=TwoWay}"
+                                                VerticalAlignment="Center"
+                                                MinWidth="32"
+                                                Click="TaskCompletionCheckBox_Click"/>
+
+                                            <StackPanel
+                                                Grid.Column="1"
+                                                Margin="{Binding IndentMargin}"
+                                                VerticalAlignment="Center">
+
+                                                <TextBlock
+                                                    Text="{Binding Task.Name}"
+                                                    TextWrapping="Wrap"
+                                                    FontWeight="SemiBold"/>
+
+                                                <TextBlock
+                                                    Text="{Binding DateLabel}"
+                                                    FontSize="11"
+                                                    Foreground="{ThemeResource TextFillColorSecondaryBrush}"/>
+
+                                            </StackPanel>
+
+                                        </Grid>
                                         
                                     </DataTemplate>
                                 </ListView.ItemTemplate>
                                 
                             </ListView>
 
-                            <TextBlock
-                                x:Name="NoTasksTextBlock"
-                                Text="No tasks added yet."
+                            <!-- Empty Task List Placeholder -->
+                            <StackPanel
+                                x:Name="TasksListViewEmpty"
+                                Grid.Row="3"
                                 HorizontalAlignment="Center"
-                                VerticalAlignment="Center"
-                                Foreground="{ThemeResource TextFillColorSecondaryBrush}"/>
+                                VerticalAlignment="Top"
+                                Spacing="12"
+                                Margin="0,25,0,0"
+                                Visibility="Visible">
+
+                                <FontIcon Glyph="&#xF0E3;"/>
+
+                                <TextBlock
+                                    Text="No tasks"
+                                    FontSize="20"
+                                    FontWeight="SemiBold"
+                                    HorizontalAlignment="Center"/>
+
+                                <TextBlock
+                                    Text="Create a new task for the project"
+                                    Foreground="{ThemeResource TextFillColorSecondaryBrush}"
+                                    HorizontalAlignment="Center"/>
+
+                            </StackPanel>
 
                         </Grid>
 

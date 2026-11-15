@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Linq;
 using System.Runtime.CompilerServices;
@@ -77,6 +78,8 @@ namespace ProjectScheduler.Models
         }
 
         public List<Guid> ResourceIds { get; set; } = new();
+
+        public ObservableCollection<TaskItem> Tasks { get; set; } = new();
 
         public event PropertyChangedEventHandler? PropertyChanged;
         private void OnPropertyChanged(

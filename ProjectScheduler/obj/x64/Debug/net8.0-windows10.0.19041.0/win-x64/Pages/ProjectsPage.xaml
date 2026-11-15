@@ -14,7 +14,7 @@
             <ColumnDefinition Width="320"/>
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
-        
+
         <!-- LEFT PANEL: PROJECT LIST-->
         <Grid
             Grid.Column="0"
@@ -24,20 +24,27 @@
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
+
+            <TextBlock
+                Grid.Row="0"
+                Text="Projects"
+                FontSize="20"
+                FontWeight="SemiBold"/>
             
             <!-- Search Bar -->
-            <TextBox x:ConnectionId='21'
+            <TextBox x:ConnectionId='26'
                 x:Name="SearchProjectsTextBox"
-                Grid.Row="0"
+                Grid.Row="1"
                 PlaceholderText="Search projects..."
                                                                
                 InputScope="Default"/>
             
             <!-- Add Project Button -->
-            <Button x:ConnectionId='22'
-                Grid.Row="1"
+            <Button x:ConnectionId='27'
+                Grid.Row="2"
                 HorizontalAlignment="Stretch"
                                               >
 
@@ -49,18 +56,41 @@
                     <TextBlock Text="Add Project"/>
 
                 </StackPanel>
-                
+
             </Button>
 
-            <Line HorizontalAlignment="Stretch" Margin="50, 10, 50, 10" Stroke="Black" StrokeThickness="4" />
+            <!-- Empty Project List Placeholder -->
+            <StackPanel x:ConnectionId='28'
+                x:Name="ProjectsListViewEmpty"
+                Grid.Row="3"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Top"
+                Spacing="12"
+                Margin="0,25,0,0"
+                Visibility="Collapsed">
 
+                <SymbolIcon Symbol="Folder"/>
+
+                <TextBlock
+                    Text="No projects"
+                    FontSize="20"
+                    FontWeight="SemiBold"
+                    HorizontalAlignment="Center"/>
+
+                <TextBlock
+                    Text="Create your a brand new project"
+                    Foreground="{ThemeResource TextFillColorSecondaryBrush}"
+                    HorizontalAlignment="Center"/>
+
+            </StackPanel>
 
             <!-- Project List -->
-            <ListView x:ConnectionId='23'
+            <ListView x:ConnectionId='29'
                 x:Name="ProjectsListView"
-                Grid.Row="2"
+                Grid.Row="3"
                 SelectionMode="Single"
-                                                                    >
+                                                                    
+                Visibility="Visible">
 
                 <ListView.ItemTemplate>
                     <DataTemplate>
@@ -91,6 +121,16 @@
                 </ListView.ItemTemplate>
                 
             </ListView>
+            
+            <!-- No Project Search Results -->
+            <TextBlock x:ConnectionId='30'
+                x:Name="ProjectsListViewNoResults"
+                Grid.Row="3"
+                Text="No projects found"
+                HorizontalAlignment="Center"
+                Foreground="{ThemeResource TextFillColorSecondaryBrush}"
+                Margin="0,12,0,0"
+                Visibility="Collapsed"/>
 
         </Grid>
         
@@ -117,7 +157,7 @@
 
                 <TextBlock
                     Text="Choose a project from the list to view its details"
-                    Foreground="{ThemeResource AccentTextFillColorPrimaryBrush}"
+                    Foreground="{ThemeResource TextFillColorSecondaryBrush}"
                     HorizontalAlignment="Center"/>
 
             </StackPanel>
@@ -156,13 +196,13 @@
                             Foreground="{ThemeResource TextFillColorSecondaryBrush}"/>
                         
                         <!-- Project Name -->
-                        <TextBox x:ConnectionId='10'
+                        <TextBox x:ConnectionId='14'
                             x:Name="ProjectNameTextBox"
                             Header="Name"
                             PlaceholderText="No project name"/>
 
                         <!-- Project Description -->
-                        <TextBox x:ConnectionId='11'
+                        <TextBox x:ConnectionId='15'
                             x:Name="ProjectDescriptionTextBox"
                             Header="Description"
                             PlaceholderText="No project description"
@@ -171,49 +211,57 @@
                             MinHeight="80"/>
 
                         <!-- Project Priority -->
-                        <NumberBox x:ConnectionId='12'
+                        <NumberBox x:ConnectionId='16'
                             x:Name="ProjectPriorityNumberBox"
                             Header="Priority"
                             PlaceholderText="No project priority"
                             HorizontalAlignment="Stretch"/>
                         
                         <!-- Project Resources -->
-                        <TextBlock
-                            Text="RESOURCES"
-                            FontSize="12"
-                            FontWeight="SemiBold"
-                            Foreground="{ThemeResource TextFillColorSecondaryBrush}"
-                            Margin="0,8,0,0"/>
+                        <Grid
+                            Margin="0,12,0,0">
 
-                        <TextBox x:ConnectionId='13'
-                            x:Name="ProjectResourceSearchTextBox"
-                            PlaceholderText="Search project resources..."
-                                                                                  />
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="Auto"/>
+                            </Grid.ColumnDefinitions>
 
-                        <Button x:ConnectionId='14'
-                            HorizontalAlignment="Stretch"
-                                                           >
+                            <TextBlock
+                                Grid.Column="0"
+                                Text="RESOURCES"
+                                FontSize="12"
+                                FontWeight="SemiBold"
+                                Foreground="{ThemeResource TextFillColorSecondaryBrush}"
+                                Margin="0,8,0,0"/>
 
-                            <StackPanel
-                                Orientation="Horizontal"
-                                Spacing="8">
+                            <Button x:ConnectionId='25'
+                                Grid.Column="1"
+                                HorizontalAlignment="Stretch"
+                                                               >
 
-                                <FontIcon Glyph="&#xE710;"/>
-                                <TextBlock Text="Add Resource"/>
+                                <StackPanel
+                                    Orientation="Horizontal"
+                                    Spacing="8">        
 
-                            </StackPanel>
-                        </Button>
+                                    <FontIcon Glyph="&#xE710;"/>
+                                    <TextBlock Text="Add Resource"/>
 
-                        <ListView x:ConnectionId='15'
+                                </StackPanel>
+                            </Button>
+
+                        </Grid>
+
+                        <ListView x:ConnectionId='17'
                             x:Name="ProjectResourcesListView"
                             SelectionMode="Single"
+                                                                                       
                             MaxHeight="200">
 
                             <ListView.ItemTemplate>
                                 <DataTemplate>
 
                                     <Grid Padding="6">
-                                        
+
                                         <Grid.ColumnDefinitions>
                                             <ColumnDefinition Width="Auto"/>
                                             <ColumnDefinition Width="*"/>
@@ -223,7 +271,6 @@
                                         <FontIcon
                                             Grid.Column="0"
                                             Glyph="{Binding IconGlyph}"
-                                            FontSize="16"
                                             Margin="0,0,10,0"
                                             VerticalAlignment="Center"/>
 
@@ -233,6 +280,31 @@
                                             VerticalAlignment="Center"
                                             TextTrimming="CharacterEllipsis"/>
 
+                                        <StackPanel
+                                            x:Name="ResourceActionsPanel"
+                                            Grid.Column="2"
+                                            Orientation="Horizontal"
+                                            Spacing="5"
+                                            Visibility="Collapsed">
+
+                                            <Button x:ConnectionId='23'
+                                                                                       
+                                                ToolTipService.ToolTip="Open Resource"
+                                                ToolTipService.Placement="Bottom">
+
+                                                <SymbolIcon Symbol="OpenFile"/>
+                                            </Button>
+
+                                            <Button x:ConnectionId='24'
+                                                                                         
+                                                ToolTipService.ToolTip="Remove Resource"
+                                                ToolTipService.Placement="Bottom">
+
+                                                <SymbolIcon Symbol="Delete"/>
+                                            </Button>
+
+                                        </StackPanel>
+
                                     </Grid>
 
                                 </DataTemplate>
@@ -240,23 +312,8 @@
 
                         </ListView>
 
-                        <StackPanel
-                            Orientation="Horizontal"
-                            Spacing="12">
-                            
-                            <Button
-                                Content="Open Selected Resource"
-                                HorizontalAlignment="Stretch"/>
-
-                            <Button x:ConnectionId='19'
-                                Content="Remove Selected Resource"
-                                                                         
-                                HorizontalAlignment="Stretch"/>
-                            
-                        </StackPanel>
-
                         <!-- Project Notes -->
-                        <TextBox x:ConnectionId='16'
+                        <TextBox x:ConnectionId='18'
                            x:Name="ProjectNotesTextBox"
                            Header="Notes"
                            PlaceholderText="No additional notes"
@@ -271,12 +328,12 @@
                             Spacing="12"
                             Margin="0,12,0,0">
                             
-                            <Button x:ConnectionId='17'
+                            <Button x:ConnectionId='19'
                                Content="Save Changes"
                                                               
                                HorizontalAlignment="Stretch"/>
 
-                            <Button x:ConnectionId='18'
+                            <Button x:ConnectionId='20'
                                 Content="Delete Project"
                                                                  
                                 HorizontalAlignment="Stretch"/>
@@ -304,40 +361,67 @@
                         </Grid.RowDefinitions>
                         
                         <!-- Tasks Heading -->
-                        <TextBlock
-                            Grid.Row="0"
-                            Text="TASKS"
-                            FontSize="12"
-                            FontWeight="SemiBold"
-                            Foreground="{ThemeResource TextFillColorSecondaryBrush}"/>
+                        <Grid
+                            ColumnSpacing="5">
 
-                        <!-- Add Task Button -->
-                        <Button x:ConnectionId='4'
-                            Grid.Row="1"
-                            HorizontalAlignment="Stretch"
-                                                       >
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="Auto"/>
+                            </Grid.ColumnDefinitions>
 
-                            <StackPanel
-                                Orientation="Horizontal"
-                                Spacing="8">
+                            <TextBlock
+                                Grid.Row="0"
+                                Text="TASKS"
+                                FontSize="12"
+                                FontWeight="SemiBold"
+                                Foreground="{ThemeResource TextFillColorSecondaryBrush}"/>
 
-                                <FontIcon Glyph="&#xE710;"/>
-                                <TextBlock Text="Add Task"/>
+                            <!-- Add Task -->
+                            <Button x:ConnectionId='12'
+                                Grid.Column="1"
+                                HorizontalAlignment="Stretch"
+                                                           >
 
-                            </StackPanel>
+                                <StackPanel
+                                    Orientation="Horizontal"
+                                    Spacing="8">
+
+                                    <FontIcon Glyph="&#xE710;"/>
+                                    <TextBlock Text="Add Task"/>
+
+                                </StackPanel>
+                            </Button>
+
+                            <!-- Add Subtask -->
+                            <Button x:ConnectionId='13'
+                                Grid.Column="2"
+                                HorizontalAlignment="Stretch"
+                                                              >
+
+                                <StackPanel
+                                    Orientation="Horizontal"
+                                    Spacing="8">
+
+                                    <FontIcon Glyph="&#xE710;"/>
+                                    <TextBlock Text="Add Subtask"/>
+
+                                </StackPanel>
+                            </Button>
                             
-                        </Button>
-                        
+                        </Grid>
+
                         <!-- Task Filters -->
                         <StackPanel
-                            Grid.Row="2"
+                            Grid.Row="1"
                             Spacing="10">
 
-                            <ComboBox x:ConnectionId='8'
+                            <ComboBox x:ConnectionId='10'
                                 x:Name="TaskCompletionFilterComboBox"
                                 Header="Completion"
                                 HorizontalAlignment="Stretch"
-                                SelectedIndex="0">
+                                SelectedIndex="0"
+                                                                               >
 
                                 <ComboBoxItem Content="All"/>
                                 <ComboBoxItem Content="Completed"/>
@@ -345,11 +429,12 @@
 
                             </ComboBox>
 
-                            <ComboBox x:ConnectionId='9'
+                            <ComboBox x:ConnectionId='11'
                                 x:Name="TaskDateSortComboBox"
                                 Header="Sort by Date"
                                 HorizontalAlignment="Stretch"
-                                SelectedIndex="0">
+                                SelectedIndex="0"
+                                                                               >
 
                                 <ComboBoxItem Content="Ascending"/>
                                 <ComboBoxItem Content="Descending"/>
@@ -357,36 +442,109 @@
                             </ComboBox>
                             
                         </StackPanel>
-                        
-                        <!-- Task List -->
-                        <Grid Grid.Row="3">
 
-                            <ListView x:ConnectionId='5'
+                        <!-- Add Task Button -->
+                        <StackPanel
+                            Grid.Row="2"
+                            Spacing="8">
+
+                            <StackPanel
+                                Orientation="Horizontal"
+                                Spacing="8"
+                                Margin="0,12,0,0">
+
+                                <Button x:ConnectionId='8'
+                                    Content="Edit"
+                                                                
+                                    HorizontalAlignment="Stretch"
+                                    Width="100"/>
+
+                                <Button x:ConnectionId='9'
+                                    Content="Delete"
+                                                                  
+                                    HorizontalAlignment="Stretch"
+                                    Width="100"/>
+
+                            </StackPanel>
+                            
+                        </StackPanel>
+
+                        <!-- Task List -->
+                        <Grid
+                            Grid.Row="3">
+
+                            <ListView x:ConnectionId='4'
                                 x:Name="TasksListView"
-                                SelectionMode="None"
+                                SelectionMode="Single"
                                 VerticalAlignment="Stretch">
 
                                 <ListView.ItemTemplate>
                                     <DataTemplate>
 
-                                        <TextBlock
-                                            Text="{Binding}"
-                                            TextWrapping="Wrap"
-                                            Padding="6">
-                                            
-                                        </TextBlock>
+                                        <Grid
+                                            Padding="6"
+                                            ColumnSpacing="10">
+
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="Auto"/>
+                                                <ColumnDefinition Width="*"/>
+                                            </Grid.ColumnDefinitions>
+
+                                            <CheckBox x:ConnectionId='7'
+                                                Grid.Column="0"
+                                                IsChecked="{Binding Task.IsCompleted, Mode=TwoWay}"
+                                                VerticalAlignment="Center"
+                                                MinWidth="32"
+                                                                                    />
+
+                                            <StackPanel
+                                                Grid.Column="1"
+                                                Margin="{Binding IndentMargin}"
+                                                VerticalAlignment="Center">
+
+                                                <TextBlock
+                                                    Text="{Binding Task.Name}"
+                                                    TextWrapping="Wrap"
+                                                    FontWeight="SemiBold"/>
+
+                                                <TextBlock
+                                                    Text="{Binding DateLabel}"
+                                                    FontSize="11"
+                                                    Foreground="{ThemeResource TextFillColorSecondaryBrush}"/>
+
+                                            </StackPanel>
+
+                                        </Grid>
                                         
                                     </DataTemplate>
                                 </ListView.ItemTemplate>
                                 
                             </ListView>
 
-                            <TextBlock x:ConnectionId='6'
-                                x:Name="NoTasksTextBlock"
-                                Text="No tasks added yet."
+                            <!-- Empty Task List Placeholder -->
+                            <StackPanel x:ConnectionId='5'
+                                x:Name="TasksListViewEmpty"
+                                Grid.Row="3"
                                 HorizontalAlignment="Center"
-                                VerticalAlignment="Center"
-                                Foreground="{ThemeResource TextFillColorSecondaryBrush}"/>
+                                VerticalAlignment="Top"
+                                Spacing="12"
+                                Margin="0,25,0,0"
+                                Visibility="Visible">
+
+                                <FontIcon Glyph="&#xF0E3;"/>
+
+                                <TextBlock
+                                    Text="No tasks"
+                                    FontSize="20"
+                                    FontWeight="SemiBold"
+                                    HorizontalAlignment="Center"/>
+
+                                <TextBlock
+                                    Text="Create a new task for the project"
+                                    Foreground="{ThemeResource TextFillColorSecondaryBrush}"
+                                    HorizontalAlignment="Center"/>
+
+                            </StackPanel>
 
                         </Grid>
 

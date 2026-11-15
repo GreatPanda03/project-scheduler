@@ -23,37 +23,47 @@
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
+
+            <TextBlock
+                Grid.Row="0"
+                Text="Subslots"
+                FontSize="20"
+                FontWeight="SemiBold"/>
 
             <!-- Search Bar -->
             <TextBox
                 x:Name="SearchTextBox"
-                Grid.Row="0"
+                Grid.Row="1"
                 PlaceholderText="Search subslots..."
                 TextChanged="SearchTextBox_TextChanged"
                 InputScope="Default"/>
 
             <!-- Add Subslot -->
             <Button
-                Grid.Row="1"
+                Grid.Row="2"
                 HorizontalAlignment="Stretch"
+                ToolTipService.ToolTip="Add a new subslot"
+                ToolTipService.Placement="Mouse"
                 Click="AddSubslotButton_Click">
 
                 <StackPanel
                     Orientation="Horizontal"
                     Spacing="8">
 
-                    <FontIcon Glyph="&#xE710;"/>
+                    <SymbolIcon Symbol="Add"/>
                     <TextBlock Text="Add Subslot"/>
-                    
+
                 </StackPanel>
+
             </Button>
 
             <!-- Subslot List -->
             <ListView
                 x:Name="SubslotsListView"
-                Grid.Row="2"
+                Grid.Row="3"
                 SelectionMode="Single"
                 SelectionChanged="SubslotsListView_SelectionChanged">
 
@@ -138,11 +148,13 @@
                         FontWeight="SemiBold"
                         Foreground="{ThemeResource TextFillColorSecondaryBrush}"/>
 
+                    <!-- Subslot Name -->
                     <TextBox
                         x:Name="SubslotNameTextBox"
                         Header="Name"
                         PlaceholderText="No subslot name"/>
 
+                    <!-- Subslot Description -->
                     <TextBox
                         x:Name="SubslotDescriptionTextBox"
                         Header="Description"
@@ -151,12 +163,19 @@
                         TextWrapping="Wrap"
                         MinHeight="100"/>
 
+                    <!-- Subslot Rules -->
+                    <TextBlock
+                        Text="RULES"
+                        FontSize="12"
+                        FontWeight="SemiBold"
+                        Foreground="{ThemeResource TextFillColorSecondaryBrush}"/>
 
                     <CheckBox
                         x:Name="SubslotLockResourcesCheckBox"
                         Content="Lock Resources"
                         ToolTipService.ToolTip="Disables access to all of the current project's resources"/>
 
+                    <!-- Data Options -->
                     <StackPanel
                         Orientation="Horizontal"
                         Spacing="12"
