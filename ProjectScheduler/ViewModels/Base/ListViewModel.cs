@@ -24,12 +24,18 @@ namespace ProjectScheduler.ViewModels.Base
                 RefreshItems();
         }
 
+        partial void OnSearchTextChanged(string value)
+        {
+            RefreshItems();
+        }
+
         public void RefreshItems()
         {
             var filtered = Items
                 .Where(item =>
+                    string.IsNullOrWhiteSpace(SearchText) ||
                     item.Name.Contains(
-                        searchText,
+                        SearchText,
                         System.StringComparison.OrdinalIgnoreCase))
                 .OrderBy(item => item.Name)
                 .ToList();
