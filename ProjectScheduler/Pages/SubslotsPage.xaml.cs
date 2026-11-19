@@ -1,30 +1,26 @@
-using Microsoft.UI.System;
 using Microsoft.UI.Text;
 using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Controls;
-using Microsoft.UI.Xaml.Media;
 using ProjectScheduler.Models;
-using ProjectScheduler.Services;
+using ProjectScheduler.ViewModels;
 using System;
-using System.Collections.ObjectModel;
 using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
-using Windows.UI.Text;
 
 namespace ProjectScheduler.Pages
 {
     public sealed partial class SubslotsPage : Page
     {
-        private readonly ObservableCollection<SubslotItem> _subslots = new();
-        private readonly ObservableCollection<SubslotItem> _filteredSubslots = new();
-        private readonly SubslotService _subslotService = new();
+        private SubslotViewModel ViewModel { get; }
 
         public SubslotsPage()
         {
             InitializeComponent();
 
-            SubslotsListView.ItemsSource = _filteredSubslots;
+            ViewModel = new SubslotViewModel();
+
+            DataContext = ViewModel;
 
             Loaded += SubslotsPage_Loaded;
         }
@@ -36,33 +32,17 @@ namespace ProjectScheduler.Pages
             object sender,
             RoutedEventArgs e)
         {
-            await LoadSubslotsAsync();
-        }
-
-        private async Task LoadSubslotsAsync()
-        {
             try
             {
-                var savedSubslots = await _subslotService.LoadAsync();
-
-                _subslots.Clear();
-
-                foreach (var subslot in savedSubslots)
-                {
-                    _subslots.Add(subslot);
-                }
-
-                RefreshSubslotList();
+                await ViewModel.LoadAsync();
             }
             catch (Exception ex)
             {
                 Debug.WriteLine(
-                    $"Could not load subslots: {ex.Message}"
-                );
+                    $"Could not load subslots: {ex.Message}");
 
                 await ShowErrorDialogue(
-                    "Could not load the saved subslots."
-                );
+                    "Could not load the saved subslots");
             }
         }
 
@@ -71,7 +51,7 @@ namespace ProjectScheduler.Pages
 
         private async void AddSubslotButton_Click(
             object sender,
-            RoutedEventArgs e)
+            EventArgs e)
         {
             // Creating the dialogue box
             TextBox nameTextBox = new()
@@ -135,8 +115,7 @@ namespace ProjectScheduler.Pages
             if (string.IsNullOrWhiteSpace(name))
             {
                 await ShowErrorDialogue(
-                    "Please enter a name for the subslot."
-                );
+                    "Please enter a name for the subslot.");
 
                 return;
             }
@@ -149,16 +128,8 @@ namespace ProjectScheduler.Pages
                 LockResources = lockResourcesCheckBox.IsChecked ?? false
             };
 
-            _subslots.Add(newSubslot);
+            ViewModel.AddSubslot(newSubslot);
 
-            RefreshSubslotList();
-
-            // Select the newly added Subslot
-            SubslotsListView.SelectedItem =
-                _filteredSubslots.FirstOrDefault(
-                    subslot => subslot.Id == newSubslot.Id);
-
-            // Automatically save the updated collection.
             await SaveSubslotsAsync();
         }
 
@@ -166,29 +137,14 @@ namespace ProjectScheduler.Pages
         // [[ REFRESHING & SEARCHING SUBSLOTS ]] //
         private void RefreshSubslotList()
         {
-            string searchText = SearchTextBox?.Text ?? string.Empty;
-
-            var filtered = _subslots
-                .Where(subslot =>
-                    subslot.Name.Contains(
-                        searchText,
-                        StringComparison.OrdinalIgnoreCase))
-                .OrderBy(subslot => subslot.Name)
-                .ToList();
-
-            _filteredSubslots.Clear();
-
-            foreach (var subslot in filtered)
+            if (ViewModel.SelectedItem is SubslotItem subslot)
             {
-                _filteredSubslots.Add(subslot);
+                DisplaySubslotDetails(subslot);
             }
-        }
-
-        private void SearchTextBox_TextChanged(
-            object sender,
-            TextChangedEventArgs e)
-        {
-            RefreshSubslotList();
+            else
+            {
+                ShowSubslotPlaceholder();
+            }
         }
 
 
@@ -198,9 +154,14 @@ namespace ProjectScheduler.Pages
             object sender,
             SelectionChangedEventArgs e)
         {
-            if (SubslotsListView.SelectedItem is SubslotItem subslot)
+            SubslotItem? selectedSubslot =
+                e.AddedItems.OfType<SubslotItem>().FirstOrDefault();
+
+            ViewModel.SelectedItem = selectedSubslot;
+
+            if (selectedSubslot != null)
             {
-                DisplaySubslotDetails(subslot);
+                DisplaySubslotDetails(selectedSubslot);
             }
             else
             {
@@ -211,17 +172,27 @@ namespace ProjectScheduler.Pages
         private void DisplaySubslotDetails(SubslotItem subslot)
         {
             SubslotNameTextBox.Text = subslot.Name;
-            SubslotDescriptionTextBox.Text = subslot.Description;
-            SubslotLockResourcesCheckBox.IsChecked = subslot.LockResources;
+            
+            SubslotDescriptionTextBox.Text =
+                subslot.Description;
+            
+            SubslotLockResourcesCheckBox.IsChecked =
+                subslot.LockResources;
 
-            SubslotPlaceholderPanel.Visibility = Visibility.Collapsed;
-            SubslotDetailsPanel.Visibility = Visibility.Visible;
+            SubslotPlaceholderPanel.Visibility =
+                Visibility.Collapsed;
+
+            SubslotDetailsPanel.Visibility =
+                Visibility.Visible;
         }
 
         private void ShowSubslotPlaceholder()
         {
-            SubslotDetailsPanel.Visibility = Visibility.Collapsed;
-            SubslotPlaceholderPanel.Visibility = Visibility.Visible;
+            SubslotDetailsPanel.Visibility =
+                Visibility.Collapsed;
+
+            SubslotPlaceholderPanel.Visibility =
+                Visibility.Visible;
         }
 
 
@@ -231,7 +202,7 @@ namespace ProjectScheduler.Pages
             object sender,
             RoutedEventArgs e)
         {
-            if (SubslotsListView.SelectedItem is not SubslotItem subslot)
+            if (ViewModel.SelectedItem is not SubslotItem subslot)
             {
                 return;
             }
@@ -242,23 +213,26 @@ namespace ProjectScheduler.Pages
             if (string.IsNullOrWhiteSpace(name))
             {
                 await ShowErrorDialogue(
-                    "A subslot must have a name. Please enter a name before saving."
-                );
+                    "A subslot must have a name. Please enter a name before saving.");
 
                 return;
             }
 
             // Updating the selected subslot
             subslot.Name = name;
-            subslot.Description = SubslotDescriptionTextBox.Text.Trim();
-            subslot.LockResources = SubslotLockResourcesCheckBox.IsChecked ?? false;
+            
+            subslot.Description =
+                SubslotDescriptionTextBox.Text.Trim();
+            
+            subslot.LockResources =
+                SubslotLockResourcesCheckBox.IsChecked ?? false;
 
             // Refresh the list to apply alphabetical sorting
-            RefreshSubslotList();
+            ViewModel.RefreshItems();
 
             // Reselect the updated subslot
-            SubslotsListView.SelectedItem =
-                _filteredSubslots.FirstOrDefault(
+            ViewModel.SelectedItem =
+                ViewModel.FilteredItems.FirstOrDefault(
                     item => item.Id == subslot.Id);
 
             // Automatically save the updated collection
@@ -272,7 +246,7 @@ namespace ProjectScheduler.Pages
             object sender,
             RoutedEventArgs e)
         {
-            if (SubslotsListView.SelectedItem is not SubslotItem subslot)
+            if (ViewModel.SelectedItem is not SubslotItem subslot)
             {
                 return;
             }
@@ -296,18 +270,11 @@ namespace ProjectScheduler.Pages
                 return;
             }
 
-            _subslots.Remove(subslot);
-
             // Clear the current selection and refresh the list
-            SubslotsListView.SelectedItem = null;
-
-            ShowSubslotPlaceholder();
-
-            RefreshSubslotList();
+            ViewModel.DeleteSubslot(subslot);
 
             await SaveSubslotsAsync();
         }
-
 
 
         // [[ JSON PERSISTENCE ]] //
@@ -316,17 +283,15 @@ namespace ProjectScheduler.Pages
         {
             try
             {
-                await _subslotService.SaveAsync(_subslots);
+                await ViewModel.SaveAsync();
             }
             catch (Exception ex)
             {
                 Debug.WriteLine(
-                    $"Could not save subslots: {ex.Message}"
-                );
+                    $"Could not save subslots: {ex.Message}");
 
                 await ShowErrorDialogue(
-                    "The subslot could not be saved. Please try again."
-                );
+                    "The subslot could not be saved. Please try again.");
             }
         }
 

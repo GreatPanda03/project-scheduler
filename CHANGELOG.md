@@ -5,6 +5,58 @@ Dates are in `YYYY/MM/DD`. Versions are in the form `X.Y.Z`, where `X` is a sign
 
 ---
 
+### Version 0.6.0 - Modularisation & Code Cleanup
+<details>
+<summary>
+  <b>Date:</b> 2026/11/16
+</summary>
+
+**Features:**
+
+* TODO: upload the official v0.5.0 .zip to ChatGPT
+
+
+* TODO: make it so that the user can create multiple pre-work checklists
+
+* firstly - rename "Pre-work Checklist" to simply be "Checklist"
+* this is a smuch simpler name to deal with, especially in designs and descriptions
+* semantically, "checklist" is also distinct from "task" since the former is repeatable
+* the latter can also technically be repeatable... but that'll be a future feature
+
+* i'll also have to rename "PreWorkItem" to "ChecklistItem"
+* there'll probably also need to be a "ChecklistsItem" object (for multiple ChecklistItems)
+* consult ChatGPT and see what it thinks (it'll probably want to do something similar to 
+    TaskItem and TaskListEntry)
+
+* these should be assignable to a project
+* the user should also be able to assign ONE checklist to the home page
+* this will allow the user to complete a set of tasks BEFORE starting a project
+* this is different to, say, a Preparation subslot at the start of a project
+   * a subslot like this doesn't have tasks of its own - its just a time period for
+       some kind of concept of work (in this case, Preparing for a project)
+* ... but checklists should always be done at the start of projects anyway
+
+* the idea mainly sprung from wanting to make each page consistent...
+* but it actually has a value
+* any project which isn't assigned a checklist simply won't have one at the start
+* this means the user isn't forced to assign a checklist to projects, they can choose to
+
+* HOWEVER - if a checklist or project is deleted, then the associations should be removed
+
+
+* TODO: "modularise" the similarities between all list-like pages
+* this'll be difficult in some ways because the list and display functionalities are all the same
+* ... but the entry contents and the way entries are displayed are different
+* SO: consult ChatGPT with the kinds of similarities and differences these structures have
+*   then ask it what the best way would be to modularise the code
+
+* this applies to LOTS of other sections - i'll have to make a full list of where i see these
+* the Projects page in particular is PACKED with code...
+* i can only imagine what the Schedules page will be like (3000 lines at this rate)
+
+</details>
+
+
 ### Version 0.5.0 - Tasks & Project Managament
 <details>
 <summary>

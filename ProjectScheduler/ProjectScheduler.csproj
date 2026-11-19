@@ -17,6 +17,7 @@
     <Content Remove="Assets\app-icon.ico" />
   </ItemGroup>
   <ItemGroup>
+    <None Remove="Controls\ItemListView.xaml" />
     <None Remove="Pages\PlaceholderPage.xaml" />
     <None Remove="Pages\PreWorkChecklistPage.xaml" />
     <None Remove="Pages\ProjectsPage.xaml" />
@@ -47,8 +48,9 @@
     <ProjectCapability Include="Msix" />
   </ItemGroup>
   <ItemGroup>
+    <PackageReference Include="CommunityToolkit.Mvvm" Version="8.4.2" />
     <PackageReference Include="Microsoft.Windows.SDK.BuildTools" Version="10.0.28000.2957" />
-    <PackageReference Include="Microsoft.WindowsAppSDK" Version="2.6.5" />
+    <PackageReference Include="Microsoft.WindowsAppSDK" Version="2.7.0" />
   </ItemGroup>
   <ItemGroup>
     <Page Update="Pages\ProjectsPage.xaml">
@@ -77,6 +79,11 @@
   </ItemGroup>
   <ItemGroup>
     <Page Update="Pages\HomePage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Update="Controls\ItemListView.xaml">
       <Generator>MSBuild:Compile</Generator>
     </Page>
   </ItemGroup>

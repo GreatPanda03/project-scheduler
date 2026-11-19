@@ -147,7 +147,8 @@ namespace ProjectScheduler.Pages
             TextBox descriptionTextBox = new()
             {
                 Header = "Description",
-                PlaceholderText = "Enter a project description"
+                PlaceholderText = "Enter a project description",
+                MinHeight = 80
             };
 
             NumberBox priorityNumberBox = new()

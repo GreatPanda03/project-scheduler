@@ -2,6 +2,22 @@
   "version": 4,
   "targets": {
     "net8.0-windows10.0.19041.0": {
+      "CommunityToolkit.Mvvm/8.4.2": {
+        "type": "package",
+        "compile": {
+          "lib/net8.0-windows10.0.17763/CommunityToolkit.Mvvm.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net8.0-windows10.0.17763/CommunityToolkit.Mvvm.dll": {
+            "related": ".xml"
+          }
+        },
+        "build": {
+          "buildTransitive/CommunityToolkit.Mvvm.targets": {}
+        }
+      },
       "Microsoft.Web.WebView2/1.0.3719.77": {
         "type": "package",
         "build": {
@@ -22,7 +38,7 @@
           }
         }
       },
-      "Microsoft.Windows.AI.MachineLearning/2.4.89": {
+      "Microsoft.Windows.AI.MachineLearning/2.5.96": {
         "type": "package",
         "dependencies": {
           "System.Numerics.Tensors": "9.0.0"
@@ -96,30 +112,30 @@
           "buildTransitive/Microsoft.Windows.SDK.BuildTools.MSIX.targets": {}
         }
       },
-      "Microsoft.WindowsAppSDK/2.6.5": {
+      "Microsoft.WindowsAppSDK/2.7.0": {
         "type": "package",
         "dependencies": {
-          "Microsoft.WindowsAppSDK.AI": "2.6.5",
-          "Microsoft.WindowsAppSDK.Base": "[2.6.5]",
-          "Microsoft.WindowsAppSDK.DWrite": "2.6.5",
-          "Microsoft.WindowsAppSDK.Foundation": "2.6.5",
-          "Microsoft.WindowsAppSDK.InteractiveExperiences": "2.6.5",
-          "Microsoft.WindowsAppSDK.ML": "2.6.5",
-          "Microsoft.WindowsAppSDK.Runtime": "[2.6.5]",
-          "Microsoft.WindowsAppSDK.Search": "2.6.5",
-          "Microsoft.WindowsAppSDK.Widgets": "2.6.5",
-          "Microsoft.WindowsAppSDK.WinUI": "2.6.5"
+          "Microsoft.WindowsAppSDK.AI": "2.7.0",
+          "Microsoft.WindowsAppSDK.Base": "[2.7.0]",
+          "Microsoft.WindowsAppSDK.DWrite": "2.7.0",
+          "Microsoft.WindowsAppSDK.Foundation": "2.7.0",
+          "Microsoft.WindowsAppSDK.InteractiveExperiences": "2.7.0",
+          "Microsoft.WindowsAppSDK.ML": "2.7.0",
+          "Microsoft.WindowsAppSDK.Runtime": "[2.7.0]",
+          "Microsoft.WindowsAppSDK.Search": "2.7.0",
+          "Microsoft.WindowsAppSDK.Widgets": "2.7.0",
+          "Microsoft.WindowsAppSDK.WinUI": "2.7.0"
         },
         "build": {
           "buildTransitive/Microsoft.WindowsAppSDK.props": {},
           "buildTransitive/Microsoft.WindowsAppSDK.targets": {}
         }
       },
-      "Microsoft.WindowsAppSDK.AI/2.6.5": {
+      "Microsoft.WindowsAppSDK.AI/2.7.0": {
         "type": "package",
         "dependencies": {
-          "Microsoft.WindowsAppSDK.Base": "2.6.5",
-          "Microsoft.WindowsAppSDK.Foundation": "2.6.5"
+          "Microsoft.WindowsAppSDK.Base": "2.7.0",
+          "Microsoft.WindowsAppSDK.Foundation": "2.7.0"
         },
         "compile": {
           "lib/net6.0-windows10.0.17763.0/Microsoft.Graphics.Imaging.Projection.dll": {
@@ -172,7 +188,7 @@
           "buildTransitive/Microsoft.WindowsAppSDK.AI.targets": {}
         }
       },
-      "Microsoft.WindowsAppSDK.Base/2.6.5": {
+      "Microsoft.WindowsAppSDK.Base/2.7.0": {
         "type": "package",
         "dependencies": {
           "Microsoft.Windows.SDK.BuildTools": "10.0.26100.4654",
@@ -183,21 +199,21 @@
           "buildTransitive/Microsoft.WindowsAppSDK.Base.targets": {}
         }
       },
-      "Microsoft.WindowsAppSDK.DWrite/2.6.5": {
+      "Microsoft.WindowsAppSDK.DWrite/2.7.0": {
         "type": "package",
         "dependencies": {
-          "Microsoft.WindowsAppSDK.Base": "2.6.5"
+          "Microsoft.WindowsAppSDK.Base": "2.7.0"
         },
         "build": {
           "buildTransitive/Microsoft.WindowsAppSDK.DWrite.props": {},
           "buildTransitive/Microsoft.WindowsAppSDK.DWrite.targets": {}
         }
       },
-      "Microsoft.WindowsAppSDK.Foundation/2.6.5": {
+      "Microsoft.WindowsAppSDK.Foundation/2.7.0": {
         "type": "package",
         "dependencies": {
-          "Microsoft.WindowsAppSDK.Base": "[2.6.5, 3.0.0)",
-          "Microsoft.WindowsAppSDK.InteractiveExperiences": "[2.6.5, 3.0.0)"
+          "Microsoft.WindowsAppSDK.Base": "[2.7.0, 3.0.0)",
+          "Microsoft.WindowsAppSDK.InteractiveExperiences": "[2.7.0, 3.0.0)"
         },
         "compile": {
           "lib/net6.0-windows10.0.17763.0/Microsoft.Security.Authentication.OAuth.Projection.dll": {},
@@ -328,10 +344,10 @@
           }
         }
       },
-      "Microsoft.WindowsAppSDK.InteractiveExperiences/2.6.5": {
+      "Microsoft.WindowsAppSDK.InteractiveExperiences/2.7.0": {
         "type": "package",
         "dependencies": {
-          "Microsoft.WindowsAppSDK.Base": "2.6.5"
+          "Microsoft.WindowsAppSDK.Base": "2.7.0"
         },
         "compile": {
           "lib/net6.0-windows10.0.18362.0/Microsoft.InteractiveExperiences.Projection.dll": {
@@ -348,34 +364,34 @@
           "buildTransitive/Microsoft.WindowsAppSDK.InteractiveExperiences.targets": {}
         }
       },
-      "Microsoft.WindowsAppSDK.ML/2.6.5": {
+      "Microsoft.WindowsAppSDK.ML/2.7.0": {
         "type": "package",
         "dependencies": {
-          "Microsoft.Windows.AI.MachineLearning": "[2.4.89, 3.0.0)",
-          "Microsoft.WindowsAppSDK.Base": "2.6.5",
-          "Microsoft.WindowsAppSDK.Foundation": "2.6.5"
+          "Microsoft.Windows.AI.MachineLearning": "[2.5.96, 3.0.0)",
+          "Microsoft.WindowsAppSDK.Base": "2.7.0",
+          "Microsoft.WindowsAppSDK.Foundation": "2.7.0"
         },
         "build": {
           "buildTransitive/Microsoft.WindowsAppSDK.ML.props": {},
           "buildTransitive/Microsoft.WindowsAppSDK.ML.targets": {}
         }
       },
-      "Microsoft.WindowsAppSDK.Runtime/2.6.5": {
+      "Microsoft.WindowsAppSDK.Runtime/2.7.0": {
         "type": "package",
         "dependencies": {
-          "Microsoft.WindowsAppSDK.Base": "2.6.5"
+          "Microsoft.WindowsAppSDK.Base": "2.7.0"
         },
         "build": {
           "buildTransitive/Microsoft.WindowsAppSDK.Runtime.props": {},
           "buildTransitive/Microsoft.WindowsAppSDK.Runtime.targets": {}
         }
       },
-      "Microsoft.WindowsAppSDK.Search/2.6.5": {
+      "Microsoft.WindowsAppSDK.Search/2.7.0": {
         "type": "package",
         "dependencies": {
-          "Microsoft.WindowsAppSDK.AI": "[2.6.5]",
-          "Microsoft.WindowsAppSDK.Base": "2.6.5",
-          "Microsoft.WindowsAppSDK.Foundation": "2.6.5"
+          "Microsoft.WindowsAppSDK.AI": "[2.7.0]",
+          "Microsoft.WindowsAppSDK.Base": "2.7.0",
+          "Microsoft.WindowsAppSDK.Foundation": "2.7.0"
         },
         "compile": {
           "lib/net6.0-windows10.0.17763.0/Microsoft.Windows.Search.Projection.dll": {}
@@ -388,10 +404,10 @@
           "buildTransitive/Microsoft.WindowsAppSDK.Search.targets": {}
         }
       },
-      "Microsoft.WindowsAppSDK.Widgets/2.6.5": {
+      "Microsoft.WindowsAppSDK.Widgets/2.7.0": {
         "type": "package",
         "dependencies": {
-          "Microsoft.WindowsAppSDK.Base": "2.6.5"
+          "Microsoft.WindowsAppSDK.Base": "2.7.0"
         },
         "compile": {
           "lib/net6.0-windows10.0.17763.0/Microsoft.Windows.Widgets.Projection.dll": {
@@ -408,13 +424,13 @@
           "buildTransitive/Microsoft.WindowsAppSDK.Widgets.targets": {}
         }
       },
-      "Microsoft.WindowsAppSDK.WinUI/2.6.5": {
+      "Microsoft.WindowsAppSDK.WinUI/2.7.0": {
         "type": "package",
         "dependencies": {
           "Microsoft.Web.WebView2": "1.0.3719.77",
-          "Microsoft.WindowsAppSDK.Base": "2.6.5",
-          "Microsoft.WindowsAppSDK.Foundation": "2.6.5",
-          "Microsoft.WindowsAppSDK.InteractiveExperiences": "2.6.5"
+          "Microsoft.WindowsAppSDK.Base": "2.7.0",
+          "Microsoft.WindowsAppSDK.Foundation": "2.7.0",
+          "Microsoft.WindowsAppSDK.InteractiveExperiences": "2.7.0"
         },
         "compile": {
           "lib/net6.0-windows10.0.17763.0/Microsoft.WinUI.dll": {
@@ -449,6 +465,22 @@
       }
     },
     "net8.0-windows10.0.19041.0/win-arm64": {
+      "CommunityToolkit.Mvvm/8.4.2": {
+        "type": "package",
+        "compile": {
+          "lib/net8.0-windows10.0.17763/CommunityToolkit.Mvvm.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net8.0-windows10.0.17763/CommunityToolkit.Mvvm.dll": {
+            "related": ".xml"
+          }
+        },
+        "build": {
+          "buildTransitive/CommunityToolkit.Mvvm.targets": {}
+        }
+      },
       "Microsoft.Web.WebView2/1.0.3719.77": {
         "type": "package",
         "native": {
@@ -458,7 +490,7 @@
           "buildTransitive/Microsoft.Web.WebView2.targets": {}
         }
       },
-      "Microsoft.Windows.AI.MachineLearning/2.4.89": {
+      "Microsoft.Windows.AI.MachineLearning/2.5.96": {
         "type": "package",
         "dependencies": {
           "System.Numerics.Tensors": "9.0.0"
@@ -499,30 +531,30 @@
           "buildTransitive/Microsoft.Windows.SDK.BuildTools.MSIX.targets": {}
         }
       },
-      "Microsoft.WindowsAppSDK/2.6.5": {
+      "Microsoft.WindowsAppSDK/2.7.0": {
         "type": "package",
         "dependencies": {
-          "Microsoft.WindowsAppSDK.AI": "2.6.5",
-          "Microsoft.WindowsAppSDK.Base": "[2.6.5]",
-          "Microsoft.WindowsAppSDK.DWrite": "2.6.5",
-          "Microsoft.WindowsAppSDK.Foundation": "2.6.5",
-          "Microsoft.WindowsAppSDK.InteractiveExperiences": "2.6.5",
-          "Microsoft.WindowsAppSDK.ML": "2.6.5",
-          "Microsoft.WindowsAppSDK.Runtime": "[2.6.5]",
-          "Microsoft.WindowsAppSDK.Search": "2.6.5",
-          "Microsoft.WindowsAppSDK.Widgets": "2.6.5",
-          "Microsoft.WindowsAppSDK.WinUI": "2.6.5"
+          "Microsoft.WindowsAppSDK.AI": "2.7.0",
+          "Microsoft.WindowsAppSDK.Base": "[2.7.0]",
+          "Microsoft.WindowsAppSDK.DWrite": "2.7.0",
+          "Microsoft.WindowsAppSDK.Foundation": "2.7.0",
+          "Microsoft.WindowsAppSDK.InteractiveExperiences": "2.7.0",
+          "Microsoft.WindowsAppSDK.ML": "2.7.0",
+          "Microsoft.WindowsAppSDK.Runtime": "[2.7.0]",
+          "Microsoft.WindowsAppSDK.Search": "2.7.0",
+          "Microsoft.WindowsAppSDK.Widgets": "2.7.0",
+          "Microsoft.WindowsAppSDK.WinUI": "2.7.0"
         },
         "build": {
           "buildTransitive/Microsoft.WindowsAppSDK.props": {},
           "buildTransitive/Microsoft.WindowsAppSDK.targets": {}
         }
       },
-      "Microsoft.WindowsAppSDK.AI/2.6.5": {
+      "Microsoft.WindowsAppSDK.AI/2.7.0": {
         "type": "package",
         "dependencies": {
-          "Microsoft.WindowsAppSDK.Base": "2.6.5",
-          "Microsoft.WindowsAppSDK.Foundation": "2.6.5"
+          "Microsoft.WindowsAppSDK.Base": "2.7.0",
+          "Microsoft.WindowsAppSDK.Foundation": "2.7.0"
         },
         "compile": {
           "lib/net6.0-windows10.0.17763.0/Microsoft.Graphics.Imaging.Projection.dll": {
@@ -575,7 +607,7 @@
           "buildTransitive/Microsoft.WindowsAppSDK.AI.targets": {}
         }
       },
-      "Microsoft.WindowsAppSDK.Base/2.6.5": {
+      "Microsoft.WindowsAppSDK.Base/2.7.0": {
         "type": "package",
         "dependencies": {
           "Microsoft.Windows.SDK.BuildTools": "10.0.26100.4654",
@@ -586,21 +618,21 @@
           "buildTransitive/Microsoft.WindowsAppSDK.Base.targets": {}
         }
       },
-      "Microsoft.WindowsAppSDK.DWrite/2.6.5": {
+      "Microsoft.WindowsAppSDK.DWrite/2.7.0": {
         "type": "package",
         "dependencies": {
-          "Microsoft.WindowsAppSDK.Base": "2.6.5"
+          "Microsoft.WindowsAppSDK.Base": "2.7.0"
         },
         "build": {
           "buildTransitive/Microsoft.WindowsAppSDK.DWrite.props": {},
           "buildTransitive/Microsoft.WindowsAppSDK.DWrite.targets": {}
         }
       },
-      "Microsoft.WindowsAppSDK.Foundation/2.6.5": {
+      "Microsoft.WindowsAppSDK.Foundation/2.7.0": {
         "type": "package",
         "dependencies": {
-          "Microsoft.WindowsAppSDK.Base": "[2.6.5, 3.0.0)",
-          "Microsoft.WindowsAppSDK.InteractiveExperiences": "[2.6.5, 3.0.0)"
+          "Microsoft.WindowsAppSDK.Base": "[2.7.0, 3.0.0)",
+          "Microsoft.WindowsAppSDK.InteractiveExperiences": "[2.7.0, 3.0.0)"
         },
         "compile": {
           "lib/net6.0-windows10.0.17763.0/Microsoft.Security.Authentication.OAuth.Projection.dll": {},
@@ -701,10 +733,10 @@
           "buildTransitive/Microsoft.WindowsAppSDK.Foundation.targets": {}
         }
       },
-      "Microsoft.WindowsAppSDK.InteractiveExperiences/2.6.5": {
+      "Microsoft.WindowsAppSDK.InteractiveExperiences/2.7.0": {
         "type": "package",
         "dependencies": {
-          "Microsoft.WindowsAppSDK.Base": "2.6.5"
+          "Microsoft.WindowsAppSDK.Base": "2.7.0"
         },
         "compile": {
           "lib/net6.0-windows10.0.18362.0/Microsoft.InteractiveExperiences.Projection.dll": {
@@ -721,34 +753,34 @@
           "buildTransitive/Microsoft.WindowsAppSDK.InteractiveExperiences.targets": {}
         }
       },
-      "Microsoft.WindowsAppSDK.ML/2.6.5": {
+      "Microsoft.WindowsAppSDK.ML/2.7.0": {
         "type": "package",
         "dependencies": {
-          "Microsoft.Windows.AI.MachineLearning": "[2.4.89, 3.0.0)",
-          "Microsoft.WindowsAppSDK.Base": "2.6.5",
-          "Microsoft.WindowsAppSDK.Foundation": "2.6.5"
+          "Microsoft.Windows.AI.MachineLearning": "[2.5.96, 3.0.0)",
+          "Microsoft.WindowsAppSDK.Base": "2.7.0",
+          "Microsoft.WindowsAppSDK.Foundation": "2.7.0"
         },
         "build": {
           "buildTransitive/Microsoft.WindowsAppSDK.ML.props": {},
           "buildTransitive/Microsoft.WindowsAppSDK.ML.targets": {}
         }
       },
-      "Microsoft.WindowsAppSDK.Runtime/2.6.5": {
+      "Microsoft.WindowsAppSDK.Runtime/2.7.0": {
         "type": "package",
         "dependencies": {
-          "Microsoft.WindowsAppSDK.Base": "2.6.5"
+          "Microsoft.WindowsAppSDK.Base": "2.7.0"
         },
         "build": {
           "buildTransitive/Microsoft.WindowsAppSDK.Runtime.props": {},
           "buildTransitive/Microsoft.WindowsAppSDK.Runtime.targets": {}
         }
       },
-      "Microsoft.WindowsAppSDK.Search/2.6.5": {
+      "Microsoft.WindowsAppSDK.Search/2.7.0": {
         "type": "package",
         "dependencies": {
-          "Microsoft.WindowsAppSDK.AI": "[2.6.5]",
-          "Microsoft.WindowsAppSDK.Base": "2.6.5",
-          "Microsoft.WindowsAppSDK.Foundation": "2.6.5"
+          "Microsoft.WindowsAppSDK.AI": "[2.7.0]",
+          "Microsoft.WindowsAppSDK.Base": "2.7.0",
+          "Microsoft.WindowsAppSDK.Foundation": "2.7.0"
         },
         "compile": {
           "lib/net6.0-windows10.0.17763.0/Microsoft.Windows.Search.Projection.dll": {}
@@ -761,10 +793,10 @@
           "buildTransitive/Microsoft.WindowsAppSDK.Search.targets": {}
         }
       },
-      "Microsoft.WindowsAppSDK.Widgets/2.6.5": {
+      "Microsoft.WindowsAppSDK.Widgets/2.7.0": {
         "type": "package",
         "dependencies": {
-          "Microsoft.WindowsAppSDK.Base": "2.6.5"
+          "Microsoft.WindowsAppSDK.Base": "2.7.0"
         },
         "compile": {
           "lib/net6.0-windows10.0.17763.0/Microsoft.Windows.Widgets.Projection.dll": {
@@ -781,13 +813,13 @@
           "buildTransitive/Microsoft.WindowsAppSDK.Widgets.targets": {}
         }
       },
-      "Microsoft.WindowsAppSDK.WinUI/2.6.5": {
+      "Microsoft.WindowsAppSDK.WinUI/2.7.0": {
         "type": "package",
         "dependencies": {
           "Microsoft.Web.WebView2": "1.0.3719.77",
-          "Microsoft.WindowsAppSDK.Base": "2.6.5",
-          "Microsoft.WindowsAppSDK.Foundation": "2.6.5",
-          "Microsoft.WindowsAppSDK.InteractiveExperiences": "2.6.5"
+          "Microsoft.WindowsAppSDK.Base": "2.7.0",
+          "Microsoft.WindowsAppSDK.Foundation": "2.7.0",
+          "Microsoft.WindowsAppSDK.InteractiveExperiences": "2.7.0"
         },
         "compile": {
           "lib/net6.0-windows10.0.17763.0/Microsoft.WinUI.dll": {
@@ -822,6 +854,22 @@
       }
     },
     "net8.0-windows10.0.19041.0/win-x64": {
+      "CommunityToolkit.Mvvm/8.4.2": {
+        "type": "package",
+        "compile": {
+          "lib/net8.0-windows10.0.17763/CommunityToolkit.Mvvm.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net8.0-windows10.0.17763/CommunityToolkit.Mvvm.dll": {
+            "related": ".xml"
+          }
+        },
+        "build": {
+          "buildTransitive/CommunityToolkit.Mvvm.targets": {}
+        }
+      },
       "Microsoft.Web.WebView2/1.0.3719.77": {
         "type": "package",
         "native": {
@@ -831,7 +879,7 @@
           "buildTransitive/Microsoft.Web.WebView2.targets": {}
         }
       },
-      "Microsoft.Windows.AI.MachineLearning/2.4.89": {
+      "Microsoft.Windows.AI.MachineLearning/2.5.96": {
         "type": "package",
         "dependencies": {
           "System.Numerics.Tensors": "9.0.0"
@@ -872,30 +920,30 @@
           "buildTransitive/Microsoft.Windows.SDK.BuildTools.MSIX.targets": {}
         }
       },
-      "Microsoft.WindowsAppSDK/2.6.5": {
+      "Microsoft.WindowsAppSDK/2.7.0": {
         "type": "package",
         "dependencies": {
-          "Microsoft.WindowsAppSDK.AI": "2.6.5",
-          "Microsoft.WindowsAppSDK.Base": "[2.6.5]",
-          "Microsoft.WindowsAppSDK.DWrite": "2.6.5",
-          "Microsoft.WindowsAppSDK.Foundation": "2.6.5",
-          "Microsoft.WindowsAppSDK.InteractiveExperiences": "2.6.5",
-          "Microsoft.WindowsAppSDK.ML": "2.6.5",
-          "Microsoft.WindowsAppSDK.Runtime": "[2.6.5]",
-          "Microsoft.WindowsAppSDK.Search": "2.6.5",
-          "Microsoft.WindowsAppSDK.Widgets": "2.6.5",
-          "Microsoft.WindowsAppSDK.WinUI": "2.6.5"
+          "Microsoft.WindowsAppSDK.AI": "2.7.0",
+          "Microsoft.WindowsAppSDK.Base": "[2.7.0]",
+          "Microsoft.WindowsAppSDK.DWrite": "2.7.0",
+          "Microsoft.WindowsAppSDK.Foundation": "2.7.0",
+          "Microsoft.WindowsAppSDK.InteractiveExperiences": "2.7.0",
+          "Microsoft.WindowsAppSDK.ML": "2.7.0",
+          "Microsoft.WindowsAppSDK.Runtime": "[2.7.0]",
+          "Microsoft.WindowsAppSDK.Search": "2.7.0",
+          "Microsoft.WindowsAppSDK.Widgets": "2.7.0",
+          "Microsoft.WindowsAppSDK.WinUI": "2.7.0"
         },
         "build": {
           "buildTransitive/Microsoft.WindowsAppSDK.props": {},
           "buildTransitive/Microsoft.WindowsAppSDK.targets": {}
         }
       },
-      "Microsoft.WindowsAppSDK.AI/2.6.5": {
+      "Microsoft.WindowsAppSDK.AI/2.7.0": {
         "type": "package",
         "dependencies": {
-          "Microsoft.WindowsAppSDK.Base": "2.6.5",
-          "Microsoft.WindowsAppSDK.Foundation": "2.6.5"
+          "Microsoft.WindowsAppSDK.Base": "2.7.0",
+          "Microsoft.WindowsAppSDK.Foundation": "2.7.0"
         },
         "compile": {
           "lib/net6.0-windows10.0.17763.0/Microsoft.Graphics.Imaging.Projection.dll": {
@@ -948,7 +996,7 @@
           "buildTransitive/Microsoft.WindowsAppSDK.AI.targets": {}
         }
       },
-      "Microsoft.WindowsAppSDK.Base/2.6.5": {
+      "Microsoft.WindowsAppSDK.Base/2.7.0": {
         "type": "package",
         "dependencies": {
           "Microsoft.Windows.SDK.BuildTools": "10.0.26100.4654",
@@ -959,21 +1007,21 @@
           "buildTransitive/Microsoft.WindowsAppSDK.Base.targets": {}
         }
       },
-      "Microsoft.WindowsAppSDK.DWrite/2.6.5": {
+      "Microsoft.WindowsAppSDK.DWrite/2.7.0": {
         "type": "package",
         "dependencies": {
-          "Microsoft.WindowsAppSDK.Base": "2.6.5"
+          "Microsoft.WindowsAppSDK.Base": "2.7.0"
         },
         "build": {
           "buildTransitive/Microsoft.WindowsAppSDK.DWrite.props": {},
           "buildTransitive/Microsoft.WindowsAppSDK.DWrite.targets": {}
         }
       },
-      "Microsoft.WindowsAppSDK.Foundation/2.6.5": {
+      "Microsoft.WindowsAppSDK.Foundation/2.7.0": {
         "type": "package",
         "dependencies": {
-          "Microsoft.WindowsAppSDK.Base": "[2.6.5, 3.0.0)",
-          "Microsoft.WindowsAppSDK.InteractiveExperiences": "[2.6.5, 3.0.0)"
+          "Microsoft.WindowsAppSDK.Base": "[2.7.0, 3.0.0)",
+          "Microsoft.WindowsAppSDK.InteractiveExperiences": "[2.7.0, 3.0.0)"
         },
         "compile": {
           "lib/net6.0-windows10.0.17763.0/Microsoft.Security.Authentication.OAuth.Projection.dll": {},
@@ -1074,10 +1122,10 @@
           "buildTransitive/Microsoft.WindowsAppSDK.Foundation.targets": {}
         }
       },
-      "Microsoft.WindowsAppSDK.InteractiveExperiences/2.6.5": {
+      "Microsoft.WindowsAppSDK.InteractiveExperiences/2.7.0": {
         "type": "package",
         "dependencies": {
-          "Microsoft.WindowsAppSDK.Base": "2.6.5"
+          "Microsoft.WindowsAppSDK.Base": "2.7.0"
         },
         "compile": {
           "lib/net6.0-windows10.0.18362.0/Microsoft.InteractiveExperiences.Projection.dll": {
@@ -1094,34 +1142,34 @@
           "buildTransitive/Microsoft.WindowsAppSDK.InteractiveExperiences.targets": {}
         }
       },
-      "Microsoft.WindowsAppSDK.ML/2.6.5": {
+      "Microsoft.WindowsAppSDK.ML/2.7.0": {
         "type": "package",
         "dependencies": {
-          "Microsoft.Windows.AI.MachineLearning": "[2.4.89, 3.0.0)",
-          "Microsoft.WindowsAppSDK.Base": "2.6.5",
-          "Microsoft.WindowsAppSDK.Foundation": "2.6.5"
+          "Microsoft.Windows.AI.MachineLearning": "[2.5.96, 3.0.0)",
+          "Microsoft.WindowsAppSDK.Base": "2.7.0",
+          "Microsoft.WindowsAppSDK.Foundation": "2.7.0"
         },
         "build": {
           "buildTransitive/Microsoft.WindowsAppSDK.ML.props": {},
           "buildTransitive/Microsoft.WindowsAppSDK.ML.targets": {}
         }
       },
-      "Microsoft.WindowsAppSDK.Runtime/2.6.5": {
+      "Microsoft.WindowsAppSDK.Runtime/2.7.0": {
         "type": "package",
         "dependencies": {
-          "Microsoft.WindowsAppSDK.Base": "2.6.5"
+          "Microsoft.WindowsAppSDK.Base": "2.7.0"
         },
         "build": {
           "buildTransitive/Microsoft.WindowsAppSDK.Runtime.props": {},
           "buildTransitive/Microsoft.WindowsAppSDK.Runtime.targets": {}
         }
       },
-      "Microsoft.WindowsAppSDK.Search/2.6.5": {
+      "Microsoft.WindowsAppSDK.Search/2.7.0": {
         "type": "package",
         "dependencies": {
-          "Microsoft.WindowsAppSDK.AI": "[2.6.5]",
-          "Microsoft.WindowsAppSDK.Base": "2.6.5",
-          "Microsoft.WindowsAppSDK.Foundation": "2.6.5"
+          "Microsoft.WindowsAppSDK.AI": "[2.7.0]",
+          "Microsoft.WindowsAppSDK.Base": "2.7.0",
+          "Microsoft.WindowsAppSDK.Foundation": "2.7.0"
         },
         "compile": {
           "lib/net6.0-windows10.0.17763.0/Microsoft.Windows.Search.Projection.dll": {}
@@ -1134,10 +1182,10 @@
           "buildTransitive/Microsoft.WindowsAppSDK.Search.targets": {}
         }
       },
-      "Microsoft.WindowsAppSDK.Widgets/2.6.5": {
+      "Microsoft.WindowsAppSDK.Widgets/2.7.0": {
         "type": "package",
         "dependencies": {
-          "Microsoft.WindowsAppSDK.Base": "2.6.5"
+          "Microsoft.WindowsAppSDK.Base": "2.7.0"
         },
         "compile": {
           "lib/net6.0-windows10.0.17763.0/Microsoft.Windows.Widgets.Projection.dll": {
@@ -1154,13 +1202,13 @@
           "buildTransitive/Microsoft.WindowsAppSDK.Widgets.targets": {}
         }
       },
-      "Microsoft.WindowsAppSDK.WinUI/2.6.5": {
+      "Microsoft.WindowsAppSDK.WinUI/2.7.0": {
         "type": "package",
         "dependencies": {
           "Microsoft.Web.WebView2": "1.0.3719.77",
-          "Microsoft.WindowsAppSDK.Base": "2.6.5",
-          "Microsoft.WindowsAppSDK.Foundation": "2.6.5",
-          "Microsoft.WindowsAppSDK.InteractiveExperiences": "2.6.5"
+          "Microsoft.WindowsAppSDK.Base": "2.7.0",
+          "Microsoft.WindowsAppSDK.Foundation": "2.7.0",
+          "Microsoft.WindowsAppSDK.InteractiveExperiences": "2.7.0"
         },
         "compile": {
           "lib/net6.0-windows10.0.17763.0/Microsoft.WinUI.dll": {
@@ -1195,6 +1243,22 @@
       }
     },
     "net8.0-windows10.0.19041.0/win-x86": {
+      "CommunityToolkit.Mvvm/8.4.2": {
+        "type": "package",
+        "compile": {
+          "lib/net8.0-windows10.0.17763/CommunityToolkit.Mvvm.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net8.0-windows10.0.17763/CommunityToolkit.Mvvm.dll": {
+            "related": ".xml"
+          }
+        },
+        "build": {
+          "buildTransitive/CommunityToolkit.Mvvm.targets": {}
+        }
+      },
       "Microsoft.Web.WebView2/1.0.3719.77": {
         "type": "package",
         "native": {
@@ -1204,7 +1268,7 @@
           "buildTransitive/Microsoft.Web.WebView2.targets": {}
         }
       },
-      "Microsoft.Windows.AI.MachineLearning/2.4.89": {
+      "Microsoft.Windows.AI.MachineLearning/2.5.96": {
         "type": "package",
         "dependencies": {
           "System.Numerics.Tensors": "9.0.0"
@@ -1240,30 +1304,30 @@
           "buildTransitive/Microsoft.Windows.SDK.BuildTools.MSIX.targets": {}
         }
       },
-      "Microsoft.WindowsAppSDK/2.6.5": {
+      "Microsoft.WindowsAppSDK/2.7.0": {
         "type": "package",
         "dependencies": {
-          "Microsoft.WindowsAppSDK.AI": "2.6.5",
-          "Microsoft.WindowsAppSDK.Base": "[2.6.5]",
-          "Microsoft.WindowsAppSDK.DWrite": "2.6.5",
-          "Microsoft.WindowsAppSDK.Foundation": "2.6.5",
-          "Microsoft.WindowsAppSDK.InteractiveExperiences": "2.6.5",
-          "Microsoft.WindowsAppSDK.ML": "2.6.5",
-          "Microsoft.WindowsAppSDK.Runtime": "[2.6.5]",
-          "Microsoft.WindowsAppSDK.Search": "2.6.5",
-          "Microsoft.WindowsAppSDK.Widgets": "2.6.5",
-          "Microsoft.WindowsAppSDK.WinUI": "2.6.5"
+          "Microsoft.WindowsAppSDK.AI": "2.7.0",
+          "Microsoft.WindowsAppSDK.Base": "[2.7.0]",
+          "Microsoft.WindowsAppSDK.DWrite": "2.7.0",
+          "Microsoft.WindowsAppSDK.Foundation": "2.7.0",
+          "Microsoft.WindowsAppSDK.InteractiveExperiences": "2.7.0",
+          "Microsoft.WindowsAppSDK.ML": "2.7.0",
+          "Microsoft.WindowsAppSDK.Runtime": "[2.7.0]",
+          "Microsoft.WindowsAppSDK.Search": "2.7.0",
+          "Microsoft.WindowsAppSDK.Widgets": "2.7.0",
+          "Microsoft.WindowsAppSDK.WinUI": "2.7.0"
         },
         "build": {
           "buildTransitive/Microsoft.WindowsAppSDK.props": {},
           "buildTransitive/Microsoft.WindowsAppSDK.targets": {}
         }
       },
-      "Microsoft.WindowsAppSDK.AI/2.6.5": {
+      "Microsoft.WindowsAppSDK.AI/2.7.0": {
         "type": "package",
         "dependencies": {
-          "Microsoft.WindowsAppSDK.Base": "2.6.5",
-          "Microsoft.WindowsAppSDK.Foundation": "2.6.5"
+          "Microsoft.WindowsAppSDK.Base": "2.7.0",
+          "Microsoft.WindowsAppSDK.Foundation": "2.7.0"
         },
         "compile": {
           "lib/net6.0-windows10.0.17763.0/Microsoft.Graphics.Imaging.Projection.dll": {
@@ -1316,7 +1380,7 @@
           "buildTransitive/Microsoft.WindowsAppSDK.AI.targets": {}
         }
       },
-      "Microsoft.WindowsAppSDK.Base/2.6.5": {
+      "Microsoft.WindowsAppSDK.Base/2.7.0": {
         "type": "package",
         "dependencies": {
           "Microsoft.Windows.SDK.BuildTools": "10.0.26100.4654",
@@ -1327,21 +1391,21 @@
           "buildTransitive/Microsoft.WindowsAppSDK.Base.targets": {}
         }
       },
-      "Microsoft.WindowsAppSDK.DWrite/2.6.5": {
+      "Microsoft.WindowsAppSDK.DWrite/2.7.0": {
         "type": "package",
         "dependencies": {
-          "Microsoft.WindowsAppSDK.Base": "2.6.5"
+          "Microsoft.WindowsAppSDK.Base": "2.7.0"
         },
         "build": {
           "buildTransitive/Microsoft.WindowsAppSDK.DWrite.props": {},
           "buildTransitive/Microsoft.WindowsAppSDK.DWrite.targets": {}
         }
       },
-      "Microsoft.WindowsAppSDK.Foundation/2.6.5": {
+      "Microsoft.WindowsAppSDK.Foundation/2.7.0": {
         "type": "package",
         "dependencies": {
-          "Microsoft.WindowsAppSDK.Base": "[2.6.5, 3.0.0)",
-          "Microsoft.WindowsAppSDK.InteractiveExperiences": "[2.6.5, 3.0.0)"
+          "Microsoft.WindowsAppSDK.Base": "[2.7.0, 3.0.0)",
+          "Microsoft.WindowsAppSDK.InteractiveExperiences": "[2.7.0, 3.0.0)"
         },
         "compile": {
           "lib/net6.0-windows10.0.17763.0/Microsoft.Security.Authentication.OAuth.Projection.dll": {},
@@ -1442,10 +1506,10 @@
           "buildTransitive/Microsoft.WindowsAppSDK.Foundation.targets": {}
         }
       },
-      "Microsoft.WindowsAppSDK.InteractiveExperiences/2.6.5": {
+      "Microsoft.WindowsAppSDK.InteractiveExperiences/2.7.0": {
         "type": "package",
         "dependencies": {
-          "Microsoft.WindowsAppSDK.Base": "2.6.5"
+          "Microsoft.WindowsAppSDK.Base": "2.7.0"
         },
         "compile": {
           "lib/net6.0-windows10.0.18362.0/Microsoft.InteractiveExperiences.Projection.dll": {
@@ -1462,34 +1526,34 @@
           "buildTransitive/Microsoft.WindowsAppSDK.InteractiveExperiences.targets": {}
         }
       },
-      "Microsoft.WindowsAppSDK.ML/2.6.5": {
+      "Microsoft.WindowsAppSDK.ML/2.7.0": {
         "type": "package",
         "dependencies": {
-          "Microsoft.Windows.AI.MachineLearning": "[2.4.89, 3.0.0)",
-          "Microsoft.WindowsAppSDK.Base": "2.6.5",
-          "Microsoft.WindowsAppSDK.Foundation": "2.6.5"
+          "Microsoft.Windows.AI.MachineLearning": "[2.5.96, 3.0.0)",
+          "Microsoft.WindowsAppSDK.Base": "2.7.0",
+          "Microsoft.WindowsAppSDK.Foundation": "2.7.0"
         },
         "build": {
           "buildTransitive/Microsoft.WindowsAppSDK.ML.props": {},
           "buildTransitive/Microsoft.WindowsAppSDK.ML.targets": {}
         }
       },
-      "Microsoft.WindowsAppSDK.Runtime/2.6.5": {
+      "Microsoft.WindowsAppSDK.Runtime/2.7.0": {
         "type": "package",
         "dependencies": {
-          "Microsoft.WindowsAppSDK.Base": "2.6.5"
+          "Microsoft.WindowsAppSDK.Base": "2.7.0"
         },
         "build": {
           "buildTransitive/Microsoft.WindowsAppSDK.Runtime.props": {},
           "buildTransitive/Microsoft.WindowsAppSDK.Runtime.targets": {}
         }
       },
-      "Microsoft.WindowsAppSDK.Search/2.6.5": {
+      "Microsoft.WindowsAppSDK.Search/2.7.0": {
         "type": "package",
         "dependencies": {
-          "Microsoft.WindowsAppSDK.AI": "[2.6.5]",
-          "Microsoft.WindowsAppSDK.Base": "2.6.5",
-          "Microsoft.WindowsAppSDK.Foundation": "2.6.5"
+          "Microsoft.WindowsAppSDK.AI": "[2.7.0]",
+          "Microsoft.WindowsAppSDK.Base": "2.7.0",
+          "Microsoft.WindowsAppSDK.Foundation": "2.7.0"
         },
         "compile": {
           "lib/net6.0-windows10.0.17763.0/Microsoft.Windows.Search.Projection.dll": {}
@@ -1502,10 +1566,10 @@
           "buildTransitive/Microsoft.WindowsAppSDK.Search.targets": {}
         }
       },
-      "Microsoft.WindowsAppSDK.Widgets/2.6.5": {
+      "Microsoft.WindowsAppSDK.Widgets/2.7.0": {
         "type": "package",
         "dependencies": {
-          "Microsoft.WindowsAppSDK.Base": "2.6.5"
+          "Microsoft.WindowsAppSDK.Base": "2.7.0"
         },
         "compile": {
           "lib/net6.0-windows10.0.17763.0/Microsoft.Windows.Widgets.Projection.dll": {
@@ -1522,13 +1586,13 @@
           "buildTransitive/Microsoft.WindowsAppSDK.Widgets.targets": {}
         }
       },
-      "Microsoft.WindowsAppSDK.WinUI/2.6.5": {
+      "Microsoft.WindowsAppSDK.WinUI/2.7.0": {
         "type": "package",
         "dependencies": {
           "Microsoft.Web.WebView2": "1.0.3719.77",
-          "Microsoft.WindowsAppSDK.Base": "2.6.5",
-          "Microsoft.WindowsAppSDK.Foundation": "2.6.5",
-          "Microsoft.WindowsAppSDK.InteractiveExperiences": "2.6.5"
+          "Microsoft.WindowsAppSDK.Base": "2.7.0",
+          "Microsoft.WindowsAppSDK.Foundation": "2.7.0",
+          "Microsoft.WindowsAppSDK.InteractiveExperiences": "2.7.0"
         },
         "compile": {
           "lib/net6.0-windows10.0.17763.0/Microsoft.WinUI.dll": {
@@ -1564,6 +1628,46 @@
     }
   },
   "libraries": {
+    "CommunityToolkit.Mvvm/8.4.2": {
+      "sha512": "WadCzGEc2U+3e20avRLng4qNtt4zoOGWrdUISqJWrHe3/FSnrYjuM5Sb4yQb09LhkBXrrI4Zt3dLKgRMbItsrg==",
+      "type": "package",
+      "path": "communitytoolkit.mvvm/8.4.2",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Icon.png",
+        "License.md",
+        "ThirdPartyNotices.txt",
+        "analyzers/dotnet/roslyn4.0/cs/CommunityToolkit.Mvvm.CodeFixers.dll",
+        "analyzers/dotnet/roslyn4.0/cs/CommunityToolkit.Mvvm.SourceGenerators.dll",
+        "analyzers/dotnet/roslyn4.12/cs/CommunityToolkit.Mvvm.CodeFixers.dll",
+        "analyzers/dotnet/roslyn4.12/cs/CommunityToolkit.Mvvm.SourceGenerators.dll",
+        "analyzers/dotnet/roslyn4.3/cs/CommunityToolkit.Mvvm.CodeFixers.dll",
+        "analyzers/dotnet/roslyn4.3/cs/CommunityToolkit.Mvvm.SourceGenerators.dll",
+        "analyzers/dotnet/roslyn5.0/cs/CommunityToolkit.Mvvm.CodeFixers.dll",
+        "analyzers/dotnet/roslyn5.0/cs/CommunityToolkit.Mvvm.SourceGenerators.dll",
+        "build/CommunityToolkit.Mvvm.FeatureSwitches.targets",
+        "build/CommunityToolkit.Mvvm.SourceGenerators.targets",
+        "build/CommunityToolkit.Mvvm.Windows.targets",
+        "build/CommunityToolkit.Mvvm.WindowsSdk.targets",
+        "build/CommunityToolkit.Mvvm.targets",
+        "buildTransitive/CommunityToolkit.Mvvm.FeatureSwitches.targets",
+        "buildTransitive/CommunityToolkit.Mvvm.SourceGenerators.targets",
+        "buildTransitive/CommunityToolkit.Mvvm.Windows.targets",
+        "buildTransitive/CommunityToolkit.Mvvm.WindowsSdk.targets",
+        "buildTransitive/CommunityToolkit.Mvvm.targets",
+        "communitytoolkit.mvvm.8.4.2.nupkg.sha512",
+        "communitytoolkit.mvvm.nuspec",
+        "lib/net8.0-windows10.0.17763/CommunityToolkit.Mvvm.dll",
+        "lib/net8.0-windows10.0.17763/CommunityToolkit.Mvvm.xml",
+        "lib/net8.0/CommunityToolkit.Mvvm.dll",
+        "lib/net8.0/CommunityToolkit.Mvvm.xml",
+        "lib/netstandard2.0/CommunityToolkit.Mvvm.dll",
+        "lib/netstandard2.0/CommunityToolkit.Mvvm.xml",
+        "lib/netstandard2.1/CommunityToolkit.Mvvm.dll",
+        "lib/netstandard2.1/CommunityToolkit.Mvvm.xml"
+      ]
+    },
     "Microsoft.Web.WebView2/1.0.3719.77": {
       "sha512": "t+ucyKw5NTwMjsUrDF6R9Lk40lpcKQD1/HgyGFxl49tdA4h9dKlsj6FYGEmDRpFNfnTpENuTypMcdbrlkqBdDA==",
       "type": "package",
@@ -1661,10 +1765,10 @@
         "tools/wv2winrt/zh-Hant/System.CommandLine.resources.dll"
       ]
     },
-    "Microsoft.Windows.AI.MachineLearning/2.4.89": {
-      "sha512": "uc+Lej0vmZJprvHEuNJs7xMegoParROM9pZ2a7uMeXQiELva42V1wAUoYHCsw/u5ho/nwkYasiSFWZ95ABot3A==",
+    "Microsoft.Windows.AI.MachineLearning/2.5.96": {
+      "sha512": "nEigqZy0jJu0G0qTcqjOXJ1LtooPJvHt+w3NxrSInAmIYHiMqtUX9oRIVBllqZWR2omOYrwYRfMmvaYpgP3U0A==",
       "type": "package",
-      "path": "microsoft.windows.ai.machinelearning/2.4.89",
+      "path": "microsoft.windows.ai.machinelearning/2.5.96",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -1695,6 +1799,7 @@
         "include/winml/onnxruntime_cxx_inline.h",
         "include/winml/onnxruntime_ep_c_api.h",
         "include/winml/onnxruntime_ep_device_ep_metadata_keys.h",
+        "include/winml/onnxruntime_error_code.h",
         "include/winml/onnxruntime_float16.h",
         "include/winml/onnxruntime_lite_custom_op.h",
         "include/winml/onnxruntime_run_options_config_keys.h",
@@ -1716,7 +1821,7 @@
         "license.txt",
         "metadata/Microsoft.Windows.AI.MachineLearning.winmd",
         "metadata/Microsoft.Windows.AI.MachineLearning.xml",
-        "microsoft.windows.ai.machinelearning.2.4.89.nupkg.sha512",
+        "microsoft.windows.ai.machinelearning.2.5.96.nupkg.sha512",
         "microsoft.windows.ai.machinelearning.nuspec",
         "runtimes/win-arm64/native/DirectML.dll",
         "runtimes/win-arm64/native/Microsoft.Windows.AI.MachineLearning.dll",
@@ -2001,10 +2106,10 @@
         "tools/net6.0/Newtonsoft.Json.dll"
       ]
     },
-    "Microsoft.WindowsAppSDK/2.6.5": {
-      "sha512": "XmxRiyoq82OeitV2FpFKxahDEnnw1aL4j0GGEiF8QQYcVO3/IhSMsjbcoC02AWXnRqIT5JbQ2IbK7YH0LJZARQ==",
+    "Microsoft.WindowsAppSDK/2.7.0": {
+      "sha512": "Mak/KDVN/R3RVK1CVqixh9ervg2vahr7wihqlzJ7lAMVoC10/reCgpqyJGSEe2cKlPeqeF3+ECMJBcyKxmkVNA==",
       "type": "package",
-      "path": "microsoft.windowsappsdk/2.6.5",
+      "path": "microsoft.windowsappsdk/2.7.0",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -2019,14 +2124,14 @@
         "buildTransitive/native/Microsoft.WindowsAppSDK.props",
         "buildTransitive/native/Microsoft.WindowsAppSDK.targets",
         "license.txt",
-        "microsoft.windowsappsdk.2.6.5.nupkg.sha512",
+        "microsoft.windowsappsdk.2.7.0.nupkg.sha512",
         "microsoft.windowsappsdk.nuspec"
       ]
     },
-    "Microsoft.WindowsAppSDK.AI/2.6.5": {
-      "sha512": "zf1YEO9zh0XP3rqZxCIbVRmxtZbNff4KiHZuKF2vMh2mGstqraT+ahclGZoxFD+8a3sYCy4KWucvLNud0P1nXg==",
+    "Microsoft.WindowsAppSDK.AI/2.7.0": {
+      "sha512": "a40WYnCZdTsRcUvgtcHiAexbNvzEtTUYrRVPjFLmZVOIwqmlsLmyKZ4e9aaAdmKDh/MAIlLCQegIImYzT9RlIQ==",
       "type": "package",
-      "path": "microsoft.windowsappsdk.ai/2.6.5",
+      "path": "microsoft.windowsappsdk.ai/2.7.0",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -2072,7 +2177,7 @@
         "metadata/Microsoft.Windows.Vision.winmd",
         "metadata/Microsoft.Windows.Workloads.winmd",
         "metadata/Microsoft.Windows.Workloads.xml",
-        "microsoft.windowsappsdk.ai.2.6.5.nupkg.sha512",
+        "microsoft.windowsappsdk.ai.2.7.0.nupkg.sha512",
         "microsoft.windowsappsdk.ai.nuspec",
         "runtimes-framework/package.appxfragment",
         "runtimes-framework/win-arm64/native/Microsoft.Asg.SemanticIndex.AiFabric.Compatibility.dll",
@@ -2144,6 +2249,7 @@
         "runtimes-framework/win-arm64ec/native/streaming_sr_cpu_1x192x192x3.all.onnxe",
         "runtimes-framework/win-arm64ec/native/streaming_sr_wodq_1x384x384x3.all.onnxe",
         "runtimes-framework/win-arm64ec/native/workloads.365.json",
+        "runtimes-framework/win-arm64ec/native/workloads.cpg.json",
         "runtimes-framework/win-arm64ec/native/workloads.j32.json",
         "runtimes-framework/win-arm64ec/native/workloads.json",
         "runtimes-framework/win-arm64ec/native/workloads.lnl.json",
@@ -2183,6 +2289,7 @@
         "runtimes-framework/win-x64/native/streaming_sr_cpu_1x192x192x3.all.onnxe",
         "runtimes-framework/win-x64/native/streaming_sr_wodq_1x384x384x3.all.onnxe",
         "runtimes-framework/win-x64/native/workloads.365.json",
+        "runtimes-framework/win-x64/native/workloads.cpg.json",
         "runtimes-framework/win-x64/native/workloads.j32.json",
         "runtimes-framework/win-x64/native/workloads.json",
         "runtimes-framework/win-x64/native/workloads.lnl.json",
@@ -2190,10 +2297,10 @@
         "runtimes-framework/win-x64/native/workloads.stx.json"
       ]
     },
-    "Microsoft.WindowsAppSDK.Base/2.6.5": {
-      "sha512": "/R+z6xrl4mIu6FmXNkdvMlL/Enl7pXgO5Q75LBJdls6uvieh3VTOn6jtvwtlywFnZMKfvsDP0Ckal6/phireJQ==",
+    "Microsoft.WindowsAppSDK.Base/2.7.0": {
+      "sha512": "pz1xzq2mady89xuPbpsLrgVuB0v+bLZp8T4MJQu8d3HSimrrPPghEJmE6rqxvhAlk62iVjPhMZ9rVnhomCPmHQ==",
       "type": "package",
-      "path": "microsoft.windowsappsdk.base/2.6.5",
+      "path": "microsoft.windowsappsdk.base/2.7.0",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -2216,14 +2323,14 @@
         "buildTransitive/native/Microsoft.WindowsAppSDK.Base.props",
         "buildTransitive/native/Microsoft.WindowsAppSDK.Base.targets",
         "license.txt",
-        "microsoft.windowsappsdk.base.2.6.5.nupkg.sha512",
+        "microsoft.windowsappsdk.base.2.7.0.nupkg.sha512",
         "microsoft.windowsappsdk.base.nuspec"
       ]
     },
-    "Microsoft.WindowsAppSDK.DWrite/2.6.5": {
-      "sha512": "ycKzxoqVig32FrCZiJyrarY+LgxNwqY2Fr4eEiMEIqK2m+a7YGs46pzPMtYEkl64rgUdBofFZwZ6/XRf+KA7Lg==",
+    "Microsoft.WindowsAppSDK.DWrite/2.7.0": {
+      "sha512": "8p7Dq+KjbXBh29s/zbDmCauylblws9aF2px5T4q0wNDwiUaF5hKCyrPs3VU3ampO3kkZPSfn+FX0O0DAhLgnsg==",
       "type": "package",
-      "path": "microsoft.windowsappsdk.dwrite/2.6.5",
+      "path": "microsoft.windowsappsdk.dwrite/2.7.0",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -2244,7 +2351,7 @@
         "lib/native/x64/DWriteCore.lib",
         "lib/native/x86/DWriteCore.lib",
         "license.txt",
-        "microsoft.windowsappsdk.dwrite.2.6.5.nupkg.sha512",
+        "microsoft.windowsappsdk.dwrite.2.7.0.nupkg.sha512",
         "microsoft.windowsappsdk.dwrite.nuspec",
         "runtimes-framework/win-arm64/native/DWriteCore.dll",
         "runtimes-framework/win-arm64ec/native/DWriteCore.dll",
@@ -2252,10 +2359,10 @@
         "runtimes-framework/win-x86/native/DWriteCore.dll"
       ]
     },
-    "Microsoft.WindowsAppSDK.Foundation/2.6.5": {
-      "sha512": "wd7+g7tRSEv1YMcxgPi1MZ7I4nfB5/nhcOkcOrnhJbeRtT2XLTtFDIxJ6cBxx/SOI2FJ+EocJXhisuCvBYB/4w==",
+    "Microsoft.WindowsAppSDK.Foundation/2.7.0": {
+      "sha512": "20RAdyrhDL5i5T1kHaIWzDf8oDQ8SiKSCuAVje0Y4zFKLO/OSlxoTl2omjl43CEvEbRm7A+T6CxxfjUtj6rTjA==",
       "type": "package",
-      "path": "microsoft.windowsappsdk.foundation/2.6.5",
+      "path": "microsoft.windowsappsdk.foundation/2.7.0",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -2399,7 +2506,7 @@
         "metadata/Microsoft.Windows.System.Power.xml",
         "metadata/Microsoft.Windows.System.winmd",
         "metadata/Microsoft.Windows.System.xml",
-        "microsoft.windowsappsdk.foundation.2.6.5.nupkg.sha512",
+        "microsoft.windowsappsdk.foundation.2.7.0.nupkg.sha512",
         "microsoft.windowsappsdk.foundation.nuspec",
         "runtimes-framework/package.appxfragment",
         "runtimes-framework/win-arm64/native/DeploymentAgent.exe",
@@ -2440,10 +2547,10 @@
         "runtimes/win-x86/native/Microsoft.WindowsAppRuntime.Bootstrap.dll"
       ]
     },
-    "Microsoft.WindowsAppSDK.InteractiveExperiences/2.6.5": {
-      "sha512": "WBpbDUPqOds+P+XrvawF8xietPS4VU4z4oT1CFQ+/IGYYszv37YSg2X6B0aOi506OFEjApW2UjWsgwkPxeUJqA==",
+    "Microsoft.WindowsAppSDK.InteractiveExperiences/2.7.0": {
+      "sha512": "J3RehOxm689NHJlmjAhCFmGZF6REyxU/gxFkKBJEeGxTLZ4uhTW3AG5oRH4QcA/zM5UUp8Al0wiqFYaBnqvvLw==",
       "type": "package",
-      "path": "microsoft.windowsappsdk.interactiveexperiences/2.6.5",
+      "path": "microsoft.windowsappsdk.interactiveexperiences/2.7.0",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -2518,7 +2625,7 @@
         "metadata/10.0.18362.0/Microsoft.Graphics.xml",
         "metadata/10.0.18362.0/Microsoft.UI.winmd",
         "metadata/10.0.18362.0/Microsoft.UI.xml",
-        "microsoft.windowsappsdk.interactiveexperiences.2.6.5.nupkg.sha512",
+        "microsoft.windowsappsdk.interactiveexperiences.2.7.0.nupkg.sha512",
         "microsoft.windowsappsdk.interactiveexperiences.nuspec",
         "runtimes-framework/package.appxfragment",
         "runtimes-framework/win-arm64/native/CoreMessagingXP.dll",
@@ -2591,10 +2698,10 @@
         "runtimes-framework/win-x86/native/wuceffectsi.dll"
       ]
     },
-    "Microsoft.WindowsAppSDK.ML/2.6.5": {
-      "sha512": "iuM9oR/X10U8pV1kbf8tj5jkXtiqs8AHZWZghiaDsHM89/ghzAroP3j6bqWuEAESIQAue1+cfseCbaq0IPad7A==",
+    "Microsoft.WindowsAppSDK.ML/2.7.0": {
+      "sha512": "AMkBN9nIf+XjfKsEN1N2fLQxfY3q+wWTyH3nRqAJ22Gsy6euWJb+z0KKrmVEVjT+TFB9ZrX4yHQZe9xMTN0zTQ==",
       "type": "package",
-      "path": "microsoft.windowsappsdk.ml/2.6.5",
+      "path": "microsoft.windowsappsdk.ml/2.7.0",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -2613,15 +2720,15 @@
         "include/WindowsMLAutoInitializer.SelfContained.cpp",
         "include/WindowsMLAutoInitializer.cpp",
         "license.txt",
-        "microsoft.windowsappsdk.ml.2.6.5.nupkg.sha512",
+        "microsoft.windowsappsdk.ml.2.7.0.nupkg.sha512",
         "microsoft.windowsappsdk.ml.nuspec",
         "runtimes-framework/package.appxfragment"
       ]
     },
-    "Microsoft.WindowsAppSDK.Runtime/2.6.5": {
-      "sha512": "anTYWEcvxa5eB2EP9ZEzDQq2VI/mFqNg3E/aYcoRpphxfquj6VSj+gHDAMWQ3fU3RjQ+9KmMtSZkZ9So29QdDg==",
+    "Microsoft.WindowsAppSDK.Runtime/2.7.0": {
+      "sha512": "YAC/DDVctNWUbV50GGdu2tll72J+TzsEXykzjjLndaNk+ylPgT4VmZBBWhxzkIGIfxzUlzyVcBeQImcKttoGCQ==",
       "type": "package",
-      "path": "microsoft.windowsappsdk.runtime/2.6.5",
+      "path": "microsoft.windowsappsdk.runtime/2.7.0",
       "hasTools": true,
       "files": [
         ".nupkg.metadata",
@@ -2647,7 +2754,7 @@
         "include/WindowsAppSDK-VersionInfo.cs",
         "include/WindowsAppSDK-VersionInfo.h",
         "license.txt",
-        "microsoft.windowsappsdk.runtime.2.6.5.nupkg.sha512",
+        "microsoft.windowsappsdk.runtime.2.7.0.nupkg.sha512",
         "microsoft.windowsappsdk.runtime.nuspec",
         "tools/MSIX/win10-arm64/MSIX.inventory",
         "tools/MSIX/win10-arm64/Microsoft.WindowsAppRuntime.2.msix",
@@ -2668,10 +2775,10 @@
         "tools/MSIX/win10-x86/Microsoft.WindowsAppRuntime.Singleton.2.msix"
       ]
     },
-    "Microsoft.WindowsAppSDK.Search/2.6.5": {
-      "sha512": "uCsGpATDEymWK0g3Iy99lfLsThoxuKehIKLjKf8xT5gPSuPXp8Bxhy5EB5y9tidiT/syjedJlJ/CiQSIHxJ6gw==",
+    "Microsoft.WindowsAppSDK.Search/2.7.0": {
+      "sha512": "VKYN3PkIwuf2JZLh8tGc3tmDf29NrmqAJiNDlF86hJR2gOXgW07e9+3QfdRF+gka5hzCwBILfkZTlBChgxGGgw==",
       "type": "package",
-      "path": "microsoft.windowsappsdk.search/2.6.5",
+      "path": "microsoft.windowsappsdk.search/2.7.0",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -2687,7 +2794,7 @@
         "lib/net6.0-windows10.0.17763.0/Microsoft.Windows.Search.Projection.dll",
         "license.txt",
         "metadata/Microsoft.Windows.Search.winmd",
-        "microsoft.windowsappsdk.search.2.6.5.nupkg.sha512",
+        "microsoft.windowsappsdk.search.2.7.0.nupkg.sha512",
         "microsoft.windowsappsdk.search.nuspec",
         "runtimes-framework/package.appxfragment",
         "runtimes-framework/win-arm64/native/Microsoft.Windows.Search.dll",
@@ -2695,10 +2802,10 @@
         "runtimes-framework/win-x64/native/Microsoft.Windows.Search.dll"
       ]
     },
-    "Microsoft.WindowsAppSDK.Widgets/2.6.5": {
-      "sha512": "MyYNRuAn3GWE5/Aae5Fr9Pk9jD4HMcP7Z8ae3kca9fYp0D3HR236YflInfuxwZxXsY54llFMgH/ITuPL3MvdhA==",
+    "Microsoft.WindowsAppSDK.Widgets/2.7.0": {
+      "sha512": "7XJDJekeKnnJvY5PjGMdScgZh7u2XHPqLW/D4POocnkfCqKaSI2Cu2Q61v+jcIjfMuNb5dxVe3EnSQsyzfOOvQ==",
       "type": "package",
-      "path": "microsoft.windowsappsdk.widgets/2.6.5",
+      "path": "microsoft.windowsappsdk.widgets/2.7.0",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -2715,7 +2822,7 @@
         "license.txt",
         "metadata/Microsoft.Windows.Widgets.winmd",
         "metadata/Microsoft.Windows.Widgets.xml",
-        "microsoft.windowsappsdk.widgets.2.6.5.nupkg.sha512",
+        "microsoft.windowsappsdk.widgets.2.7.0.nupkg.sha512",
         "microsoft.windowsappsdk.widgets.nuspec",
         "runtimes-framework/package.appxfragment",
         "runtimes-framework/win-arm64/native/Microsoft.Windows.Widgets.dll",
@@ -2724,10 +2831,10 @@
         "runtimes-framework/win-x86/native/Microsoft.Windows.Widgets.dll"
       ]
     },
-    "Microsoft.WindowsAppSDK.WinUI/2.6.5": {
-      "sha512": "kGdcXPYSTEN5XdZd500dPH+zmq6gyDCCjyG5LwXzaa0tPG/6drYh5M+QmStfmLf7LnPKv5O6ZJucDspepSCo3g==",
+    "Microsoft.WindowsAppSDK.WinUI/2.7.0": {
+      "sha512": "6Pit9KmeSKLpLlUUR8TSWIRdos4V8ilsz7eaOf8o9H2555lTBtQgQyQR4LjXf1EDcAe4EYocQ+YDipe0pbQrpA==",
       "type": "package",
-      "path": "microsoft.windowsappsdk.winui/2.6.5",
+      "path": "microsoft.windowsappsdk.winui/2.7.0",
       "hasTools": true,
       "files": [
         ".nupkg.metadata",
@@ -2786,7 +2893,7 @@
         "metadata/Microsoft.UI.Text.xml",
         "metadata/Microsoft.UI.Xaml.winmd",
         "metadata/Microsoft.UI.Xaml.xml",
-        "microsoft.windowsappsdk.winui.2.6.5.nupkg.sha512",
+        "microsoft.windowsappsdk.winui.2.7.0.nupkg.sha512",
         "microsoft.windowsappsdk.winui.nuspec",
         "runtimes-framework/package.appxfragment",
         "runtimes-framework/win-arm64/native/Microsoft.UI.Xaml.Controls.dll",
@@ -3581,8 +3688,9 @@
   },
   "projectFileDependencyGroups": {
     "net8.0-windows10.0.19041.0": [
+      "CommunityToolkit.Mvvm >= 8.4.2",
       "Microsoft.Windows.SDK.BuildTools >= 10.0.28000.2957",
-      "Microsoft.WindowsAppSDK >= 2.6.5"
+      "Microsoft.WindowsAppSDK >= 2.7.0"
     ]
   },
   "packageFolders": {
@@ -3637,13 +3745,17 @@
         "framework": "net8.0-windows10.0.19041",
         "targetAlias": "net8.0-windows10.0.19041.0",
         "dependencies": {
+          "CommunityToolkit.Mvvm": {
+            "target": "Package",
+            "version": "[8.4.2, )"
+          },
           "Microsoft.Windows.SDK.BuildTools": {
             "target": "Package",
             "version": "[10.0.28000.2957, )"
           },
           "Microsoft.WindowsAppSDK": {
             "target": "Package",
-            "version": "[2.6.5, )"
+            "version": "[2.7.0, )"
           }
         },
         "imports": [

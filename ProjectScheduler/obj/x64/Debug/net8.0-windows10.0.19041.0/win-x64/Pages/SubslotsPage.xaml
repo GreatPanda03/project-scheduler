@@ -6,6 +6,7 @@
     xmlns:local="using:ProjectScheduler.Pages"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:controls="using:ProjectScheduler.Controls"
     mc:Ignorable="d">
 
     <Grid>
@@ -15,94 +16,53 @@
         </Grid.ColumnDefinitions>
         
         <!-- LEFT PANEL: SUBSLOT LIST-->
-        <Grid
+        <controls:ItemListView x:ConnectionId='2'
             Grid.Column="0"
-            Padding="16"
-            RowSpacing="12">
+            Title="Subslots"
+            SearchPlaceholder="Search subslots..."
+            AddButtonText="Add Subslot"
+            ItemsSource="{Binding FilteredItems}"
+            SearchText="{Binding SearchText, Mode=TwoWay}"
+            SelectedItem="{Binding SelectedItem, Mode=TwoWay}"
+                                                 
+                                                                >
 
-            <Grid.RowDefinitions>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="*"/>
-            </Grid.RowDefinitions>
+            <controls:ItemListView.ItemTemplate>
 
-            <TextBlock
-                Grid.Row="0"
-                Text="Subslots"
-                FontSize="20"
-                FontWeight="SemiBold"/>
+                <DataTemplate>
 
-            <!-- Search Bar -->
-            <TextBox x:ConnectionId='9'
-                x:Name="SearchTextBox"
-                Grid.Row="1"
-                PlaceholderText="Search subslots..."
-                                                       
-                InputScope="Default"/>
+                    <Grid Padding="6">
 
-            <!-- Add Subslot -->
-            <Button x:ConnectionId='10'
-                Grid.Row="2"
-                HorizontalAlignment="Stretch"
-                ToolTipService.ToolTip="Add a new subslot"
-                ToolTipService.Placement="Mouse"
-                                              >
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
 
-                <StackPanel
-                    Orientation="Horizontal"
-                    Spacing="8">
+                        <FontIcon
+                            Grid.Column="0"
+                            Glyph="&#xE917;"
+                            FontSize="18"
+                            Margin="0,0,12,0"
+                            VerticalAlignment="Center"
+                            Foreground="{ThemeResource TextFillColorSecondaryBrush}"/>
 
-                    <SymbolIcon Symbol="Add"/>
-                    <TextBlock Text="Add Subslot"/>
+                        <TextBlock
+                            Grid.Column="1"
+                            Text="{Binding Name}"
+                            FontSize="15"
+                            VerticalAlignment="Center"
+                            TextTrimming="CharacterEllipsis"/>
 
-                </StackPanel>
-
-            </Button>
-
-            <!-- Subslot List -->
-            <ListView x:ConnectionId='11'
-                x:Name="SubslotsListView"
-                Grid.Row="3"
-                SelectionMode="Single"
-                                                                    >
-
-                <ListView.ItemTemplate>
-                    <DataTemplate>
-
-                        <Grid Padding="6">
-
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="Auto"/>
-                                <ColumnDefinition Width="*"/>
-                            </Grid.ColumnDefinitions>
-
-                            <FontIcon
-                                Grid.Column="0"
-                                Glyph="&#xE917;"
-                                FontSize="18"
-                                Margin="0,0,12,0"
-                                VerticalAlignment="Center"
-                                Foreground="{ThemeResource TextFillColorSecondaryBrush}"/>
-
-                            <TextBlock
-                                Grid.Column="1"
-                                Text="{Binding Name}"
-                                FontSize="15"
-                                VerticalAlignment="Center"
-                                TextTrimming="CharacterEllipsis"/>
-
-                        </Grid>
-                        
-                    </DataTemplate>
-                </ListView.ItemTemplate>
+                    </Grid>
+                    
+                </DataTemplate>
                 
-            </ListView>
-
-        </Grid>
+            </controls:ItemListView.ItemTemplate>
+            
+        </controls:ItemListView>
 
         <!-- RIGHT PANEL: SUBSLOT PLACEHOLDER -->
-        <Border x:ConnectionId='2'
+        <Border x:ConnectionId='3'
             x:Name="SubslotPlaceholderPanel"
             Grid.Column="1"
             BorderBrush="{ThemeResource DividerStrokeColorDefaultBrush}"
@@ -131,7 +91,7 @@
         </Border>
 
         <!-- RIGHT PANEL: SUBSLOT DETAILS -->
-        <Border x:ConnectionId='3'
+        <Border x:ConnectionId='4'
             x:Name="SubslotDetailsPanel"
             Grid.Column="1"
             BorderBrush="{ThemeResource DividerStrokeColorDefaultBrush}"
@@ -149,13 +109,13 @@
                         Foreground="{ThemeResource TextFillColorSecondaryBrush}"/>
 
                     <!-- Subslot Name -->
-                    <TextBox x:ConnectionId='4'
+                    <TextBox x:ConnectionId='5'
                         x:Name="SubslotNameTextBox"
                         Header="Name"
                         PlaceholderText="No subslot name"/>
 
                     <!-- Subslot Description -->
-                    <TextBox x:ConnectionId='5'
+                    <TextBox x:ConnectionId='6'
                         x:Name="SubslotDescriptionTextBox"
                         Header="Description"
                         PlaceholderText="No subslot description"
@@ -170,7 +130,7 @@
                         FontWeight="SemiBold"
                         Foreground="{ThemeResource TextFillColorSecondaryBrush}"/>
 
-                    <CheckBox x:ConnectionId='6'
+                    <CheckBox x:ConnectionId='7'
                         x:Name="SubslotLockResourcesCheckBox"
                         Content="Lock Resources"
                         ToolTipService.ToolTip="Disables access to all of the current project's resources"/>
@@ -181,11 +141,11 @@
                         Spacing="12"
                         Margin="0,12,0,0">
 
-                        <Button x:ConnectionId='7'
+                        <Button x:ConnectionId='8'
                             Content="Save Changes"
                                                            />
 
-                        <Button x:ConnectionId='8'
+                        <Button x:ConnectionId='9'
                             Content="Delete Subslot"
                                                              
                             Style="{ThemeResource DefaultButtonStyle}"/>
