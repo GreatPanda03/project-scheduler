@@ -226,7 +226,7 @@ namespace ProjectScheduler.ProjectScheduler_XamlTypeInfo
         
         private void InitTypeTables()
         {
-            _typeNameTable = new string[52];
+            _typeNameTable = new string[55];
             _typeNameTable[0] = "Microsoft.UI.Xaml.Controls.XamlControlsResources";
             _typeNameTable[1] = "Microsoft.UI.Xaml.ResourceDictionary";
             _typeNameTable[2] = "Object";
@@ -236,51 +236,54 @@ namespace ProjectScheduler.ProjectScheduler_XamlTypeInfo
             _typeNameTable[6] = "String";
             _typeNameTable[7] = "System.Collections.IEnumerable";
             _typeNameTable[8] = "Microsoft.UI.Xaml.DataTemplate";
-            _typeNameTable[9] = "Microsoft.UI.Xaml.Controls.NavigationView";
-            _typeNameTable[10] = "Microsoft.UI.Xaml.Controls.ContentControl";
-            _typeNameTable[11] = "Microsoft.UI.Xaml.Controls.NavigationViewPaneDisplayMode";
-            _typeNameTable[12] = "System.Enum";
-            _typeNameTable[13] = "System.ValueType";
-            _typeNameTable[14] = "Microsoft.UI.Xaml.Controls.NavigationViewBackButtonVisible";
-            _typeNameTable[15] = "System.Collections.Generic.IList`1<Object>";
-            _typeNameTable[16] = "Microsoft.UI.Xaml.Controls.AutoSuggestBox";
-            _typeNameTable[17] = "Double";
-            _typeNameTable[18] = "Microsoft.UI.Xaml.UIElement";
-            _typeNameTable[19] = "Microsoft.UI.Xaml.Controls.NavigationViewDisplayMode";
-            _typeNameTable[20] = "Microsoft.UI.Xaml.Style";
-            _typeNameTable[21] = "Microsoft.UI.Xaml.Controls.StyleSelector";
-            _typeNameTable[22] = "Microsoft.UI.Xaml.Controls.DataTemplateSelector";
-            _typeNameTable[23] = "Microsoft.UI.Xaml.Controls.NavigationViewOverflowLabelMode";
-            _typeNameTable[24] = "Microsoft.UI.Xaml.Controls.NavigationViewSelectionFollowsFocus";
-            _typeNameTable[25] = "Microsoft.UI.Xaml.Controls.NavigationViewShoulderNavigationEnabled";
-            _typeNameTable[26] = "Microsoft.UI.Xaml.Controls.NavigationViewTemplateSettings";
-            _typeNameTable[27] = "Microsoft.UI.Xaml.DependencyObject";
-            _typeNameTable[28] = "Microsoft.UI.Xaml.Controls.NavigationViewItem";
-            _typeNameTable[29] = "Microsoft.UI.Xaml.Controls.NavigationViewItemBase";
-            _typeNameTable[30] = "Microsoft.UI.Xaml.Controls.IconElement";
-            _typeNameTable[31] = "Microsoft.UI.Xaml.Controls.InfoBadge";
-            _typeNameTable[32] = "Microsoft.UI.Xaml.Controls.Control";
-            _typeNameTable[33] = "ProjectScheduler.MainWindow";
-            _typeNameTable[34] = "Microsoft.UI.Xaml.Window";
-            _typeNameTable[35] = "ProjectScheduler.Pages.HomePage";
-            _typeNameTable[36] = "Microsoft.UI.Xaml.Controls.Page";
-            _typeNameTable[37] = "ProjectScheduler.Pages.PlaceholderPage";
-            _typeNameTable[38] = "ProjectScheduler.Pages.PreWorkChecklistPage";
-            _typeNameTable[39] = "Microsoft.UI.Xaml.Controls.NumberBox";
-            _typeNameTable[40] = "Windows.Globalization.NumberFormatting.INumberFormatter2";
-            _typeNameTable[41] = "Microsoft.UI.Xaml.Controls.Primitives.FlyoutBase";
-            _typeNameTable[42] = "Microsoft.UI.Xaml.Media.SolidColorBrush";
-            _typeNameTable[43] = "Microsoft.UI.Xaml.Controls.NumberBoxSpinButtonPlacementMode";
-            _typeNameTable[44] = "Microsoft.UI.Xaml.TextReadingOrder";
-            _typeNameTable[45] = "Microsoft.UI.Xaml.Controls.NumberBoxValidationMode";
-            _typeNameTable[46] = "ProjectScheduler.Pages.ProjectsPage";
-            _typeNameTable[47] = "ProjectScheduler.Pages.ResourcesPage";
-            _typeNameTable[48] = "ProjectScheduler.Pages.SubslotsPage";
-            _typeNameTable[49] = "Microsoft.UI.Xaml.Controls.TreeViewNode";
-            _typeNameTable[50] = "System.Collections.Generic.IList`1<Microsoft.UI.Xaml.Controls.TreeViewNode>";
-            _typeNameTable[51] = "Int32";
+            _typeNameTable[9] = "ProjectScheduler.Controls.SubslotDetailsView";
+            _typeNameTable[10] = "ProjectScheduler.Models.SubslotItem";
+            _typeNameTable[11] = "CommunityToolkit.Mvvm.ComponentModel.ObservableObject";
+            _typeNameTable[12] = "Microsoft.UI.Xaml.Controls.NavigationView";
+            _typeNameTable[13] = "Microsoft.UI.Xaml.Controls.ContentControl";
+            _typeNameTable[14] = "Microsoft.UI.Xaml.Controls.NavigationViewPaneDisplayMode";
+            _typeNameTable[15] = "System.Enum";
+            _typeNameTable[16] = "System.ValueType";
+            _typeNameTable[17] = "Microsoft.UI.Xaml.Controls.NavigationViewBackButtonVisible";
+            _typeNameTable[18] = "System.Collections.Generic.IList`1<Object>";
+            _typeNameTable[19] = "Microsoft.UI.Xaml.Controls.AutoSuggestBox";
+            _typeNameTable[20] = "Double";
+            _typeNameTable[21] = "Microsoft.UI.Xaml.UIElement";
+            _typeNameTable[22] = "Microsoft.UI.Xaml.Controls.NavigationViewDisplayMode";
+            _typeNameTable[23] = "Microsoft.UI.Xaml.Style";
+            _typeNameTable[24] = "Microsoft.UI.Xaml.Controls.StyleSelector";
+            _typeNameTable[25] = "Microsoft.UI.Xaml.Controls.DataTemplateSelector";
+            _typeNameTable[26] = "Microsoft.UI.Xaml.Controls.NavigationViewOverflowLabelMode";
+            _typeNameTable[27] = "Microsoft.UI.Xaml.Controls.NavigationViewSelectionFollowsFocus";
+            _typeNameTable[28] = "Microsoft.UI.Xaml.Controls.NavigationViewShoulderNavigationEnabled";
+            _typeNameTable[29] = "Microsoft.UI.Xaml.Controls.NavigationViewTemplateSettings";
+            _typeNameTable[30] = "Microsoft.UI.Xaml.DependencyObject";
+            _typeNameTable[31] = "Microsoft.UI.Xaml.Controls.NavigationViewItem";
+            _typeNameTable[32] = "Microsoft.UI.Xaml.Controls.NavigationViewItemBase";
+            _typeNameTable[33] = "Microsoft.UI.Xaml.Controls.IconElement";
+            _typeNameTable[34] = "Microsoft.UI.Xaml.Controls.InfoBadge";
+            _typeNameTable[35] = "Microsoft.UI.Xaml.Controls.Control";
+            _typeNameTable[36] = "ProjectScheduler.MainWindow";
+            _typeNameTable[37] = "Microsoft.UI.Xaml.Window";
+            _typeNameTable[38] = "ProjectScheduler.Pages.HomePage";
+            _typeNameTable[39] = "Microsoft.UI.Xaml.Controls.Page";
+            _typeNameTable[40] = "ProjectScheduler.Pages.PlaceholderPage";
+            _typeNameTable[41] = "ProjectScheduler.Pages.PreWorkChecklistPage";
+            _typeNameTable[42] = "Microsoft.UI.Xaml.Controls.NumberBox";
+            _typeNameTable[43] = "Windows.Globalization.NumberFormatting.INumberFormatter2";
+            _typeNameTable[44] = "Microsoft.UI.Xaml.Controls.Primitives.FlyoutBase";
+            _typeNameTable[45] = "Microsoft.UI.Xaml.Media.SolidColorBrush";
+            _typeNameTable[46] = "Microsoft.UI.Xaml.Controls.NumberBoxSpinButtonPlacementMode";
+            _typeNameTable[47] = "Microsoft.UI.Xaml.TextReadingOrder";
+            _typeNameTable[48] = "Microsoft.UI.Xaml.Controls.NumberBoxValidationMode";
+            _typeNameTable[49] = "ProjectScheduler.Pages.ProjectsPage";
+            _typeNameTable[50] = "ProjectScheduler.Pages.ResourcesPage";
+            _typeNameTable[51] = "ProjectScheduler.Pages.SubslotsPage";
+            _typeNameTable[52] = "Microsoft.UI.Xaml.Controls.TreeViewNode";
+            _typeNameTable[53] = "System.Collections.Generic.IList`1<Microsoft.UI.Xaml.Controls.TreeViewNode>";
+            _typeNameTable[54] = "Int32";
 
-            _typeTable = new global::System.Type[52];
+            _typeTable = new global::System.Type[55];
             _typeTable[0] = typeof(global::Microsoft.UI.Xaml.Controls.XamlControlsResources);
             _typeTable[1] = typeof(global::Microsoft.UI.Xaml.ResourceDictionary);
             _typeTable[2] = typeof(global::System.Object);
@@ -290,49 +293,52 @@ namespace ProjectScheduler.ProjectScheduler_XamlTypeInfo
             _typeTable[6] = typeof(global::System.String);
             _typeTable[7] = typeof(global::System.Collections.IEnumerable);
             _typeTable[8] = typeof(global::Microsoft.UI.Xaml.DataTemplate);
-            _typeTable[9] = typeof(global::Microsoft.UI.Xaml.Controls.NavigationView);
-            _typeTable[10] = typeof(global::Microsoft.UI.Xaml.Controls.ContentControl);
-            _typeTable[11] = typeof(global::Microsoft.UI.Xaml.Controls.NavigationViewPaneDisplayMode);
-            _typeTable[12] = typeof(global::System.Enum);
-            _typeTable[13] = typeof(global::System.ValueType);
-            _typeTable[14] = typeof(global::Microsoft.UI.Xaml.Controls.NavigationViewBackButtonVisible);
-            _typeTable[15] = typeof(global::System.Collections.Generic.IList<global::System.Object>);
-            _typeTable[16] = typeof(global::Microsoft.UI.Xaml.Controls.AutoSuggestBox);
-            _typeTable[17] = typeof(global::System.Double);
-            _typeTable[18] = typeof(global::Microsoft.UI.Xaml.UIElement);
-            _typeTable[19] = typeof(global::Microsoft.UI.Xaml.Controls.NavigationViewDisplayMode);
-            _typeTable[20] = typeof(global::Microsoft.UI.Xaml.Style);
-            _typeTable[21] = typeof(global::Microsoft.UI.Xaml.Controls.StyleSelector);
-            _typeTable[22] = typeof(global::Microsoft.UI.Xaml.Controls.DataTemplateSelector);
-            _typeTable[23] = typeof(global::Microsoft.UI.Xaml.Controls.NavigationViewOverflowLabelMode);
-            _typeTable[24] = typeof(global::Microsoft.UI.Xaml.Controls.NavigationViewSelectionFollowsFocus);
-            _typeTable[25] = typeof(global::Microsoft.UI.Xaml.Controls.NavigationViewShoulderNavigationEnabled);
-            _typeTable[26] = typeof(global::Microsoft.UI.Xaml.Controls.NavigationViewTemplateSettings);
-            _typeTable[27] = typeof(global::Microsoft.UI.Xaml.DependencyObject);
-            _typeTable[28] = typeof(global::Microsoft.UI.Xaml.Controls.NavigationViewItem);
-            _typeTable[29] = typeof(global::Microsoft.UI.Xaml.Controls.NavigationViewItemBase);
-            _typeTable[30] = typeof(global::Microsoft.UI.Xaml.Controls.IconElement);
-            _typeTable[31] = typeof(global::Microsoft.UI.Xaml.Controls.InfoBadge);
-            _typeTable[32] = typeof(global::Microsoft.UI.Xaml.Controls.Control);
-            _typeTable[33] = typeof(global::ProjectScheduler.MainWindow);
-            _typeTable[34] = typeof(global::Microsoft.UI.Xaml.Window);
-            _typeTable[35] = typeof(global::ProjectScheduler.Pages.HomePage);
-            _typeTable[36] = typeof(global::Microsoft.UI.Xaml.Controls.Page);
-            _typeTable[37] = typeof(global::ProjectScheduler.Pages.PlaceholderPage);
-            _typeTable[38] = typeof(global::ProjectScheduler.Pages.PreWorkChecklistPage);
-            _typeTable[39] = typeof(global::Microsoft.UI.Xaml.Controls.NumberBox);
-            _typeTable[40] = typeof(global::Windows.Globalization.NumberFormatting.INumberFormatter2);
-            _typeTable[41] = typeof(global::Microsoft.UI.Xaml.Controls.Primitives.FlyoutBase);
-            _typeTable[42] = typeof(global::Microsoft.UI.Xaml.Media.SolidColorBrush);
-            _typeTable[43] = typeof(global::Microsoft.UI.Xaml.Controls.NumberBoxSpinButtonPlacementMode);
-            _typeTable[44] = typeof(global::Microsoft.UI.Xaml.TextReadingOrder);
-            _typeTable[45] = typeof(global::Microsoft.UI.Xaml.Controls.NumberBoxValidationMode);
-            _typeTable[46] = typeof(global::ProjectScheduler.Pages.ProjectsPage);
-            _typeTable[47] = typeof(global::ProjectScheduler.Pages.ResourcesPage);
-            _typeTable[48] = typeof(global::ProjectScheduler.Pages.SubslotsPage);
-            _typeTable[49] = typeof(global::Microsoft.UI.Xaml.Controls.TreeViewNode);
-            _typeTable[50] = typeof(global::System.Collections.Generic.IList<global::Microsoft.UI.Xaml.Controls.TreeViewNode>);
-            _typeTable[51] = typeof(global::System.Int32);
+            _typeTable[9] = typeof(global::ProjectScheduler.Controls.SubslotDetailsView);
+            _typeTable[10] = typeof(global::ProjectScheduler.Models.SubslotItem);
+            _typeTable[11] = typeof(global::CommunityToolkit.Mvvm.ComponentModel.ObservableObject);
+            _typeTable[12] = typeof(global::Microsoft.UI.Xaml.Controls.NavigationView);
+            _typeTable[13] = typeof(global::Microsoft.UI.Xaml.Controls.ContentControl);
+            _typeTable[14] = typeof(global::Microsoft.UI.Xaml.Controls.NavigationViewPaneDisplayMode);
+            _typeTable[15] = typeof(global::System.Enum);
+            _typeTable[16] = typeof(global::System.ValueType);
+            _typeTable[17] = typeof(global::Microsoft.UI.Xaml.Controls.NavigationViewBackButtonVisible);
+            _typeTable[18] = typeof(global::System.Collections.Generic.IList<global::System.Object>);
+            _typeTable[19] = typeof(global::Microsoft.UI.Xaml.Controls.AutoSuggestBox);
+            _typeTable[20] = typeof(global::System.Double);
+            _typeTable[21] = typeof(global::Microsoft.UI.Xaml.UIElement);
+            _typeTable[22] = typeof(global::Microsoft.UI.Xaml.Controls.NavigationViewDisplayMode);
+            _typeTable[23] = typeof(global::Microsoft.UI.Xaml.Style);
+            _typeTable[24] = typeof(global::Microsoft.UI.Xaml.Controls.StyleSelector);
+            _typeTable[25] = typeof(global::Microsoft.UI.Xaml.Controls.DataTemplateSelector);
+            _typeTable[26] = typeof(global::Microsoft.UI.Xaml.Controls.NavigationViewOverflowLabelMode);
+            _typeTable[27] = typeof(global::Microsoft.UI.Xaml.Controls.NavigationViewSelectionFollowsFocus);
+            _typeTable[28] = typeof(global::Microsoft.UI.Xaml.Controls.NavigationViewShoulderNavigationEnabled);
+            _typeTable[29] = typeof(global::Microsoft.UI.Xaml.Controls.NavigationViewTemplateSettings);
+            _typeTable[30] = typeof(global::Microsoft.UI.Xaml.DependencyObject);
+            _typeTable[31] = typeof(global::Microsoft.UI.Xaml.Controls.NavigationViewItem);
+            _typeTable[32] = typeof(global::Microsoft.UI.Xaml.Controls.NavigationViewItemBase);
+            _typeTable[33] = typeof(global::Microsoft.UI.Xaml.Controls.IconElement);
+            _typeTable[34] = typeof(global::Microsoft.UI.Xaml.Controls.InfoBadge);
+            _typeTable[35] = typeof(global::Microsoft.UI.Xaml.Controls.Control);
+            _typeTable[36] = typeof(global::ProjectScheduler.MainWindow);
+            _typeTable[37] = typeof(global::Microsoft.UI.Xaml.Window);
+            _typeTable[38] = typeof(global::ProjectScheduler.Pages.HomePage);
+            _typeTable[39] = typeof(global::Microsoft.UI.Xaml.Controls.Page);
+            _typeTable[40] = typeof(global::ProjectScheduler.Pages.PlaceholderPage);
+            _typeTable[41] = typeof(global::ProjectScheduler.Pages.PreWorkChecklistPage);
+            _typeTable[42] = typeof(global::Microsoft.UI.Xaml.Controls.NumberBox);
+            _typeTable[43] = typeof(global::Windows.Globalization.NumberFormatting.INumberFormatter2);
+            _typeTable[44] = typeof(global::Microsoft.UI.Xaml.Controls.Primitives.FlyoutBase);
+            _typeTable[45] = typeof(global::Microsoft.UI.Xaml.Media.SolidColorBrush);
+            _typeTable[46] = typeof(global::Microsoft.UI.Xaml.Controls.NumberBoxSpinButtonPlacementMode);
+            _typeTable[47] = typeof(global::Microsoft.UI.Xaml.TextReadingOrder);
+            _typeTable[48] = typeof(global::Microsoft.UI.Xaml.Controls.NumberBoxValidationMode);
+            _typeTable[49] = typeof(global::ProjectScheduler.Pages.ProjectsPage);
+            _typeTable[50] = typeof(global::ProjectScheduler.Pages.ResourcesPage);
+            _typeTable[51] = typeof(global::ProjectScheduler.Pages.SubslotsPage);
+            _typeTable[52] = typeof(global::Microsoft.UI.Xaml.Controls.TreeViewNode);
+            _typeTable[53] = typeof(global::System.Collections.Generic.IList<global::Microsoft.UI.Xaml.Controls.TreeViewNode>);
+            _typeTable[54] = typeof(global::System.Int32);
         }
 
         private int LookupTypeIndexByName(string typeName)
@@ -369,49 +375,54 @@ namespace ProjectScheduler.ProjectScheduler_XamlTypeInfo
 
         private object Activate_0_XamlControlsResources() { return new global::Microsoft.UI.Xaml.Controls.XamlControlsResources(); }
         private object Activate_4_ItemListView() { return new global::ProjectScheduler.Controls.ItemListView(); }
-        private object Activate_9_NavigationView() { return new global::Microsoft.UI.Xaml.Controls.NavigationView(); }
-        private object Activate_26_NavigationViewTemplateSettings() { return new global::Microsoft.UI.Xaml.Controls.NavigationViewTemplateSettings(); }
-        private object Activate_28_NavigationViewItem() { return new global::Microsoft.UI.Xaml.Controls.NavigationViewItem(); }
-        private object Activate_31_InfoBadge() { return new global::Microsoft.UI.Xaml.Controls.InfoBadge(); }
-        private object Activate_33_MainWindow() { return new global::ProjectScheduler.MainWindow(); }
-        private object Activate_35_HomePage() { return new global::ProjectScheduler.Pages.HomePage(); }
-        private object Activate_37_PlaceholderPage() { return new global::ProjectScheduler.Pages.PlaceholderPage(); }
-        private object Activate_38_PreWorkChecklistPage() { return new global::ProjectScheduler.Pages.PreWorkChecklistPage(); }
-        private object Activate_39_NumberBox() { return new global::Microsoft.UI.Xaml.Controls.NumberBox(); }
-        private object Activate_46_ProjectsPage() { return new global::ProjectScheduler.Pages.ProjectsPage(); }
-        private object Activate_47_ResourcesPage() { return new global::ProjectScheduler.Pages.ResourcesPage(); }
-        private object Activate_48_SubslotsPage() { return new global::ProjectScheduler.Pages.SubslotsPage(); }
-        private object Activate_49_TreeViewNode() { return new global::Microsoft.UI.Xaml.Controls.TreeViewNode(); }
+        private object Activate_9_SubslotDetailsView() { return new global::ProjectScheduler.Controls.SubslotDetailsView(); }
+        private object Activate_10_SubslotItem() { return new global::ProjectScheduler.Models.SubslotItem(); }
+        private object Activate_12_NavigationView() { return new global::Microsoft.UI.Xaml.Controls.NavigationView(); }
+        private object Activate_29_NavigationViewTemplateSettings() { return new global::Microsoft.UI.Xaml.Controls.NavigationViewTemplateSettings(); }
+        private object Activate_31_NavigationViewItem() { return new global::Microsoft.UI.Xaml.Controls.NavigationViewItem(); }
+        private object Activate_34_InfoBadge() { return new global::Microsoft.UI.Xaml.Controls.InfoBadge(); }
+        private object Activate_36_MainWindow() { return new global::ProjectScheduler.MainWindow(); }
+        private object Activate_38_HomePage() { return new global::ProjectScheduler.Pages.HomePage(); }
+        private object Activate_40_PlaceholderPage() { return new global::ProjectScheduler.Pages.PlaceholderPage(); }
+        private object Activate_41_PreWorkChecklistPage() { return new global::ProjectScheduler.Pages.PreWorkChecklistPage(); }
+        private object Activate_42_NumberBox() { return new global::Microsoft.UI.Xaml.Controls.NumberBox(); }
+        private object Activate_49_ProjectsPage() { return new global::ProjectScheduler.Pages.ProjectsPage(); }
+        private object Activate_50_ResourcesPage() { return new global::ProjectScheduler.Pages.ResourcesPage(); }
+        private object Activate_51_SubslotsPage() { return new global::ProjectScheduler.Pages.SubslotsPage(); }
+        private object Activate_52_TreeViewNode() { return new global::Microsoft.UI.Xaml.Controls.TreeViewNode(); }
         private void StaticInitializer_0_XamlControlsResources() => global::System.Runtime.CompilerServices.RuntimeHelpers.RunClassConstructor(typeof(global::Microsoft.UI.Xaml.Controls.XamlControlsResources).TypeHandle);
         private void StaticInitializer_4_ItemListView() => global::System.Runtime.CompilerServices.RuntimeHelpers.RunClassConstructor(typeof(global::ProjectScheduler.Controls.ItemListView).TypeHandle);
         private void StaticInitializer_7_IEnumerable() => global::System.Runtime.CompilerServices.RuntimeHelpers.RunClassConstructor(typeof(global::System.Collections.IEnumerable).TypeHandle);
-        private void StaticInitializer_9_NavigationView() => global::System.Runtime.CompilerServices.RuntimeHelpers.RunClassConstructor(typeof(global::Microsoft.UI.Xaml.Controls.NavigationView).TypeHandle);
-        private void StaticInitializer_11_NavigationViewPaneDisplayMode() => global::System.Runtime.CompilerServices.RuntimeHelpers.RunClassConstructor(typeof(global::Microsoft.UI.Xaml.Controls.NavigationViewPaneDisplayMode).TypeHandle);
-        private void StaticInitializer_12_Enum() => global::System.Runtime.CompilerServices.RuntimeHelpers.RunClassConstructor(typeof(global::System.Enum).TypeHandle);
-        private void StaticInitializer_13_ValueType() => global::System.Runtime.CompilerServices.RuntimeHelpers.RunClassConstructor(typeof(global::System.ValueType).TypeHandle);
-        private void StaticInitializer_14_NavigationViewBackButtonVisible() => global::System.Runtime.CompilerServices.RuntimeHelpers.RunClassConstructor(typeof(global::Microsoft.UI.Xaml.Controls.NavigationViewBackButtonVisible).TypeHandle);
-        private void StaticInitializer_15_IList() => global::System.Runtime.CompilerServices.RuntimeHelpers.RunClassConstructor(typeof(global::System.Collections.Generic.IList<global::System.Object>).TypeHandle);
-        private void StaticInitializer_19_NavigationViewDisplayMode() => global::System.Runtime.CompilerServices.RuntimeHelpers.RunClassConstructor(typeof(global::Microsoft.UI.Xaml.Controls.NavigationViewDisplayMode).TypeHandle);
-        private void StaticInitializer_23_NavigationViewOverflowLabelMode() => global::System.Runtime.CompilerServices.RuntimeHelpers.RunClassConstructor(typeof(global::Microsoft.UI.Xaml.Controls.NavigationViewOverflowLabelMode).TypeHandle);
-        private void StaticInitializer_24_NavigationViewSelectionFollowsFocus() => global::System.Runtime.CompilerServices.RuntimeHelpers.RunClassConstructor(typeof(global::Microsoft.UI.Xaml.Controls.NavigationViewSelectionFollowsFocus).TypeHandle);
-        private void StaticInitializer_25_NavigationViewShoulderNavigationEnabled() => global::System.Runtime.CompilerServices.RuntimeHelpers.RunClassConstructor(typeof(global::Microsoft.UI.Xaml.Controls.NavigationViewShoulderNavigationEnabled).TypeHandle);
-        private void StaticInitializer_26_NavigationViewTemplateSettings() => global::System.Runtime.CompilerServices.RuntimeHelpers.RunClassConstructor(typeof(global::Microsoft.UI.Xaml.Controls.NavigationViewTemplateSettings).TypeHandle);
-        private void StaticInitializer_28_NavigationViewItem() => global::System.Runtime.CompilerServices.RuntimeHelpers.RunClassConstructor(typeof(global::Microsoft.UI.Xaml.Controls.NavigationViewItem).TypeHandle);
-        private void StaticInitializer_29_NavigationViewItemBase() => global::System.Runtime.CompilerServices.RuntimeHelpers.RunClassConstructor(typeof(global::Microsoft.UI.Xaml.Controls.NavigationViewItemBase).TypeHandle);
-        private void StaticInitializer_31_InfoBadge() => global::System.Runtime.CompilerServices.RuntimeHelpers.RunClassConstructor(typeof(global::Microsoft.UI.Xaml.Controls.InfoBadge).TypeHandle);
-        private void StaticInitializer_33_MainWindow() => global::System.Runtime.CompilerServices.RuntimeHelpers.RunClassConstructor(typeof(global::ProjectScheduler.MainWindow).TypeHandle);
-        private void StaticInitializer_35_HomePage() => global::System.Runtime.CompilerServices.RuntimeHelpers.RunClassConstructor(typeof(global::ProjectScheduler.Pages.HomePage).TypeHandle);
-        private void StaticInitializer_37_PlaceholderPage() => global::System.Runtime.CompilerServices.RuntimeHelpers.RunClassConstructor(typeof(global::ProjectScheduler.Pages.PlaceholderPage).TypeHandle);
-        private void StaticInitializer_38_PreWorkChecklistPage() => global::System.Runtime.CompilerServices.RuntimeHelpers.RunClassConstructor(typeof(global::ProjectScheduler.Pages.PreWorkChecklistPage).TypeHandle);
-        private void StaticInitializer_39_NumberBox() => global::System.Runtime.CompilerServices.RuntimeHelpers.RunClassConstructor(typeof(global::Microsoft.UI.Xaml.Controls.NumberBox).TypeHandle);
-        private void StaticInitializer_40_INumberFormatter2() => global::System.Runtime.CompilerServices.RuntimeHelpers.RunClassConstructor(typeof(global::Windows.Globalization.NumberFormatting.INumberFormatter2).TypeHandle);
-        private void StaticInitializer_43_NumberBoxSpinButtonPlacementMode() => global::System.Runtime.CompilerServices.RuntimeHelpers.RunClassConstructor(typeof(global::Microsoft.UI.Xaml.Controls.NumberBoxSpinButtonPlacementMode).TypeHandle);
-        private void StaticInitializer_45_NumberBoxValidationMode() => global::System.Runtime.CompilerServices.RuntimeHelpers.RunClassConstructor(typeof(global::Microsoft.UI.Xaml.Controls.NumberBoxValidationMode).TypeHandle);
-        private void StaticInitializer_46_ProjectsPage() => global::System.Runtime.CompilerServices.RuntimeHelpers.RunClassConstructor(typeof(global::ProjectScheduler.Pages.ProjectsPage).TypeHandle);
-        private void StaticInitializer_47_ResourcesPage() => global::System.Runtime.CompilerServices.RuntimeHelpers.RunClassConstructor(typeof(global::ProjectScheduler.Pages.ResourcesPage).TypeHandle);
-        private void StaticInitializer_48_SubslotsPage() => global::System.Runtime.CompilerServices.RuntimeHelpers.RunClassConstructor(typeof(global::ProjectScheduler.Pages.SubslotsPage).TypeHandle);
-        private void StaticInitializer_49_TreeViewNode() => global::System.Runtime.CompilerServices.RuntimeHelpers.RunClassConstructor(typeof(global::Microsoft.UI.Xaml.Controls.TreeViewNode).TypeHandle);
-        private void StaticInitializer_50_IList() => global::System.Runtime.CompilerServices.RuntimeHelpers.RunClassConstructor(typeof(global::System.Collections.Generic.IList<global::Microsoft.UI.Xaml.Controls.TreeViewNode>).TypeHandle);
+        private void StaticInitializer_9_SubslotDetailsView() => global::System.Runtime.CompilerServices.RuntimeHelpers.RunClassConstructor(typeof(global::ProjectScheduler.Controls.SubslotDetailsView).TypeHandle);
+        private void StaticInitializer_10_SubslotItem() => global::System.Runtime.CompilerServices.RuntimeHelpers.RunClassConstructor(typeof(global::ProjectScheduler.Models.SubslotItem).TypeHandle);
+        private void StaticInitializer_11_ObservableObject() => global::System.Runtime.CompilerServices.RuntimeHelpers.RunClassConstructor(typeof(global::CommunityToolkit.Mvvm.ComponentModel.ObservableObject).TypeHandle);
+        private void StaticInitializer_12_NavigationView() => global::System.Runtime.CompilerServices.RuntimeHelpers.RunClassConstructor(typeof(global::Microsoft.UI.Xaml.Controls.NavigationView).TypeHandle);
+        private void StaticInitializer_14_NavigationViewPaneDisplayMode() => global::System.Runtime.CompilerServices.RuntimeHelpers.RunClassConstructor(typeof(global::Microsoft.UI.Xaml.Controls.NavigationViewPaneDisplayMode).TypeHandle);
+        private void StaticInitializer_15_Enum() => global::System.Runtime.CompilerServices.RuntimeHelpers.RunClassConstructor(typeof(global::System.Enum).TypeHandle);
+        private void StaticInitializer_16_ValueType() => global::System.Runtime.CompilerServices.RuntimeHelpers.RunClassConstructor(typeof(global::System.ValueType).TypeHandle);
+        private void StaticInitializer_17_NavigationViewBackButtonVisible() => global::System.Runtime.CompilerServices.RuntimeHelpers.RunClassConstructor(typeof(global::Microsoft.UI.Xaml.Controls.NavigationViewBackButtonVisible).TypeHandle);
+        private void StaticInitializer_18_IList() => global::System.Runtime.CompilerServices.RuntimeHelpers.RunClassConstructor(typeof(global::System.Collections.Generic.IList<global::System.Object>).TypeHandle);
+        private void StaticInitializer_22_NavigationViewDisplayMode() => global::System.Runtime.CompilerServices.RuntimeHelpers.RunClassConstructor(typeof(global::Microsoft.UI.Xaml.Controls.NavigationViewDisplayMode).TypeHandle);
+        private void StaticInitializer_26_NavigationViewOverflowLabelMode() => global::System.Runtime.CompilerServices.RuntimeHelpers.RunClassConstructor(typeof(global::Microsoft.UI.Xaml.Controls.NavigationViewOverflowLabelMode).TypeHandle);
+        private void StaticInitializer_27_NavigationViewSelectionFollowsFocus() => global::System.Runtime.CompilerServices.RuntimeHelpers.RunClassConstructor(typeof(global::Microsoft.UI.Xaml.Controls.NavigationViewSelectionFollowsFocus).TypeHandle);
+        private void StaticInitializer_28_NavigationViewShoulderNavigationEnabled() => global::System.Runtime.CompilerServices.RuntimeHelpers.RunClassConstructor(typeof(global::Microsoft.UI.Xaml.Controls.NavigationViewShoulderNavigationEnabled).TypeHandle);
+        private void StaticInitializer_29_NavigationViewTemplateSettings() => global::System.Runtime.CompilerServices.RuntimeHelpers.RunClassConstructor(typeof(global::Microsoft.UI.Xaml.Controls.NavigationViewTemplateSettings).TypeHandle);
+        private void StaticInitializer_31_NavigationViewItem() => global::System.Runtime.CompilerServices.RuntimeHelpers.RunClassConstructor(typeof(global::Microsoft.UI.Xaml.Controls.NavigationViewItem).TypeHandle);
+        private void StaticInitializer_32_NavigationViewItemBase() => global::System.Runtime.CompilerServices.RuntimeHelpers.RunClassConstructor(typeof(global::Microsoft.UI.Xaml.Controls.NavigationViewItemBase).TypeHandle);
+        private void StaticInitializer_34_InfoBadge() => global::System.Runtime.CompilerServices.RuntimeHelpers.RunClassConstructor(typeof(global::Microsoft.UI.Xaml.Controls.InfoBadge).TypeHandle);
+        private void StaticInitializer_36_MainWindow() => global::System.Runtime.CompilerServices.RuntimeHelpers.RunClassConstructor(typeof(global::ProjectScheduler.MainWindow).TypeHandle);
+        private void StaticInitializer_38_HomePage() => global::System.Runtime.CompilerServices.RuntimeHelpers.RunClassConstructor(typeof(global::ProjectScheduler.Pages.HomePage).TypeHandle);
+        private void StaticInitializer_40_PlaceholderPage() => global::System.Runtime.CompilerServices.RuntimeHelpers.RunClassConstructor(typeof(global::ProjectScheduler.Pages.PlaceholderPage).TypeHandle);
+        private void StaticInitializer_41_PreWorkChecklistPage() => global::System.Runtime.CompilerServices.RuntimeHelpers.RunClassConstructor(typeof(global::ProjectScheduler.Pages.PreWorkChecklistPage).TypeHandle);
+        private void StaticInitializer_42_NumberBox() => global::System.Runtime.CompilerServices.RuntimeHelpers.RunClassConstructor(typeof(global::Microsoft.UI.Xaml.Controls.NumberBox).TypeHandle);
+        private void StaticInitializer_43_INumberFormatter2() => global::System.Runtime.CompilerServices.RuntimeHelpers.RunClassConstructor(typeof(global::Windows.Globalization.NumberFormatting.INumberFormatter2).TypeHandle);
+        private void StaticInitializer_46_NumberBoxSpinButtonPlacementMode() => global::System.Runtime.CompilerServices.RuntimeHelpers.RunClassConstructor(typeof(global::Microsoft.UI.Xaml.Controls.NumberBoxSpinButtonPlacementMode).TypeHandle);
+        private void StaticInitializer_48_NumberBoxValidationMode() => global::System.Runtime.CompilerServices.RuntimeHelpers.RunClassConstructor(typeof(global::Microsoft.UI.Xaml.Controls.NumberBoxValidationMode).TypeHandle);
+        private void StaticInitializer_49_ProjectsPage() => global::System.Runtime.CompilerServices.RuntimeHelpers.RunClassConstructor(typeof(global::ProjectScheduler.Pages.ProjectsPage).TypeHandle);
+        private void StaticInitializer_50_ResourcesPage() => global::System.Runtime.CompilerServices.RuntimeHelpers.RunClassConstructor(typeof(global::ProjectScheduler.Pages.ResourcesPage).TypeHandle);
+        private void StaticInitializer_51_SubslotsPage() => global::System.Runtime.CompilerServices.RuntimeHelpers.RunClassConstructor(typeof(global::ProjectScheduler.Pages.SubslotsPage).TypeHandle);
+        private void StaticInitializer_52_TreeViewNode() => global::System.Runtime.CompilerServices.RuntimeHelpers.RunClassConstructor(typeof(global::Microsoft.UI.Xaml.Controls.TreeViewNode).TypeHandle);
+        private void StaticInitializer_53_IList() => global::System.Runtime.CompilerServices.RuntimeHelpers.RunClassConstructor(typeof(global::System.Collections.Generic.IList<global::Microsoft.UI.Xaml.Controls.TreeViewNode>).TypeHandle);
         private void MapAdd_0_XamlControlsResources(object instance, object key, object item)
         {
             var collection = (global::System.Collections.Generic.IDictionary<global::System.Object, global::System.Object>)instance;
@@ -419,13 +430,13 @@ namespace ProjectScheduler.ProjectScheduler_XamlTypeInfo
             var newItem = (global::System.Object)item;
             collection.Add(newKey, newItem);
         }
-        private void VectorAdd_15_IList(object instance, object item)
+        private void VectorAdd_18_IList(object instance, object item)
         {
             var collection = (global::System.Collections.Generic.ICollection<global::System.Object>)instance;
             var newItem = (global::System.Object)item;
             collection.Add(newItem);
         }
-        private void VectorAdd_50_IList(object instance, object item)
+        private void VectorAdd_53_IList(object instance, object item)
         {
             var collection = (global::System.Collections.Generic.ICollection<global::Microsoft.UI.Xaml.Controls.TreeViewNode>)instance;
             var newItem = (global::Microsoft.UI.Xaml.Controls.TreeViewNode)item;
@@ -497,10 +508,33 @@ namespace ProjectScheduler.ProjectScheduler_XamlTypeInfo
                 xamlType = new global::ProjectScheduler.ProjectScheduler_XamlTypeInfo.XamlSystemBaseType(typeName, type);
                 break;
 
-            case 9:   //  Microsoft.UI.Xaml.Controls.NavigationView
+            case 9:   //  ProjectScheduler.Controls.SubslotDetailsView
+                userType = new global::ProjectScheduler.ProjectScheduler_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Microsoft.UI.Xaml.Controls.UserControl"));
+                userType.Activator = Activate_9_SubslotDetailsView;
+                userType.StaticInitializer = StaticInitializer_9_SubslotDetailsView;
+                userType.AddMemberName("Subslot");
+                userType.SetIsLocalType();
+                xamlType = userType;
+                break;
+
+            case 10:   //  ProjectScheduler.Models.SubslotItem
+                userType = new global::ProjectScheduler.ProjectScheduler_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("CommunityToolkit.Mvvm.ComponentModel.ObservableObject"));
+                userType.StaticInitializer = StaticInitializer_10_SubslotItem;
+                userType.SetIsReturnTypeStub();
+                userType.SetIsLocalType();
+                xamlType = userType;
+                break;
+
+            case 11:   //  CommunityToolkit.Mvvm.ComponentModel.ObservableObject
+                userType = new global::ProjectScheduler.ProjectScheduler_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Object"));
+                userType.StaticInitializer = StaticInitializer_11_ObservableObject;
+                xamlType = userType;
+                break;
+
+            case 12:   //  Microsoft.UI.Xaml.Controls.NavigationView
                 userType = new global::ProjectScheduler.ProjectScheduler_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Microsoft.UI.Xaml.Controls.ContentControl"));
-                userType.Activator = Activate_9_NavigationView;
-                userType.StaticInitializer = StaticInitializer_9_NavigationView;
+                userType.Activator = Activate_12_NavigationView;
+                userType.StaticInitializer = StaticInitializer_12_NavigationView;
                 userType.AddMemberName("PaneDisplayMode");
                 userType.AddMemberName("IsPaneOpen");
                 userType.AddMemberName("IsBackButtonVisible");
@@ -541,13 +575,13 @@ namespace ProjectScheduler.ProjectScheduler_XamlTypeInfo
                 xamlType = userType;
                 break;
 
-            case 10:   //  Microsoft.UI.Xaml.Controls.ContentControl
+            case 13:   //  Microsoft.UI.Xaml.Controls.ContentControl
                 xamlType = new global::ProjectScheduler.ProjectScheduler_XamlTypeInfo.XamlSystemBaseType(typeName, type);
                 break;
 
-            case 11:   //  Microsoft.UI.Xaml.Controls.NavigationViewPaneDisplayMode
+            case 14:   //  Microsoft.UI.Xaml.Controls.NavigationViewPaneDisplayMode
                 userType = new global::ProjectScheduler.ProjectScheduler_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("System.Enum"));
-                userType.StaticInitializer = StaticInitializer_11_NavigationViewPaneDisplayMode;
+                userType.StaticInitializer = StaticInitializer_14_NavigationViewPaneDisplayMode;
                 userType.AddEnumValue("Auto", global::Microsoft.UI.Xaml.Controls.NavigationViewPaneDisplayMode.Auto);
                 userType.AddEnumValue("Left", global::Microsoft.UI.Xaml.Controls.NavigationViewPaneDisplayMode.Left);
                 userType.AddEnumValue("Top", global::Microsoft.UI.Xaml.Controls.NavigationViewPaneDisplayMode.Top);
@@ -556,108 +590,108 @@ namespace ProjectScheduler.ProjectScheduler_XamlTypeInfo
                 xamlType = userType;
                 break;
 
-            case 12:   //  System.Enum
+            case 15:   //  System.Enum
                 userType = new global::ProjectScheduler.ProjectScheduler_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("System.ValueType"));
-                userType.StaticInitializer = StaticInitializer_12_Enum;
+                userType.StaticInitializer = StaticInitializer_15_Enum;
                 xamlType = userType;
                 break;
 
-            case 13:   //  System.ValueType
+            case 16:   //  System.ValueType
                 userType = new global::ProjectScheduler.ProjectScheduler_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Object"));
-                userType.StaticInitializer = StaticInitializer_13_ValueType;
+                userType.StaticInitializer = StaticInitializer_16_ValueType;
                 xamlType = userType;
                 break;
 
-            case 14:   //  Microsoft.UI.Xaml.Controls.NavigationViewBackButtonVisible
+            case 17:   //  Microsoft.UI.Xaml.Controls.NavigationViewBackButtonVisible
                 userType = new global::ProjectScheduler.ProjectScheduler_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("System.Enum"));
-                userType.StaticInitializer = StaticInitializer_14_NavigationViewBackButtonVisible;
+                userType.StaticInitializer = StaticInitializer_17_NavigationViewBackButtonVisible;
                 userType.AddEnumValue("Collapsed", global::Microsoft.UI.Xaml.Controls.NavigationViewBackButtonVisible.Collapsed);
                 userType.AddEnumValue("Visible", global::Microsoft.UI.Xaml.Controls.NavigationViewBackButtonVisible.Visible);
                 userType.AddEnumValue("Auto", global::Microsoft.UI.Xaml.Controls.NavigationViewBackButtonVisible.Auto);
                 xamlType = userType;
                 break;
 
-            case 15:   //  System.Collections.Generic.IList`1<Object>
+            case 18:   //  System.Collections.Generic.IList`1<Object>
                 userType = new global::ProjectScheduler.ProjectScheduler_XamlTypeInfo.XamlUserType(this, typeName, type, null);
-                userType.StaticInitializer = StaticInitializer_15_IList;
-                userType.CollectionAdd = VectorAdd_15_IList;
+                userType.StaticInitializer = StaticInitializer_18_IList;
+                userType.CollectionAdd = VectorAdd_18_IList;
                 userType.SetIsReturnTypeStub();
                 xamlType = userType;
                 break;
 
-            case 16:   //  Microsoft.UI.Xaml.Controls.AutoSuggestBox
+            case 19:   //  Microsoft.UI.Xaml.Controls.AutoSuggestBox
                 xamlType = new global::ProjectScheduler.ProjectScheduler_XamlTypeInfo.XamlSystemBaseType(typeName, type);
                 break;
 
-            case 17:   //  Double
+            case 20:   //  Double
                 xamlType = new global::ProjectScheduler.ProjectScheduler_XamlTypeInfo.XamlSystemBaseType(typeName, type);
                 break;
 
-            case 18:   //  Microsoft.UI.Xaml.UIElement
+            case 21:   //  Microsoft.UI.Xaml.UIElement
                 xamlType = new global::ProjectScheduler.ProjectScheduler_XamlTypeInfo.XamlSystemBaseType(typeName, type);
                 break;
 
-            case 19:   //  Microsoft.UI.Xaml.Controls.NavigationViewDisplayMode
+            case 22:   //  Microsoft.UI.Xaml.Controls.NavigationViewDisplayMode
                 userType = new global::ProjectScheduler.ProjectScheduler_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("System.Enum"));
-                userType.StaticInitializer = StaticInitializer_19_NavigationViewDisplayMode;
+                userType.StaticInitializer = StaticInitializer_22_NavigationViewDisplayMode;
                 userType.AddEnumValue("Minimal", global::Microsoft.UI.Xaml.Controls.NavigationViewDisplayMode.Minimal);
                 userType.AddEnumValue("Compact", global::Microsoft.UI.Xaml.Controls.NavigationViewDisplayMode.Compact);
                 userType.AddEnumValue("Expanded", global::Microsoft.UI.Xaml.Controls.NavigationViewDisplayMode.Expanded);
                 xamlType = userType;
                 break;
 
-            case 20:   //  Microsoft.UI.Xaml.Style
+            case 23:   //  Microsoft.UI.Xaml.Style
                 xamlType = new global::ProjectScheduler.ProjectScheduler_XamlTypeInfo.XamlSystemBaseType(typeName, type);
                 break;
 
-            case 21:   //  Microsoft.UI.Xaml.Controls.StyleSelector
+            case 24:   //  Microsoft.UI.Xaml.Controls.StyleSelector
                 xamlType = new global::ProjectScheduler.ProjectScheduler_XamlTypeInfo.XamlSystemBaseType(typeName, type);
                 break;
 
-            case 22:   //  Microsoft.UI.Xaml.Controls.DataTemplateSelector
+            case 25:   //  Microsoft.UI.Xaml.Controls.DataTemplateSelector
                 xamlType = new global::ProjectScheduler.ProjectScheduler_XamlTypeInfo.XamlSystemBaseType(typeName, type);
                 break;
 
-            case 23:   //  Microsoft.UI.Xaml.Controls.NavigationViewOverflowLabelMode
+            case 26:   //  Microsoft.UI.Xaml.Controls.NavigationViewOverflowLabelMode
                 userType = new global::ProjectScheduler.ProjectScheduler_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("System.Enum"));
-                userType.StaticInitializer = StaticInitializer_23_NavigationViewOverflowLabelMode;
+                userType.StaticInitializer = StaticInitializer_26_NavigationViewOverflowLabelMode;
                 userType.AddEnumValue("MoreLabel", global::Microsoft.UI.Xaml.Controls.NavigationViewOverflowLabelMode.MoreLabel);
                 userType.AddEnumValue("NoLabel", global::Microsoft.UI.Xaml.Controls.NavigationViewOverflowLabelMode.NoLabel);
                 xamlType = userType;
                 break;
 
-            case 24:   //  Microsoft.UI.Xaml.Controls.NavigationViewSelectionFollowsFocus
+            case 27:   //  Microsoft.UI.Xaml.Controls.NavigationViewSelectionFollowsFocus
                 userType = new global::ProjectScheduler.ProjectScheduler_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("System.Enum"));
-                userType.StaticInitializer = StaticInitializer_24_NavigationViewSelectionFollowsFocus;
+                userType.StaticInitializer = StaticInitializer_27_NavigationViewSelectionFollowsFocus;
                 userType.AddEnumValue("Disabled", global::Microsoft.UI.Xaml.Controls.NavigationViewSelectionFollowsFocus.Disabled);
                 userType.AddEnumValue("Enabled", global::Microsoft.UI.Xaml.Controls.NavigationViewSelectionFollowsFocus.Enabled);
                 xamlType = userType;
                 break;
 
-            case 25:   //  Microsoft.UI.Xaml.Controls.NavigationViewShoulderNavigationEnabled
+            case 28:   //  Microsoft.UI.Xaml.Controls.NavigationViewShoulderNavigationEnabled
                 userType = new global::ProjectScheduler.ProjectScheduler_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("System.Enum"));
-                userType.StaticInitializer = StaticInitializer_25_NavigationViewShoulderNavigationEnabled;
+                userType.StaticInitializer = StaticInitializer_28_NavigationViewShoulderNavigationEnabled;
                 userType.AddEnumValue("WhenSelectionFollowsFocus", global::Microsoft.UI.Xaml.Controls.NavigationViewShoulderNavigationEnabled.WhenSelectionFollowsFocus);
                 userType.AddEnumValue("Always", global::Microsoft.UI.Xaml.Controls.NavigationViewShoulderNavigationEnabled.Always);
                 userType.AddEnumValue("Never", global::Microsoft.UI.Xaml.Controls.NavigationViewShoulderNavigationEnabled.Never);
                 xamlType = userType;
                 break;
 
-            case 26:   //  Microsoft.UI.Xaml.Controls.NavigationViewTemplateSettings
+            case 29:   //  Microsoft.UI.Xaml.Controls.NavigationViewTemplateSettings
                 userType = new global::ProjectScheduler.ProjectScheduler_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Microsoft.UI.Xaml.DependencyObject"));
-                userType.StaticInitializer = StaticInitializer_26_NavigationViewTemplateSettings;
+                userType.StaticInitializer = StaticInitializer_29_NavigationViewTemplateSettings;
                 userType.SetIsReturnTypeStub();
                 xamlType = userType;
                 break;
 
-            case 27:   //  Microsoft.UI.Xaml.DependencyObject
+            case 30:   //  Microsoft.UI.Xaml.DependencyObject
                 xamlType = new global::ProjectScheduler.ProjectScheduler_XamlTypeInfo.XamlSystemBaseType(typeName, type);
                 break;
 
-            case 28:   //  Microsoft.UI.Xaml.Controls.NavigationViewItem
+            case 31:   //  Microsoft.UI.Xaml.Controls.NavigationViewItem
                 userType = new global::ProjectScheduler.ProjectScheduler_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Microsoft.UI.Xaml.Controls.NavigationViewItemBase"));
-                userType.Activator = Activate_28_NavigationViewItem;
-                userType.StaticInitializer = StaticInitializer_28_NavigationViewItem;
+                userType.Activator = Activate_31_NavigationViewItem;
+                userType.StaticInitializer = StaticInitializer_31_NavigationViewItem;
                 userType.AddMemberName("Icon");
                 userType.AddMemberName("CompactPaneLength");
                 userType.AddMemberName("HasUnrealizedChildren");
@@ -670,72 +704,72 @@ namespace ProjectScheduler.ProjectScheduler_XamlTypeInfo
                 xamlType = userType;
                 break;
 
-            case 29:   //  Microsoft.UI.Xaml.Controls.NavigationViewItemBase
+            case 32:   //  Microsoft.UI.Xaml.Controls.NavigationViewItemBase
                 userType = new global::ProjectScheduler.ProjectScheduler_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Microsoft.UI.Xaml.Controls.ContentControl"));
-                userType.StaticInitializer = StaticInitializer_29_NavigationViewItemBase;
+                userType.StaticInitializer = StaticInitializer_32_NavigationViewItemBase;
                 userType.AddMemberName("IsSelected");
                 xamlType = userType;
                 break;
 
-            case 30:   //  Microsoft.UI.Xaml.Controls.IconElement
+            case 33:   //  Microsoft.UI.Xaml.Controls.IconElement
                 xamlType = new global::ProjectScheduler.ProjectScheduler_XamlTypeInfo.XamlSystemBaseType(typeName, type);
                 break;
 
-            case 31:   //  Microsoft.UI.Xaml.Controls.InfoBadge
+            case 34:   //  Microsoft.UI.Xaml.Controls.InfoBadge
                 userType = new global::ProjectScheduler.ProjectScheduler_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Microsoft.UI.Xaml.Controls.Control"));
-                userType.StaticInitializer = StaticInitializer_31_InfoBadge;
+                userType.StaticInitializer = StaticInitializer_34_InfoBadge;
                 userType.SetIsReturnTypeStub();
                 xamlType = userType;
                 break;
 
-            case 32:   //  Microsoft.UI.Xaml.Controls.Control
+            case 35:   //  Microsoft.UI.Xaml.Controls.Control
                 xamlType = new global::ProjectScheduler.ProjectScheduler_XamlTypeInfo.XamlSystemBaseType(typeName, type);
                 break;
 
-            case 33:   //  ProjectScheduler.MainWindow
+            case 36:   //  ProjectScheduler.MainWindow
                 userType = new global::ProjectScheduler.ProjectScheduler_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Microsoft.UI.Xaml.Window"));
-                userType.Activator = Activate_33_MainWindow;
-                userType.StaticInitializer = StaticInitializer_33_MainWindow;
+                userType.Activator = Activate_36_MainWindow;
+                userType.StaticInitializer = StaticInitializer_36_MainWindow;
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;
 
-            case 34:   //  Microsoft.UI.Xaml.Window
+            case 37:   //  Microsoft.UI.Xaml.Window
                 xamlType = new global::ProjectScheduler.ProjectScheduler_XamlTypeInfo.XamlSystemBaseType(typeName, type);
                 break;
 
-            case 35:   //  ProjectScheduler.Pages.HomePage
+            case 38:   //  ProjectScheduler.Pages.HomePage
                 userType = new global::ProjectScheduler.ProjectScheduler_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Microsoft.UI.Xaml.Controls.Page"));
-                userType.Activator = Activate_35_HomePage;
-                userType.StaticInitializer = StaticInitializer_35_HomePage;
+                userType.Activator = Activate_38_HomePage;
+                userType.StaticInitializer = StaticInitializer_38_HomePage;
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;
 
-            case 36:   //  Microsoft.UI.Xaml.Controls.Page
+            case 39:   //  Microsoft.UI.Xaml.Controls.Page
                 xamlType = new global::ProjectScheduler.ProjectScheduler_XamlTypeInfo.XamlSystemBaseType(typeName, type);
                 break;
 
-            case 37:   //  ProjectScheduler.Pages.PlaceholderPage
+            case 40:   //  ProjectScheduler.Pages.PlaceholderPage
                 userType = new global::ProjectScheduler.ProjectScheduler_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Microsoft.UI.Xaml.Controls.Page"));
-                userType.Activator = Activate_37_PlaceholderPage;
-                userType.StaticInitializer = StaticInitializer_37_PlaceholderPage;
+                userType.Activator = Activate_40_PlaceholderPage;
+                userType.StaticInitializer = StaticInitializer_40_PlaceholderPage;
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;
 
-            case 38:   //  ProjectScheduler.Pages.PreWorkChecklistPage
+            case 41:   //  ProjectScheduler.Pages.PreWorkChecklistPage
                 userType = new global::ProjectScheduler.ProjectScheduler_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Microsoft.UI.Xaml.Controls.Page"));
-                userType.Activator = Activate_38_PreWorkChecklistPage;
-                userType.StaticInitializer = StaticInitializer_38_PreWorkChecklistPage;
+                userType.Activator = Activate_41_PreWorkChecklistPage;
+                userType.StaticInitializer = StaticInitializer_41_PreWorkChecklistPage;
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;
 
-            case 39:   //  Microsoft.UI.Xaml.Controls.NumberBox
+            case 42:   //  Microsoft.UI.Xaml.Controls.NumberBox
                 userType = new global::ProjectScheduler.ProjectScheduler_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Microsoft.UI.Xaml.Controls.Control"));
-                userType.Activator = Activate_39_NumberBox;
-                userType.StaticInitializer = StaticInitializer_39_NumberBox;
+                userType.Activator = Activate_42_NumberBox;
+                userType.StaticInitializer = StaticInitializer_42_NumberBox;
                 userType.AddMemberName("Header");
                 userType.AddMemberName("PlaceholderText");
                 userType.AddMemberName("AcceptsExpression");
@@ -758,70 +792,70 @@ namespace ProjectScheduler.ProjectScheduler_XamlTypeInfo
                 xamlType = userType;
                 break;
 
-            case 40:   //  Windows.Globalization.NumberFormatting.INumberFormatter2
+            case 43:   //  Windows.Globalization.NumberFormatting.INumberFormatter2
                 userType = new global::ProjectScheduler.ProjectScheduler_XamlTypeInfo.XamlUserType(this, typeName, type, null);
-                userType.StaticInitializer = StaticInitializer_40_INumberFormatter2;
+                userType.StaticInitializer = StaticInitializer_43_INumberFormatter2;
                 userType.SetIsReturnTypeStub();
                 xamlType = userType;
                 break;
 
-            case 41:   //  Microsoft.UI.Xaml.Controls.Primitives.FlyoutBase
+            case 44:   //  Microsoft.UI.Xaml.Controls.Primitives.FlyoutBase
                 xamlType = new global::ProjectScheduler.ProjectScheduler_XamlTypeInfo.XamlSystemBaseType(typeName, type);
                 break;
 
-            case 42:   //  Microsoft.UI.Xaml.Media.SolidColorBrush
+            case 45:   //  Microsoft.UI.Xaml.Media.SolidColorBrush
                 xamlType = new global::ProjectScheduler.ProjectScheduler_XamlTypeInfo.XamlSystemBaseType(typeName, type);
                 break;
 
-            case 43:   //  Microsoft.UI.Xaml.Controls.NumberBoxSpinButtonPlacementMode
+            case 46:   //  Microsoft.UI.Xaml.Controls.NumberBoxSpinButtonPlacementMode
                 userType = new global::ProjectScheduler.ProjectScheduler_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("System.Enum"));
-                userType.StaticInitializer = StaticInitializer_43_NumberBoxSpinButtonPlacementMode;
+                userType.StaticInitializer = StaticInitializer_46_NumberBoxSpinButtonPlacementMode;
                 userType.AddEnumValue("Hidden", global::Microsoft.UI.Xaml.Controls.NumberBoxSpinButtonPlacementMode.Hidden);
                 userType.AddEnumValue("Compact", global::Microsoft.UI.Xaml.Controls.NumberBoxSpinButtonPlacementMode.Compact);
                 userType.AddEnumValue("Inline", global::Microsoft.UI.Xaml.Controls.NumberBoxSpinButtonPlacementMode.Inline);
                 xamlType = userType;
                 break;
 
-            case 44:   //  Microsoft.UI.Xaml.TextReadingOrder
+            case 47:   //  Microsoft.UI.Xaml.TextReadingOrder
                 xamlType = new global::ProjectScheduler.ProjectScheduler_XamlTypeInfo.XamlSystemBaseType(typeName, type);
                 break;
 
-            case 45:   //  Microsoft.UI.Xaml.Controls.NumberBoxValidationMode
+            case 48:   //  Microsoft.UI.Xaml.Controls.NumberBoxValidationMode
                 userType = new global::ProjectScheduler.ProjectScheduler_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("System.Enum"));
-                userType.StaticInitializer = StaticInitializer_45_NumberBoxValidationMode;
+                userType.StaticInitializer = StaticInitializer_48_NumberBoxValidationMode;
                 userType.AddEnumValue("InvalidInputOverwritten", global::Microsoft.UI.Xaml.Controls.NumberBoxValidationMode.InvalidInputOverwritten);
                 userType.AddEnumValue("Disabled", global::Microsoft.UI.Xaml.Controls.NumberBoxValidationMode.Disabled);
                 xamlType = userType;
                 break;
 
-            case 46:   //  ProjectScheduler.Pages.ProjectsPage
+            case 49:   //  ProjectScheduler.Pages.ProjectsPage
                 userType = new global::ProjectScheduler.ProjectScheduler_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Microsoft.UI.Xaml.Controls.Page"));
-                userType.Activator = Activate_46_ProjectsPage;
-                userType.StaticInitializer = StaticInitializer_46_ProjectsPage;
+                userType.Activator = Activate_49_ProjectsPage;
+                userType.StaticInitializer = StaticInitializer_49_ProjectsPage;
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;
 
-            case 47:   //  ProjectScheduler.Pages.ResourcesPage
+            case 50:   //  ProjectScheduler.Pages.ResourcesPage
                 userType = new global::ProjectScheduler.ProjectScheduler_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Microsoft.UI.Xaml.Controls.Page"));
-                userType.Activator = Activate_47_ResourcesPage;
-                userType.StaticInitializer = StaticInitializer_47_ResourcesPage;
+                userType.Activator = Activate_50_ResourcesPage;
+                userType.StaticInitializer = StaticInitializer_50_ResourcesPage;
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;
 
-            case 48:   //  ProjectScheduler.Pages.SubslotsPage
+            case 51:   //  ProjectScheduler.Pages.SubslotsPage
                 userType = new global::ProjectScheduler.ProjectScheduler_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Microsoft.UI.Xaml.Controls.Page"));
-                userType.Activator = Activate_48_SubslotsPage;
-                userType.StaticInitializer = StaticInitializer_48_SubslotsPage;
+                userType.Activator = Activate_51_SubslotsPage;
+                userType.StaticInitializer = StaticInitializer_51_SubslotsPage;
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;
 
-            case 49:   //  Microsoft.UI.Xaml.Controls.TreeViewNode
+            case 52:   //  Microsoft.UI.Xaml.Controls.TreeViewNode
                 userType = new global::ProjectScheduler.ProjectScheduler_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Microsoft.UI.Xaml.DependencyObject"));
-                userType.Activator = Activate_49_TreeViewNode;
-                userType.StaticInitializer = StaticInitializer_49_TreeViewNode;
+                userType.Activator = Activate_52_TreeViewNode;
+                userType.StaticInitializer = StaticInitializer_52_TreeViewNode;
                 userType.AddMemberName("Children");
                 userType.AddMemberName("Content");
                 userType.AddMemberName("Depth");
@@ -833,15 +867,15 @@ namespace ProjectScheduler.ProjectScheduler_XamlTypeInfo
                 xamlType = userType;
                 break;
 
-            case 50:   //  System.Collections.Generic.IList`1<Microsoft.UI.Xaml.Controls.TreeViewNode>
+            case 53:   //  System.Collections.Generic.IList`1<Microsoft.UI.Xaml.Controls.TreeViewNode>
                 userType = new global::ProjectScheduler.ProjectScheduler_XamlTypeInfo.XamlUserType(this, typeName, type, null);
-                userType.StaticInitializer = StaticInitializer_50_IList;
-                userType.CollectionAdd = VectorAdd_50_IList;
+                userType.StaticInitializer = StaticInitializer_53_IList;
+                userType.CollectionAdd = VectorAdd_53_IList;
                 userType.SetIsReturnTypeStub();
                 xamlType = userType;
                 break;
 
-            case 51:   //  Int32
+            case 54:   //  Int32
                 xamlType = new global::ProjectScheduler.ProjectScheduler_XamlTypeInfo.XamlSystemBaseType(typeName, type);
                 break;
             }
@@ -983,677 +1017,687 @@ namespace ProjectScheduler.ProjectScheduler_XamlTypeInfo
             var that = (global::ProjectScheduler.Controls.ItemListView)instance;
             that.ItemTemplate = (global::Microsoft.UI.Xaml.DataTemplate)Value;
         }
-        private object get_8_NavigationView_PaneDisplayMode(object instance)
+        private object get_8_SubslotDetailsView_Subslot(object instance)
+        {
+            var that = (global::ProjectScheduler.Controls.SubslotDetailsView)instance;
+            return that.Subslot;
+        }
+        private void set_8_SubslotDetailsView_Subslot(object instance, object Value)
+        {
+            var that = (global::ProjectScheduler.Controls.SubslotDetailsView)instance;
+            that.Subslot = (global::ProjectScheduler.Models.SubslotItem)Value;
+        }
+        private object get_9_NavigationView_PaneDisplayMode(object instance)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.NavigationView)instance;
             return that.PaneDisplayMode;
         }
-        private void set_8_NavigationView_PaneDisplayMode(object instance, object Value)
+        private void set_9_NavigationView_PaneDisplayMode(object instance, object Value)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.NavigationView)instance;
             that.PaneDisplayMode = (global::Microsoft.UI.Xaml.Controls.NavigationViewPaneDisplayMode)Value;
         }
-        private object get_9_NavigationView_IsPaneOpen(object instance)
+        private object get_10_NavigationView_IsPaneOpen(object instance)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.NavigationView)instance;
             return that.IsPaneOpen;
         }
-        private void set_9_NavigationView_IsPaneOpen(object instance, object Value)
+        private void set_10_NavigationView_IsPaneOpen(object instance, object Value)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.NavigationView)instance;
             that.IsPaneOpen = (global::System.Boolean)Value;
         }
-        private object get_10_NavigationView_IsBackButtonVisible(object instance)
+        private object get_11_NavigationView_IsBackButtonVisible(object instance)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.NavigationView)instance;
             return that.IsBackButtonVisible;
         }
-        private void set_10_NavigationView_IsBackButtonVisible(object instance, object Value)
+        private void set_11_NavigationView_IsBackButtonVisible(object instance, object Value)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.NavigationView)instance;
             that.IsBackButtonVisible = (global::Microsoft.UI.Xaml.Controls.NavigationViewBackButtonVisible)Value;
         }
-        private object get_11_NavigationView_IsSettingsVisible(object instance)
+        private object get_12_NavigationView_IsSettingsVisible(object instance)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.NavigationView)instance;
             return that.IsSettingsVisible;
         }
-        private void set_11_NavigationView_IsSettingsVisible(object instance, object Value)
+        private void set_12_NavigationView_IsSettingsVisible(object instance, object Value)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.NavigationView)instance;
             that.IsSettingsVisible = (global::System.Boolean)Value;
         }
-        private object get_12_NavigationView_IsPaneToggleButtonVisible(object instance)
+        private object get_13_NavigationView_IsPaneToggleButtonVisible(object instance)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.NavigationView)instance;
             return that.IsPaneToggleButtonVisible;
         }
-        private void set_12_NavigationView_IsPaneToggleButtonVisible(object instance, object Value)
+        private void set_13_NavigationView_IsPaneToggleButtonVisible(object instance, object Value)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.NavigationView)instance;
             that.IsPaneToggleButtonVisible = (global::System.Boolean)Value;
         }
-        private object get_13_NavigationView_MenuItems(object instance)
+        private object get_14_NavigationView_MenuItems(object instance)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.NavigationView)instance;
             return that.MenuItems;
         }
-        private object get_14_NavigationView_AlwaysShowHeader(object instance)
+        private object get_15_NavigationView_AlwaysShowHeader(object instance)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.NavigationView)instance;
             return that.AlwaysShowHeader;
         }
-        private void set_14_NavigationView_AlwaysShowHeader(object instance, object Value)
+        private void set_15_NavigationView_AlwaysShowHeader(object instance, object Value)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.NavigationView)instance;
             that.AlwaysShowHeader = (global::System.Boolean)Value;
         }
-        private object get_15_NavigationView_AutoSuggestBox(object instance)
+        private object get_16_NavigationView_AutoSuggestBox(object instance)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.NavigationView)instance;
             return that.AutoSuggestBox;
         }
-        private void set_15_NavigationView_AutoSuggestBox(object instance, object Value)
+        private void set_16_NavigationView_AutoSuggestBox(object instance, object Value)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.NavigationView)instance;
             that.AutoSuggestBox = (global::Microsoft.UI.Xaml.Controls.AutoSuggestBox)Value;
         }
-        private object get_16_NavigationView_CompactModeThresholdWidth(object instance)
+        private object get_17_NavigationView_CompactModeThresholdWidth(object instance)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.NavigationView)instance;
             return that.CompactModeThresholdWidth;
         }
-        private void set_16_NavigationView_CompactModeThresholdWidth(object instance, object Value)
+        private void set_17_NavigationView_CompactModeThresholdWidth(object instance, object Value)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.NavigationView)instance;
             that.CompactModeThresholdWidth = (global::System.Double)Value;
         }
-        private object get_17_NavigationView_CompactPaneLength(object instance)
+        private object get_18_NavigationView_CompactPaneLength(object instance)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.NavigationView)instance;
             return that.CompactPaneLength;
         }
-        private void set_17_NavigationView_CompactPaneLength(object instance, object Value)
+        private void set_18_NavigationView_CompactPaneLength(object instance, object Value)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.NavigationView)instance;
             that.CompactPaneLength = (global::System.Double)Value;
         }
-        private object get_18_NavigationView_ContentOverlay(object instance)
+        private object get_19_NavigationView_ContentOverlay(object instance)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.NavigationView)instance;
             return that.ContentOverlay;
         }
-        private void set_18_NavigationView_ContentOverlay(object instance, object Value)
+        private void set_19_NavigationView_ContentOverlay(object instance, object Value)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.NavigationView)instance;
             that.ContentOverlay = (global::Microsoft.UI.Xaml.UIElement)Value;
         }
-        private object get_19_NavigationView_DisplayMode(object instance)
+        private object get_20_NavigationView_DisplayMode(object instance)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.NavigationView)instance;
             return that.DisplayMode;
         }
-        private object get_20_NavigationView_ExpandedModeThresholdWidth(object instance)
+        private object get_21_NavigationView_ExpandedModeThresholdWidth(object instance)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.NavigationView)instance;
             return that.ExpandedModeThresholdWidth;
         }
-        private void set_20_NavigationView_ExpandedModeThresholdWidth(object instance, object Value)
+        private void set_21_NavigationView_ExpandedModeThresholdWidth(object instance, object Value)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.NavigationView)instance;
             that.ExpandedModeThresholdWidth = (global::System.Double)Value;
         }
-        private object get_21_NavigationView_FooterMenuItems(object instance)
+        private object get_22_NavigationView_FooterMenuItems(object instance)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.NavigationView)instance;
             return that.FooterMenuItems;
         }
-        private object get_22_NavigationView_FooterMenuItemsSource(object instance)
+        private object get_23_NavigationView_FooterMenuItemsSource(object instance)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.NavigationView)instance;
             return that.FooterMenuItemsSource;
         }
-        private void set_22_NavigationView_FooterMenuItemsSource(object instance, object Value)
+        private void set_23_NavigationView_FooterMenuItemsSource(object instance, object Value)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.NavigationView)instance;
             that.FooterMenuItemsSource = (global::System.Object)Value;
         }
-        private object get_23_NavigationView_Header(object instance)
+        private object get_24_NavigationView_Header(object instance)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.NavigationView)instance;
             return that.Header;
         }
-        private void set_23_NavigationView_Header(object instance, object Value)
+        private void set_24_NavigationView_Header(object instance, object Value)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.NavigationView)instance;
             that.Header = (global::System.Object)Value;
         }
-        private object get_24_NavigationView_HeaderTemplate(object instance)
+        private object get_25_NavigationView_HeaderTemplate(object instance)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.NavigationView)instance;
             return that.HeaderTemplate;
         }
-        private void set_24_NavigationView_HeaderTemplate(object instance, object Value)
+        private void set_25_NavigationView_HeaderTemplate(object instance, object Value)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.NavigationView)instance;
             that.HeaderTemplate = (global::Microsoft.UI.Xaml.DataTemplate)Value;
         }
-        private object get_25_NavigationView_IsBackEnabled(object instance)
+        private object get_26_NavigationView_IsBackEnabled(object instance)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.NavigationView)instance;
             return that.IsBackEnabled;
         }
-        private void set_25_NavigationView_IsBackEnabled(object instance, object Value)
+        private void set_26_NavigationView_IsBackEnabled(object instance, object Value)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.NavigationView)instance;
             that.IsBackEnabled = (global::System.Boolean)Value;
         }
-        private object get_26_NavigationView_IsPaneVisible(object instance)
+        private object get_27_NavigationView_IsPaneVisible(object instance)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.NavigationView)instance;
             return that.IsPaneVisible;
         }
-        private void set_26_NavigationView_IsPaneVisible(object instance, object Value)
+        private void set_27_NavigationView_IsPaneVisible(object instance, object Value)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.NavigationView)instance;
             that.IsPaneVisible = (global::System.Boolean)Value;
         }
-        private object get_27_NavigationView_IsTitleBarAutoPaddingEnabled(object instance)
+        private object get_28_NavigationView_IsTitleBarAutoPaddingEnabled(object instance)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.NavigationView)instance;
             return that.IsTitleBarAutoPaddingEnabled;
         }
-        private void set_27_NavigationView_IsTitleBarAutoPaddingEnabled(object instance, object Value)
+        private void set_28_NavigationView_IsTitleBarAutoPaddingEnabled(object instance, object Value)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.NavigationView)instance;
             that.IsTitleBarAutoPaddingEnabled = (global::System.Boolean)Value;
         }
-        private object get_28_NavigationView_MenuItemContainerStyle(object instance)
+        private object get_29_NavigationView_MenuItemContainerStyle(object instance)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.NavigationView)instance;
             return that.MenuItemContainerStyle;
         }
-        private void set_28_NavigationView_MenuItemContainerStyle(object instance, object Value)
+        private void set_29_NavigationView_MenuItemContainerStyle(object instance, object Value)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.NavigationView)instance;
             that.MenuItemContainerStyle = (global::Microsoft.UI.Xaml.Style)Value;
         }
-        private object get_29_NavigationView_MenuItemContainerStyleSelector(object instance)
+        private object get_30_NavigationView_MenuItemContainerStyleSelector(object instance)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.NavigationView)instance;
             return that.MenuItemContainerStyleSelector;
         }
-        private void set_29_NavigationView_MenuItemContainerStyleSelector(object instance, object Value)
+        private void set_30_NavigationView_MenuItemContainerStyleSelector(object instance, object Value)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.NavigationView)instance;
             that.MenuItemContainerStyleSelector = (global::Microsoft.UI.Xaml.Controls.StyleSelector)Value;
         }
-        private object get_30_NavigationView_MenuItemTemplate(object instance)
+        private object get_31_NavigationView_MenuItemTemplate(object instance)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.NavigationView)instance;
             return that.MenuItemTemplate;
         }
-        private void set_30_NavigationView_MenuItemTemplate(object instance, object Value)
+        private void set_31_NavigationView_MenuItemTemplate(object instance, object Value)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.NavigationView)instance;
             that.MenuItemTemplate = (global::Microsoft.UI.Xaml.DataTemplate)Value;
         }
-        private object get_31_NavigationView_MenuItemTemplateSelector(object instance)
+        private object get_32_NavigationView_MenuItemTemplateSelector(object instance)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.NavigationView)instance;
             return that.MenuItemTemplateSelector;
         }
-        private void set_31_NavigationView_MenuItemTemplateSelector(object instance, object Value)
+        private void set_32_NavigationView_MenuItemTemplateSelector(object instance, object Value)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.NavigationView)instance;
             that.MenuItemTemplateSelector = (global::Microsoft.UI.Xaml.Controls.DataTemplateSelector)Value;
         }
-        private object get_32_NavigationView_MenuItemsSource(object instance)
+        private object get_33_NavigationView_MenuItemsSource(object instance)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.NavigationView)instance;
             return that.MenuItemsSource;
         }
-        private void set_32_NavigationView_MenuItemsSource(object instance, object Value)
+        private void set_33_NavigationView_MenuItemsSource(object instance, object Value)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.NavigationView)instance;
             that.MenuItemsSource = (global::System.Object)Value;
         }
-        private object get_33_NavigationView_OpenPaneLength(object instance)
+        private object get_34_NavigationView_OpenPaneLength(object instance)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.NavigationView)instance;
             return that.OpenPaneLength;
         }
-        private void set_33_NavigationView_OpenPaneLength(object instance, object Value)
+        private void set_34_NavigationView_OpenPaneLength(object instance, object Value)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.NavigationView)instance;
             that.OpenPaneLength = (global::System.Double)Value;
         }
-        private object get_34_NavigationView_OverflowLabelMode(object instance)
+        private object get_35_NavigationView_OverflowLabelMode(object instance)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.NavigationView)instance;
             return that.OverflowLabelMode;
         }
-        private void set_34_NavigationView_OverflowLabelMode(object instance, object Value)
+        private void set_35_NavigationView_OverflowLabelMode(object instance, object Value)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.NavigationView)instance;
             that.OverflowLabelMode = (global::Microsoft.UI.Xaml.Controls.NavigationViewOverflowLabelMode)Value;
         }
-        private object get_35_NavigationView_PaneCustomContent(object instance)
+        private object get_36_NavigationView_PaneCustomContent(object instance)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.NavigationView)instance;
             return that.PaneCustomContent;
         }
-        private void set_35_NavigationView_PaneCustomContent(object instance, object Value)
+        private void set_36_NavigationView_PaneCustomContent(object instance, object Value)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.NavigationView)instance;
             that.PaneCustomContent = (global::Microsoft.UI.Xaml.UIElement)Value;
         }
-        private object get_36_NavigationView_PaneFooter(object instance)
+        private object get_37_NavigationView_PaneFooter(object instance)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.NavigationView)instance;
             return that.PaneFooter;
         }
-        private void set_36_NavigationView_PaneFooter(object instance, object Value)
+        private void set_37_NavigationView_PaneFooter(object instance, object Value)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.NavigationView)instance;
             that.PaneFooter = (global::Microsoft.UI.Xaml.UIElement)Value;
         }
-        private object get_37_NavigationView_PaneHeader(object instance)
+        private object get_38_NavigationView_PaneHeader(object instance)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.NavigationView)instance;
             return that.PaneHeader;
         }
-        private void set_37_NavigationView_PaneHeader(object instance, object Value)
+        private void set_38_NavigationView_PaneHeader(object instance, object Value)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.NavigationView)instance;
             that.PaneHeader = (global::Microsoft.UI.Xaml.UIElement)Value;
         }
-        private object get_38_NavigationView_PaneTitle(object instance)
+        private object get_39_NavigationView_PaneTitle(object instance)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.NavigationView)instance;
             return that.PaneTitle;
         }
-        private void set_38_NavigationView_PaneTitle(object instance, object Value)
+        private void set_39_NavigationView_PaneTitle(object instance, object Value)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.NavigationView)instance;
             that.PaneTitle = (global::System.String)Value;
         }
-        private object get_39_NavigationView_PaneToggleButtonStyle(object instance)
+        private object get_40_NavigationView_PaneToggleButtonStyle(object instance)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.NavigationView)instance;
             return that.PaneToggleButtonStyle;
         }
-        private void set_39_NavigationView_PaneToggleButtonStyle(object instance, object Value)
+        private void set_40_NavigationView_PaneToggleButtonStyle(object instance, object Value)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.NavigationView)instance;
             that.PaneToggleButtonStyle = (global::Microsoft.UI.Xaml.Style)Value;
         }
-        private object get_40_NavigationView_SelectedItem(object instance)
+        private object get_41_NavigationView_SelectedItem(object instance)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.NavigationView)instance;
             return that.SelectedItem;
         }
-        private void set_40_NavigationView_SelectedItem(object instance, object Value)
+        private void set_41_NavigationView_SelectedItem(object instance, object Value)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.NavigationView)instance;
             that.SelectedItem = (global::System.Object)Value;
         }
-        private object get_41_NavigationView_SelectionFollowsFocus(object instance)
+        private object get_42_NavigationView_SelectionFollowsFocus(object instance)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.NavigationView)instance;
             return that.SelectionFollowsFocus;
         }
-        private void set_41_NavigationView_SelectionFollowsFocus(object instance, object Value)
+        private void set_42_NavigationView_SelectionFollowsFocus(object instance, object Value)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.NavigationView)instance;
             that.SelectionFollowsFocus = (global::Microsoft.UI.Xaml.Controls.NavigationViewSelectionFollowsFocus)Value;
         }
-        private object get_42_NavigationView_SettingsItem(object instance)
+        private object get_43_NavigationView_SettingsItem(object instance)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.NavigationView)instance;
             return that.SettingsItem;
         }
-        private object get_43_NavigationView_ShoulderNavigationEnabled(object instance)
+        private object get_44_NavigationView_ShoulderNavigationEnabled(object instance)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.NavigationView)instance;
             return that.ShoulderNavigationEnabled;
         }
-        private void set_43_NavigationView_ShoulderNavigationEnabled(object instance, object Value)
+        private void set_44_NavigationView_ShoulderNavigationEnabled(object instance, object Value)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.NavigationView)instance;
             that.ShoulderNavigationEnabled = (global::Microsoft.UI.Xaml.Controls.NavigationViewShoulderNavigationEnabled)Value;
         }
-        private object get_44_NavigationView_TemplateSettings(object instance)
+        private object get_45_NavigationView_TemplateSettings(object instance)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.NavigationView)instance;
             return that.TemplateSettings;
         }
-        private object get_45_NavigationViewItem_Icon(object instance)
+        private object get_46_NavigationViewItem_Icon(object instance)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.NavigationViewItem)instance;
             return that.Icon;
         }
-        private void set_45_NavigationViewItem_Icon(object instance, object Value)
+        private void set_46_NavigationViewItem_Icon(object instance, object Value)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.NavigationViewItem)instance;
             that.Icon = (global::Microsoft.UI.Xaml.Controls.IconElement)Value;
         }
-        private object get_46_NavigationViewItem_CompactPaneLength(object instance)
+        private object get_47_NavigationViewItem_CompactPaneLength(object instance)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.NavigationViewItem)instance;
             return that.CompactPaneLength;
         }
-        private object get_47_NavigationViewItem_HasUnrealizedChildren(object instance)
+        private object get_48_NavigationViewItem_HasUnrealizedChildren(object instance)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.NavigationViewItem)instance;
             return that.HasUnrealizedChildren;
         }
-        private void set_47_NavigationViewItem_HasUnrealizedChildren(object instance, object Value)
+        private void set_48_NavigationViewItem_HasUnrealizedChildren(object instance, object Value)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.NavigationViewItem)instance;
             that.HasUnrealizedChildren = (global::System.Boolean)Value;
         }
-        private object get_48_NavigationViewItem_InfoBadge(object instance)
+        private object get_49_NavigationViewItem_InfoBadge(object instance)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.NavigationViewItem)instance;
             return that.InfoBadge;
         }
-        private void set_48_NavigationViewItem_InfoBadge(object instance, object Value)
+        private void set_49_NavigationViewItem_InfoBadge(object instance, object Value)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.NavigationViewItem)instance;
             that.InfoBadge = (global::Microsoft.UI.Xaml.Controls.InfoBadge)Value;
         }
-        private object get_49_NavigationViewItem_IsChildSelected(object instance)
+        private object get_50_NavigationViewItem_IsChildSelected(object instance)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.NavigationViewItem)instance;
             return that.IsChildSelected;
         }
-        private void set_49_NavigationViewItem_IsChildSelected(object instance, object Value)
+        private void set_50_NavigationViewItem_IsChildSelected(object instance, object Value)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.NavigationViewItem)instance;
             that.IsChildSelected = (global::System.Boolean)Value;
         }
-        private object get_50_NavigationViewItem_IsExpanded(object instance)
+        private object get_51_NavigationViewItem_IsExpanded(object instance)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.NavigationViewItem)instance;
             return that.IsExpanded;
         }
-        private void set_50_NavigationViewItem_IsExpanded(object instance, object Value)
+        private void set_51_NavigationViewItem_IsExpanded(object instance, object Value)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.NavigationViewItem)instance;
             that.IsExpanded = (global::System.Boolean)Value;
         }
-        private object get_51_NavigationViewItem_MenuItems(object instance)
+        private object get_52_NavigationViewItem_MenuItems(object instance)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.NavigationViewItem)instance;
             return that.MenuItems;
         }
-        private object get_52_NavigationViewItem_MenuItemsSource(object instance)
+        private object get_53_NavigationViewItem_MenuItemsSource(object instance)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.NavigationViewItem)instance;
             return that.MenuItemsSource;
         }
-        private void set_52_NavigationViewItem_MenuItemsSource(object instance, object Value)
+        private void set_53_NavigationViewItem_MenuItemsSource(object instance, object Value)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.NavigationViewItem)instance;
             that.MenuItemsSource = (global::System.Object)Value;
         }
-        private object get_53_NavigationViewItem_SelectsOnInvoked(object instance)
+        private object get_54_NavigationViewItem_SelectsOnInvoked(object instance)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.NavigationViewItem)instance;
             return that.SelectsOnInvoked;
         }
-        private void set_53_NavigationViewItem_SelectsOnInvoked(object instance, object Value)
+        private void set_54_NavigationViewItem_SelectsOnInvoked(object instance, object Value)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.NavigationViewItem)instance;
             that.SelectsOnInvoked = (global::System.Boolean)Value;
         }
-        private object get_54_NavigationViewItemBase_IsSelected(object instance)
+        private object get_55_NavigationViewItemBase_IsSelected(object instance)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.NavigationViewItemBase)instance;
             return that.IsSelected;
         }
-        private void set_54_NavigationViewItemBase_IsSelected(object instance, object Value)
+        private void set_55_NavigationViewItemBase_IsSelected(object instance, object Value)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.NavigationViewItemBase)instance;
             that.IsSelected = (global::System.Boolean)Value;
         }
-        private object get_55_NumberBox_Header(object instance)
+        private object get_56_NumberBox_Header(object instance)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.NumberBox)instance;
             return that.Header;
         }
-        private void set_55_NumberBox_Header(object instance, object Value)
+        private void set_56_NumberBox_Header(object instance, object Value)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.NumberBox)instance;
             that.Header = (global::System.Object)Value;
         }
-        private object get_56_NumberBox_PlaceholderText(object instance)
+        private object get_57_NumberBox_PlaceholderText(object instance)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.NumberBox)instance;
             return that.PlaceholderText;
         }
-        private void set_56_NumberBox_PlaceholderText(object instance, object Value)
+        private void set_57_NumberBox_PlaceholderText(object instance, object Value)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.NumberBox)instance;
             that.PlaceholderText = (global::System.String)Value;
         }
-        private object get_57_NumberBox_AcceptsExpression(object instance)
+        private object get_58_NumberBox_AcceptsExpression(object instance)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.NumberBox)instance;
             return that.AcceptsExpression;
         }
-        private void set_57_NumberBox_AcceptsExpression(object instance, object Value)
+        private void set_58_NumberBox_AcceptsExpression(object instance, object Value)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.NumberBox)instance;
             that.AcceptsExpression = (global::System.Boolean)Value;
         }
-        private object get_58_NumberBox_Description(object instance)
+        private object get_59_NumberBox_Description(object instance)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.NumberBox)instance;
             return that.Description;
         }
-        private void set_58_NumberBox_Description(object instance, object Value)
+        private void set_59_NumberBox_Description(object instance, object Value)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.NumberBox)instance;
             that.Description = (global::System.Object)Value;
         }
-        private object get_59_NumberBox_HeaderTemplate(object instance)
+        private object get_60_NumberBox_HeaderTemplate(object instance)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.NumberBox)instance;
             return that.HeaderTemplate;
         }
-        private void set_59_NumberBox_HeaderTemplate(object instance, object Value)
+        private void set_60_NumberBox_HeaderTemplate(object instance, object Value)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.NumberBox)instance;
             that.HeaderTemplate = (global::Microsoft.UI.Xaml.DataTemplate)Value;
         }
-        private object get_60_NumberBox_IsWrapEnabled(object instance)
+        private object get_61_NumberBox_IsWrapEnabled(object instance)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.NumberBox)instance;
             return that.IsWrapEnabled;
         }
-        private void set_60_NumberBox_IsWrapEnabled(object instance, object Value)
+        private void set_61_NumberBox_IsWrapEnabled(object instance, object Value)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.NumberBox)instance;
             that.IsWrapEnabled = (global::System.Boolean)Value;
         }
-        private object get_61_NumberBox_LargeChange(object instance)
+        private object get_62_NumberBox_LargeChange(object instance)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.NumberBox)instance;
             return that.LargeChange;
         }
-        private void set_61_NumberBox_LargeChange(object instance, object Value)
+        private void set_62_NumberBox_LargeChange(object instance, object Value)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.NumberBox)instance;
             that.LargeChange = (global::System.Double)Value;
         }
-        private object get_62_NumberBox_Maximum(object instance)
+        private object get_63_NumberBox_Maximum(object instance)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.NumberBox)instance;
             return that.Maximum;
         }
-        private void set_62_NumberBox_Maximum(object instance, object Value)
+        private void set_63_NumberBox_Maximum(object instance, object Value)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.NumberBox)instance;
             that.Maximum = (global::System.Double)Value;
         }
-        private object get_63_NumberBox_Minimum(object instance)
+        private object get_64_NumberBox_Minimum(object instance)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.NumberBox)instance;
             return that.Minimum;
         }
-        private void set_63_NumberBox_Minimum(object instance, object Value)
+        private void set_64_NumberBox_Minimum(object instance, object Value)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.NumberBox)instance;
             that.Minimum = (global::System.Double)Value;
         }
-        private object get_64_NumberBox_NumberFormatter(object instance)
+        private object get_65_NumberBox_NumberFormatter(object instance)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.NumberBox)instance;
             return that.NumberFormatter;
         }
-        private void set_64_NumberBox_NumberFormatter(object instance, object Value)
+        private void set_65_NumberBox_NumberFormatter(object instance, object Value)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.NumberBox)instance;
             that.NumberFormatter = (global::Windows.Globalization.NumberFormatting.INumberFormatter2)Value;
         }
-        private object get_65_NumberBox_PreventKeyboardDisplayOnProgrammaticFocus(object instance)
+        private object get_66_NumberBox_PreventKeyboardDisplayOnProgrammaticFocus(object instance)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.NumberBox)instance;
             return that.PreventKeyboardDisplayOnProgrammaticFocus;
         }
-        private void set_65_NumberBox_PreventKeyboardDisplayOnProgrammaticFocus(object instance, object Value)
+        private void set_66_NumberBox_PreventKeyboardDisplayOnProgrammaticFocus(object instance, object Value)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.NumberBox)instance;
             that.PreventKeyboardDisplayOnProgrammaticFocus = (global::System.Boolean)Value;
         }
-        private object get_66_NumberBox_SelectionFlyout(object instance)
+        private object get_67_NumberBox_SelectionFlyout(object instance)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.NumberBox)instance;
             return that.SelectionFlyout;
         }
-        private void set_66_NumberBox_SelectionFlyout(object instance, object Value)
+        private void set_67_NumberBox_SelectionFlyout(object instance, object Value)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.NumberBox)instance;
             that.SelectionFlyout = (global::Microsoft.UI.Xaml.Controls.Primitives.FlyoutBase)Value;
         }
-        private object get_67_NumberBox_SelectionHighlightColor(object instance)
+        private object get_68_NumberBox_SelectionHighlightColor(object instance)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.NumberBox)instance;
             return that.SelectionHighlightColor;
         }
-        private void set_67_NumberBox_SelectionHighlightColor(object instance, object Value)
+        private void set_68_NumberBox_SelectionHighlightColor(object instance, object Value)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.NumberBox)instance;
             that.SelectionHighlightColor = (global::Microsoft.UI.Xaml.Media.SolidColorBrush)Value;
         }
-        private object get_68_NumberBox_SmallChange(object instance)
+        private object get_69_NumberBox_SmallChange(object instance)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.NumberBox)instance;
             return that.SmallChange;
         }
-        private void set_68_NumberBox_SmallChange(object instance, object Value)
+        private void set_69_NumberBox_SmallChange(object instance, object Value)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.NumberBox)instance;
             that.SmallChange = (global::System.Double)Value;
         }
-        private object get_69_NumberBox_SpinButtonPlacementMode(object instance)
+        private object get_70_NumberBox_SpinButtonPlacementMode(object instance)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.NumberBox)instance;
             return that.SpinButtonPlacementMode;
         }
-        private void set_69_NumberBox_SpinButtonPlacementMode(object instance, object Value)
+        private void set_70_NumberBox_SpinButtonPlacementMode(object instance, object Value)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.NumberBox)instance;
             that.SpinButtonPlacementMode = (global::Microsoft.UI.Xaml.Controls.NumberBoxSpinButtonPlacementMode)Value;
         }
-        private object get_70_NumberBox_Text(object instance)
+        private object get_71_NumberBox_Text(object instance)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.NumberBox)instance;
             return that.Text;
         }
-        private void set_70_NumberBox_Text(object instance, object Value)
+        private void set_71_NumberBox_Text(object instance, object Value)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.NumberBox)instance;
             that.Text = (global::System.String)Value;
         }
-        private object get_71_NumberBox_TextReadingOrder(object instance)
+        private object get_72_NumberBox_TextReadingOrder(object instance)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.NumberBox)instance;
             return that.TextReadingOrder;
         }
-        private void set_71_NumberBox_TextReadingOrder(object instance, object Value)
+        private void set_72_NumberBox_TextReadingOrder(object instance, object Value)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.NumberBox)instance;
             that.TextReadingOrder = (global::Microsoft.UI.Xaml.TextReadingOrder)Value;
         }
-        private object get_72_NumberBox_ValidationMode(object instance)
+        private object get_73_NumberBox_ValidationMode(object instance)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.NumberBox)instance;
             return that.ValidationMode;
         }
-        private void set_72_NumberBox_ValidationMode(object instance, object Value)
+        private void set_73_NumberBox_ValidationMode(object instance, object Value)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.NumberBox)instance;
             that.ValidationMode = (global::Microsoft.UI.Xaml.Controls.NumberBoxValidationMode)Value;
         }
-        private object get_73_NumberBox_Value(object instance)
+        private object get_74_NumberBox_Value(object instance)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.NumberBox)instance;
             return that.Value;
         }
-        private void set_73_NumberBox_Value(object instance, object Value)
+        private void set_74_NumberBox_Value(object instance, object Value)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.NumberBox)instance;
             that.Value = (global::System.Double)Value;
         }
-        private object get_74_TreeViewNode_Children(object instance)
+        private object get_75_TreeViewNode_Children(object instance)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.TreeViewNode)instance;
             return that.Children;
         }
-        private object get_75_TreeViewNode_Content(object instance)
+        private object get_76_TreeViewNode_Content(object instance)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.TreeViewNode)instance;
             return that.Content;
         }
-        private void set_75_TreeViewNode_Content(object instance, object Value)
+        private void set_76_TreeViewNode_Content(object instance, object Value)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.TreeViewNode)instance;
             that.Content = (global::System.Object)Value;
         }
-        private object get_76_TreeViewNode_Depth(object instance)
+        private object get_77_TreeViewNode_Depth(object instance)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.TreeViewNode)instance;
             return that.Depth;
         }
-        private object get_77_TreeViewNode_HasChildren(object instance)
+        private object get_78_TreeViewNode_HasChildren(object instance)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.TreeViewNode)instance;
             return that.HasChildren;
         }
-        private object get_78_TreeViewNode_HasUnrealizedChildren(object instance)
+        private object get_79_TreeViewNode_HasUnrealizedChildren(object instance)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.TreeViewNode)instance;
             return that.HasUnrealizedChildren;
         }
-        private void set_78_TreeViewNode_HasUnrealizedChildren(object instance, object Value)
+        private void set_79_TreeViewNode_HasUnrealizedChildren(object instance, object Value)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.TreeViewNode)instance;
             that.HasUnrealizedChildren = (global::System.Boolean)Value;
         }
-        private object get_79_TreeViewNode_IsExpanded(object instance)
+        private object get_80_TreeViewNode_IsExpanded(object instance)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.TreeViewNode)instance;
             return that.IsExpanded;
         }
-        private void set_79_TreeViewNode_IsExpanded(object instance, object Value)
+        private void set_80_TreeViewNode_IsExpanded(object instance, object Value)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.TreeViewNode)instance;
             that.IsExpanded = (global::System.Boolean)Value;
         }
-        private object get_80_TreeViewNode_Parent(object instance)
+        private object get_81_TreeViewNode_Parent(object instance)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.TreeViewNode)instance;
             return that.Parent;
@@ -1722,512 +1766,519 @@ namespace ProjectScheduler.ProjectScheduler_XamlTypeInfo
                 xamlMember.Getter = get_7_ItemListView_ItemTemplate;
                 xamlMember.Setter = set_7_ItemListView_ItemTemplate;
                 break;
+            case "ProjectScheduler.Controls.SubslotDetailsView.Subslot":
+                userType = (global::ProjectScheduler.ProjectScheduler_XamlTypeInfo.XamlUserType)GetXamlTypeByName("ProjectScheduler.Controls.SubslotDetailsView");
+                xamlMember = new global::ProjectScheduler.ProjectScheduler_XamlTypeInfo.XamlMember(this, "Subslot", "ProjectScheduler.Models.SubslotItem");
+                xamlMember.SetIsDependencyProperty();
+                xamlMember.Getter = get_8_SubslotDetailsView_Subslot;
+                xamlMember.Setter = set_8_SubslotDetailsView_Subslot;
+                break;
             case "Microsoft.UI.Xaml.Controls.NavigationView.PaneDisplayMode":
                 userType = (global::ProjectScheduler.ProjectScheduler_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.NavigationView");
                 xamlMember = new global::ProjectScheduler.ProjectScheduler_XamlTypeInfo.XamlMember(this, "PaneDisplayMode", "Microsoft.UI.Xaml.Controls.NavigationViewPaneDisplayMode");
                 xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_8_NavigationView_PaneDisplayMode;
-                xamlMember.Setter = set_8_NavigationView_PaneDisplayMode;
+                xamlMember.Getter = get_9_NavigationView_PaneDisplayMode;
+                xamlMember.Setter = set_9_NavigationView_PaneDisplayMode;
                 break;
             case "Microsoft.UI.Xaml.Controls.NavigationView.IsPaneOpen":
                 userType = (global::ProjectScheduler.ProjectScheduler_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.NavigationView");
                 xamlMember = new global::ProjectScheduler.ProjectScheduler_XamlTypeInfo.XamlMember(this, "IsPaneOpen", "Boolean");
                 xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_9_NavigationView_IsPaneOpen;
-                xamlMember.Setter = set_9_NavigationView_IsPaneOpen;
+                xamlMember.Getter = get_10_NavigationView_IsPaneOpen;
+                xamlMember.Setter = set_10_NavigationView_IsPaneOpen;
                 break;
             case "Microsoft.UI.Xaml.Controls.NavigationView.IsBackButtonVisible":
                 userType = (global::ProjectScheduler.ProjectScheduler_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.NavigationView");
                 xamlMember = new global::ProjectScheduler.ProjectScheduler_XamlTypeInfo.XamlMember(this, "IsBackButtonVisible", "Microsoft.UI.Xaml.Controls.NavigationViewBackButtonVisible");
                 xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_10_NavigationView_IsBackButtonVisible;
-                xamlMember.Setter = set_10_NavigationView_IsBackButtonVisible;
+                xamlMember.Getter = get_11_NavigationView_IsBackButtonVisible;
+                xamlMember.Setter = set_11_NavigationView_IsBackButtonVisible;
                 break;
             case "Microsoft.UI.Xaml.Controls.NavigationView.IsSettingsVisible":
                 userType = (global::ProjectScheduler.ProjectScheduler_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.NavigationView");
                 xamlMember = new global::ProjectScheduler.ProjectScheduler_XamlTypeInfo.XamlMember(this, "IsSettingsVisible", "Boolean");
                 xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_11_NavigationView_IsSettingsVisible;
-                xamlMember.Setter = set_11_NavigationView_IsSettingsVisible;
+                xamlMember.Getter = get_12_NavigationView_IsSettingsVisible;
+                xamlMember.Setter = set_12_NavigationView_IsSettingsVisible;
                 break;
             case "Microsoft.UI.Xaml.Controls.NavigationView.IsPaneToggleButtonVisible":
                 userType = (global::ProjectScheduler.ProjectScheduler_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.NavigationView");
                 xamlMember = new global::ProjectScheduler.ProjectScheduler_XamlTypeInfo.XamlMember(this, "IsPaneToggleButtonVisible", "Boolean");
                 xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_12_NavigationView_IsPaneToggleButtonVisible;
-                xamlMember.Setter = set_12_NavigationView_IsPaneToggleButtonVisible;
+                xamlMember.Getter = get_13_NavigationView_IsPaneToggleButtonVisible;
+                xamlMember.Setter = set_13_NavigationView_IsPaneToggleButtonVisible;
                 break;
             case "Microsoft.UI.Xaml.Controls.NavigationView.MenuItems":
                 userType = (global::ProjectScheduler.ProjectScheduler_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.NavigationView");
                 xamlMember = new global::ProjectScheduler.ProjectScheduler_XamlTypeInfo.XamlMember(this, "MenuItems", "System.Collections.Generic.IList`1<Object>");
                 xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_13_NavigationView_MenuItems;
+                xamlMember.Getter = get_14_NavigationView_MenuItems;
                 xamlMember.SetIsReadOnly();
                 break;
             case "Microsoft.UI.Xaml.Controls.NavigationView.AlwaysShowHeader":
                 userType = (global::ProjectScheduler.ProjectScheduler_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.NavigationView");
                 xamlMember = new global::ProjectScheduler.ProjectScheduler_XamlTypeInfo.XamlMember(this, "AlwaysShowHeader", "Boolean");
                 xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_14_NavigationView_AlwaysShowHeader;
-                xamlMember.Setter = set_14_NavigationView_AlwaysShowHeader;
+                xamlMember.Getter = get_15_NavigationView_AlwaysShowHeader;
+                xamlMember.Setter = set_15_NavigationView_AlwaysShowHeader;
                 break;
             case "Microsoft.UI.Xaml.Controls.NavigationView.AutoSuggestBox":
                 userType = (global::ProjectScheduler.ProjectScheduler_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.NavigationView");
                 xamlMember = new global::ProjectScheduler.ProjectScheduler_XamlTypeInfo.XamlMember(this, "AutoSuggestBox", "Microsoft.UI.Xaml.Controls.AutoSuggestBox");
                 xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_15_NavigationView_AutoSuggestBox;
-                xamlMember.Setter = set_15_NavigationView_AutoSuggestBox;
+                xamlMember.Getter = get_16_NavigationView_AutoSuggestBox;
+                xamlMember.Setter = set_16_NavigationView_AutoSuggestBox;
                 break;
             case "Microsoft.UI.Xaml.Controls.NavigationView.CompactModeThresholdWidth":
                 userType = (global::ProjectScheduler.ProjectScheduler_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.NavigationView");
                 xamlMember = new global::ProjectScheduler.ProjectScheduler_XamlTypeInfo.XamlMember(this, "CompactModeThresholdWidth", "Double");
                 xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_16_NavigationView_CompactModeThresholdWidth;
-                xamlMember.Setter = set_16_NavigationView_CompactModeThresholdWidth;
+                xamlMember.Getter = get_17_NavigationView_CompactModeThresholdWidth;
+                xamlMember.Setter = set_17_NavigationView_CompactModeThresholdWidth;
                 break;
             case "Microsoft.UI.Xaml.Controls.NavigationView.CompactPaneLength":
                 userType = (global::ProjectScheduler.ProjectScheduler_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.NavigationView");
                 xamlMember = new global::ProjectScheduler.ProjectScheduler_XamlTypeInfo.XamlMember(this, "CompactPaneLength", "Double");
                 xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_17_NavigationView_CompactPaneLength;
-                xamlMember.Setter = set_17_NavigationView_CompactPaneLength;
+                xamlMember.Getter = get_18_NavigationView_CompactPaneLength;
+                xamlMember.Setter = set_18_NavigationView_CompactPaneLength;
                 break;
             case "Microsoft.UI.Xaml.Controls.NavigationView.ContentOverlay":
                 userType = (global::ProjectScheduler.ProjectScheduler_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.NavigationView");
                 xamlMember = new global::ProjectScheduler.ProjectScheduler_XamlTypeInfo.XamlMember(this, "ContentOverlay", "Microsoft.UI.Xaml.UIElement");
                 xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_18_NavigationView_ContentOverlay;
-                xamlMember.Setter = set_18_NavigationView_ContentOverlay;
+                xamlMember.Getter = get_19_NavigationView_ContentOverlay;
+                xamlMember.Setter = set_19_NavigationView_ContentOverlay;
                 break;
             case "Microsoft.UI.Xaml.Controls.NavigationView.DisplayMode":
                 userType = (global::ProjectScheduler.ProjectScheduler_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.NavigationView");
                 xamlMember = new global::ProjectScheduler.ProjectScheduler_XamlTypeInfo.XamlMember(this, "DisplayMode", "Microsoft.UI.Xaml.Controls.NavigationViewDisplayMode");
                 xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_19_NavigationView_DisplayMode;
+                xamlMember.Getter = get_20_NavigationView_DisplayMode;
                 xamlMember.SetIsReadOnly();
                 break;
             case "Microsoft.UI.Xaml.Controls.NavigationView.ExpandedModeThresholdWidth":
                 userType = (global::ProjectScheduler.ProjectScheduler_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.NavigationView");
                 xamlMember = new global::ProjectScheduler.ProjectScheduler_XamlTypeInfo.XamlMember(this, "ExpandedModeThresholdWidth", "Double");
                 xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_20_NavigationView_ExpandedModeThresholdWidth;
-                xamlMember.Setter = set_20_NavigationView_ExpandedModeThresholdWidth;
+                xamlMember.Getter = get_21_NavigationView_ExpandedModeThresholdWidth;
+                xamlMember.Setter = set_21_NavigationView_ExpandedModeThresholdWidth;
                 break;
             case "Microsoft.UI.Xaml.Controls.NavigationView.FooterMenuItems":
                 userType = (global::ProjectScheduler.ProjectScheduler_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.NavigationView");
                 xamlMember = new global::ProjectScheduler.ProjectScheduler_XamlTypeInfo.XamlMember(this, "FooterMenuItems", "System.Collections.Generic.IList`1<Object>");
                 xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_21_NavigationView_FooterMenuItems;
+                xamlMember.Getter = get_22_NavigationView_FooterMenuItems;
                 xamlMember.SetIsReadOnly();
                 break;
             case "Microsoft.UI.Xaml.Controls.NavigationView.FooterMenuItemsSource":
                 userType = (global::ProjectScheduler.ProjectScheduler_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.NavigationView");
                 xamlMember = new global::ProjectScheduler.ProjectScheduler_XamlTypeInfo.XamlMember(this, "FooterMenuItemsSource", "Object");
                 xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_22_NavigationView_FooterMenuItemsSource;
-                xamlMember.Setter = set_22_NavigationView_FooterMenuItemsSource;
+                xamlMember.Getter = get_23_NavigationView_FooterMenuItemsSource;
+                xamlMember.Setter = set_23_NavigationView_FooterMenuItemsSource;
                 break;
             case "Microsoft.UI.Xaml.Controls.NavigationView.Header":
                 userType = (global::ProjectScheduler.ProjectScheduler_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.NavigationView");
                 xamlMember = new global::ProjectScheduler.ProjectScheduler_XamlTypeInfo.XamlMember(this, "Header", "Object");
                 xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_23_NavigationView_Header;
-                xamlMember.Setter = set_23_NavigationView_Header;
+                xamlMember.Getter = get_24_NavigationView_Header;
+                xamlMember.Setter = set_24_NavigationView_Header;
                 break;
             case "Microsoft.UI.Xaml.Controls.NavigationView.HeaderTemplate":
                 userType = (global::ProjectScheduler.ProjectScheduler_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.NavigationView");
                 xamlMember = new global::ProjectScheduler.ProjectScheduler_XamlTypeInfo.XamlMember(this, "HeaderTemplate", "Microsoft.UI.Xaml.DataTemplate");
                 xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_24_NavigationView_HeaderTemplate;
-                xamlMember.Setter = set_24_NavigationView_HeaderTemplate;
+                xamlMember.Getter = get_25_NavigationView_HeaderTemplate;
+                xamlMember.Setter = set_25_NavigationView_HeaderTemplate;
                 break;
             case "Microsoft.UI.Xaml.Controls.NavigationView.IsBackEnabled":
                 userType = (global::ProjectScheduler.ProjectScheduler_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.NavigationView");
                 xamlMember = new global::ProjectScheduler.ProjectScheduler_XamlTypeInfo.XamlMember(this, "IsBackEnabled", "Boolean");
                 xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_25_NavigationView_IsBackEnabled;
-                xamlMember.Setter = set_25_NavigationView_IsBackEnabled;
+                xamlMember.Getter = get_26_NavigationView_IsBackEnabled;
+                xamlMember.Setter = set_26_NavigationView_IsBackEnabled;
                 break;
             case "Microsoft.UI.Xaml.Controls.NavigationView.IsPaneVisible":
                 userType = (global::ProjectScheduler.ProjectScheduler_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.NavigationView");
                 xamlMember = new global::ProjectScheduler.ProjectScheduler_XamlTypeInfo.XamlMember(this, "IsPaneVisible", "Boolean");
                 xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_26_NavigationView_IsPaneVisible;
-                xamlMember.Setter = set_26_NavigationView_IsPaneVisible;
+                xamlMember.Getter = get_27_NavigationView_IsPaneVisible;
+                xamlMember.Setter = set_27_NavigationView_IsPaneVisible;
                 break;
             case "Microsoft.UI.Xaml.Controls.NavigationView.IsTitleBarAutoPaddingEnabled":
                 userType = (global::ProjectScheduler.ProjectScheduler_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.NavigationView");
                 xamlMember = new global::ProjectScheduler.ProjectScheduler_XamlTypeInfo.XamlMember(this, "IsTitleBarAutoPaddingEnabled", "Boolean");
                 xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_27_NavigationView_IsTitleBarAutoPaddingEnabled;
-                xamlMember.Setter = set_27_NavigationView_IsTitleBarAutoPaddingEnabled;
+                xamlMember.Getter = get_28_NavigationView_IsTitleBarAutoPaddingEnabled;
+                xamlMember.Setter = set_28_NavigationView_IsTitleBarAutoPaddingEnabled;
                 break;
             case "Microsoft.UI.Xaml.Controls.NavigationView.MenuItemContainerStyle":
                 userType = (global::ProjectScheduler.ProjectScheduler_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.NavigationView");
                 xamlMember = new global::ProjectScheduler.ProjectScheduler_XamlTypeInfo.XamlMember(this, "MenuItemContainerStyle", "Microsoft.UI.Xaml.Style");
                 xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_28_NavigationView_MenuItemContainerStyle;
-                xamlMember.Setter = set_28_NavigationView_MenuItemContainerStyle;
+                xamlMember.Getter = get_29_NavigationView_MenuItemContainerStyle;
+                xamlMember.Setter = set_29_NavigationView_MenuItemContainerStyle;
                 break;
             case "Microsoft.UI.Xaml.Controls.NavigationView.MenuItemContainerStyleSelector":
                 userType = (global::ProjectScheduler.ProjectScheduler_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.NavigationView");
                 xamlMember = new global::ProjectScheduler.ProjectScheduler_XamlTypeInfo.XamlMember(this, "MenuItemContainerStyleSelector", "Microsoft.UI.Xaml.Controls.StyleSelector");
                 xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_29_NavigationView_MenuItemContainerStyleSelector;
-                xamlMember.Setter = set_29_NavigationView_MenuItemContainerStyleSelector;
+                xamlMember.Getter = get_30_NavigationView_MenuItemContainerStyleSelector;
+                xamlMember.Setter = set_30_NavigationView_MenuItemContainerStyleSelector;
                 break;
             case "Microsoft.UI.Xaml.Controls.NavigationView.MenuItemTemplate":
                 userType = (global::ProjectScheduler.ProjectScheduler_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.NavigationView");
                 xamlMember = new global::ProjectScheduler.ProjectScheduler_XamlTypeInfo.XamlMember(this, "MenuItemTemplate", "Microsoft.UI.Xaml.DataTemplate");
                 xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_30_NavigationView_MenuItemTemplate;
-                xamlMember.Setter = set_30_NavigationView_MenuItemTemplate;
+                xamlMember.Getter = get_31_NavigationView_MenuItemTemplate;
+                xamlMember.Setter = set_31_NavigationView_MenuItemTemplate;
                 break;
             case "Microsoft.UI.Xaml.Controls.NavigationView.MenuItemTemplateSelector":
                 userType = (global::ProjectScheduler.ProjectScheduler_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.NavigationView");
                 xamlMember = new global::ProjectScheduler.ProjectScheduler_XamlTypeInfo.XamlMember(this, "MenuItemTemplateSelector", "Microsoft.UI.Xaml.Controls.DataTemplateSelector");
                 xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_31_NavigationView_MenuItemTemplateSelector;
-                xamlMember.Setter = set_31_NavigationView_MenuItemTemplateSelector;
+                xamlMember.Getter = get_32_NavigationView_MenuItemTemplateSelector;
+                xamlMember.Setter = set_32_NavigationView_MenuItemTemplateSelector;
                 break;
             case "Microsoft.UI.Xaml.Controls.NavigationView.MenuItemsSource":
                 userType = (global::ProjectScheduler.ProjectScheduler_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.NavigationView");
                 xamlMember = new global::ProjectScheduler.ProjectScheduler_XamlTypeInfo.XamlMember(this, "MenuItemsSource", "Object");
                 xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_32_NavigationView_MenuItemsSource;
-                xamlMember.Setter = set_32_NavigationView_MenuItemsSource;
+                xamlMember.Getter = get_33_NavigationView_MenuItemsSource;
+                xamlMember.Setter = set_33_NavigationView_MenuItemsSource;
                 break;
             case "Microsoft.UI.Xaml.Controls.NavigationView.OpenPaneLength":
                 userType = (global::ProjectScheduler.ProjectScheduler_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.NavigationView");
                 xamlMember = new global::ProjectScheduler.ProjectScheduler_XamlTypeInfo.XamlMember(this, "OpenPaneLength", "Double");
                 xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_33_NavigationView_OpenPaneLength;
-                xamlMember.Setter = set_33_NavigationView_OpenPaneLength;
+                xamlMember.Getter = get_34_NavigationView_OpenPaneLength;
+                xamlMember.Setter = set_34_NavigationView_OpenPaneLength;
                 break;
             case "Microsoft.UI.Xaml.Controls.NavigationView.OverflowLabelMode":
                 userType = (global::ProjectScheduler.ProjectScheduler_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.NavigationView");
                 xamlMember = new global::ProjectScheduler.ProjectScheduler_XamlTypeInfo.XamlMember(this, "OverflowLabelMode", "Microsoft.UI.Xaml.Controls.NavigationViewOverflowLabelMode");
                 xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_34_NavigationView_OverflowLabelMode;
-                xamlMember.Setter = set_34_NavigationView_OverflowLabelMode;
+                xamlMember.Getter = get_35_NavigationView_OverflowLabelMode;
+                xamlMember.Setter = set_35_NavigationView_OverflowLabelMode;
                 break;
             case "Microsoft.UI.Xaml.Controls.NavigationView.PaneCustomContent":
                 userType = (global::ProjectScheduler.ProjectScheduler_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.NavigationView");
                 xamlMember = new global::ProjectScheduler.ProjectScheduler_XamlTypeInfo.XamlMember(this, "PaneCustomContent", "Microsoft.UI.Xaml.UIElement");
                 xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_35_NavigationView_PaneCustomContent;
-                xamlMember.Setter = set_35_NavigationView_PaneCustomContent;
+                xamlMember.Getter = get_36_NavigationView_PaneCustomContent;
+                xamlMember.Setter = set_36_NavigationView_PaneCustomContent;
                 break;
             case "Microsoft.UI.Xaml.Controls.NavigationView.PaneFooter":
                 userType = (global::ProjectScheduler.ProjectScheduler_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.NavigationView");
                 xamlMember = new global::ProjectScheduler.ProjectScheduler_XamlTypeInfo.XamlMember(this, "PaneFooter", "Microsoft.UI.Xaml.UIElement");
                 xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_36_NavigationView_PaneFooter;
-                xamlMember.Setter = set_36_NavigationView_PaneFooter;
+                xamlMember.Getter = get_37_NavigationView_PaneFooter;
+                xamlMember.Setter = set_37_NavigationView_PaneFooter;
                 break;
             case "Microsoft.UI.Xaml.Controls.NavigationView.PaneHeader":
                 userType = (global::ProjectScheduler.ProjectScheduler_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.NavigationView");
                 xamlMember = new global::ProjectScheduler.ProjectScheduler_XamlTypeInfo.XamlMember(this, "PaneHeader", "Microsoft.UI.Xaml.UIElement");
                 xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_37_NavigationView_PaneHeader;
-                xamlMember.Setter = set_37_NavigationView_PaneHeader;
+                xamlMember.Getter = get_38_NavigationView_PaneHeader;
+                xamlMember.Setter = set_38_NavigationView_PaneHeader;
                 break;
             case "Microsoft.UI.Xaml.Controls.NavigationView.PaneTitle":
                 userType = (global::ProjectScheduler.ProjectScheduler_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.NavigationView");
                 xamlMember = new global::ProjectScheduler.ProjectScheduler_XamlTypeInfo.XamlMember(this, "PaneTitle", "String");
                 xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_38_NavigationView_PaneTitle;
-                xamlMember.Setter = set_38_NavigationView_PaneTitle;
+                xamlMember.Getter = get_39_NavigationView_PaneTitle;
+                xamlMember.Setter = set_39_NavigationView_PaneTitle;
                 break;
             case "Microsoft.UI.Xaml.Controls.NavigationView.PaneToggleButtonStyle":
                 userType = (global::ProjectScheduler.ProjectScheduler_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.NavigationView");
                 xamlMember = new global::ProjectScheduler.ProjectScheduler_XamlTypeInfo.XamlMember(this, "PaneToggleButtonStyle", "Microsoft.UI.Xaml.Style");
                 xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_39_NavigationView_PaneToggleButtonStyle;
-                xamlMember.Setter = set_39_NavigationView_PaneToggleButtonStyle;
+                xamlMember.Getter = get_40_NavigationView_PaneToggleButtonStyle;
+                xamlMember.Setter = set_40_NavigationView_PaneToggleButtonStyle;
                 break;
             case "Microsoft.UI.Xaml.Controls.NavigationView.SelectedItem":
                 userType = (global::ProjectScheduler.ProjectScheduler_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.NavigationView");
                 xamlMember = new global::ProjectScheduler.ProjectScheduler_XamlTypeInfo.XamlMember(this, "SelectedItem", "Object");
                 xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_40_NavigationView_SelectedItem;
-                xamlMember.Setter = set_40_NavigationView_SelectedItem;
+                xamlMember.Getter = get_41_NavigationView_SelectedItem;
+                xamlMember.Setter = set_41_NavigationView_SelectedItem;
                 break;
             case "Microsoft.UI.Xaml.Controls.NavigationView.SelectionFollowsFocus":
                 userType = (global::ProjectScheduler.ProjectScheduler_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.NavigationView");
                 xamlMember = new global::ProjectScheduler.ProjectScheduler_XamlTypeInfo.XamlMember(this, "SelectionFollowsFocus", "Microsoft.UI.Xaml.Controls.NavigationViewSelectionFollowsFocus");
                 xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_41_NavigationView_SelectionFollowsFocus;
-                xamlMember.Setter = set_41_NavigationView_SelectionFollowsFocus;
+                xamlMember.Getter = get_42_NavigationView_SelectionFollowsFocus;
+                xamlMember.Setter = set_42_NavigationView_SelectionFollowsFocus;
                 break;
             case "Microsoft.UI.Xaml.Controls.NavigationView.SettingsItem":
                 userType = (global::ProjectScheduler.ProjectScheduler_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.NavigationView");
                 xamlMember = new global::ProjectScheduler.ProjectScheduler_XamlTypeInfo.XamlMember(this, "SettingsItem", "Object");
                 xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_42_NavigationView_SettingsItem;
+                xamlMember.Getter = get_43_NavigationView_SettingsItem;
                 xamlMember.SetIsReadOnly();
                 break;
             case "Microsoft.UI.Xaml.Controls.NavigationView.ShoulderNavigationEnabled":
                 userType = (global::ProjectScheduler.ProjectScheduler_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.NavigationView");
                 xamlMember = new global::ProjectScheduler.ProjectScheduler_XamlTypeInfo.XamlMember(this, "ShoulderNavigationEnabled", "Microsoft.UI.Xaml.Controls.NavigationViewShoulderNavigationEnabled");
                 xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_43_NavigationView_ShoulderNavigationEnabled;
-                xamlMember.Setter = set_43_NavigationView_ShoulderNavigationEnabled;
+                xamlMember.Getter = get_44_NavigationView_ShoulderNavigationEnabled;
+                xamlMember.Setter = set_44_NavigationView_ShoulderNavigationEnabled;
                 break;
             case "Microsoft.UI.Xaml.Controls.NavigationView.TemplateSettings":
                 userType = (global::ProjectScheduler.ProjectScheduler_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.NavigationView");
                 xamlMember = new global::ProjectScheduler.ProjectScheduler_XamlTypeInfo.XamlMember(this, "TemplateSettings", "Microsoft.UI.Xaml.Controls.NavigationViewTemplateSettings");
                 xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_44_NavigationView_TemplateSettings;
+                xamlMember.Getter = get_45_NavigationView_TemplateSettings;
                 xamlMember.SetIsReadOnly();
                 break;
             case "Microsoft.UI.Xaml.Controls.NavigationViewItem.Icon":
                 userType = (global::ProjectScheduler.ProjectScheduler_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.NavigationViewItem");
                 xamlMember = new global::ProjectScheduler.ProjectScheduler_XamlTypeInfo.XamlMember(this, "Icon", "Microsoft.UI.Xaml.Controls.IconElement");
                 xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_45_NavigationViewItem_Icon;
-                xamlMember.Setter = set_45_NavigationViewItem_Icon;
+                xamlMember.Getter = get_46_NavigationViewItem_Icon;
+                xamlMember.Setter = set_46_NavigationViewItem_Icon;
                 break;
             case "Microsoft.UI.Xaml.Controls.NavigationViewItem.CompactPaneLength":
                 userType = (global::ProjectScheduler.ProjectScheduler_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.NavigationViewItem");
                 xamlMember = new global::ProjectScheduler.ProjectScheduler_XamlTypeInfo.XamlMember(this, "CompactPaneLength", "Double");
                 xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_46_NavigationViewItem_CompactPaneLength;
+                xamlMember.Getter = get_47_NavigationViewItem_CompactPaneLength;
                 xamlMember.SetIsReadOnly();
                 break;
             case "Microsoft.UI.Xaml.Controls.NavigationViewItem.HasUnrealizedChildren":
                 userType = (global::ProjectScheduler.ProjectScheduler_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.NavigationViewItem");
                 xamlMember = new global::ProjectScheduler.ProjectScheduler_XamlTypeInfo.XamlMember(this, "HasUnrealizedChildren", "Boolean");
                 xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_47_NavigationViewItem_HasUnrealizedChildren;
-                xamlMember.Setter = set_47_NavigationViewItem_HasUnrealizedChildren;
+                xamlMember.Getter = get_48_NavigationViewItem_HasUnrealizedChildren;
+                xamlMember.Setter = set_48_NavigationViewItem_HasUnrealizedChildren;
                 break;
             case "Microsoft.UI.Xaml.Controls.NavigationViewItem.InfoBadge":
                 userType = (global::ProjectScheduler.ProjectScheduler_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.NavigationViewItem");
                 xamlMember = new global::ProjectScheduler.ProjectScheduler_XamlTypeInfo.XamlMember(this, "InfoBadge", "Microsoft.UI.Xaml.Controls.InfoBadge");
                 xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_48_NavigationViewItem_InfoBadge;
-                xamlMember.Setter = set_48_NavigationViewItem_InfoBadge;
+                xamlMember.Getter = get_49_NavigationViewItem_InfoBadge;
+                xamlMember.Setter = set_49_NavigationViewItem_InfoBadge;
                 break;
             case "Microsoft.UI.Xaml.Controls.NavigationViewItem.IsChildSelected":
                 userType = (global::ProjectScheduler.ProjectScheduler_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.NavigationViewItem");
                 xamlMember = new global::ProjectScheduler.ProjectScheduler_XamlTypeInfo.XamlMember(this, "IsChildSelected", "Boolean");
                 xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_49_NavigationViewItem_IsChildSelected;
-                xamlMember.Setter = set_49_NavigationViewItem_IsChildSelected;
+                xamlMember.Getter = get_50_NavigationViewItem_IsChildSelected;
+                xamlMember.Setter = set_50_NavigationViewItem_IsChildSelected;
                 break;
             case "Microsoft.UI.Xaml.Controls.NavigationViewItem.IsExpanded":
                 userType = (global::ProjectScheduler.ProjectScheduler_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.NavigationViewItem");
                 xamlMember = new global::ProjectScheduler.ProjectScheduler_XamlTypeInfo.XamlMember(this, "IsExpanded", "Boolean");
                 xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_50_NavigationViewItem_IsExpanded;
-                xamlMember.Setter = set_50_NavigationViewItem_IsExpanded;
+                xamlMember.Getter = get_51_NavigationViewItem_IsExpanded;
+                xamlMember.Setter = set_51_NavigationViewItem_IsExpanded;
                 break;
             case "Microsoft.UI.Xaml.Controls.NavigationViewItem.MenuItems":
                 userType = (global::ProjectScheduler.ProjectScheduler_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.NavigationViewItem");
                 xamlMember = new global::ProjectScheduler.ProjectScheduler_XamlTypeInfo.XamlMember(this, "MenuItems", "System.Collections.Generic.IList`1<Object>");
                 xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_51_NavigationViewItem_MenuItems;
+                xamlMember.Getter = get_52_NavigationViewItem_MenuItems;
                 xamlMember.SetIsReadOnly();
                 break;
             case "Microsoft.UI.Xaml.Controls.NavigationViewItem.MenuItemsSource":
                 userType = (global::ProjectScheduler.ProjectScheduler_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.NavigationViewItem");
                 xamlMember = new global::ProjectScheduler.ProjectScheduler_XamlTypeInfo.XamlMember(this, "MenuItemsSource", "Object");
                 xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_52_NavigationViewItem_MenuItemsSource;
-                xamlMember.Setter = set_52_NavigationViewItem_MenuItemsSource;
+                xamlMember.Getter = get_53_NavigationViewItem_MenuItemsSource;
+                xamlMember.Setter = set_53_NavigationViewItem_MenuItemsSource;
                 break;
             case "Microsoft.UI.Xaml.Controls.NavigationViewItem.SelectsOnInvoked":
                 userType = (global::ProjectScheduler.ProjectScheduler_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.NavigationViewItem");
                 xamlMember = new global::ProjectScheduler.ProjectScheduler_XamlTypeInfo.XamlMember(this, "SelectsOnInvoked", "Boolean");
                 xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_53_NavigationViewItem_SelectsOnInvoked;
-                xamlMember.Setter = set_53_NavigationViewItem_SelectsOnInvoked;
+                xamlMember.Getter = get_54_NavigationViewItem_SelectsOnInvoked;
+                xamlMember.Setter = set_54_NavigationViewItem_SelectsOnInvoked;
                 break;
             case "Microsoft.UI.Xaml.Controls.NavigationViewItemBase.IsSelected":
                 userType = (global::ProjectScheduler.ProjectScheduler_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.NavigationViewItemBase");
                 xamlMember = new global::ProjectScheduler.ProjectScheduler_XamlTypeInfo.XamlMember(this, "IsSelected", "Boolean");
                 xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_54_NavigationViewItemBase_IsSelected;
-                xamlMember.Setter = set_54_NavigationViewItemBase_IsSelected;
+                xamlMember.Getter = get_55_NavigationViewItemBase_IsSelected;
+                xamlMember.Setter = set_55_NavigationViewItemBase_IsSelected;
                 break;
             case "Microsoft.UI.Xaml.Controls.NumberBox.Header":
                 userType = (global::ProjectScheduler.ProjectScheduler_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.NumberBox");
                 xamlMember = new global::ProjectScheduler.ProjectScheduler_XamlTypeInfo.XamlMember(this, "Header", "Object");
                 xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_55_NumberBox_Header;
-                xamlMember.Setter = set_55_NumberBox_Header;
+                xamlMember.Getter = get_56_NumberBox_Header;
+                xamlMember.Setter = set_56_NumberBox_Header;
                 break;
             case "Microsoft.UI.Xaml.Controls.NumberBox.PlaceholderText":
                 userType = (global::ProjectScheduler.ProjectScheduler_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.NumberBox");
                 xamlMember = new global::ProjectScheduler.ProjectScheduler_XamlTypeInfo.XamlMember(this, "PlaceholderText", "String");
                 xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_56_NumberBox_PlaceholderText;
-                xamlMember.Setter = set_56_NumberBox_PlaceholderText;
+                xamlMember.Getter = get_57_NumberBox_PlaceholderText;
+                xamlMember.Setter = set_57_NumberBox_PlaceholderText;
                 break;
             case "Microsoft.UI.Xaml.Controls.NumberBox.AcceptsExpression":
                 userType = (global::ProjectScheduler.ProjectScheduler_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.NumberBox");
                 xamlMember = new global::ProjectScheduler.ProjectScheduler_XamlTypeInfo.XamlMember(this, "AcceptsExpression", "Boolean");
                 xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_57_NumberBox_AcceptsExpression;
-                xamlMember.Setter = set_57_NumberBox_AcceptsExpression;
+                xamlMember.Getter = get_58_NumberBox_AcceptsExpression;
+                xamlMember.Setter = set_58_NumberBox_AcceptsExpression;
                 break;
             case "Microsoft.UI.Xaml.Controls.NumberBox.Description":
                 userType = (global::ProjectScheduler.ProjectScheduler_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.NumberBox");
                 xamlMember = new global::ProjectScheduler.ProjectScheduler_XamlTypeInfo.XamlMember(this, "Description", "Object");
                 xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_58_NumberBox_Description;
-                xamlMember.Setter = set_58_NumberBox_Description;
+                xamlMember.Getter = get_59_NumberBox_Description;
+                xamlMember.Setter = set_59_NumberBox_Description;
                 break;
             case "Microsoft.UI.Xaml.Controls.NumberBox.HeaderTemplate":
                 userType = (global::ProjectScheduler.ProjectScheduler_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.NumberBox");
                 xamlMember = new global::ProjectScheduler.ProjectScheduler_XamlTypeInfo.XamlMember(this, "HeaderTemplate", "Microsoft.UI.Xaml.DataTemplate");
                 xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_59_NumberBox_HeaderTemplate;
-                xamlMember.Setter = set_59_NumberBox_HeaderTemplate;
+                xamlMember.Getter = get_60_NumberBox_HeaderTemplate;
+                xamlMember.Setter = set_60_NumberBox_HeaderTemplate;
                 break;
             case "Microsoft.UI.Xaml.Controls.NumberBox.IsWrapEnabled":
                 userType = (global::ProjectScheduler.ProjectScheduler_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.NumberBox");
                 xamlMember = new global::ProjectScheduler.ProjectScheduler_XamlTypeInfo.XamlMember(this, "IsWrapEnabled", "Boolean");
                 xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_60_NumberBox_IsWrapEnabled;
-                xamlMember.Setter = set_60_NumberBox_IsWrapEnabled;
+                xamlMember.Getter = get_61_NumberBox_IsWrapEnabled;
+                xamlMember.Setter = set_61_NumberBox_IsWrapEnabled;
                 break;
             case "Microsoft.UI.Xaml.Controls.NumberBox.LargeChange":
                 userType = (global::ProjectScheduler.ProjectScheduler_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.NumberBox");
                 xamlMember = new global::ProjectScheduler.ProjectScheduler_XamlTypeInfo.XamlMember(this, "LargeChange", "Double");
                 xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_61_NumberBox_LargeChange;
-                xamlMember.Setter = set_61_NumberBox_LargeChange;
+                xamlMember.Getter = get_62_NumberBox_LargeChange;
+                xamlMember.Setter = set_62_NumberBox_LargeChange;
                 break;
             case "Microsoft.UI.Xaml.Controls.NumberBox.Maximum":
                 userType = (global::ProjectScheduler.ProjectScheduler_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.NumberBox");
                 xamlMember = new global::ProjectScheduler.ProjectScheduler_XamlTypeInfo.XamlMember(this, "Maximum", "Double");
                 xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_62_NumberBox_Maximum;
-                xamlMember.Setter = set_62_NumberBox_Maximum;
+                xamlMember.Getter = get_63_NumberBox_Maximum;
+                xamlMember.Setter = set_63_NumberBox_Maximum;
                 break;
             case "Microsoft.UI.Xaml.Controls.NumberBox.Minimum":
                 userType = (global::ProjectScheduler.ProjectScheduler_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.NumberBox");
                 xamlMember = new global::ProjectScheduler.ProjectScheduler_XamlTypeInfo.XamlMember(this, "Minimum", "Double");
                 xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_63_NumberBox_Minimum;
-                xamlMember.Setter = set_63_NumberBox_Minimum;
+                xamlMember.Getter = get_64_NumberBox_Minimum;
+                xamlMember.Setter = set_64_NumberBox_Minimum;
                 break;
             case "Microsoft.UI.Xaml.Controls.NumberBox.NumberFormatter":
                 userType = (global::ProjectScheduler.ProjectScheduler_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.NumberBox");
                 xamlMember = new global::ProjectScheduler.ProjectScheduler_XamlTypeInfo.XamlMember(this, "NumberFormatter", "Windows.Globalization.NumberFormatting.INumberFormatter2");
                 xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_64_NumberBox_NumberFormatter;
-                xamlMember.Setter = set_64_NumberBox_NumberFormatter;
+                xamlMember.Getter = get_65_NumberBox_NumberFormatter;
+                xamlMember.Setter = set_65_NumberBox_NumberFormatter;
                 break;
             case "Microsoft.UI.Xaml.Controls.NumberBox.PreventKeyboardDisplayOnProgrammaticFocus":
                 userType = (global::ProjectScheduler.ProjectScheduler_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.NumberBox");
                 xamlMember = new global::ProjectScheduler.ProjectScheduler_XamlTypeInfo.XamlMember(this, "PreventKeyboardDisplayOnProgrammaticFocus", "Boolean");
                 xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_65_NumberBox_PreventKeyboardDisplayOnProgrammaticFocus;
-                xamlMember.Setter = set_65_NumberBox_PreventKeyboardDisplayOnProgrammaticFocus;
+                xamlMember.Getter = get_66_NumberBox_PreventKeyboardDisplayOnProgrammaticFocus;
+                xamlMember.Setter = set_66_NumberBox_PreventKeyboardDisplayOnProgrammaticFocus;
                 break;
             case "Microsoft.UI.Xaml.Controls.NumberBox.SelectionFlyout":
                 userType = (global::ProjectScheduler.ProjectScheduler_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.NumberBox");
                 xamlMember = new global::ProjectScheduler.ProjectScheduler_XamlTypeInfo.XamlMember(this, "SelectionFlyout", "Microsoft.UI.Xaml.Controls.Primitives.FlyoutBase");
                 xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_66_NumberBox_SelectionFlyout;
-                xamlMember.Setter = set_66_NumberBox_SelectionFlyout;
+                xamlMember.Getter = get_67_NumberBox_SelectionFlyout;
+                xamlMember.Setter = set_67_NumberBox_SelectionFlyout;
                 break;
             case "Microsoft.UI.Xaml.Controls.NumberBox.SelectionHighlightColor":
                 userType = (global::ProjectScheduler.ProjectScheduler_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.NumberBox");
                 xamlMember = new global::ProjectScheduler.ProjectScheduler_XamlTypeInfo.XamlMember(this, "SelectionHighlightColor", "Microsoft.UI.Xaml.Media.SolidColorBrush");
                 xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_67_NumberBox_SelectionHighlightColor;
-                xamlMember.Setter = set_67_NumberBox_SelectionHighlightColor;
+                xamlMember.Getter = get_68_NumberBox_SelectionHighlightColor;
+                xamlMember.Setter = set_68_NumberBox_SelectionHighlightColor;
                 break;
             case "Microsoft.UI.Xaml.Controls.NumberBox.SmallChange":
                 userType = (global::ProjectScheduler.ProjectScheduler_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.NumberBox");
                 xamlMember = new global::ProjectScheduler.ProjectScheduler_XamlTypeInfo.XamlMember(this, "SmallChange", "Double");
                 xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_68_NumberBox_SmallChange;
-                xamlMember.Setter = set_68_NumberBox_SmallChange;
+                xamlMember.Getter = get_69_NumberBox_SmallChange;
+                xamlMember.Setter = set_69_NumberBox_SmallChange;
                 break;
             case "Microsoft.UI.Xaml.Controls.NumberBox.SpinButtonPlacementMode":
                 userType = (global::ProjectScheduler.ProjectScheduler_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.NumberBox");
                 xamlMember = new global::ProjectScheduler.ProjectScheduler_XamlTypeInfo.XamlMember(this, "SpinButtonPlacementMode", "Microsoft.UI.Xaml.Controls.NumberBoxSpinButtonPlacementMode");
                 xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_69_NumberBox_SpinButtonPlacementMode;
-                xamlMember.Setter = set_69_NumberBox_SpinButtonPlacementMode;
+                xamlMember.Getter = get_70_NumberBox_SpinButtonPlacementMode;
+                xamlMember.Setter = set_70_NumberBox_SpinButtonPlacementMode;
                 break;
             case "Microsoft.UI.Xaml.Controls.NumberBox.Text":
                 userType = (global::ProjectScheduler.ProjectScheduler_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.NumberBox");
                 xamlMember = new global::ProjectScheduler.ProjectScheduler_XamlTypeInfo.XamlMember(this, "Text", "String");
                 xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_70_NumberBox_Text;
-                xamlMember.Setter = set_70_NumberBox_Text;
+                xamlMember.Getter = get_71_NumberBox_Text;
+                xamlMember.Setter = set_71_NumberBox_Text;
                 break;
             case "Microsoft.UI.Xaml.Controls.NumberBox.TextReadingOrder":
                 userType = (global::ProjectScheduler.ProjectScheduler_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.NumberBox");
                 xamlMember = new global::ProjectScheduler.ProjectScheduler_XamlTypeInfo.XamlMember(this, "TextReadingOrder", "Microsoft.UI.Xaml.TextReadingOrder");
                 xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_71_NumberBox_TextReadingOrder;
-                xamlMember.Setter = set_71_NumberBox_TextReadingOrder;
+                xamlMember.Getter = get_72_NumberBox_TextReadingOrder;
+                xamlMember.Setter = set_72_NumberBox_TextReadingOrder;
                 break;
             case "Microsoft.UI.Xaml.Controls.NumberBox.ValidationMode":
                 userType = (global::ProjectScheduler.ProjectScheduler_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.NumberBox");
                 xamlMember = new global::ProjectScheduler.ProjectScheduler_XamlTypeInfo.XamlMember(this, "ValidationMode", "Microsoft.UI.Xaml.Controls.NumberBoxValidationMode");
                 xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_72_NumberBox_ValidationMode;
-                xamlMember.Setter = set_72_NumberBox_ValidationMode;
+                xamlMember.Getter = get_73_NumberBox_ValidationMode;
+                xamlMember.Setter = set_73_NumberBox_ValidationMode;
                 break;
             case "Microsoft.UI.Xaml.Controls.NumberBox.Value":
                 userType = (global::ProjectScheduler.ProjectScheduler_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.NumberBox");
                 xamlMember = new global::ProjectScheduler.ProjectScheduler_XamlTypeInfo.XamlMember(this, "Value", "Double");
                 xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_73_NumberBox_Value;
-                xamlMember.Setter = set_73_NumberBox_Value;
+                xamlMember.Getter = get_74_NumberBox_Value;
+                xamlMember.Setter = set_74_NumberBox_Value;
                 break;
             case "Microsoft.UI.Xaml.Controls.TreeViewNode.Children":
                 userType = (global::ProjectScheduler.ProjectScheduler_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.TreeViewNode");
                 xamlMember = new global::ProjectScheduler.ProjectScheduler_XamlTypeInfo.XamlMember(this, "Children", "System.Collections.Generic.IList`1<Microsoft.UI.Xaml.Controls.TreeViewNode>");
-                xamlMember.Getter = get_74_TreeViewNode_Children;
+                xamlMember.Getter = get_75_TreeViewNode_Children;
                 xamlMember.SetIsReadOnly();
                 break;
             case "Microsoft.UI.Xaml.Controls.TreeViewNode.Content":
                 userType = (global::ProjectScheduler.ProjectScheduler_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.TreeViewNode");
                 xamlMember = new global::ProjectScheduler.ProjectScheduler_XamlTypeInfo.XamlMember(this, "Content", "Object");
                 xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_75_TreeViewNode_Content;
-                xamlMember.Setter = set_75_TreeViewNode_Content;
+                xamlMember.Getter = get_76_TreeViewNode_Content;
+                xamlMember.Setter = set_76_TreeViewNode_Content;
                 break;
             case "Microsoft.UI.Xaml.Controls.TreeViewNode.Depth":
                 userType = (global::ProjectScheduler.ProjectScheduler_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.TreeViewNode");
                 xamlMember = new global::ProjectScheduler.ProjectScheduler_XamlTypeInfo.XamlMember(this, "Depth", "Int32");
                 xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_76_TreeViewNode_Depth;
+                xamlMember.Getter = get_77_TreeViewNode_Depth;
                 xamlMember.SetIsReadOnly();
                 break;
             case "Microsoft.UI.Xaml.Controls.TreeViewNode.HasChildren":
                 userType = (global::ProjectScheduler.ProjectScheduler_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.TreeViewNode");
                 xamlMember = new global::ProjectScheduler.ProjectScheduler_XamlTypeInfo.XamlMember(this, "HasChildren", "Boolean");
                 xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_77_TreeViewNode_HasChildren;
+                xamlMember.Getter = get_78_TreeViewNode_HasChildren;
                 xamlMember.SetIsReadOnly();
                 break;
             case "Microsoft.UI.Xaml.Controls.TreeViewNode.HasUnrealizedChildren":
                 userType = (global::ProjectScheduler.ProjectScheduler_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.TreeViewNode");
                 xamlMember = new global::ProjectScheduler.ProjectScheduler_XamlTypeInfo.XamlMember(this, "HasUnrealizedChildren", "Boolean");
-                xamlMember.Getter = get_78_TreeViewNode_HasUnrealizedChildren;
-                xamlMember.Setter = set_78_TreeViewNode_HasUnrealizedChildren;
+                xamlMember.Getter = get_79_TreeViewNode_HasUnrealizedChildren;
+                xamlMember.Setter = set_79_TreeViewNode_HasUnrealizedChildren;
                 break;
             case "Microsoft.UI.Xaml.Controls.TreeViewNode.IsExpanded":
                 userType = (global::ProjectScheduler.ProjectScheduler_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.TreeViewNode");
                 xamlMember = new global::ProjectScheduler.ProjectScheduler_XamlTypeInfo.XamlMember(this, "IsExpanded", "Boolean");
                 xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_79_TreeViewNode_IsExpanded;
-                xamlMember.Setter = set_79_TreeViewNode_IsExpanded;
+                xamlMember.Getter = get_80_TreeViewNode_IsExpanded;
+                xamlMember.Setter = set_80_TreeViewNode_IsExpanded;
                 break;
             case "Microsoft.UI.Xaml.Controls.TreeViewNode.Parent":
                 userType = (global::ProjectScheduler.ProjectScheduler_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.TreeViewNode");
                 xamlMember = new global::ProjectScheduler.ProjectScheduler_XamlTypeInfo.XamlMember(this, "Parent", "Microsoft.UI.Xaml.Controls.TreeViewNode");
-                xamlMember.Getter = get_80_TreeViewNode_Parent;
+                xamlMember.Getter = get_81_TreeViewNode_Parent;
                 xamlMember.SetIsReadOnly();
                 break;
             }

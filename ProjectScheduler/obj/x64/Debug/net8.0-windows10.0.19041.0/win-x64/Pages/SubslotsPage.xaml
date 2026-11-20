@@ -24,8 +24,7 @@
             ItemsSource="{Binding FilteredItems}"
             SearchText="{Binding SearchText, Mode=TwoWay}"
             SelectedItem="{Binding SelectedItem, Mode=TwoWay}"
-                                                 
-                                                                >
+                                                 >
 
             <controls:ItemListView.ItemTemplate>
 
@@ -62,100 +61,11 @@
         </controls:ItemListView>
 
         <!-- RIGHT PANEL: SUBSLOT PLACEHOLDER -->
-        <Border x:ConnectionId='3'
-            x:Name="SubslotPlaceholderPanel"
+        <controls:SubslotDetailsView x:ConnectionId='3'
             Grid.Column="1"
-            BorderBrush="{ThemeResource DividerStrokeColorDefaultBrush}"
-            BorderThickness="1,0,0,0">
-
-            <StackPanel
-                HorizontalAlignment="Center"
-                VerticalAlignment="Center"
-                Spacing="12">
-
-                <SymbolIcon Symbol="ViewAll"/>
-
-                <TextBlock
-                    Text="Select a Subslot"
-                    FontSize="20"
-                    FontWeight="SemiBold"
-                    HorizontalAlignment="Center"/>
-
-                <TextBlock
-                    Text="Choose a subslot from the list to view its details"
-                    Foreground="{ThemeResource TextFillColorSecondaryBrush}"
-                    HorizontalAlignment="Center"/>
-
-            </StackPanel>
-            
-        </Border>
-
-        <!-- RIGHT PANEL: SUBSLOT DETAILS -->
-        <Border x:ConnectionId='4'
-            x:Name="SubslotDetailsPanel"
-            Grid.Column="1"
-            BorderBrush="{ThemeResource DividerStrokeColorDefaultBrush}"
-            BorderThickness="1,0,0,0"
-            Padding="28"
-            Visibility="Collapsed">
-
-            <ScrollViewer>
-                <StackPanel Spacing="16">
-
-                    <TextBlock
-                        Text="SUBSLOT DETAILS"
-                        FontSize="12"
-                        FontWeight="SemiBold"
-                        Foreground="{ThemeResource TextFillColorSecondaryBrush}"/>
-
-                    <!-- Subslot Name -->
-                    <TextBox x:ConnectionId='5'
-                        x:Name="SubslotNameTextBox"
-                        Header="Name"
-                        PlaceholderText="No subslot name"/>
-
-                    <!-- Subslot Description -->
-                    <TextBox x:ConnectionId='6'
-                        x:Name="SubslotDescriptionTextBox"
-                        Header="Description"
-                        PlaceholderText="No subslot description"
-                        AcceptsReturn="True"
-                        TextWrapping="Wrap"
-                        MinHeight="100"/>
-
-                    <!-- Subslot Rules -->
-                    <TextBlock
-                        Text="RULES"
-                        FontSize="12"
-                        FontWeight="SemiBold"
-                        Foreground="{ThemeResource TextFillColorSecondaryBrush}"/>
-
-                    <CheckBox x:ConnectionId='7'
-                        x:Name="SubslotLockResourcesCheckBox"
-                        Content="Lock Resources"
-                        ToolTipService.ToolTip="Disables access to all of the current project's resources"/>
-
-                    <!-- Data Options -->
-                    <StackPanel
-                        Orientation="Horizontal"
-                        Spacing="12"
-                        Margin="0,12,0,0">
-
-                        <Button x:ConnectionId='8'
-                            Content="Save Changes"
-                                                           />
-
-                        <Button x:ConnectionId='9'
-                            Content="Delete Subslot"
-                                                             
-                            Style="{ThemeResource DefaultButtonStyle}"/>
-
-                    </StackPanel>
-
-                </StackPanel>
-            </ScrollViewer>
-
-        </Border>
+            Subslot="{Binding SelectedItem, Mode=OneWay}"
+                                                   
+                                                       />
 
     </Grid>
 </Page>

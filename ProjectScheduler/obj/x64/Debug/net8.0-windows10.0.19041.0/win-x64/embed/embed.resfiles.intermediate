@@ -1,5 +1,6 @@
 App.xbf
 Controls\ItemListView.xbf
+Controls\SubslotDetailsView.xbf
 MainWindow.xbf
 Pages\HomePage.xbf
 Pages\PlaceholderPage.xbf

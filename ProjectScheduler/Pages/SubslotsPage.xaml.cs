@@ -134,73 +134,11 @@ namespace ProjectScheduler.Pages
         }
 
 
-        // [[ REFRESHING & SEARCHING SUBSLOTS ]] //
-        private void RefreshSubslotList()
-        {
-            if (ViewModel.SelectedItem is SubslotItem subslot)
-            {
-                DisplaySubslotDetails(subslot);
-            }
-            else
-            {
-                ShowSubslotPlaceholder();
-            }
-        }
-
-
-        // [[ DISPLAYING SELECTED SUBSLOT ]] //
-
-        private void SubslotsListView_SelectionChanged(
-            object sender,
-            SelectionChangedEventArgs e)
-        {
-            SubslotItem? selectedSubslot =
-                e.AddedItems.OfType<SubslotItem>().FirstOrDefault();
-
-            ViewModel.SelectedItem = selectedSubslot;
-
-            if (selectedSubslot != null)
-            {
-                DisplaySubslotDetails(selectedSubslot);
-            }
-            else
-            {
-                ShowSubslotPlaceholder();
-            }
-        }
-
-        private void DisplaySubslotDetails(SubslotItem subslot)
-        {
-            SubslotNameTextBox.Text = subslot.Name;
-            
-            SubslotDescriptionTextBox.Text =
-                subslot.Description;
-            
-            SubslotLockResourcesCheckBox.IsChecked =
-                subslot.LockResources;
-
-            SubslotPlaceholderPanel.Visibility =
-                Visibility.Collapsed;
-
-            SubslotDetailsPanel.Visibility =
-                Visibility.Visible;
-        }
-
-        private void ShowSubslotPlaceholder()
-        {
-            SubslotDetailsPanel.Visibility =
-                Visibility.Collapsed;
-
-            SubslotPlaceholderPanel.Visibility =
-                Visibility.Visible;
-        }
-
-
         // [[ SAVING SUBSLOT CHANGES ]] //
 
         private async void SaveSubslotButton_Click(
             object sender,
-            RoutedEventArgs e)
+            EventArgs e)
         {
             if (ViewModel.SelectedItem is not SubslotItem subslot)
             {
@@ -208,7 +146,7 @@ namespace ProjectScheduler.Pages
             }
 
             // Validation
-            string name = SubslotNameTextBox.Text.Trim();
+            string name = subslot.Name.Trim();
 
             if (string.IsNullOrWhiteSpace(name))
             {
@@ -218,14 +156,9 @@ namespace ProjectScheduler.Pages
                 return;
             }
 
-            // Updating the selected subslot
+            // Applying values (esp. trimmed text)
             subslot.Name = name;
-            
-            subslot.Description =
-                SubslotDescriptionTextBox.Text.Trim();
-            
-            subslot.LockResources =
-                SubslotLockResourcesCheckBox.IsChecked ?? false;
+            subslot.Description = subslot.Description.Trim();
 
             // Refresh the list to apply alphabetical sorting
             ViewModel.RefreshItems();
@@ -235,7 +168,7 @@ namespace ProjectScheduler.Pages
                 ViewModel.FilteredItems.FirstOrDefault(
                     item => item.Id == subslot.Id);
 
-            // Automatically save the updated collection
+            // Save the updated collection
             await SaveSubslotsAsync();
         }
 
@@ -244,7 +177,7 @@ namespace ProjectScheduler.Pages
 
         private async void DeleteSubslotButton_Click(
             object sender,
-            RoutedEventArgs e)
+            EventArgs e)
         {
             if (ViewModel.SelectedItem is not SubslotItem subslot)
             {

@@ -304,3 +304,8 @@ C:\Users\mobot\OneDrive\Desktop\Programming\VSC2026 Code\ProjectScheduler\Projec
 C:\Users\mobot\OneDrive\Desktop\Programming\VSC2026 Code\ProjectScheduler\ProjectScheduler\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\MultipleQualifiersPerDimensionFound.txt
 C:\Users\mobot\OneDrive\Desktop\Programming\VSC2026 Code\ProjectScheduler\ProjectScheduler\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\ProjectArchitectures.txt
 C:\Users\mobot\OneDrive\Desktop\Programming\VSC2026 Code\ProjectScheduler\ProjectScheduler\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\.winmd_cache\$Microsoft.Web.WebView2.Core.winmd_639039823460000000.json
+C:\Users\mobot\OneDrive\Desktop\Programming\VSC2026 Code\ProjectScheduler\ProjectScheduler\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\Controls\SubslotDetailsView.g.i.cs
+C:\Users\mobot\OneDrive\Desktop\Programming\VSC2026 Code\ProjectScheduler\ProjectScheduler\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\Controls\SubslotDetailsView.g.cs
+C:\Users\mobot\OneDrive\Desktop\Programming\VSC2026 Code\ProjectScheduler\ProjectScheduler\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\Controls\SubslotDetailsView.xaml
+C:\Users\mobot\OneDrive\Desktop\Programming\VSC2026 Code\ProjectScheduler\ProjectScheduler\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\Controls\SubslotDetailsView.xbf
+C:\Users\mobot\OneDrive\Desktop\Programming\VSC2026 Code\ProjectScheduler\ProjectScheduler\bin\x64\Debug\net8.0-windows10.0.19041.0\win-x64\Controls\SubslotDetailsView.xbf
