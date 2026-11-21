@@ -4,6 +4,8 @@ using Windows.Storage;
 using ProjectScheduler.Models;
 using System.Threading.Tasks;
 using System.Collections.Generic;
+using System.Text.Json.Nodes;
+using System.Diagnostics;
 
 namespace ProjectScheduler.Services
 {
@@ -27,10 +29,35 @@ namespace ProjectScheduler.Services
 
             string json = await FileIO.ReadTextAsync(file);
 
-            return JsonSerializer.Deserialize<List<ResourceItem>>(
-                json,
-                JsonOptions
-            ) ?? new List<ResourceItem>();
+            JsonNode? jsonNode = JsonNode.Parse(json);
+
+            // Convert the legacy Directory property to Location (v0.6.0)
+            if (jsonNode is JsonArray resourcesArray)
+            {
+                foreach (JsonNode? resourceNode in resourcesArray)
+                {
+                    if (resourceNode is not JsonObject resourceObject)
+                    {
+                        continue;
+                    }
+
+                    // Only use Directory if Location doesn't already exist
+                    if (!resourceObject.ContainsKey(nameof(ResourceItem.Location)) &&
+                        resourceObject.TryGetPropertyValue(
+                            "Directory",
+                            out JsonNode? legacyLocation))
+                    {
+                        resourceObject[nameof(ResourceItem.Location)] = 
+                            legacyLocation?.DeepClone();
+                    }
+
+                    // Remove the old property regardless
+                    resourceObject.Remove("Directory");
+                }
+            }
+
+            return jsonNode?.Deserialize<List<ResourceItem>>(JsonOptions)
+                ?? new List<ResourceItem>();
         }
 
         public async Task SaveAsync(

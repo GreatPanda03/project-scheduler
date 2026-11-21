@@ -13,13 +13,12 @@ using System.Net;
 using System.Net.Http;
 using Windows.Storage;
 using Windows.System;
+using ProjectScheduler.ViewModels;
 
 namespace ProjectScheduler.Pages {
     public sealed partial class ResourcesPage : Page
     {
-        private readonly ObservableCollection<ResourceItem> _resources = new();
-        private readonly ObservableCollection<ResourceItem> _filteredResources = new();
-        private readonly ResourceService _resourceService = new();
+        private ResourceViewModel ViewModel { get; }
 
         // Used to check availability of website URLs
         private static readonly HttpClient _httpClient = new()
@@ -31,11 +30,10 @@ namespace ProjectScheduler.Pages {
         public ResourcesPage()
         {
             InitializeComponent();
-            
-            ResourcesListView.ItemsSource = _filteredResources;
 
-            // Populate the Type ComboBox using the ResourceType enum
-            ResourceTypeComboBox.ItemsSource = Enum.GetValues<ResourceType>();
+            ViewModel = new ResourceViewModel();
+
+            DataContext = ViewModel;
 
             Loaded += ResourcesPage_Loaded;
         }
@@ -49,57 +47,16 @@ namespace ProjectScheduler.Pages {
         {
             try
             {
-                var savedResources = await _resourceService.LoadAsync();
-
-                _resources.Clear();
-
-                foreach (var resource in savedResources)
-                {
-                    _resources.Add(resource);
-                }
-
-                RefreshResourceList();
+                await ViewModel.LoadAsync();
             }
             catch (Exception ex)
             {
                 Debug.WriteLine(
-                    $"Could not load resources: {ex.Message}"
-                );
+                    $"Could not load resources: {ex.Message}");
 
                 await ShowErrorDialogue(
-                    "Could not load the saved resources."
-                );
+                    "Could not load the saved resources.");
             }
-        }
-
-
-        // [[ REFRESHING & SEARCHING RESOURCES ]] //
-
-        private void RefreshResourceList()
-        {
-            string searchText = SearchTextBox?.Text ?? string.Empty;
-
-            var filtered = _resources
-                .Where(resource =>
-                    resource.Name.Contains(
-                        searchText,
-                        System.StringComparison.OrdinalIgnoreCase))
-                .OrderBy(resource => resource.Name)
-                .ToList();
-
-            _filteredResources.Clear();
-
-            foreach (var resource in filtered)
-            {
-                _filteredResources.Add(resource);
-            }
-        }
-
-        private void SearchTextBox_TextChanged(
-            object sender,
-            TextChangedEventArgs e)
-        {
-            RefreshResourceList();
         }
 
 
@@ -107,7 +64,7 @@ namespace ProjectScheduler.Pages {
 
         private async void AddResourceButton_Click(
             object sender,
-            RoutedEventArgs e)
+            EventArgs e)
         {
 
             // Building the dialogue box to enter Resource details
@@ -134,9 +91,9 @@ namespace ProjectScheduler.Pages {
                 HorizontalAlignment = HorizontalAlignment.Stretch
             };
 
-            var directoryTextBox = new TextBox
+            var locationTextBox = new TextBox
             {
-                Header = "Directory",
+                Header = "Location",
                 PlaceholderText = "Enter a file path or URL"
             };
 
@@ -148,7 +105,7 @@ namespace ProjectScheduler.Pages {
             dialogueContent.Children.Add(nameTextBox);
             dialogueContent.Children.Add(descriptionTextBox);
             dialogueContent.Children.Add(typeComboBox);
-            dialogueContent.Children.Add(directoryTextBox);
+            dialogueContent.Children.Add(locationTextBox);
 
             var dialogue = new ContentDialog
             {
@@ -197,16 +154,14 @@ namespace ProjectScheduler.Pages {
                 Name = name,
                 Description = descriptionTextBox.Text.Trim(),
                 Type = (ResourceType) typeComboBox.SelectedItem!,
-                Directory = directoryTextBox.Text.Trim()
+                Location = locationTextBox.Text.Trim()
             };
 
-            _resources.Add(newResource);
-
-            RefreshResourceList();
+            ViewModel.AddResource(newResource);
 
             // Select the newly added resource
-            ResourcesListView.SelectedItem =
-                _filteredResources.FirstOrDefault(
+            ViewModel.SelectedItem =
+                ViewModel.FilteredItems.FirstOrDefault(
                     resource => resource.Id == newResource.Id);
 
             // Automatically save the updated collection.
@@ -214,138 +169,96 @@ namespace ProjectScheduler.Pages {
         }
 
 
-        // [[ DISPLAYING SELECTED RESOURCE ]] //
-
-        private void ResourcesListView_SelectionChanged(
-            object sender,
-            SelectionChangedEventArgs e)
-        {
-            if (ResourcesListView.SelectedItem is ResourceItem resource)
-            {
-                DisplayResourceDetails(resource);
-            }
-            else 
-            {
-                ShowResourcePlaceholder();
-            }
-        }
-
-        private void DisplayResourceDetails(ResourceItem resource)
-        {
-            ResourceNameTextBox.Text = resource.Name;
-            ResourceDescriptionTextBox.Text = resource.Description;
-            ResourceTypeComboBox.SelectedItem = resource.Type;
-            ResourceDirectoryTextBox.Text = resource.Directory;
-            
-            ResourcePlaceholderPanel.Visibility = Visibility.Collapsed;
-            ResourceDetailsPanel.Visibility = Visibility.Visible;
-        }
-
-        private void ShowResourcePlaceholder()
-        {
-            ResourceDetailsPanel.Visibility = Visibility.Collapsed;
-            ResourcePlaceholderPanel.Visibility = Visibility.Visible;
-        }
-
-
         // [[ OPENING RESOURCES ]] //
 
         private async void OpenResourceButton_Click(
             object sender,
-            RoutedEventArgs e)
+            EventArgs e)
         {
-            if (ResourcesListView.SelectedItem is not ResourceItem)
+            if (ViewModel.SelectedItem is not ResourceItem)
             {
                 return;
             }
 
-            // Read values as they currently are in the details panel
-            //   so that the user can test availability without saving
-            string directory = ResourceDirectoryTextBox.Text.Trim();
+            string location = ViewModel.SelectedItem.Location;
 
-            if (string.IsNullOrWhiteSpace(directory))
+            if (string.IsNullOrWhiteSpace(location))
             {
                 await ShowErrorDialogue(
                     "The resource couldn't be found. " +
-                    "Please check that you have entered a directory."
-                );
+                    "Please check that you have entered a location.");
 
                 return;
             }
 
-            if (ResourceTypeComboBox.SelectedItem is not ResourceType selectedType)
+            if (!(ViewModel.SelectedItem.Type is ResourceType type &&
+                Enum.IsDefined(typeof(ResourceType), type)))
             {
                 await ShowErrorDialogue(
-                    "Please select a valid resource type."
-                );
+                    "Please select a valid resource type.");
 
                 return;
             }
 
             try
             {
-                switch (selectedType)
+                switch (type)
                 {
                     case ResourceType.Document:
-                        await OpenDocumentAsync(directory);
+                        await OpenDocumentAsync(location);
                         break;
 
                     case ResourceType.Application:
-                        await OpenApplication(directory);
+                        await OpenApplication(location);
                         break;
 
                     case ResourceType.Website:
-                        await OpenWebsiteAsync(directory);
+                        await OpenWebsiteAsync(location);
                         break;
 
                     default:
                         await ShowErrorDialogue(
                             $"The selected resource type " +
-                            "\"{selectedType.ToString()}\" is no supported."
-                        );
+                            "\"{selectedType.ToString()}\" is no supported.");
                         break;
                 }
             }
             catch (Exception ex)
             {
                 Debug.WriteLine(
-                    $"Error opening resources: {ex}"
-                );
+                    $"Error opening resources: {ex}");
 
                 await ShowErrorDialogue(
                     "The resource coudln't be found or opened. " +
-                    "Please check its directory and try again."
-                );
+                    "Please check its location and try again.");
             }
         }
 
-        private async Task OpenDocumentAsync(string directory)
+        private async Task OpenDocumentAsync(string location)
         {
-            if (!File.Exists(directory))
+            if (!File.Exists(location))
             {
                 await ShowErrorDialogue(
-                    "The document couldn't be found. Please check its directory."
-                );
+                    "The document couldn't be found. Please check its location.");
 
                 return;
             }
 
-            StorageFile file = await StorageFile.GetFileFromPathAsync(directory);
+            StorageFile file = await StorageFile.GetFileFromPathAsync(location);
 
             bool launched = await Launcher.LaunchFileAsync(file);
 
             if (!launched)
             {
                 await ShowErrorDialogue(
-                    "The document couldn't be opened. Please check its directory " +
-                    "and ensure Windows has an app associated with this file type."
-                );
+                    "The document couldn't be opened. Please check its location " +
+                    "and ensure Windows has an app associated with this file type.");
             }
         }
 
-        private async Task OpenApplication(string directory)
+        private async Task OpenApplication(string location)
         {
-            if (!File.Exists(directory))
+            if (!File.Exists(location))
             {
                 await ShowErrorDialogue(
                     "The application couldn't be found. " +
@@ -357,16 +270,16 @@ namespace ProjectScheduler.Pages {
 
             Process.Start(new ProcessStartInfo
             {
-                FileName = directory,
+                FileName = location,
                 UseShellExecute = true
             });
         }
 
-        private async Task OpenWebsiteAsync(string directory)
+        private async Task OpenWebsiteAsync(string location)
         {
-            // Check that the directory is a valid web address
+            // Check that the location is a valid web address
             if (!Uri.TryCreate(
-                    directory,
+                    location,
                     UriKind.Absolute,
                     out Uri? uri) ||
                 (uri.Scheme != Uri.UriSchemeHttp &&
@@ -374,7 +287,7 @@ namespace ProjectScheduler.Pages {
             {
                 await ShowErrorDialogue(
                     "The web address is invalid. " +
-                    "Please ensure its directory begins with http:// or https://."
+                    "Please ensure its location begins with http:// or https://."
                 );
 
                 return;
@@ -403,7 +316,7 @@ namespace ProjectScheduler.Pages {
                 {
                     await ShowErrorDialogue(
                         "The web resource couldn't be found. " +
-                        "Please check the resource exists at the directory."
+                        "Please check the resource exists at the location."
                     );
 
                     return;
@@ -435,7 +348,7 @@ namespace ProjectScheduler.Pages {
             {
                 await ShowErrorDialogue(
                     "The website couldn't be opened. " +
-                    "Please ensure the directory is valid and ensure a " +
+                    "Please ensure the location is valid and ensure a " +
                     "default browser is installed."
                 );
             }
@@ -446,47 +359,45 @@ namespace ProjectScheduler.Pages {
 
         private async void SaveResourceButton_Click(
             object sender,
-            RoutedEventArgs e)
+            EventArgs e)
         {
-            if (ResourcesListView.SelectedItem is not ResourceItem resource)
+            if (ViewModel.SelectedItem is not ResourceItem resource)
             {
                 return;
             }
 
             // Validation
-            string name = ResourceNameTextBox.Text.Trim();
+            string name = ViewModel.SelectedItem.Name;
 
             if (string.IsNullOrWhiteSpace(name))
             {
                 await ShowErrorDialogue(
-                    "A resource must have a name. Please enter a name before saving."
-                );
+                    "A resource must have a name. Please enter a name before saving.");
 
                 return;
             }
 
-            if (ResourceTypeComboBox.SelectedItem is not ResourceType selectedType ||
-                !Enum.IsDefined(typeof(ResourceType), selectedType))
+            if (!(ViewModel.SelectedItem.Type is ResourceType type &&
+                Enum.IsDefined(typeof(ResourceType), type)))
             {
                 await ShowErrorDialogue(
-                    "Please select a valid resource type."
-                );
+                    "Please select a valid resource type.");
 
                 return;
             }
 
             // Updating the selected resource
             resource.Name = name;
-            resource.Description = ResourceDescriptionTextBox.Text.Trim();
-            resource.Type = selectedType;
-            resource.Directory = ResourceDirectoryTextBox.Text.Trim();
+            resource.Description = ViewModel.SelectedItem.Description.Trim();
+            resource.Type = ViewModel.SelectedItem.Type;
+            resource.Location = ViewModel.SelectedItem.Location.Trim();
 
             // Refresh the list to apply alphabetical sorting
-            RefreshResourceList();
+            ViewModel.RefreshItems();
 
             // Reselect the updated resource
-            ResourcesListView.SelectedItem =
-                _filteredResources.FirstOrDefault(
+            ViewModel.SelectedItem =
+                ViewModel.FilteredItems.FirstOrDefault(
                     item => item.Id == resource.Id);
 
             // Automatically save the updated collection
@@ -498,9 +409,9 @@ namespace ProjectScheduler.Pages {
 
         private async void DeleteResourceButton_Click(
             object sender,
-            RoutedEventArgs e)
+            EventArgs e)
         {
-            if (ResourcesListView.SelectedItem is not ResourceItem resource)
+            if (ViewModel.SelectedItem is not ResourceItem resource)
             {
                 return;
             }
@@ -524,14 +435,12 @@ namespace ProjectScheduler.Pages {
                 return;
             }
 
-            _resources.Remove(resource);
+            ViewModel.RemoveItem(resource);
 
             // Clear the current selection and refresh the list
-            ResourcesListView.SelectedItem = null;
+            ViewModel.SelectedItem = null;
 
-            ShowResourcePlaceholder();
-
-            RefreshResourceList();
+            ViewModel.RefreshItems();
 
             await SaveResourcesAsync();
         }
@@ -544,17 +453,15 @@ namespace ProjectScheduler.Pages {
         {
             try
             {
-                await _resourceService.SaveAsync(_resources);
+                await ViewModel.SaveAsync();
             }
             catch (Exception ex)
             {
                 Debug.WriteLine(
-                    $"Could not save resources: {ex.Message}"
-                );
+                    $"Could not save resources: {ex.Message}");
 
                 await ShowErrorDialogue(
-                    "The resource could not be saved. Please try again."
-                );
+                    "The resource could not be saved. Please try again.");
             }
         }
 

@@ -4,7 +4,8 @@ using System;
 
 namespace ProjectScheduler.Models
 {
-    public partial class SubslotItem : ObservableObject, IListItem
+    public partial class SubslotItem
+        : ObservableObject, IListItem
     {
         public Guid Id { get; set; } = Guid.NewGuid();
 

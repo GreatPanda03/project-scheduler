@@ -67,7 +67,8 @@
                         Text="SUBSLOT RULES"
                         FontSize="12"
                         FontWeight="SemiBold"
-                        Foreground="{ThemeResource TextFillColorSecondaryBrush}"/>
+                        Foreground="{ThemeResource TextFillColorSecondaryBrush}"
+                        Margin="0,12,0,0"/>
 
                     <!-- Rules -->
                     <CheckBox

@@ -1,6 +1,4 @@
 ﻿using Microsoft.UI.Xaml;
-using System;
-using System.Collections;
 using System.Collections.Generic;
 using Thickness = Microsoft.UI.Xaml.Thickness;
 

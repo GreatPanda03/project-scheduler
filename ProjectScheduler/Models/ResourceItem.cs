@@ -1,80 +1,28 @@
 ﻿using ProjectScheduler.Enums;
 using System.Text.Json.Serialization;
 using System;
-using System.ComponentModel;
-using System.Runtime.CompilerServices;
+using CommunityToolkit.Mvvm.ComponentModel;
+using ProjectScheduler.Interfaces;
 
 namespace ProjectScheduler.Models
 {
-    public class ResourceItem : INotifyPropertyChanged
+    public partial class ResourceItem 
+        : ObservableObject, IListItem
     {
         public Guid Id { get; set; } = Guid.NewGuid();
 
-        private string _name = string.Empty;
-        public string Name {
-            get => _name;
-            set
-            {
-                if (_name == value)
-                {
-                    return;
-                }
+        [ObservableProperty]
+        private string name = string.Empty;
 
-                _name = value;
-                OnPropertyChanged();
-            }
-        }
+        [ObservableProperty]
+        private string description = string.Empty;
 
-        private string _description = string.Empty;
-        public string Description
-        {
-            get => _description;
-            set
-            {
-                if (_description == value)
-                {
-                    return;
-                }
+        [ObservableProperty]
+        private ResourceType type;
 
-                _description = value;
-                OnPropertyChanged();
-            }
-        }
-
-        private ResourceType _type;
-        public ResourceType Type
-        {
-            get => _type;
-            set
-            {
-                if (_type == value)
-                {
-                    return;
-                }
-
-                _type = value;
-
-                OnPropertyChanged();
-                OnPropertyChanged(nameof(IconGlyph));
-            }
-        }
-
-        private string _directory = string.Empty;
-        public string Directory
-        {
-            get => _directory;
-            set
-            {
-                if (_directory == value)
-                {
-                    return;
-                }
-
-                _directory = value;
-                OnPropertyChanged();
-            }
-        }
-
+        [ObservableProperty]
+        private string location = string.Empty;
+       
         [JsonIgnore]
         public string IconGlyph => Type switch
         {
@@ -84,15 +32,10 @@ namespace ProjectScheduler.Models
             _ => "\uE8A5"
         };
 
-        public event PropertyChangedEventHandler? PropertyChanged;
-
-        private void OnPropertyChanged(
-            [CallerMemberName] string? propertyName = null)
+        partial void OnTypeChanged(
+            ResourceType oldValue, ResourceType newValue)
         {
-            PropertyChanged?.Invoke(
-                this,
-                new PropertyChangedEventArgs(propertyName)
-            );
+            OnPropertyChanged(nameof(IconGlyph));
         }
     }
 }

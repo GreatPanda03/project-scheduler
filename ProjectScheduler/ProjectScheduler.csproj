@@ -18,6 +18,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Remove="Controls\ItemListView.xaml" />
+    <None Remove="Controls\ResourceDetailsView.xaml" />
     <None Remove="Controls\SubslotDetailsView.xaml" />
     <None Remove="Pages\PlaceholderPage.xaml" />
     <None Remove="Pages\PreWorkChecklistPage.xaml" />
@@ -52,6 +53,11 @@
     <PackageReference Include="CommunityToolkit.Mvvm" Version="8.4.2" />
     <PackageReference Include="Microsoft.Windows.SDK.BuildTools" Version="10.0.28000.2957" />
     <PackageReference Include="Microsoft.WindowsAppSDK" Version="2.7.0" />
+  </ItemGroup>
+  <ItemGroup>
+    <Page Update="Controls\ResourceDetailsView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Page Update="Controls\SubslotDetailsView.xaml">
