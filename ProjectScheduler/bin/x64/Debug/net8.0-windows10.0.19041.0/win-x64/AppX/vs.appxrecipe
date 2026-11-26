@@ -28,21 +28,21 @@
     <AppXManifest Include="C:\Users\mobot\OneDrive\Desktop\Programming\VSC2026 Code\ProjectScheduler\ProjectScheduler\bin\x64\Debug\net8.0-windows10.0.19041.0\win-x64\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2026-11-21T10:12:51.470</Modified>
+      <Modified>2026-11-26T08:54:10.604</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
     <AppxPackagedFile Include="C:\Users\mobot\OneDrive\Desktop\Programming\VSC2026 Code\ProjectScheduler\ProjectScheduler\bin\x64\Debug\net8.0-windows10.0.19041.0\win-x64\ProjectScheduler.runtimeconfig.json">
       <PackagePath>ProjectScheduler.runtimeconfig.json</PackagePath>
-      <Modified>2026-11-21T09:06:26.194</Modified>
+      <Modified>2026-11-25T09:16:56.688</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\mobot\OneDrive\Desktop\Programming\VSC2026 Code\ProjectScheduler\ProjectScheduler\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\apphost.exe">
       <PackagePath>ProjectScheduler.exe</PackagePath>
-      <Modified>2026-11-21T10:12:51.106</Modified>
+      <Modified>2026-11-26T08:54:10.010</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\mobot\OneDrive\Desktop\Programming\VSC2026 Code\ProjectScheduler\ProjectScheduler\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\ProjectScheduler.dll">
       <PackagePath>ProjectScheduler.dll</PackagePath>
-      <Modified>2026-11-21T10:12:51.086</Modified>
+      <Modified>2026-11-26T08:54:09.996</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\mobot\.nuget\packages\microsoft.netcore.app.runtime.win-x64\8.0.31\runtimes\win-x64\lib\net8.0\Microsoft.CSharp.dll">
       <PackagePath>Microsoft.CSharp.dll</PackagePath>
@@ -950,7 +950,7 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\mobot\OneDrive\Desktop\Programming\VSC2026 Code\ProjectScheduler\ProjectScheduler\bin\x64\Debug\net8.0-windows10.0.19041.0\win-x64\ProjectScheduler.deps.json">
       <PackagePath>ProjectScheduler.deps.json</PackagePath>
-      <Modified>2026-11-21T09:06:26.036</Modified>
+      <Modified>2026-11-25T09:16:56.581</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\mobot\OneDrive\Desktop\Programming\VSC2026 Code\ProjectScheduler\ProjectScheduler\Assets\app-icon.png">
       <PackagePath>Assets\app-icon.png</PackagePath>
@@ -990,7 +990,7 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\mobot\OneDrive\Desktop\Programming\VSC2026 Code\ProjectScheduler\ProjectScheduler\bin\x64\Debug\net8.0-windows10.0.19041.0\win-x64\resources.pri">
       <PackagePath>resources.pri</PackagePath>
-      <Modified>2026-11-21T09:15:26.418</Modified>
+      <Modified>2026-11-26T08:54:10.252</Modified>
     </AppxPackagedFile>
   </ItemGroup>
   <ItemGroup>

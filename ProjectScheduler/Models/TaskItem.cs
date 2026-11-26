@@ -1,58 +1,42 @@
-﻿using System;
+﻿using CommunityToolkit.Mvvm.ComponentModel;
+using ProjectScheduler.Interfaces;
+using System;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
+using System.Text.Json.Serialization;
 
 namespace ProjectScheduler.Models
 {
-    public class TaskItem : INotifyPropertyChanged
+    public partial class TaskItem
+        : ObservableObject, IListItem
     {
         public Guid Id { get; set; } = Guid.NewGuid();
 
-        private string _name = string.Empty;
-        public string Name
-        {
-            get => _name;
-            set
-            {
-                if (_name == value) return;
-                _name = value;
-                OnPropertyChanged();
-            }
-        }
-
-        private string _description = string.Empty;
-        public string Description
-        {
-            get => _description;
-            set
-            {
-                if (_description == value) return;
-                _description = value;
-                OnPropertyChanged();
-            }
-        }
-
         public DateTime CreatedDate { get; set; } = DateTime.Now;
 
-        public bool _isCompleted;
-        public bool IsCompleted
-        {
-            get => _isCompleted;
-            set
-            {
-                if (_isCompleted == value) return;
-                _isCompleted = value;
-                CompletedDate = value ? DateTime.Now : null;
+        [ObservableProperty]
+        private string name = string.Empty;
 
-                OnPropertyChanged();
-                OnPropertyChanged(nameof(CompletedDate));
-            }
-        }
+        [ObservableProperty]
+        private string description = string.Empty;
+
+        [ObservableProperty]
+        private bool isCompleted;
 
         public DateTime? CompletedDate { get; set; }
 
         public ObservableCollection<TaskItem> Subtasks { get; set; } = new();
+
+        [JsonIgnore]
+        public TaskItem? Parent { get; set; }
+
+        partial void OnIsCompletedChanged(bool value)
+        {
+            CompletedDate = value ? DateTime.Now : null;
+            OnPropertyChanged(nameof(CompletedDate));
+        }
+
 
         public bool AddSubtask(TaskItem subtask)
         {
@@ -61,6 +45,7 @@ namespace ProjectScheduler.Models
                 return false;
             }
 
+            subtask.Parent = this;
             Subtasks.Add(subtask);
             OnPropertyChanged(nameof(Subtasks));
             return true;
@@ -75,15 +60,6 @@ namespace ProjectScheduler.Models
 
             OnPropertyChanged(nameof(Subtasks));
             return true;
-        }
-
-        public event PropertyChangedEventHandler? PropertyChanged;
-        private void OnPropertyChanged(
-            [CallerMemberName] string? propertyName = null)
-        {
-            PropertyChanged?.Invoke(
-                this,
-                new PropertyChangedEventArgs(propertyName));
         }
     }
 }

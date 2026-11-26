@@ -58,7 +58,8 @@
         <TextBox
             Grid.Row="1"
             PlaceholderText="{x:Bind SearchPlaceholder, Mode=OneWay}"
-            Text="{x:Bind SearchText, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+            Text="{x:Bind SearchText, Mode=TwoWay,
+                    UpdateSourceTrigger=PropertyChanged}"
             InputScope="Default"/>
 
         <!-- List -->

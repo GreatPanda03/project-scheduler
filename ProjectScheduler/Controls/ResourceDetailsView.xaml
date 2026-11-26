@@ -6,41 +6,27 @@
     xmlns:local="using:ProjectScheduler.Controls"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:controls="using:ProjectScheduler.Controls"
     mc:Ignorable="d">
 
-    <Grid>
+    <Border
+        BorderBrush="{ThemeResource DividerStrokeColorDefaultBrush}"
+        BorderThickness="1,0,0,0"
+        Padding="28">
 
-        <!-- Placeholder -->
-        <Border
-            x:Name="PlaceholderPanel"
-            BorderBrush="{ThemeResource DividerStrokeColorDefaultBrush}"
-            BorderThickness="1,0,0,0">
+        <StackPanel>
 
-            <StackPanel
-                HorizontalAlignment="Center"
-                VerticalAlignment="Center"
-                Spacing="12">
+            <!-- Placeholder -->
+            <controls:PlaceholderView
+                x:Name="PlaceholderPanel"
+                IconGlyph="&#xE8F1;"
+                Header="No resource selected"
+                Body="Choose a resource from the list to view its details"/>
 
-                <SymbolIcon Symbol="Library"/>
-
-                <TextBlock
-                    Text="Choose a resource from the list to view its details"
-                    Foreground="{ThemeResource TextFillColorSecondaryBrush}"
-                    HorizontalAlignment="Center"/>
-
-            </StackPanel>
-            
-        </Border>
-        
-        <!-- Resource Details -->
-        <Border
-            x:Name="DetailsPanel"
-            BorderBrush="{ThemeResource DividerStrokeColorDefaultBrush}"
-            BorderThickness="1,0,0,0"
-            Padding="28"
-            Visibility="Collapsed">
-
-            <ScrollViewer>
+            <!-- Resource Details -->
+            <ScrollViewer
+                x:Name="DetailsPanel"
+                Visibility="Collapsed">
 
                 <StackPanel Spacing="16">
 
@@ -54,7 +40,7 @@
                     <TextBox
                         Header="Name"
                         PlaceholderText="No resource name"
-                        Text="{Binding Name, Mode=TwoWay,
+                        Text="{x:Bind Resource.Name, Mode=TwoWay,
                                 UpdateSourceTrigger=PropertyChanged}"/>
 
                     <!-- Description -->
@@ -63,7 +49,7 @@
                         PlaceholderText="No resource description"
                         AcceptsReturn="True"
                         TextWrapping="Wrap"
-                        Text="{Binding Description, Mode=TwoWay,
+                        Text="{x:Bind Resource.Description, Mode=TwoWay,
                                 UpdateSourceTrigger=PropertyChanged}"/>
 
                     <!-- Resource Type -->
@@ -71,14 +57,14 @@
                         x:Name="ResourceTypeComboBox"
                         Header="Type"
                         HorizontalAlignment="Stretch"
-                        SelectedItem="{Binding Type, Mode=TwoWay}"/>
+                        SelectedItem="{x:Bind Resource.Type, Mode=TwoWay}"/>
 
                     <!-- Location -->
                     <TextBox
                         Header="Location"
                         PlaceholderText="Enter a file path or URL"
                         TextWrapping="Wrap"
-                        Text="{Binding Location, Mode=TwoWay,
+                        Text="{x:Bind Resource.Location, Mode=TwoWay,
                                 UpdateSourceTrigger=PropertyChanged}"/>
 
                     <!-- Actions -->
@@ -119,14 +105,14 @@
 
                             </StackPanel>
                         </Button>
-                        
-                    </StackPanel>
-                    
-                </StackPanel>
-                
-            </ScrollViewer>
-            
-        </Border>
 
-    </Grid>
+                    </StackPanel>
+
+                </StackPanel>
+
+            </ScrollViewer>
+
+        </StackPanel>
+
+    </Border>
 </UserControl>

@@ -6,41 +6,28 @@
     xmlns:local="using:ProjectScheduler.Controls"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:controls="using:ProjectScheduler.Controls"
     mc:Ignorable="d">
 
-    <Grid>
+    <Border
+        BorderBrush="{ThemeResource DividerStrokeColorDefaultBrush}"
+        BorderThickness="1,0,0,0"
+        Padding="28">
+
+        <StackPanel>
         
-        <!-- Placeholder -->
-        <Border
-            x:Name="PlaceholderPanel"
-            BorderBrush="{ThemeResource DividerStrokeColorDefaultBrush}"
-            BorderThickness="1,0,0,0">
+            <!-- Placeholder -->
+            <controls:PlaceholderView
+                x:Name="PlaceholderPanel"
+                IconGlyph="&#xE8A9;"
+                Header="No subslot selected"
+                Body="Choose a subslot from the list to view its details"/>
 
-            <StackPanel
-                HorizontalAlignment="Center"
-                VerticalAlignment="Center"
-                Spacing="12">
+            <!-- Details -->
+            <ScrollViewer
+                x:Name="DetailsPanel"
+                Visibility="Collapsed">
 
-                <SymbolIcon Symbol="ViewAll"/>
-
-                <TextBlock
-                    Text="Choose a subslot from the list to view its details"
-                    Foreground="{ThemeResource TextFillColorSecondaryBrush}"
-                    HorizontalAlignment="Center"/>
-
-            </StackPanel>
-
-        </Border>
-        
-        <!-- Details -->
-        <Border
-            x:Name="DetailsPanel"
-            BorderBrush="{ThemeResource DividerStrokeColorDefaultBrush}"
-            BorderThickness="1,0,0,0"
-            Padding="28"
-            Visibility="Collapsed">
-
-            <ScrollViewer>
                 <StackPanel Spacing="16">
 
                     <TextBlock
@@ -48,19 +35,19 @@
                         FontSize="12"
                         FontWeight="SemiBold"
                         Foreground="{ThemeResource TextFillColorSecondaryBrush}"/>
-                    
+
                     <!-- Name -->
                     <TextBox
                         Header="Name"
                         PlaceholderText="No subslot name"
-                        Text="{Binding Name, Mode=TwoWay, 
+                        Text="{x:Bind Subslot.Name, Mode=TwoWay, 
                                 UpdateSourceTrigger=PropertyChanged}"/>
-                    
+
                     <!-- Description -->
                     <TextBox
                         Header="Description"
                         PlaceholderText="No description"
-                        Text="{Binding Description, Mode=TwoWay,
+                        Text="{x:Bind Subslot.Description, Mode=TwoWay,
                                 UpdateSourceTrigger=PropertyChanged}"/>
 
                     <TextBlock
@@ -72,9 +59,20 @@
 
                     <!-- Rules -->
                     <CheckBox
-                        Content="Lock Resources"
-                        IsChecked="{Binding LockResources, Mode=TwoWay}"
-                        ToolTipService.ToolTip="Disables access to all of the current project's resources"/>
+                        IsChecked="{x:Bind Subslot.LockResources, Mode=TwoWay}"
+                        ToolTipService.ToolTip="">
+
+                        <StackPanel>
+                            <TextBlock Text="Lock Project Resources"/>
+
+                            <TextBlock
+                                Text="Disables access to all of the current project's resources"
+                                FontSize="12"
+                                Foreground="{ThemeResource TextFillColorSecondaryBrush}"/>
+
+                        </StackPanel>
+
+                    </CheckBox>
 
                     <!-- Actions -->
                     <StackPanel
@@ -86,10 +84,10 @@
                             <StackPanel
                                 Orientation="Horizontal"
                                 Spacing="12">
-                                
+
                                 <SymbolIcon Symbol="Save"/>
                                 <TextBlock Text="Save Changes"/>
-                                
+
                             </StackPanel>
                         </Button>
 
@@ -97,19 +95,20 @@
                             <StackPanel
                                 Orientation="Horizontal"
                                 Spacing="12">
-                                
+
                                 <SymbolIcon Symbol="Delete"/>
                                 <TextBlock Text="Delete Subslot"/>
-                                
+
                             </StackPanel>
                         </Button>
 
                     </StackPanel>
-                    
-                </StackPanel>
-            </ScrollViewer>
-            
-        </Border>
 
-    </Grid>
+                </StackPanel>
+            
+            </ScrollViewer>
+
+        </StackPanel>
+            
+    </Border>
 </UserControl>

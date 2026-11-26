@@ -5,13 +5,13 @@
     <None Update="App.xaml">
       <SubType>Designer</SubType>
     </None>
-    <Page Update="Controls\ResourceDetailsView.xaml">
+    <Page Update="Controls\PlaceholderView.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="Controls\SubslotDetailsView.xaml">
+    <Page Update="Controls\TaskListView.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="Controls\ItemListView.xaml">
+    <Page Update="Controls\ResourceAssignView.xaml">
       <SubType>Designer</SubType>
     </Page>
     <None Update="MainWindow.xaml">

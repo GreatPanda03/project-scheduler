@@ -30,6 +30,8 @@ namespace ProjectScheduler.Services
             string json = await FileIO.ReadTextAsync(file);
 
             JsonNode? jsonNode = JsonNode.Parse(json);
+            
+            bool migrated = false;
 
             // Convert the legacy Directory property to Location (v0.6.0)
             if (jsonNode is JsonArray resourcesArray)
@@ -49,15 +51,31 @@ namespace ProjectScheduler.Services
                     {
                         resourceObject[nameof(ResourceItem.Location)] = 
                             legacyLocation?.DeepClone();
+
+                        migrated = true;
                     }
 
                     // Remove the old property regardless
-                    resourceObject.Remove("Directory");
+                    if (resourceObject.Remove("Directory"))
+                    {
+                        migrated = true;
+                    }
                 }
             }
 
-            return jsonNode?.Deserialize<List<ResourceItem>>(JsonOptions)
+            List<ResourceItem> resources = 
+                jsonNode?.Deserialize<List<ResourceItem>>(JsonOptions)
                 ?? new List<ResourceItem>();
+
+            // Replacing currently saved data with migrated data
+            if (migrated)
+            {
+                string migratedJson = jsonNode?.ToJsonString(JsonOptions) ?? "[]";
+                
+                await FileIO.WriteTextAsync(file, migratedJson);
+            }
+
+            return resources;
         }
 
         public async Task SaveAsync(

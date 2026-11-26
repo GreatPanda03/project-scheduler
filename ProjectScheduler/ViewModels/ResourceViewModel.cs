@@ -10,6 +10,7 @@ namespace ProjectScheduler.ViewModels
         : ListViewModel<ResourceItem>
     {
         private readonly ResourceService _resourceService;
+        private readonly ResourceOpener _resourceOpener = new();
 
         public ResourceViewModel()
             : this(new ResourceService())
@@ -50,6 +51,11 @@ namespace ProjectScheduler.ViewModels
         public async Task SaveAsync()
         {
             await _resourceService.SaveAsync(Items);
+        }
+
+        public async void OpenResource(ResourceItem resource)
+        {
+            _resourceOpener.OpenResource(resource);
         }
     }
 }

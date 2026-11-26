@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<UserControl x:ConnectionId='1'
+    x:Class="ProjectScheduler.Controls.PlaceholderView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:ProjectScheduler.Controls"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Grid>
+
+        <StackPanel
+            Grid.Row="2"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Top"
+            Spacing="12"
+            Margin="0,25,0,0"
+            Visibility="Visible">
+
+            <FontIcon x:ConnectionId='2'                                        />
+
+            <TextBlock x:ConnectionId='3'
+                                                   
+                FontSize="20"
+                FontWeight="SemiBold"
+                HorizontalAlignment="Center"/>
+
+            <TextBlock x:ConnectionId='4'
+                                                 
+                Foreground="{ThemeResource TextFillColorSecondaryBrush}"
+                HorizontalAlignment="Center"/>
+
+        </StackPanel>
+
+    </Grid>
+</UserControl>
+

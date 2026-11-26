@@ -1,0 +1,223 @@
+<?xml version="1.0" encoding="utf-8"?>
+<UserControl
+    x:Class="ProjectScheduler.Controls.TaskListView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:ProjectScheduler.Controls"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:models="using:ProjectScheduler.Models"
+    xmlns:controls="using:ProjectScheduler.Controls"
+    mc:Ignorable="d">
+
+    <Grid RowSpacing="12">
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <!-- Tasks Heading -->
+        <Grid ColumnSpacing="5">
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+
+            <TextBlock
+                Grid.Row="0"
+                Text="TASKS"
+                FontSize="12"
+                FontWeight="SemiBold"
+                Foreground="{ThemeResource TextFillColorSecondaryBrush}"/>
+
+            <!-- Add Task -->
+            <Button
+                Grid.Column="1"
+                HorizontalAlignment="Stretch"
+                Click="AddTaskButton_Click">
+
+                <StackPanel
+                    Orientation="Horizontal"
+                    Spacing="8">
+
+                    <FontIcon Glyph="&#xE710;"/>
+                    <TextBlock Text="Add Task"/>
+
+                </StackPanel>
+            </Button>
+
+        </Grid>
+
+        <!-- Task Filters -->
+        <Grid 
+            Grid.Row="1"
+            ColumnSpacing="10">
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            
+            <ComboBox
+                Grid.Column="0"
+                Header="Completion Status"
+                HorizontalAlignment="Stretch"
+                SelectedIndex="{x:Bind ViewModel.CompletionFilter, Mode=TwoWay}">
+
+                <ComboBoxItem Content="All"/>
+                <ComboBoxItem Content="Completed"/>
+                <ComboBoxItem Content="Incomplete"/>
+
+            </ComboBox>
+
+            <ComboBox
+                Grid.Column="1"
+                x:Name="TaskDateSortComboBox"
+                Header="Sort by Date"
+                HorizontalAlignment="Stretch"
+                SelectedIndex="{x:Bind ViewModel.DateSort, Mode=TwoWay}">
+
+                <ComboBoxItem Content="Ascending"/>
+                <ComboBoxItem Content="Descending"/>
+
+            </ComboBox>
+
+        </Grid>
+
+        <!-- Task List -->
+        <Grid Grid.Row="2">
+
+            <ListView
+                x:Name="TasksListView"
+                ItemsSource="{x:Bind ViewModel.FilteredTasks, Mode=OneWay}"
+                SelectedItem="{x:Bind ViewModel.SelectedItem, Mode=TwoWay}"
+                SelectionMode="Single"
+                VerticalAlignment="Stretch"
+                SelectionChanged="TasksListView_SelectionChanged">
+
+                <ListView.ItemTemplate>
+                    <DataTemplate x:DataType="models:TaskListEntry">
+
+                        <Grid
+                            Padding="6"
+                            Margin="{x:Bind IndentMargin, Mode=OneWay}"
+                            ColumnSpacing="6">
+
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="28"/>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="Auto"/>
+                            </Grid.ColumnDefinitions>
+
+                            <!-- Expand / Collapse Control -->
+                            <Button
+                                Grid.Column="0"
+                                Width="28"
+                                Height="32"
+                                Padding="0"
+                                Background="Transparent"
+                                BorderBrush="Transparent"
+                                VerticalAlignment="Center"
+                                Visibility="{x:Bind ExpandVisibility, Mode=OneWay}"
+                                Click="ToggleTaskExpansionButton_Click">
+
+                                <FontIcon
+                                    Glyph="{x:Bind ExpandGlyph, Mode=OneWay}"
+                                    FontSize="12"/>
+
+                            </Button>
+
+                            <!-- Task Checkbox -->
+                            <CheckBox
+                                Grid.Column="1"
+                                IsChecked="{x:Bind Task.IsCompleted, Mode=TwoWay}"
+                                VerticalAlignment="Center"
+                                MinWidth="0"
+                                Click="TaskCompletionCheckBox_Click"/>
+                                <!-- excluding MinWidth makes it insanely long... -->
+
+                            <!-- Task Details -->
+                            <StackPanel
+                                Grid.Column="3"
+                                VerticalAlignment="Center">
+
+                                <TextBlock
+                                    Text="{x:Bind Task.Name, Mode=OneWay}"
+                                    TextWrapping="Wrap"
+                                    FontWeight="SemiBold"/>
+
+                                <StackPanel
+                                    Orientation="Horizontal"
+                                    Spacing="8">
+
+                                    <TextBlock
+                                        Text="{x:Bind DateLabel, Mode=OneWay}"
+                                        FontSize="11"
+                                        Foreground="{ThemeResource TextFillColorSecondaryBrush}"/>
+
+                                    <TextBlock
+                                        Text="{x:Bind SubtaskProgress, Mode=OneWay}"
+                                        FontSize="11"
+                                        Foreground="{ThemeResource TextFillColorSecondaryBrush}"/>
+
+                                </StackPanel>
+
+                            </StackPanel>
+
+                            <!-- Task Actions -->
+                            <StackPanel
+                                x:Name="TaskActionsPanel"
+                                Grid.Column="4"
+                                Orientation="Horizontal"
+                                Spacing="5"
+                                Visibility="Collapsed">
+
+                                <Button
+                                    Click="AddSubtaskButton_Click"
+                                    ToolTipService.ToolTip="Add Subtask"
+                                    ToolTipService.Placement="Bottom">
+
+                                    <SymbolIcon Symbol="Add"/>
+                                </Button>
+
+                                <Button
+                                    Click="EditTaskButton_Click"
+                                    ToolTipService.ToolTip="Edit Task"
+                                    ToolTipService.Placement="Bottom">
+
+                                    <SymbolIcon Symbol="Edit"/>
+                                </Button>
+
+                                <Button
+                                    Click="DeleteTaskButton_Click"
+                                    ToolTipService.ToolTip="Delete Task"
+                                    ToolTipService.Placement="Bottom">
+
+                                    <SymbolIcon Symbol="Delete"/>
+                                </Button>
+
+                            </StackPanel>
+
+                        </Grid>
+
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+
+            </ListView>
+
+            <!-- Empty Task List Placeholder -->
+            <controls:PlaceholderView
+                IconGlyph="&#xF0E3;"
+                Header="No tasks"
+                Body="Create a new task for the project"/>
+            
+        </Grid>
+
+    </Grid>
+
+</UserControl>

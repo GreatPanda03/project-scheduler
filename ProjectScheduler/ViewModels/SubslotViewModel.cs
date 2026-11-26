@@ -1,8 +1,10 @@
 ﻿using ProjectScheduler.Models;
 using ProjectScheduler.Services;
 using ProjectScheduler.ViewModels.Base;
+using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using Windows.Devices.Bluetooth.Advertisement;
 
 namespace ProjectScheduler.ViewModels
 {

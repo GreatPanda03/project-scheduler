@@ -60,13 +60,12 @@
                         </StackPanel>
 
                     </Grid>
-                    
+
                 </DataTemplate>
             </controls:ItemListView.ItemTemplate>
-            
+
         </controls:ItemListView>
 
-        
         <!-- RIGHT PANEL: RESOURCE DETAILS -->
         <controls:ResourceDetailsView
             Grid.Column="1"

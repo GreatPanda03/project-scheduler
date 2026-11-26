@@ -58,7 +58,8 @@
         <TextBox x:ConnectionId='2'
             Grid.Row="1"
                                                                      
-                                                                                        
+                                                  
+                                                         
             InputScope="Default"/>
 
         <!-- List -->
