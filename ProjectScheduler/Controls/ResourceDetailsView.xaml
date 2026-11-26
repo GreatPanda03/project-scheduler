@@ -41,7 +41,9 @@
                         Header="Name"
                         PlaceholderText="No resource name"
                         Text="{x:Bind Resource.Name, Mode=TwoWay,
-                                UpdateSourceTrigger=PropertyChanged}"/>
+                                UpdateSourceTrigger=PropertyChanged}"
+                        HorizontalAlignment="Left"
+                        MinWidth="300"/>
 
                     <!-- Description -->
                     <TextBox
@@ -52,21 +54,38 @@
                         Text="{x:Bind Resource.Description, Mode=TwoWay,
                                 UpdateSourceTrigger=PropertyChanged}"/>
 
-                    <!-- Resource Type -->
-                    <ComboBox
-                        x:Name="ResourceTypeComboBox"
-                        Header="Type"
-                        HorizontalAlignment="Stretch"
-                        SelectedItem="{x:Bind Resource.Type, Mode=TwoWay}"/>
+                    <TextBlock
+                        Text="RESOURCE LOCATION"
+                        FontSize="12"
+                        FontWeight="SemiBold"
+                        Foreground="{ThemeResource TextFillColorSecondaryBrush}"
+                        Margin="0,12,0,0"/>
 
-                    <!-- Location -->
-                    <TextBox
-                        Header="Location"
-                        PlaceholderText="Enter a file path or URL"
-                        TextWrapping="Wrap"
-                        Text="{x:Bind Resource.Location, Mode=TwoWay,
-                                UpdateSourceTrigger=PropertyChanged}"/>
+                    <Grid ColumnSpacing="24">
 
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        
+                        <!-- Resource Type -->
+                        <ComboBox
+                            x:Name="ResourceTypeComboBox"
+                            Grid.Column="0"
+                            Header="Type"
+                            MinWidth="125"
+                            SelectedItem="{x:Bind Resource.Type, Mode=TwoWay}"/>
+
+                        <!-- Location -->
+                        <TextBox
+                            Header="Location"
+                            Grid.Column="1"
+                            PlaceholderText="Enter a file path or URL"
+                            Text="{x:Bind Resource.Location, Mode=TwoWay,
+                                    UpdateSourceTrigger=PropertyChanged}"
+                            TextWrapping="Wrap"/>
+                    </Grid>
+                        
                     <!-- Actions -->
                     <StackPanel
                         Orientation="Horizontal"

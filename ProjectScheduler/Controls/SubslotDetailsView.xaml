@@ -41,7 +41,9 @@
                         Header="Name"
                         PlaceholderText="No subslot name"
                         Text="{x:Bind Subslot.Name, Mode=TwoWay, 
-                                UpdateSourceTrigger=PropertyChanged}"/>
+                                UpdateSourceTrigger=PropertyChanged}"
+                        HorizontalAlignment="Left"
+                        MinWidth="300"/>
 
                     <!-- Description -->
                     <TextBox

@@ -1,5 +1,6 @@
 using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Controls;
+using Microsoft.UI.Xaml.Markup;
 using Microsoft.UI.Xaml.Media;
 using ProjectScheduler.Interfaces;
 using ProjectScheduler.Models;
@@ -8,6 +9,7 @@ using ProjectScheduler.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -15,12 +17,16 @@ namespace ProjectScheduler.Controls
 {
     public sealed partial class ResourceAssignView : UserControl
     {
-        private ResourceAssignViewModel ViewModel;
-        private readonly ObservableCollection<ResourceItem> _assignedResources = new();
+        private ResourceAssignViewModel ViewModel; // changes according to Target
+        private ObservableCollection<ResourceItem> _assignedResources;
 
         public ResourceAssignView()
         {
             InitializeComponent();
+
+            ViewModel = new();
+
+            _assignedResources = new();
         }
 
         // Title
@@ -57,83 +63,46 @@ namespace ProjectScheduler.Controls
         {
             if (sender is ResourceAssignView control)
             {
-                control.ViewModel =
-                    e.NewValue is IHasResources target
-                        ? new ResourceAssignViewModel(target)
-                        : null;
-
+                control.ViewModel.Target = (IHasResources)e.NewValue;
                 control.RefreshItems();
             }
         }
-
-        // Available Resources
-        public IEnumerable<ResourceItem>? AvailableResources
-        {
-            get => (IEnumerable<ResourceItem>?)GetValue(AvailableResourcesProperty);
-            set => SetValue(AvailableResourcesProperty, value);
-        }
-
-        public static readonly DependencyProperty AvailableResourcesProperty =
-            DependencyProperty.Register(
-                nameof(AvailableResources),
-                typeof(IEnumerable<ResourceItem>),
-                typeof(ResourceAssignView),
-                new PropertyMetadata(null, OnAvailableResourcesChanged));
-
-        private static void OnAvailableResourcesChanged(
-            DependencyObject sender,
-            DependencyPropertyChangedEventArgs e)
-        {
-            if (sender is ResourceAssignView control)
-            {
-                control.RefreshItems();
-            }
-        }
-
 
         public void RefreshItems()
         {
             _assignedResources.Clear();
 
-            if (Target == null || AvailableResources == null)
-            {
-                return;
-            }
+            if (ViewModel.Target is null) return;
 
-            var assignedResources = AvailableResources
-                .Where(resource => Target.ResourceIds.Contains(resource.Id));
-
-            foreach (var resource in assignedResources)
-            {
+            List<ResourceItem> resources = ViewModel.GetTargetResources();
+            
+            foreach (ResourceItem resource in resources)
                 _assignedResources.Add(resource);
-            }
+
+            var phPanel = (StackPanel)FindName("PlaceholderPanel");
+            var listPanel = (ListView)FindName("ListPanel");
+
+            phPanel.Visibility = _assignedResources.Count == 0
+                ? Visibility.Visible : Visibility.Collapsed;
+
+            listPanel.Visibility = _assignedResources.Count == 0
+                ? Visibility.Collapsed : Visibility.Visible;
         }
+
 
 
         // [[ EVENTS ]] //
-
-        public void OnResourceSelectionChanged(
-            object sender,
-            SelectionChangedEventArgs e)
-        {
-
-        }
-
 
         // Add Resource
         private async void AddResourceButton_Click(
             object sender,
             RoutedEventArgs e)
         {
-            if (ViewModel.Target is not ListViewItem selectedItem ||
-                selectedItem.Tag is not ResourceItem selectedResource)
-            {
-                return;
-            }
-
             if (ViewModel is null) return;
+            if (ViewModel.Target is null) return;
 
             ResourceItem? resource = await PromptSelectResource();
+
             if (resource is null) return;
 
             bool added = ViewModel.AddResource(resource.Id);
@@ -180,10 +149,7 @@ namespace ProjectScheduler.Controls
             object sender,
             SelectionChangedEventArgs e)
         {
-            if (sender is not ListView)
-            {
-                return;
-            }
+            if (sender is not ListView) return;
 
             ListView listView = (ListView)sender;
 
@@ -193,10 +159,7 @@ namespace ProjectScheduler.Controls
                 var container = listView.ContainerFromItem(resource)
                     as DependencyObject;
 
-                if (container == null)
-                {
-                    return;
-                }
+                if (container == null) return;
 
                 var actionsPanel = FindNamedElement<StackPanel>(
                     container,
@@ -245,7 +208,8 @@ namespace ProjectScheduler.Controls
             ListView resourceListView = new()
             {
                 SelectionMode = ListViewSelectionMode.Single,
-                MaxHeight = 300
+                MaxHeight = 300,
+                ItemTemplate = GetResourceTemplate()
             };
 
             void RefreshPickerList()
@@ -254,7 +218,7 @@ namespace ProjectScheduler.Controls
 
                 resourceListView.Items.Clear();
 
-                var availableResources = AvailableResources?
+                var filteredResources = ViewModel.GetAllResources()
                     .Where(resource =>
                         !Target.ResourceIds.Contains(resource.Id) &&
                         resource.Name.Contains(
@@ -262,17 +226,8 @@ namespace ProjectScheduler.Controls
                             StringComparison.OrdinalIgnoreCase))
                     .OrderBy(resource => resource.Name);
 
-                foreach (var resource in availableResources)
+                foreach (ResourceItem resource in filteredResources)
                 {
-                    StackPanel panel = new()
-                    {
-                        Orientation = Orientation.Horizontal,
-                        Spacing = 8
-                    };
-
-                    panel.Children.Add(new FontIcon { Glyph = resource.IconGlyph });
-                    panel.Children.Add(new TextBlock { Text = resource.Name });
-
                     resourceListView.Items.Add(resource);
                 }
             }
@@ -316,9 +271,7 @@ namespace ProjectScheduler.Controls
             var result = await dialogue.ShowAsync();
 
             if (result != ContentDialogResult.Primary)
-            {
                 return null;
-            }
 
             return resourceListView.SelectedItem as ResourceItem;
         }
@@ -338,19 +291,41 @@ namespace ProjectScheduler.Controls
                 var child = VisualTreeHelper.GetChild(parent, i);
 
                 if (child is T element && element.Name == elementName)
-                {
                     return element;
-                }
 
                 var result = FindNamedElement<T>(child, elementName);
 
                 if (result != null)
-                {
                     return result;
-                }
             }
 
             return null;
+        }
+
+        public DataTemplate GetResourceTemplate()
+        {
+            string xaml = """
+                <DataTemplate
+                    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
+
+                    <StackPanel
+                        Orientation="Horizontal"
+                        Spacing="8">
+
+                        <FontIcon
+                            Glyph="{Binding IconGlyph}"
+                            VerticalAlignment="Center"/>
+
+                        <TextBlock
+                            Text="{Binding Name}"
+                            VerticalAlignment="Center"/>
+
+                    </StackPanel>
+
+                </DataTemplate>
+                """;
+
+            return (DataTemplate)XamlReader.Load(xaml);
         }
     }
 }

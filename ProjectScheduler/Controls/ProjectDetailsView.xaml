@@ -71,12 +71,6 @@
                                 HorizontalAlignment="Stretch"
                                 Value="{x:Bind Project.Priority, Mode=TwoWay}"/>
 
-                            <!-- Project Resources -->
-                            <controls:ResourceAssignView
-                                Title="PROJECT RESOURCES"
-                                Target="{x:Bind Project, Mode=OneWay}"
-                                AvailableResources="{x:Bind ResourceItems, Mode=OneWay}"/>
-
                             <!-- Project Notes -->
                             <TextBox
                                 x:Name="ProjectNotesTextBox"
@@ -84,10 +78,16 @@
                                 PlaceholderText="No additional notes"
                                 AcceptsReturn="True"
                                 TextWrapping="Wrap"
-                                MinHeight="140"
+                                MinHeight="80"
                                 VerticalAlignment="Top"
                                 Text="{x:Bind Project.Notes, Mode=TwoWay,
                                         UpdateSourceTrigger=PropertyChanged}"/>
+
+                            <!-- Project Resources -->
+                            <controls:ResourceAssignView
+                                Title="PROJECT RESOURCES"
+                                Target="{x:Bind Project, Mode=OneWay}"
+                                Margin="0,8,0,0"/>
 
                         </StackPanel>
 
@@ -114,17 +114,29 @@
                 <StackPanel
                     Orientation="Horizontal"
                     Spacing="12"
-                    Margin="0,12,0,0">
+                    Margin="0,24,0,0">
 
-                    <Button
-                        Content="Save Changes"
-                        Click="SaveProjectButton_Click"
-                        HorizontalAlignment="Stretch"/>
+                    <Button Click="SaveProjectButton_Click">
+                        <StackPanel
+                                Orientation="Horizontal"
+                                Spacing="8">
 
-                    <Button
-                        Content="Delete Project"
-                        Click="DeleteProjectButton_Click"
-                        HorizontalAlignment="Stretch"/>
+                            <SymbolIcon Symbol="Save"/>
+                            <TextBlock Text="Save Project"/>
+
+                        </StackPanel>
+                    </Button>
+
+                    <Button Click="DeleteProjectButton_Click">
+                        <StackPanel
+                            Orientation="Horizontal"
+                            Spacing="8">
+
+                            <SymbolIcon Symbol="Delete"/>
+                            <TextBlock Text="Delete Project"/>
+
+                        </StackPanel>
+                    </Button>
 
                 </StackPanel>
 
