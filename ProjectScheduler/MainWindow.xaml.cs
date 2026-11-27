@@ -78,8 +78,8 @@ public sealed partial class MainWindow : Window
                 ContentFrame.Navigate(typeof(HomePage));
                 break;
 
-            case "Pre-work Checklist":
-                ContentFrame.Navigate(typeof(PreWorkChecklistPage));
+            case "Schedules":
+                ContentFrame.Navigate(typeof(PlaceholderPage));
                 break;
 
             case "Projects":
@@ -92,6 +92,10 @@ public sealed partial class MainWindow : Window
 
             case "Subslots":
                 ContentFrame.Navigate(typeof(SubslotsPage));
+                break;
+
+            case "Pre-work Checklist":
+                ContentFrame.Navigate(typeof(PreWorkChecklistPage));
                 break;
 
             default:

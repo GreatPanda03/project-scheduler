@@ -17,7 +17,7 @@
     <DeployOptionalPackages>false</DeployOptionalPackages>
     <WindowsSdkPath>C:\Program Files %28x86%29\Windows Kits\10\</WindowsSdkPath>
     <LayoutDir>C:\Users\mobot\OneDrive\Desktop\Programming\VSC2026 Code\ProjectScheduler\ProjectScheduler\bin\x64\Debug\net8.0-windows10.0.19041.0\win-x64\AppX</LayoutDir>
-    <RegisteredManifestChecksum>7C8C66EA5784E2F635B3FA5875E3AF318037FDB84B988EE76BF60FE57B941D1E</RegisteredManifestChecksum>
+    <RegisteredManifestChecksum>DF02EF920576BA3EF9D53AEA50500BA18819A6671374A2EE7528BEFCFB61BB63</RegisteredManifestChecksum>
     <RegisteredPackageMoniker>1b19df01-0720-4d4c-96e8-6cef38524d94_1.0.0.0_x64__d3d581dw35zxc</RegisteredPackageMoniker>
     <RegisteredUserModeAppID>1b19df01-0720-4d4c-96e8-6cef38524d94_d3d581dw35zxc!App</RegisteredUserModeAppID>
     <RegisteredPackageID>1b19df01-0720-4d4c-96e8-6cef38524d94</RegisteredPackageID>
@@ -28,21 +28,21 @@
     <AppXManifest Include="C:\Users\mobot\OneDrive\Desktop\Programming\VSC2026 Code\ProjectScheduler\ProjectScheduler\bin\x64\Debug\net8.0-windows10.0.19041.0\win-x64\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2026-11-15T17:47:44.014</Modified>
+      <Modified>2026-11-27T11:59:02.022</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
     <AppxPackagedFile Include="C:\Users\mobot\OneDrive\Desktop\Programming\VSC2026 Code\ProjectScheduler\ProjectScheduler\bin\x64\Debug\net8.0-windows10.0.19041.0\win-x64\ProjectScheduler.runtimeconfig.json">
       <PackagePath>ProjectScheduler.runtimeconfig.json</PackagePath>
-      <Modified>2026-11-14T12:05:40.591</Modified>
+      <Modified>2026-11-26T08:59:03.376</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\mobot\OneDrive\Desktop\Programming\VSC2026 Code\ProjectScheduler\ProjectScheduler\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\apphost.exe">
       <PackagePath>ProjectScheduler.exe</PackagePath>
-      <Modified>2026-11-15T17:47:43.617</Modified>
+      <Modified>2026-11-27T11:59:01.517</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\mobot\OneDrive\Desktop\Programming\VSC2026 Code\ProjectScheduler\ProjectScheduler\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\ProjectScheduler.dll">
       <PackagePath>ProjectScheduler.dll</PackagePath>
-      <Modified>2026-11-15T17:47:43.601</Modified>
+      <Modified>2026-11-27T11:59:01.492</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\mobot\.nuget\packages\microsoft.netcore.app.runtime.win-x64\8.0.31\runtimes\win-x64\lib\net8.0\Microsoft.CSharp.dll">
       <PackagePath>Microsoft.CSharp.dll</PackagePath>
@@ -780,133 +780,137 @@
       <PackagePath>WinRT.Runtime.dll</PackagePath>
       <Modified>2024-11-11T17:23:04.000</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\mobot\.nuget\packages\microsoft.windows.ai.machinelearning\2.4.89\lib\net8.0-windows10.0.17763.0\Microsoft.ML.OnnxRuntime.dll">
+    <AppxPackagedFile Include="C:\Users\mobot\.nuget\packages\communitytoolkit.mvvm\8.4.2\lib\net8.0-windows10.0.17763\CommunityToolkit.Mvvm.dll">
+      <PackagePath>CommunityToolkit.Mvvm.dll</PackagePath>
+      <Modified>2026-03-24T23:20:02.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\mobot\.nuget\packages\microsoft.windows.ai.machinelearning\2.5.96\lib\net8.0-windows10.0.17763.0\Microsoft.ML.OnnxRuntime.dll">
       <PackagePath>Microsoft.ML.OnnxRuntime.dll</PackagePath>
-      <Modified>2026-09-22T08:17:04.000</Modified>
+      <Modified>2026-10-23T21:04:04.000</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\mobot\.nuget\packages\microsoft.windows.ai.machinelearning\2.4.89\lib\net8.0-windows10.0.17763.0\Microsoft.Windows.AI.MachineLearning.Projection.dll">
+    <AppxPackagedFile Include="C:\Users\mobot\.nuget\packages\microsoft.windows.ai.machinelearning\2.5.96\lib\net8.0-windows10.0.17763.0\Microsoft.Windows.AI.MachineLearning.Projection.dll">
       <PackagePath>Microsoft.Windows.AI.MachineLearning.Projection.dll</PackagePath>
-      <Modified>2026-09-22T08:17:04.000</Modified>
+      <Modified>2026-10-23T21:04:04.000</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\mobot\.nuget\packages\microsoft.windowsappsdk.ai\2.6.5\lib\net6.0-windows10.0.17763.0\Microsoft.Graphics.Imaging.Projection.dll">
+    <AppxPackagedFile Include="C:\Users\mobot\.nuget\packages\microsoft.windowsappsdk.ai\2.7.0\lib\net6.0-windows10.0.17763.0\Microsoft.Graphics.Imaging.Projection.dll">
       <PackagePath>Microsoft.Graphics.Imaging.Projection.dll</PackagePath>
-      <Modified>2026-10-31T12:01:36.000</Modified>
+      <Modified>2026-11-11T07:02:36.000</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\mobot\.nuget\packages\microsoft.windowsappsdk.ai\2.6.5\lib\net6.0-windows10.0.17763.0\Microsoft.Windows.AI.ContentSafety.Projection.dll">
+    <AppxPackagedFile Include="C:\Users\mobot\.nuget\packages\microsoft.windowsappsdk.ai\2.7.0\lib\net6.0-windows10.0.17763.0\Microsoft.Windows.AI.ContentSafety.Projection.dll">
       <PackagePath>Microsoft.Windows.AI.ContentSafety.Projection.dll</PackagePath>
-      <Modified>2026-10-31T12:01:36.000</Modified>
+      <Modified>2026-11-11T07:02:36.000</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\mobot\.nuget\packages\microsoft.windowsappsdk.ai\2.6.5\lib\net6.0-windows10.0.17763.0\Microsoft.Windows.AI.Foundation.Projection.dll">
+    <AppxPackagedFile Include="C:\Users\mobot\.nuget\packages\microsoft.windowsappsdk.ai\2.7.0\lib\net6.0-windows10.0.17763.0\Microsoft.Windows.AI.Foundation.Projection.dll">
       <PackagePath>Microsoft.Windows.AI.Foundation.Projection.dll</PackagePath>
-      <Modified>2026-10-31T12:01:36.000</Modified>
+      <Modified>2026-11-11T07:02:36.000</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\mobot\.nuget\packages\microsoft.windowsappsdk.ai\2.6.5\lib\net6.0-windows10.0.17763.0\Microsoft.Windows.AI.Imaging.Projection.dll">
+    <AppxPackagedFile Include="C:\Users\mobot\.nuget\packages\microsoft.windowsappsdk.ai\2.7.0\lib\net6.0-windows10.0.17763.0\Microsoft.Windows.AI.Imaging.Projection.dll">
       <PackagePath>Microsoft.Windows.AI.Imaging.Projection.dll</PackagePath>
-      <Modified>2026-10-31T12:01:36.000</Modified>
+      <Modified>2026-11-11T07:02:36.000</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\mobot\.nuget\packages\microsoft.windowsappsdk.ai\2.6.5\lib\net6.0-windows10.0.17763.0\Microsoft.Windows.AI.Projection.dll">
+    <AppxPackagedFile Include="C:\Users\mobot\.nuget\packages\microsoft.windowsappsdk.ai\2.7.0\lib\net6.0-windows10.0.17763.0\Microsoft.Windows.AI.Projection.dll">
       <PackagePath>Microsoft.Windows.AI.Projection.dll</PackagePath>
-      <Modified>2026-10-31T12:01:36.000</Modified>
+      <Modified>2026-11-11T07:02:36.000</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\mobot\.nuget\packages\microsoft.windowsappsdk.ai\2.6.5\lib\net6.0-windows10.0.17763.0\Microsoft.Windows.AI.Text.Projection.dll">
+    <AppxPackagedFile Include="C:\Users\mobot\.nuget\packages\microsoft.windowsappsdk.ai\2.7.0\lib\net6.0-windows10.0.17763.0\Microsoft.Windows.AI.Text.Projection.dll">
       <PackagePath>Microsoft.Windows.AI.Text.Projection.dll</PackagePath>
-      <Modified>2026-10-31T12:01:36.000</Modified>
+      <Modified>2026-11-11T07:02:36.000</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\mobot\.nuget\packages\microsoft.windowsappsdk.ai\2.6.5\lib\net6.0-windows10.0.17763.0\Microsoft.Windows.AI.Video.Projection.dll">
+    <AppxPackagedFile Include="C:\Users\mobot\.nuget\packages\microsoft.windowsappsdk.ai\2.7.0\lib\net6.0-windows10.0.17763.0\Microsoft.Windows.AI.Video.Projection.dll">
       <PackagePath>Microsoft.Windows.AI.Video.Projection.dll</PackagePath>
-      <Modified>2026-10-31T12:01:36.000</Modified>
+      <Modified>2026-11-11T07:02:36.000</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\mobot\.nuget\packages\microsoft.windowsappsdk.foundation\2.6.5\lib\net6.0-windows10.0.17763.0\Microsoft.Security.Authentication.OAuth.Projection.dll">
+    <AppxPackagedFile Include="C:\Users\mobot\.nuget\packages\microsoft.windowsappsdk.foundation\2.7.0\lib\net6.0-windows10.0.17763.0\Microsoft.Security.Authentication.OAuth.Projection.dll">
       <PackagePath>Microsoft.Security.Authentication.OAuth.Projection.dll</PackagePath>
-      <Modified>2026-10-31T08:59:28.000</Modified>
+      <Modified>2026-11-11T03:56:36.000</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\mobot\.nuget\packages\microsoft.windowsappsdk.foundation\2.6.5\lib\net6.0-windows10.0.17763.0\Microsoft.Windows.AppLifecycle.Projection.dll">
+    <AppxPackagedFile Include="C:\Users\mobot\.nuget\packages\microsoft.windowsappsdk.foundation\2.7.0\lib\net6.0-windows10.0.17763.0\Microsoft.Windows.AppLifecycle.Projection.dll">
       <PackagePath>Microsoft.Windows.AppLifecycle.Projection.dll</PackagePath>
-      <Modified>2026-10-31T08:59:28.000</Modified>
+      <Modified>2026-11-11T03:56:36.000</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\mobot\.nuget\packages\microsoft.windowsappsdk.foundation\2.6.5\lib\net6.0-windows10.0.17763.0\Microsoft.Windows.AppNotifications.Builder.Projection.dll">
+    <AppxPackagedFile Include="C:\Users\mobot\.nuget\packages\microsoft.windowsappsdk.foundation\2.7.0\lib\net6.0-windows10.0.17763.0\Microsoft.Windows.AppNotifications.Builder.Projection.dll">
       <PackagePath>Microsoft.Windows.AppNotifications.Builder.Projection.dll</PackagePath>
-      <Modified>2026-10-31T08:59:28.000</Modified>
+      <Modified>2026-11-11T03:56:36.000</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\mobot\.nuget\packages\microsoft.windowsappsdk.foundation\2.6.5\lib\net6.0-windows10.0.17763.0\Microsoft.Windows.AppNotifications.Projection.dll">
+    <AppxPackagedFile Include="C:\Users\mobot\.nuget\packages\microsoft.windowsappsdk.foundation\2.7.0\lib\net6.0-windows10.0.17763.0\Microsoft.Windows.AppNotifications.Projection.dll">
       <PackagePath>Microsoft.Windows.AppNotifications.Projection.dll</PackagePath>
-      <Modified>2026-10-31T08:59:28.000</Modified>
+      <Modified>2026-11-11T03:56:36.000</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\mobot\.nuget\packages\microsoft.windowsappsdk.foundation\2.6.5\lib\net6.0-windows10.0.17763.0\Microsoft.Windows.ApplicationModel.Background.Projection.dll">
+    <AppxPackagedFile Include="C:\Users\mobot\.nuget\packages\microsoft.windowsappsdk.foundation\2.7.0\lib\net6.0-windows10.0.17763.0\Microsoft.Windows.ApplicationModel.Background.Projection.dll">
       <PackagePath>Microsoft.Windows.ApplicationModel.Background.Projection.dll</PackagePath>
-      <Modified>2026-10-31T08:59:20.000</Modified>
+      <Modified>2026-11-11T03:56:30.000</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\mobot\.nuget\packages\microsoft.windowsappsdk.foundation\2.6.5\lib\net6.0-windows10.0.17763.0\Microsoft.Windows.ApplicationModel.DynamicDependency.Projection.dll">
+    <AppxPackagedFile Include="C:\Users\mobot\.nuget\packages\microsoft.windowsappsdk.foundation\2.7.0\lib\net6.0-windows10.0.17763.0\Microsoft.Windows.ApplicationModel.DynamicDependency.Projection.dll">
       <PackagePath>Microsoft.Windows.ApplicationModel.DynamicDependency.Projection.dll</PackagePath>
-      <Modified>2026-10-31T08:59:28.000</Modified>
+      <Modified>2026-11-11T03:56:36.000</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\mobot\.nuget\packages\microsoft.windowsappsdk.foundation\2.6.5\lib\net6.0-windows10.0.17763.0\Microsoft.Windows.ApplicationModel.Resources.Projection.dll">
+    <AppxPackagedFile Include="C:\Users\mobot\.nuget\packages\microsoft.windowsappsdk.foundation\2.7.0\lib\net6.0-windows10.0.17763.0\Microsoft.Windows.ApplicationModel.Resources.Projection.dll">
       <PackagePath>Microsoft.Windows.ApplicationModel.Resources.Projection.dll</PackagePath>
-      <Modified>2026-10-31T08:59:46.000</Modified>
+      <Modified>2026-11-11T03:56:54.000</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\mobot\.nuget\packages\microsoft.windowsappsdk.foundation\2.6.5\lib\net6.0-windows10.0.17763.0\Microsoft.Windows.ApplicationModel.WindowsAppRuntime.Projection.dll">
+    <AppxPackagedFile Include="C:\Users\mobot\.nuget\packages\microsoft.windowsappsdk.foundation\2.7.0\lib\net6.0-windows10.0.17763.0\Microsoft.Windows.ApplicationModel.WindowsAppRuntime.Projection.dll">
       <PackagePath>Microsoft.Windows.ApplicationModel.WindowsAppRuntime.Projection.dll</PackagePath>
-      <Modified>2026-10-31T08:59:28.000</Modified>
+      <Modified>2026-11-11T03:56:36.000</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\mobot\.nuget\packages\microsoft.windowsappsdk.foundation\2.6.5\lib\net6.0-windows10.0.17763.0\Microsoft.Windows.BadgeNotifications.Projection.dll">
+    <AppxPackagedFile Include="C:\Users\mobot\.nuget\packages\microsoft.windowsappsdk.foundation\2.7.0\lib\net6.0-windows10.0.17763.0\Microsoft.Windows.BadgeNotifications.Projection.dll">
       <PackagePath>Microsoft.Windows.BadgeNotifications.Projection.dll</PackagePath>
-      <Modified>2026-10-31T08:59:28.000</Modified>
+      <Modified>2026-11-11T03:56:36.000</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\mobot\.nuget\packages\microsoft.windowsappsdk.foundation\2.6.5\lib\net6.0-windows10.0.17763.0\Microsoft.Windows.Foundation.Projection.dll">
+    <AppxPackagedFile Include="C:\Users\mobot\.nuget\packages\microsoft.windowsappsdk.foundation\2.7.0\lib\net6.0-windows10.0.17763.0\Microsoft.Windows.Foundation.Projection.dll">
       <PackagePath>Microsoft.Windows.Foundation.Projection.dll</PackagePath>
-      <Modified>2026-10-31T08:59:28.000</Modified>
+      <Modified>2026-11-11T03:56:36.000</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\mobot\.nuget\packages\microsoft.windowsappsdk.foundation\2.6.5\lib\net6.0-windows10.0.17763.0\Microsoft.Windows.Management.Deployment.Projection.dll">
+    <AppxPackagedFile Include="C:\Users\mobot\.nuget\packages\microsoft.windowsappsdk.foundation\2.7.0\lib\net6.0-windows10.0.17763.0\Microsoft.Windows.Management.Deployment.Projection.dll">
       <PackagePath>Microsoft.Windows.Management.Deployment.Projection.dll</PackagePath>
-      <Modified>2026-10-31T08:59:28.000</Modified>
+      <Modified>2026-11-11T03:56:36.000</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\mobot\.nuget\packages\microsoft.windowsappsdk.foundation\2.6.5\lib\net6.0-windows10.0.17763.0\Microsoft.Windows.Media.Capture.Projection.dll">
+    <AppxPackagedFile Include="C:\Users\mobot\.nuget\packages\microsoft.windowsappsdk.foundation\2.7.0\lib\net6.0-windows10.0.17763.0\Microsoft.Windows.Media.Capture.Projection.dll">
       <PackagePath>Microsoft.Windows.Media.Capture.Projection.dll</PackagePath>
-      <Modified>2026-10-31T08:59:28.000</Modified>
+      <Modified>2026-11-11T03:56:36.000</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\mobot\.nuget\packages\microsoft.windowsappsdk.foundation\2.6.5\lib\net6.0-windows10.0.17763.0\Microsoft.Windows.PushNotifications.Projection.dll">
+    <AppxPackagedFile Include="C:\Users\mobot\.nuget\packages\microsoft.windowsappsdk.foundation\2.7.0\lib\net6.0-windows10.0.17763.0\Microsoft.Windows.PushNotifications.Projection.dll">
       <PackagePath>Microsoft.Windows.PushNotifications.Projection.dll</PackagePath>
-      <Modified>2026-10-31T08:59:28.000</Modified>
+      <Modified>2026-11-11T03:56:36.000</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\mobot\.nuget\packages\microsoft.windowsappsdk.foundation\2.6.5\lib\net6.0-windows10.0.17763.0\Microsoft.Windows.Security.AccessControl.Projection.dll">
+    <AppxPackagedFile Include="C:\Users\mobot\.nuget\packages\microsoft.windowsappsdk.foundation\2.7.0\lib\net6.0-windows10.0.17763.0\Microsoft.Windows.Security.AccessControl.Projection.dll">
       <PackagePath>Microsoft.Windows.Security.AccessControl.Projection.dll</PackagePath>
-      <Modified>2026-10-31T08:59:28.000</Modified>
+      <Modified>2026-11-11T03:56:36.000</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\mobot\.nuget\packages\microsoft.windowsappsdk.foundation\2.6.5\lib\net6.0-windows10.0.17763.0\Microsoft.Windows.Storage.Pickers.Projection.dll">
+    <AppxPackagedFile Include="C:\Users\mobot\.nuget\packages\microsoft.windowsappsdk.foundation\2.7.0\lib\net6.0-windows10.0.17763.0\Microsoft.Windows.Storage.Pickers.Projection.dll">
       <PackagePath>Microsoft.Windows.Storage.Pickers.Projection.dll</PackagePath>
-      <Modified>2026-10-31T08:59:28.000</Modified>
+      <Modified>2026-11-11T03:56:36.000</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\mobot\.nuget\packages\microsoft.windowsappsdk.foundation\2.6.5\lib\net6.0-windows10.0.17763.0\Microsoft.Windows.Storage.Projection.dll">
+    <AppxPackagedFile Include="C:\Users\mobot\.nuget\packages\microsoft.windowsappsdk.foundation\2.7.0\lib\net6.0-windows10.0.17763.0\Microsoft.Windows.Storage.Projection.dll">
       <PackagePath>Microsoft.Windows.Storage.Projection.dll</PackagePath>
-      <Modified>2026-10-31T08:59:28.000</Modified>
+      <Modified>2026-11-11T03:56:36.000</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\mobot\.nuget\packages\microsoft.windowsappsdk.foundation\2.6.5\lib\net6.0-windows10.0.17763.0\Microsoft.Windows.System.Power.Projection.dll">
+    <AppxPackagedFile Include="C:\Users\mobot\.nuget\packages\microsoft.windowsappsdk.foundation\2.7.0\lib\net6.0-windows10.0.17763.0\Microsoft.Windows.System.Power.Projection.dll">
       <PackagePath>Microsoft.Windows.System.Power.Projection.dll</PackagePath>
-      <Modified>2026-10-31T08:59:28.000</Modified>
+      <Modified>2026-11-11T03:56:36.000</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\mobot\.nuget\packages\microsoft.windowsappsdk.foundation\2.6.5\lib\net6.0-windows10.0.17763.0\Microsoft.Windows.System.Projection.dll">
+    <AppxPackagedFile Include="C:\Users\mobot\.nuget\packages\microsoft.windowsappsdk.foundation\2.7.0\lib\net6.0-windows10.0.17763.0\Microsoft.Windows.System.Projection.dll">
       <PackagePath>Microsoft.Windows.System.Projection.dll</PackagePath>
-      <Modified>2026-10-31T08:59:28.000</Modified>
+      <Modified>2026-11-11T03:56:36.000</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\mobot\.nuget\packages\microsoft.windowsappsdk.foundation\2.6.5\lib\net6.0-windows10.0.17763.0\Microsoft.WindowsAppRuntime.Bootstrap.Net.dll">
+    <AppxPackagedFile Include="C:\Users\mobot\.nuget\packages\microsoft.windowsappsdk.foundation\2.7.0\lib\net6.0-windows10.0.17763.0\Microsoft.WindowsAppRuntime.Bootstrap.Net.dll">
       <PackagePath>Microsoft.WindowsAppRuntime.Bootstrap.Net.dll</PackagePath>
-      <Modified>2026-10-31T08:59:30.000</Modified>
+      <Modified>2026-11-11T03:56:50.000</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\mobot\.nuget\packages\microsoft.windowsappsdk.interactiveexperiences\2.6.5\lib\net6.0-windows10.0.18362.0\Microsoft.InteractiveExperiences.Projection.dll">
+    <AppxPackagedFile Include="C:\Users\mobot\.nuget\packages\microsoft.windowsappsdk.interactiveexperiences\2.7.0\lib\net6.0-windows10.0.18362.0\Microsoft.InteractiveExperiences.Projection.dll">
       <PackagePath>Microsoft.InteractiveExperiences.Projection.dll</PackagePath>
-      <Modified>2026-10-31T04:22:32.000</Modified>
+      <Modified>2026-11-10T23:24:38.000</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\mobot\.nuget\packages\microsoft.windowsappsdk.search\2.6.5\lib\net6.0-windows10.0.17763.0\Microsoft.Windows.Search.Projection.dll">
+    <AppxPackagedFile Include="C:\Users\mobot\.nuget\packages\microsoft.windowsappsdk.search\2.7.0\lib\net6.0-windows10.0.17763.0\Microsoft.Windows.Search.Projection.dll">
       <PackagePath>Microsoft.Windows.Search.Projection.dll</PackagePath>
-      <Modified>2026-10-31T12:01:36.000</Modified>
+      <Modified>2026-11-11T07:02:36.000</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\mobot\.nuget\packages\microsoft.windowsappsdk.widgets\2.6.5\lib\net6.0-windows10.0.17763.0\Microsoft.Windows.Widgets.Projection.dll">
+    <AppxPackagedFile Include="C:\Users\mobot\.nuget\packages\microsoft.windowsappsdk.widgets\2.7.0\lib\net6.0-windows10.0.17763.0\Microsoft.Windows.Widgets.Projection.dll">
       <PackagePath>Microsoft.Windows.Widgets.Projection.dll</PackagePath>
-      <Modified>2026-10-31T02:21:40.000</Modified>
+      <Modified>2026-11-10T19:29:38.000</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\mobot\.nuget\packages\microsoft.windowsappsdk.winui\2.6.5\lib\net6.0-windows10.0.17763.0\Microsoft.WinUI.dll">
+    <AppxPackagedFile Include="C:\Users\mobot\.nuget\packages\microsoft.windowsappsdk.winui\2.7.0\lib\net6.0-windows10.0.17763.0\Microsoft.WinUI.dll">
       <PackagePath>Microsoft.WinUI.dll</PackagePath>
-      <Modified>2026-10-31T15:14:42.000</Modified>
+      <Modified>2026-11-11T09:51:08.000</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\mobot\.nuget\packages\system.numerics.tensors\9.0.0\lib\net8.0\System.Numerics.Tensors.dll">
       <PackagePath>System.Numerics.Tensors.dll</PackagePath>
@@ -916,25 +920,25 @@
       <PackagePath>WebView2Loader.dll</PackagePath>
       <Modified>2026-01-14T10:12:50.000</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\mobot\.nuget\packages\microsoft.windows.ai.machinelearning\2.4.89\runtimes\win-x64\native\DirectML.dll">
+    <AppxPackagedFile Include="C:\Users\mobot\.nuget\packages\microsoft.windows.ai.machinelearning\2.5.96\runtimes\win-x64\native\DirectML.dll">
       <PackagePath>DirectML.dll</PackagePath>
-      <Modified>2026-09-22T08:17:04.000</Modified>
+      <Modified>2026-10-23T21:04:04.000</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\mobot\.nuget\packages\microsoft.windows.ai.machinelearning\2.4.89\runtimes\win-x64\native\Microsoft.Windows.AI.MachineLearning.dll">
+    <AppxPackagedFile Include="C:\Users\mobot\.nuget\packages\microsoft.windows.ai.machinelearning\2.5.96\runtimes\win-x64\native\Microsoft.Windows.AI.MachineLearning.dll">
       <PackagePath>Microsoft.Windows.AI.MachineLearning.dll</PackagePath>
-      <Modified>2026-09-22T08:17:04.000</Modified>
+      <Modified>2026-10-23T21:04:04.000</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\mobot\.nuget\packages\microsoft.windows.ai.machinelearning\2.4.89\runtimes\win-x64\native\onnxruntime.dll">
+    <AppxPackagedFile Include="C:\Users\mobot\.nuget\packages\microsoft.windows.ai.machinelearning\2.5.96\runtimes\win-x64\native\onnxruntime.dll">
       <PackagePath>onnxruntime.dll</PackagePath>
-      <Modified>2026-09-22T08:17:04.000</Modified>
+      <Modified>2026-10-23T21:04:04.000</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\mobot\.nuget\packages\microsoft.windowsappsdk.foundation\2.6.5\runtimes\win-x64\native\Microsoft.Windows.ApplicationModel.Background.UniversalBGTask.dll">
+    <AppxPackagedFile Include="C:\Users\mobot\.nuget\packages\microsoft.windowsappsdk.foundation\2.7.0\runtimes\win-x64\native\Microsoft.Windows.ApplicationModel.Background.UniversalBGTask.dll">
       <PackagePath>Microsoft.Windows.ApplicationModel.Background.UniversalBGTask.dll</PackagePath>
-      <Modified>2026-10-31T08:58:54.000</Modified>
+      <Modified>2026-11-11T03:55:48.000</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\mobot\.nuget\packages\microsoft.windowsappsdk.foundation\2.6.5\runtimes\win-x64\native\Microsoft.WindowsAppRuntime.Bootstrap.dll">
+    <AppxPackagedFile Include="C:\Users\mobot\.nuget\packages\microsoft.windowsappsdk.foundation\2.7.0\runtimes\win-x64\native\Microsoft.WindowsAppRuntime.Bootstrap.dll">
       <PackagePath>Microsoft.WindowsAppRuntime.Bootstrap.dll</PackagePath>
-      <Modified>2026-10-31T08:58:56.000</Modified>
+      <Modified>2026-11-11T03:55:48.000</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\mobot\.nuget\packages\microsoft.web.webview2\1.0.3719.77\runtimes\win-x64\native_uap\Microsoft.Web.WebView2.Core.dll">
       <PackagePath>Microsoft.Web.WebView2.Core.dll</PackagePath>
@@ -946,7 +950,7 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\mobot\OneDrive\Desktop\Programming\VSC2026 Code\ProjectScheduler\ProjectScheduler\bin\x64\Debug\net8.0-windows10.0.19041.0\win-x64\ProjectScheduler.deps.json">
       <PackagePath>ProjectScheduler.deps.json</PackagePath>
-      <Modified>2026-11-14T12:05:40.560</Modified>
+      <Modified>2026-11-26T08:59:03.350</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\mobot\OneDrive\Desktop\Programming\VSC2026 Code\ProjectScheduler\ProjectScheduler\Assets\app-icon.png">
       <PackagePath>Assets\app-icon.png</PackagePath>
@@ -986,40 +990,40 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\mobot\OneDrive\Desktop\Programming\VSC2026 Code\ProjectScheduler\ProjectScheduler\bin\x64\Debug\net8.0-windows10.0.19041.0\win-x64\resources.pri">
       <PackagePath>resources.pri</PackagePath>
-      <Modified>2026-11-15T17:37:19.942</Modified>
+      <Modified>2026-11-27T10:34:56.029</Modified>
     </AppxPackagedFile>
   </ItemGroup>
   <ItemGroup>
-    <ResolvedSDKReference Include="C:\Users\mobot\.nuget\packages\microsoft.windowsappsdk.runtime\2.6.5\buildTransitive\..\tools\MSIX\win10-x86\Microsoft.WindowsAppRuntime.2.msix">
+    <ResolvedSDKReference Include="C:\Users\mobot\.nuget\packages\microsoft.windowsappsdk.runtime\2.7.0\buildTransitive\..\tools\MSIX\win10-x86\Microsoft.WindowsAppRuntime.2.msix">
       <Name>Microsoft.WindowsAppRuntime.2</Name>
-      <Version>2.6.5.0</Version>
+      <Version>2.7.0.0</Version>
       <Architecture>x86</Architecture>
-      <FrameworkIdentity>Name = Microsoft.WindowsAppRuntime.2, MinVersion = 2.6.5.0, Publisher = %27CN=Microsoft Corporation, O=Microsoft Corporation, L=Redmond, S=Washington, C=US%27</FrameworkIdentity>
-      <AppxLocation>C:\Users\mobot\.nuget\packages\microsoft.windowsappsdk.runtime\2.6.5\buildTransitive\..\tools\MSIX\win10-x86\Microsoft.WindowsAppRuntime.2.msix</AppxLocation>
+      <FrameworkIdentity>Name = Microsoft.WindowsAppRuntime.2, MinVersion = 2.7.0.0, Publisher = %27CN=Microsoft Corporation, O=Microsoft Corporation, L=Redmond, S=Washington, C=US%27</FrameworkIdentity>
+      <AppxLocation>C:\Users\mobot\.nuget\packages\microsoft.windowsappsdk.runtime\2.7.0\buildTransitive\..\tools\MSIX\win10-x86\Microsoft.WindowsAppRuntime.2.msix</AppxLocation>
       <MoreInfo></MoreInfo>
     </ResolvedSDKReference>
-    <ResolvedSDKReference Include="C:\Users\mobot\.nuget\packages\microsoft.windowsappsdk.runtime\2.6.5\buildTransitive\..\tools\MSIX\win10-x86\Microsoft.WindowsAppRuntime.2.msix">
+    <ResolvedSDKReference Include="C:\Users\mobot\.nuget\packages\microsoft.windowsappsdk.runtime\2.7.0\buildTransitive\..\tools\MSIX\win10-x86\Microsoft.WindowsAppRuntime.2.msix">
       <Name>Microsoft.WindowsAppRuntime.2</Name>
-      <Version>2.6.5.0</Version>
+      <Version>2.7.0.0</Version>
       <Architecture>win32</Architecture>
-      <FrameworkIdentity>Name = Microsoft.WindowsAppRuntime.2, MinVersion = 2.6.5.0, Publisher = %27CN=Microsoft Corporation, O=Microsoft Corporation, L=Redmond, S=Washington, C=US%27</FrameworkIdentity>
-      <AppxLocation>C:\Users\mobot\.nuget\packages\microsoft.windowsappsdk.runtime\2.6.5\buildTransitive\..\tools\MSIX\win10-x86\Microsoft.WindowsAppRuntime.2.msix</AppxLocation>
+      <FrameworkIdentity>Name = Microsoft.WindowsAppRuntime.2, MinVersion = 2.7.0.0, Publisher = %27CN=Microsoft Corporation, O=Microsoft Corporation, L=Redmond, S=Washington, C=US%27</FrameworkIdentity>
+      <AppxLocation>C:\Users\mobot\.nuget\packages\microsoft.windowsappsdk.runtime\2.7.0\buildTransitive\..\tools\MSIX\win10-x86\Microsoft.WindowsAppRuntime.2.msix</AppxLocation>
       <MoreInfo></MoreInfo>
     </ResolvedSDKReference>
-    <ResolvedSDKReference Include="C:\Users\mobot\.nuget\packages\microsoft.windowsappsdk.runtime\2.6.5\buildTransitive\..\tools\MSIX\win10-x64\Microsoft.WindowsAppRuntime.2.msix">
+    <ResolvedSDKReference Include="C:\Users\mobot\.nuget\packages\microsoft.windowsappsdk.runtime\2.7.0\buildTransitive\..\tools\MSIX\win10-x64\Microsoft.WindowsAppRuntime.2.msix">
       <Name>Microsoft.WindowsAppRuntime.2</Name>
-      <Version>2.6.5.0</Version>
+      <Version>2.7.0.0</Version>
       <Architecture>x64</Architecture>
-      <FrameworkIdentity>Name = Microsoft.WindowsAppRuntime.2, MinVersion = 2.6.5.0, Publisher = %27CN=Microsoft Corporation, O=Microsoft Corporation, L=Redmond, S=Washington, C=US%27</FrameworkIdentity>
-      <AppxLocation>C:\Users\mobot\.nuget\packages\microsoft.windowsappsdk.runtime\2.6.5\buildTransitive\..\tools\MSIX\win10-x64\Microsoft.WindowsAppRuntime.2.msix</AppxLocation>
+      <FrameworkIdentity>Name = Microsoft.WindowsAppRuntime.2, MinVersion = 2.7.0.0, Publisher = %27CN=Microsoft Corporation, O=Microsoft Corporation, L=Redmond, S=Washington, C=US%27</FrameworkIdentity>
+      <AppxLocation>C:\Users\mobot\.nuget\packages\microsoft.windowsappsdk.runtime\2.7.0\buildTransitive\..\tools\MSIX\win10-x64\Microsoft.WindowsAppRuntime.2.msix</AppxLocation>
       <MoreInfo></MoreInfo>
     </ResolvedSDKReference>
-    <ResolvedSDKReference Include="C:\Users\mobot\.nuget\packages\microsoft.windowsappsdk.runtime\2.6.5\buildTransitive\..\tools\MSIX\win10-arm64\Microsoft.WindowsAppRuntime.2.msix">
+    <ResolvedSDKReference Include="C:\Users\mobot\.nuget\packages\microsoft.windowsappsdk.runtime\2.7.0\buildTransitive\..\tools\MSIX\win10-arm64\Microsoft.WindowsAppRuntime.2.msix">
       <Name>Microsoft.WindowsAppRuntime.2</Name>
-      <Version>2.6.5.0</Version>
+      <Version>2.7.0.0</Version>
       <Architecture>arm64</Architecture>
-      <FrameworkIdentity>Name = Microsoft.WindowsAppRuntime.2, MinVersion = 2.6.5.0, Publisher = %27CN=Microsoft Corporation, O=Microsoft Corporation, L=Redmond, S=Washington, C=US%27</FrameworkIdentity>
-      <AppxLocation>C:\Users\mobot\.nuget\packages\microsoft.windowsappsdk.runtime\2.6.5\buildTransitive\..\tools\MSIX\win10-arm64\Microsoft.WindowsAppRuntime.2.msix</AppxLocation>
+      <FrameworkIdentity>Name = Microsoft.WindowsAppRuntime.2, MinVersion = 2.7.0.0, Publisher = %27CN=Microsoft Corporation, O=Microsoft Corporation, L=Redmond, S=Washington, C=US%27</FrameworkIdentity>
+      <AppxLocation>C:\Users\mobot\.nuget\packages\microsoft.windowsappsdk.runtime\2.7.0\buildTransitive\..\tools\MSIX\win10-arm64\Microsoft.WindowsAppRuntime.2.msix</AppxLocation>
       <MoreInfo></MoreInfo>
     </ResolvedSDKReference>
   </ItemGroup>

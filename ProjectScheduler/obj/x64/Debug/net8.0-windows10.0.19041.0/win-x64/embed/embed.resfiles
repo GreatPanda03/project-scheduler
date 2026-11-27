@@ -1,4 +1,11 @@
 App.xbf
+Controls\ItemListView.xbf
+Controls\PlaceholderView.xbf
+Controls\ProjectDetailsView.xbf
+Controls\ResourceAssignView.xbf
+Controls\ResourceDetailsView.xbf
+Controls\SubslotDetailsView.xbf
+Controls\TaskListView.xbf
 MainWindow.xbf
 Pages\HomePage.xbf
 Pages\PlaceholderPage.xbf

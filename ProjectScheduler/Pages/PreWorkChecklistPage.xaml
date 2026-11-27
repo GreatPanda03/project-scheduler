@@ -23,14 +23,10 @@
                 </StackPanel>
 
                 <!-- Add item section -->
-                <StackPanel Spacing="12">
-
-                    <TextBlock
-                        Text="Add a new item"
-                        FontSize="20"
-                        FontWeight="SemiBold"/>
+                <StackPanel>
 
                     <Grid ColumnSpacing="12">
+                        
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="*"/>
                             <ColumnDefinition Width="Auto"/>
@@ -60,102 +56,112 @@
                 </StackPanel>
 
                 <!-- Existing items section -->
-                <StackPanel Spacing="12">
+                <ListView
+                    x:Name="ItemsListView"
+                    SelectionMode="None"
+                    IsItemClickEnabled="False"
+                    CanDragItems="True"
+                    CanReorderItems="True"
+                    AllowDrop="True">
 
-                    <TextBlock
-                        Text="Existing items"
-                        FontSize="20"
-                        FontWeight="SemiBold"/>
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
 
-                    <ListView
-                        x:Name="ItemsListView"
-                        SelectionMode="None"
-                        IsItemClickEnabled="False"
-                        CanDragItems="True"
-                        CanReorderItems="True"
-                        AllowDrop="True">
+                            <Grid
+                                Padding="8"
+                                ColumnSpacing="12">
 
-                        <ListView.ItemTemplate>
-                            <DataTemplate>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="Auto"/>
+                                </Grid.ColumnDefinitions>
 
-                                <Grid
-                                    Padding="8"
-                                    ColumnSpacing="12">
+                                <!-- Drag handle -->
+                                <SymbolIcon
+                                    Symbol="More"
+                                    Width="20"
+                                    Height="20"
+                                    Foreground="{ThemeResource TextFillColorSecondaryBrush}"
+                                    Grid.Column="0"/>
 
-                                    <Grid.ColumnDefinitions>
-                                        <ColumnDefinition Width="Auto"/>
-                                        <ColumnDefinition Width="*"/>
-                                        <ColumnDefinition Width="Auto"/>
-                                        <ColumnDefinition Width="Auto"/>
-                                    </Grid.ColumnDefinitions>
+                                <!-- Item title -->
+                                <TextBlock
+                                    Text="{Binding Title}"
+                                    VerticalAlignment="Center"
+                                    TextWrapping="Wrap"
+                                    Grid.Column="1"/>
 
-                                    <!-- Drag handle -->
-                                    <SymbolIcon
-                                        Symbol="More"
-                                        Width="20"
-                                        Height="20"
-                                        Foreground="{ThemeResource TextFillColorSecondaryBrush}"
-                                        Grid.Column="0"/>
+                                <!-- Edit button -->
+                                <Button
+                                    Grid.Column="2"
+                                    Click="EditItemButton_Click">
 
-                                    <!-- Item title -->
-                                    <TextBlock
-                                        Text="{Binding Title}"
-                                        VerticalAlignment="Center"
-                                        TextWrapping="Wrap"
-                                        Grid.Column="1"/>
+                                    <StackPanel
+                                        Orientation="Horizontal"
+                                        Spacing="12">
 
-                                    <!-- Edit button -->
-                                    <Button
-                                        Grid.Column="2"
-                                        Click="EditItemButton_Click">
+                                        <SymbolIcon Symbol="Edit"/>
+                                        <TextBlock Text="Edit"/>
+                                    </StackPanel>
+                                </Button>
 
-                                        <StackPanel
-                                            Orientation="Horizontal"
-                                            Spacing="12">
+                                <!-- Remove button -->
+                                <Button
+                                    Grid.Column="3"
+                                    Click="RemoveItemButton_Click">
 
-                                            <SymbolIcon Symbol="Edit"/>
-                                            <TextBlock Text="Edit"/>
-                                        </StackPanel>
-                                    </Button>
+                                    <StackPanel
+                                        Orientation="Horizontal"
+                                        Spacing="12">
 
-                                    <!-- Remove button -->
-                                    <Button
-                                        Grid.Column="3"
-                                        Click="RemoveItemButton_Click">
-
-                                        <StackPanel
-                                            Orientation="Horizontal"
-                                            Spacing="12">
-
-                                            <SymbolIcon Symbol="Delete"/>
-                                            <TextBlock Text="Delete"/>
-                                        </StackPanel>
-                                    </Button>
+                                        <SymbolIcon Symbol="Delete"/>
+                                        <TextBlock Text="Delete"/>
+                                    </StackPanel>
+                                </Button>
                                     
-                                </Grid>
+                            </Grid>
 
-                            </DataTemplate>
-                        </ListView.ItemTemplate>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
 
-                    </ListView>
-
-                </StackPanel>
+                </ListView>
 
                 <!-- Save section -->
-                <StackPanel Spacing="12">
+                <Grid>
+
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="Auto"/>
+                    </Grid.ColumnDefinitions>
 
                     <TextBlock
                         x:Name="StatusText"
+                        Grid.Column="0"
                         Opacity="0.7"
                         TextWrapping="Wrap"/>
 
-                    <Button
-                        x:Name="SaveButton"
-                        Content="Save Changes"
-                        HorizontalAlignment="Right"
-                        Click="SaveButton_Click"/>
+                    <StackPanel
+                        Grid.Column="1"
+                        Orientation="Horizontal"
+                        Spacing="12">
 
-                </StackPanel>
+                        <Button
+                            x:Name="RestoreButton"
+                            Content="Restore"
+                            HorizontalAlignment="Right"
+                            Click="RestoreButton_Click"/>
+                        
+                        <Button
+                            x:Name="SaveButton"
+                            Content="Save Changes"
+                            HorizontalAlignment="Right"
+                            Click="SaveButton_Click"/>
+
+                    </StackPanel>
+                    
+                </Grid>
 
             </StackPanel>
 

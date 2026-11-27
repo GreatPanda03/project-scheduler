@@ -23,26 +23,22 @@
                 </StackPanel>
 
                 <!-- Add item section -->
-                <StackPanel Spacing="12">
-
-                    <TextBlock
-                        Text="Add a new item"
-                        FontSize="20"
-                        FontWeight="SemiBold"/>
+                <StackPanel>
 
                     <Grid ColumnSpacing="12">
+                        
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="*"/>
                             <ColumnDefinition Width="Auto"/>
                         </Grid.ColumnDefinitions>
 
-                        <TextBox x:ConnectionId='8'
+                        <TextBox x:ConnectionId='9'
                             x:Name="NewItemTextBox"
                             PlaceholderText="Enter a checklist item..."
                             Grid.Column="0"
                                                             />
 
-                        <Button x:ConnectionId='9'
+                        <Button x:ConnectionId='10'
                             Grid.Column="1"
                                                        >
 
@@ -60,102 +56,112 @@
                 </StackPanel>
 
                 <!-- Existing items section -->
-                <StackPanel Spacing="12">
+                <ListView x:ConnectionId='2'
+                    x:Name="ItemsListView"
+                    SelectionMode="None"
+                    IsItemClickEnabled="False"
+                    CanDragItems="True"
+                    CanReorderItems="True"
+                    AllowDrop="True">
 
-                    <TextBlock
-                        Text="Existing items"
-                        FontSize="20"
-                        FontWeight="SemiBold"/>
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
 
-                    <ListView x:ConnectionId='4'
-                        x:Name="ItemsListView"
-                        SelectionMode="None"
-                        IsItemClickEnabled="False"
-                        CanDragItems="True"
-                        CanReorderItems="True"
-                        AllowDrop="True">
+                            <Grid
+                                Padding="8"
+                                ColumnSpacing="12">
 
-                        <ListView.ItemTemplate>
-                            <DataTemplate>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="Auto"/>
+                                </Grid.ColumnDefinitions>
 
-                                <Grid
-                                    Padding="8"
-                                    ColumnSpacing="12">
+                                <!-- Drag handle -->
+                                <SymbolIcon
+                                    Symbol="More"
+                                    Width="20"
+                                    Height="20"
+                                    Foreground="{ThemeResource TextFillColorSecondaryBrush}"
+                                    Grid.Column="0"/>
 
-                                    <Grid.ColumnDefinitions>
-                                        <ColumnDefinition Width="Auto"/>
-                                        <ColumnDefinition Width="*"/>
-                                        <ColumnDefinition Width="Auto"/>
-                                        <ColumnDefinition Width="Auto"/>
-                                    </Grid.ColumnDefinitions>
+                                <!-- Item title -->
+                                <TextBlock
+                                    Text="{Binding Title}"
+                                    VerticalAlignment="Center"
+                                    TextWrapping="Wrap"
+                                    Grid.Column="1"/>
 
-                                    <!-- Drag handle -->
-                                    <SymbolIcon
-                                        Symbol="More"
-                                        Width="20"
-                                        Height="20"
-                                        Foreground="{ThemeResource TextFillColorSecondaryBrush}"
-                                        Grid.Column="0"/>
+                                <!-- Edit button -->
+                                <Button x:ConnectionId='7'
+                                    Grid.Column="2"
+                                                                >
 
-                                    <!-- Item title -->
-                                    <TextBlock
-                                        Text="{Binding Title}"
-                                        VerticalAlignment="Center"
-                                        TextWrapping="Wrap"
-                                        Grid.Column="1"/>
+                                    <StackPanel
+                                        Orientation="Horizontal"
+                                        Spacing="12">
 
-                                    <!-- Edit button -->
-                                    <Button x:ConnectionId='6'
-                                        Grid.Column="2"
-                                                                    >
+                                        <SymbolIcon Symbol="Edit"/>
+                                        <TextBlock Text="Edit"/>
+                                    </StackPanel>
+                                </Button>
 
-                                        <StackPanel
-                                            Orientation="Horizontal"
-                                            Spacing="12">
+                                <!-- Remove button -->
+                                <Button x:ConnectionId='8'
+                                    Grid.Column="3"
+                                                                  >
 
-                                            <SymbolIcon Symbol="Edit"/>
-                                            <TextBlock Text="Edit"/>
-                                        </StackPanel>
-                                    </Button>
+                                    <StackPanel
+                                        Orientation="Horizontal"
+                                        Spacing="12">
 
-                                    <!-- Remove button -->
-                                    <Button x:ConnectionId='7'
-                                        Grid.Column="3"
-                                                                      >
-
-                                        <StackPanel
-                                            Orientation="Horizontal"
-                                            Spacing="12">
-
-                                            <SymbolIcon Symbol="Delete"/>
-                                            <TextBlock Text="Delete"/>
-                                        </StackPanel>
-                                    </Button>
+                                        <SymbolIcon Symbol="Delete"/>
+                                        <TextBlock Text="Delete"/>
+                                    </StackPanel>
+                                </Button>
                                     
-                                </Grid>
+                            </Grid>
 
-                            </DataTemplate>
-                        </ListView.ItemTemplate>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
 
-                    </ListView>
-
-                </StackPanel>
+                </ListView>
 
                 <!-- Save section -->
-                <StackPanel Spacing="12">
+                <Grid>
 
-                    <TextBlock x:ConnectionId='2'
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="Auto"/>
+                    </Grid.ColumnDefinitions>
+
+                    <TextBlock x:ConnectionId='3'
                         x:Name="StatusText"
+                        Grid.Column="0"
                         Opacity="0.7"
                         TextWrapping="Wrap"/>
 
-                    <Button x:ConnectionId='3'
-                        x:Name="SaveButton"
-                        Content="Save Changes"
-                        HorizontalAlignment="Right"
-                                                />
+                    <StackPanel
+                        Grid.Column="1"
+                        Orientation="Horizontal"
+                        Spacing="12">
 
-                </StackPanel>
+                        <Button x:ConnectionId='4'
+                            x:Name="RestoreButton"
+                            Content="Restore"
+                            HorizontalAlignment="Right"
+                                                       />
+                        
+                        <Button x:ConnectionId='5'
+                            x:Name="SaveButton"
+                            Content="Save Changes"
+                            HorizontalAlignment="Right"
+                                                    />
+
+                    </StackPanel>
+                    
+                </Grid>
 
             </StackPanel>
 

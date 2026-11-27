@@ -5,6 +5,29 @@ Dates are in `YYYY/MM/DD`. Versions are in the form `X.Y.Z`, where `X` is a sign
 
 ---
 
+### Version 0.6.0 - MVVM & Modularisation Pit Stop
+<details>
+<summary>
+  <b>Date:</b> 2026/11/27
+</summary>
+
+**Features:**
+* Implemented MVVM architecture for scalability moving forward:
+  * Introduced new ViewModel classes (among other MVVM related things)
+  * Modularised "item listing" (Projects, Resources, Subslots)
+  * Separated complex sub-view components (namely Resource Assignment and Task Listing)
+  * Slightly adjusted data models to fit the architecture
+* Adjusted some page designs and layouts
+* Cleaned up and modularised other code and methods
+
+**Bug Fixes:** No new bugs discovered or existing bugs fixed.
+
+**NOTE:** implementing the architecture took a lot of refactoring. There may be many inconsistencies in the code for this version.
+
+</details>
+
+---
+
 ### Version 0.5.0 - Tasks & Project Managament
 <details>
 <summary>

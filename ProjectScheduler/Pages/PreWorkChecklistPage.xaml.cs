@@ -162,4 +162,11 @@ public sealed partial class PreWorkChecklistPage : Page
             SaveButton.IsEnabled = true;
         }
     }
+
+    private async void RestoreButton_Click(
+        object sender,
+        RoutedEventArgs e)
+    {
+
+    }
 }

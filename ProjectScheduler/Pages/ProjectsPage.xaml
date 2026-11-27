@@ -6,6 +6,8 @@
     xmlns:local="using:ProjectScheduler.Pages"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:models="using:ProjectScheduler.Models"
+    xmlns:controls="using:ProjectScheduler.Controls"
     mc:Ignorable="d">
 
     <Grid>
@@ -15,589 +17,74 @@
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
 
-        <!-- LEFT PANEL: PROJECT LIST-->
-        <Grid
+        <!-- LEFT PANEL: PROJECT LIST -->
+        <controls:ItemListView
             Grid.Column="0"
-            Padding="16"
-            RowSpacing="12">
+            Title="Projects"
+            SearchPlaceholder="Search projects..."
+            AddButtonText="Add Project"
+            ItemsSource="{x:Bind _projectViewModel.FilteredItems, Mode=OneWay}"
+            SearchText="{x:Bind _projectViewModel.SearchText, Mode=TwoWay, 
+                            UpdateSourceTrigger=PropertyChanged}"
+            SelectedItem="{x:Bind _projectViewModel.SelectedItem, Mode=TwoWay}"
+            AddRequested="OnAddProjectRequested">
 
-            <Grid.RowDefinitions>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="*"/>
-            </Grid.RowDefinitions>
+            <controls:ItemListView.ItemTemplate>
+                <DataTemplate x:DataType="models:ProjectItem"> 
 
-            <TextBlock
-                Grid.Row="0"
-                Text="Projects"
-                FontSize="20"
-                FontWeight="SemiBold"/>
-            
-            <!-- Search Bar -->
-            <TextBox
-                x:Name="SearchProjectsTextBox"
-                Grid.Row="1"
-                PlaceholderText="Search projects..."
-                TextChanged="SearchProjectsTextBox_TextChanged"
-                InputScope="Default"/>
-            
-            <!-- Add Project Button -->
-            <Button
-                Grid.Row="2"
-                HorizontalAlignment="Stretch"
-                Click="AddProjectButton_Click">
+                    <Grid Padding="6">
 
-                <StackPanel
-                    Orientation="Horizontal"
-                    Spacing="8">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
 
-                    <FontIcon Glyph="&#xE710;"/>
-                    <TextBlock Text="Add Project"/>
+                        <SymbolIcon
+                            Grid.Column="0"
+                            Symbol="Folder"
+                            Margin="0,0,12,0"
+                            VerticalAlignment="Center"/>
 
-                </StackPanel>
-
-            </Button>
-
-            <!-- Empty Project List Placeholder -->
-            <StackPanel
-                x:Name="ProjectsListViewEmpty"
-                Grid.Row="3"
-                HorizontalAlignment="Center"
-                VerticalAlignment="Top"
-                Spacing="12"
-                Margin="0,25,0,0">
-
-                <SymbolIcon Symbol="Folder"/>
-
-                <TextBlock
-                    Text="No projects"
-                    FontSize="20"
-                    FontWeight="SemiBold"
-                    HorizontalAlignment="Center"/>
-
-                <TextBlock
-                    Text="Create a brand new project"
-                    Foreground="{ThemeResource TextFillColorSecondaryBrush}"
-                    HorizontalAlignment="Center"/>
-
-            </StackPanel>
-
-            <!-- Project List -->
-            <ListView
-                x:Name="ProjectsListView"
-                Grid.Row="3"
-                SelectionMode="Single"
-                SelectionChanged="ProjectsListView_SelectionChanged">
-
-                <ListView.ItemTemplate>
-                    <DataTemplate>
-
-                        <Grid Padding="6">
-
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="Auto"/>
-                                <ColumnDefinition Width="*"/>
-                            </Grid.ColumnDefinitions>
-
-                            <SymbolIcon
-                                Grid.Column="0"
-                                Symbol="Folder"
-                                Margin="0,0,12,0"
-                                VerticalAlignment="Center"/>
-
-                            <StackPanel
-                                Grid.Column="1"
-                                Spacing="2"
-                                VerticalAlignment="Center">
-                            
-                                <TextBlock
-                                    Text="{Binding Name}"
-                                    FontSize="15"
-                                    TextTrimming="CharacterEllipsis"/>
-
-                                <StackPanel
-                                    Orientation="Horizontal"
-                                    Spacing="8">
-
-                                    <TextBlock
-                                        Text="{Binding CreatedDateLabel}"
-                                        FontSize="11"
-                                        Foreground="{ThemeResource TextFillColorSecondaryBrush}"/>
-
-                                    <TextBlock
-                                        Text="{Binding IncompleteTaskCountLabel}"
-                                        FontSize="11"
-                                        Foreground="{ThemeResource TextFillColorSecondaryBrush}"/>
-
-                                </StackPanel>
-
-                            </StackPanel>
-                        </Grid>
-                        
-                    </DataTemplate>
-                </ListView.ItemTemplate>
-                
-            </ListView>
-            
-            <!-- No Project Search Results -->
-            <TextBlock
-                x:Name="ProjectsListViewNoResults"
-                Grid.Row="3"
-                Text="No projects found"
-                HorizontalAlignment="Center"
-                Foreground="{ThemeResource TextFillColorSecondaryBrush}"
-                Margin="0,12,0,0"/>
-
-        </Grid>
-        
-        <!-- RIGHT PANEL: PROJECT PLACEHOLDER -->
-        <Border
-            x:Name="ProjectPlaceholderPanel"
-            Grid.Column="1"
-            BorderBrush="{ThemeResource DividerStrokeColorDefaultBrush}"
-            BorderThickness="1,0,0,0"
-            Visibility="Visible">
-
-            <StackPanel
-                HorizontalAlignment="Center"
-                VerticalAlignment="Center"
-                Spacing="12">
-
-                <SymbolIcon Symbol="Folder"/>
-
-                <TextBlock
-                    Text="Select a project"
-                    FontSize="20"
-                    FontWeight="SemiBold"
-                    HorizontalAlignment="Center"/>
-
-                <TextBlock
-                    Text="Choose a project from the list to view its details"
-                    Foreground="{ThemeResource TextFillColorSecondaryBrush}"
-                    HorizontalAlignment="Center"/>
-
-            </StackPanel>
-
-        </Border>
-        
-        <!-- RIGHT PANEL: PROJECT DETAILS -->
-        <Border
-            x:Name="ProjectDetailsPanel"
-            Grid.Column="1"
-            BorderBrush="{ThemeResource DividerStrokeColorDefaultBrush}"
-            BorderThickness="1,0,0,0"
-            Visibility="Collapsed">
-
-            <Grid>
-
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="0.9*"/>
-                    <ColumnDefinition Width="1.1*"/>
-                </Grid.ColumnDefinitions>
-                
-                <!-- LEFT COLUMN: PROJECT INFORMATION -->
-                <ScrollViewer
-                    Grid.Column="0"
-                    VerticalScrollBarVisibility="Auto"
-                    HorizontalScrollBarVisibility="Disabled">
-
-                    <StackPanel
-                        Padding="24"
-                        Spacing="16">
-
-                        <TextBlock
-                            Text="PROJECT DETAILS"
-                            FontSize="12"
-                            FontWeight="SemiBold"
-                            Foreground="{ThemeResource TextFillColorSecondaryBrush}"/>
-                        
-                        <!-- Project Name -->
-                        <TextBox
-                            x:Name="ProjectNameTextBox"
-                            Header="Name"
-                            PlaceholderText="No project name"/>
-
-                        <!-- Project Description -->
-                        <TextBox
-                            x:Name="ProjectDescriptionTextBox"
-                            Header="Description"
-                            PlaceholderText="No project description"
-                            AcceptsReturn="True"
-                            TextWrapping="Wrap"
-                            MinHeight="80"/>
-
-                        <!-- Project Priority -->
-                        <NumberBox
-                            x:Name="ProjectPriorityNumberBox"
-                            Header="Priority"
-                            PlaceholderText="No project priority"
-                            HorizontalAlignment="Stretch"/>
-                        
-                        <!-- Project Resources -->
-                        <Grid
-                            Margin="0,12,0,0">
-
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="*"/>
-                                <ColumnDefinition Width="Auto"/>
-                            </Grid.ColumnDefinitions>
+                        <StackPanel
+                            Grid.Column="1"
+                            Spacing="2"
+                            VerticalAlignment="Center">
 
                             <TextBlock
-                                Grid.Column="0"
-                                Text="RESOURCES"
-                                FontSize="12"
-                                FontWeight="SemiBold"
-                                Foreground="{ThemeResource TextFillColorSecondaryBrush}"
-                                Margin="0,8,0,0"/>
+                                Text="{x:Bind Name, Mode=OneWay}"
+                                FontSize="15"
+                                TextTrimming="CharacterEllipsis"/>
 
-                            <Button
-                                Grid.Column="1"
-                                HorizontalAlignment="Stretch"
-                                Click="AddProjectResourceButton_Click">
-
-                                <StackPanel
-                                    Orientation="Horizontal"
-                                    Spacing="8">
-
-                                    <SymbolIcon Symbol="Add"/>
-                                    <TextBlock Text="Add Resource"/>
-
-                                </StackPanel>
-                            </Button>
-
-                        </Grid>
-
-                        <ListView
-                            x:Name="ProjectResourcesListView"
-                            SelectionMode="Single"
-                            SelectionChanged="ProjectResourcesListView_SelectedChanged"
-                            MaxHeight="200">
-
-                            <ListView.ItemTemplate>
-                                <DataTemplate>
-
-                                    <Grid Padding="6">
-
-                                        <Grid.ColumnDefinitions>
-                                            <ColumnDefinition Width="Auto"/>
-                                            <ColumnDefinition Width="*"/>
-                                            <ColumnDefinition Width="Auto"/>
-                                        </Grid.ColumnDefinitions>
-
-                                        <FontIcon
-                                            Grid.Column="0"
-                                            Glyph="{Binding IconGlyph}"
-                                            Margin="0,0,10,0"
-                                            VerticalAlignment="Center"/>
-
-                                        <TextBlock
-                                            Grid.Column="1"
-                                            Text="{Binding Name}"
-                                            VerticalAlignment="Center"
-                                            TextTrimming="CharacterEllipsis"/>
-
-                                        <StackPanel
-                                            x:Name="ResourceActionsPanel"
-                                            Grid.Column="2"
-                                            Orientation="Horizontal"
-                                            Spacing="5"
-                                            Visibility="Collapsed">
-
-                                            <Button
-                                                Click="OpenProjectResourceButton_Click"
-                                                ToolTipService.ToolTip="Open Resource"
-                                                ToolTipService.Placement="Bottom">
-
-                                                <SymbolIcon Symbol="OpenFile"/>
-                                            </Button>
-
-                                            <Button
-                                                Click="RemoveProjectResourceButton_Click"
-                                                ToolTipService.ToolTip="Remove Resource"
-                                                ToolTipService.Placement="Bottom">
-
-                                                <SymbolIcon Symbol="Delete"/>
-                                            </Button>
-
-                                        </StackPanel>
-
-                                    </Grid>
-
-                                </DataTemplate>
-                            </ListView.ItemTemplate>
-
-                        </ListView>
-
-                        <!-- Project Notes -->
-                        <TextBox
-                           x:Name="ProjectNotesTextBox"
-                           Header="Notes"
-                           PlaceholderText="No additional notes"
-                           AcceptsReturn="True"
-                           TextWrapping="Wrap"
-                           MinHeight="140"
-                           VerticalAlignment="Top"/>
-
-                        <!-- Save / Delete Project -->
-                        <StackPanel
-                            Orientation="Horizontal"
-                            Spacing="12"
-                            Margin="0,12,0,0">
-                            
-                            <Button
-                               Content="Save Changes"
-                               Click="SaveProjectButton_Click"
-                               HorizontalAlignment="Stretch"/>
-
-                            <Button
-                                Content="Delete Project"
-                                Click="DeleteProjectButton_Click"
-                                HorizontalAlignment="Stretch"/>
-
-                        </StackPanel>
-
-                    </StackPanel>
-                    
-                </ScrollViewer>
-                
-                <!-- RIGHT COLUMN: TASKS -->
-                <Border
-                    Grid.Column="1"
-                    BorderBrush="{ThemeResource DividerStrokeColorDefaultBrush}"
-                    BorderThickness="1,0,0,0"
-                    Padding="20">
-
-                    <Grid RowSpacing="12">
-
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="Auto"/>
-                            <RowDefinition Height="Auto"/>
-                            <RowDefinition Height="*"/>
-                        </Grid.RowDefinitions>
-                        
-                        <!-- Tasks Heading -->
-                        <Grid
-                            ColumnSpacing="5">
-
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="*"/>
-                                <ColumnDefinition Width="Auto"/>
-                            </Grid.ColumnDefinitions>
-
-                            <TextBlock
-                                Grid.Row="0"
-                                Text="TASKS"
-                                FontSize="12"
-                                FontWeight="SemiBold"
-                                Foreground="{ThemeResource TextFillColorSecondaryBrush}"/>
-
-                            <!-- Add Task -->
-                            <Button
-                                Grid.Column="1"
-                                HorizontalAlignment="Stretch"
-                                Click="AddTaskButton_Click">
-
-                                <StackPanel
-                                    Orientation="Horizontal"
-                                    Spacing="8">
-
-                                    <FontIcon Glyph="&#xE710;"/>
-                                    <TextBlock Text="Add Task"/>
-
-                                </StackPanel>
-                            </Button>
-
-                        </Grid>
-
-                        <!-- Task Filters -->
-                        <StackPanel
-                            Grid.Row="1"
-                            Spacing="10">
-
-                            <ComboBox
-                                x:Name="TaskCompletionFilterComboBox"
-                                Header="Completion"
-                                HorizontalAlignment="Stretch"
-                                SelectedIndex="0"
-                                SelectionChanged="TaskFilters_SelectionChanged">
-
-                                <ComboBoxItem Content="All"/>
-                                <ComboBoxItem Content="Completed"/>
-                                <ComboBoxItem Content="Incomplete"/>
-
-                            </ComboBox>
-
-                            <ComboBox
-                                x:Name="TaskDateSortComboBox"
-                                Header="Sort by Date"
-                                HorizontalAlignment="Stretch"
-                                SelectedIndex="0"
-                                SelectionChanged="TaskFilters_SelectionChanged">
-
-                                <ComboBoxItem Content="Ascending"/>
-                                <ComboBoxItem Content="Descending"/>
-
-                            </ComboBox>
-
-                        </StackPanel>
-
-                        <!-- Task List -->
-                        <Grid
-                            Grid.Row="2">
-
-                            <ListView
-                                x:Name="TasksListView"
-                                SelectionMode="Single"
-                                VerticalAlignment="Stretch"
-                                SelectionChanged="TasksListView_SelectionChanged">
-
-                                <ListView.ItemTemplate>
-                                    <DataTemplate>
-
-                                        <Grid
-                                            Padding="6"
-                                            Margin="{Binding IndentMargin}"
-                                            ColumnSpacing="6">
-
-                                            <Grid.ColumnDefinitions>
-                                                <ColumnDefinition Width="28"/>
-                                                <ColumnDefinition Width="Auto"/>
-                                                <ColumnDefinition Width="Auto"/>
-                                                <ColumnDefinition Width="*"/>
-                                                <ColumnDefinition Width="Auto"/>
-                                            </Grid.ColumnDefinitions>
-
-                                            <!-- Expand / Collapse Control -->
-                                            <Button
-                                                Grid.Column="0"
-                                                Width="28"
-                                                Height="32"
-                                                Padding="0"
-                                                Background="Transparent"
-                                                BorderBrush="Transparent"
-                                                VerticalAlignment="Center"
-                                                Visibility="{Binding ExpandVisibility}"
-                                                Click="ToggleTaskExpansionButton_Click">
-
-                                                <FontIcon
-                                                    Glyph="{Binding ExpandGlyph}"
-                                                    FontSize="12"/>
-
-                                            </Button>
-                                            
-                                            <!-- Task Checkbox -->
-                                            <CheckBox
-                                                Grid.Column="1"
-                                                IsChecked="{Binding Task.IsCompleted, Mode=TwoWay}"
-                                                VerticalAlignment="Center"
-                                                MinWidth="0"
-                                                Click="TaskCompletionCheckBox_Click"/>
-                                                <!-- excluding MinWidth makes it insanely long... -->
-
-                                            <!-- Task Details -->
-                                            <StackPanel
-                                                Grid.Column="3"
-                                                VerticalAlignment="Center">
-
-                                                <TextBlock
-                                                    Text="{Binding Task.Name}"
-                                                    TextWrapping="Wrap"
-                                                    FontWeight="SemiBold"/>
-
-                                                <StackPanel
-                                                    Orientation="Horizontal"
-                                                    Spacing="8">
-                                                    
-                                                    <TextBlock
-                                                        Text="{Binding DateLabel}"
-                                                        FontSize="11"
-                                                        Foreground="{ThemeResource TextFillColorSecondaryBrush}"/>
-
-                                                    <TextBlock
-                                                        Text="{Binding SubtaskProgress}"
-                                                        FontSize="11"
-                                                        Foreground="{ThemeResource TextFillColorSecondaryBrush}"/>
-
-                                                </StackPanel>
-
-                                            </StackPanel>
-
-                                            <!-- Task Actions -->
-                                            <StackPanel
-                                                x:Name="TaskActionsPanel"
-                                                Grid.Column="4"
-                                                Orientation="Horizontal"
-                                                Spacing="5"
-                                                Visibility="Collapsed">
-
-                                                <Button
-                                                    Click="AddSubtaskButton_Click"
-                                                    ToolTipService.ToolTip="Add Subtask"
-                                                    ToolTipService.Placement="Bottom">
-
-                                                    <SymbolIcon Symbol="Add"/>
-                                                </Button>
-
-                                                <Button
-                                                    Click="EditTaskButton_Click"
-                                                    ToolTipService.ToolTip="Edit Task"
-                                                    ToolTipService.Placement="Bottom">
-
-                                                    <SymbolIcon Symbol="Edit"/>
-                                                </Button>
-
-                                                <Button
-                                                    Click="DeleteTaskButton_Click"
-                                                    ToolTipService.ToolTip="Delete Task"
-                                                    ToolTipService.Placement="Bottom">
-
-                                                    <SymbolIcon Symbol="Delete"/>
-                                                </Button>
-
-                                            </StackPanel>
-                                            
-                                        </Grid>
-                                        
-                                    </DataTemplate>
-                                </ListView.ItemTemplate>
-                                
-                            </ListView>
-
-                            <!-- Empty Task List Placeholder -->
                             <StackPanel
-                                x:Name="TasksListViewEmpty"
-                                Grid.Row="2"
-                                HorizontalAlignment="Center"
-                                VerticalAlignment="Top"
-                                Spacing="12"
-                                Margin="0,25,0,0"
-                                Visibility="Visible">
-
-                                <FontIcon Glyph="&#xF0E3;"/>
+                                Orientation="Horizontal"
+                                Spacing="8">
 
                                 <TextBlock
-                                    Text="No tasks"
-                                    FontSize="20"
-                                    FontWeight="SemiBold"
-                                    HorizontalAlignment="Center"/>
+                                    Text="{x:Bind CreatedDateLabel, Mode=OneWay}"
+                                    FontSize="11"
+                                    Foreground="{ThemeResource TextFillColorSecondaryBrush}"/>
 
                                 <TextBlock
-                                    Text="Create a new task for the project"
-                                    Foreground="{ThemeResource TextFillColorSecondaryBrush}"
-                                    HorizontalAlignment="Center"/>
+                                    Text="{x:Bind IncompleteTaskCountLabel, Mode=OneWay}"
+                                    FontSize="11"
+                                    Foreground="{ThemeResource TextFillColorSecondaryBrush}"/>
 
                             </StackPanel>
 
-                        </Grid>
-
+                        </StackPanel>
                     </Grid>
-                    
-                </Border>
-                
-            </Grid>
 
-        </Border>
+                </DataTemplate>
+            </controls:ItemListView.ItemTemplate>
+
+        </controls:ItemListView>
+
+        <!-- RIGHT PANEL: PROJECT DETAILS -->
+        <controls:ProjectDetailsView
+            Grid.Column="1"
+            Project="{x:Bind _projectViewModel.SelectedItem, Mode=OneWay}"
+            SaveProjectRequested="OnSaveProjectRequested"
+            DeleteProjectRequested="OnDeleteProjectRequested"/>
 
     </Grid>
 </Page>

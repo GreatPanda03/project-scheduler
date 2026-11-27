@@ -3,16 +3,16 @@
   "WorkspaceRootPath": "C:\\Users\\mobot\\OneDrive\\Desktop\\Programming\\VSC2026 Code\\ProjectScheduler\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{CA8D76CE-3A2D-8BF7-A0F3-861EE2F88DFF}|ProjectScheduler\\ProjectScheduler.csproj|c:\\users\\mobot\\onedrive\\desktop\\programming\\vsc2026 code\\projectscheduler\\projectscheduler\\controls\\tasklistview.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CA8D76CE-3A2D-8BF7-A0F3-861EE2F88DFF}|ProjectScheduler\\ProjectScheduler.csproj|solutionrelative:projectscheduler\\controls\\tasklistview.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{CA8D76CE-3A2D-8BF7-A0F3-861EE2F88DFF}|ProjectScheduler\\ProjectScheduler.csproj|c:\\users\\mobot\\onedrive\\desktop\\programming\\vsc2026 code\\projectscheduler\\projectscheduler\\models\\tasklistentry.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{CA8D76CE-3A2D-8BF7-A0F3-861EE2F88DFF}|ProjectScheduler\\ProjectScheduler.csproj|solutionrelative:projectscheduler\\models\\tasklistentry.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{CA8D76CE-3A2D-8BF7-A0F3-861EE2F88DFF}|ProjectScheduler\\ProjectScheduler.csproj|c:\\users\\mobot\\onedrive\\desktop\\programming\\vsc2026 code\\projectscheduler\\projectscheduler\\models\\taskitem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{CA8D76CE-3A2D-8BF7-A0F3-861EE2F88DFF}|ProjectScheduler\\ProjectScheduler.csproj|solutionrelative:projectscheduler\\models\\taskitem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{CA8D76CE-3A2D-8BF7-A0F3-861EE2F88DFF}|ProjectScheduler\\ProjectScheduler.csproj|c:\\users\\mobot\\onedrive\\desktop\\programming\\vsc2026 code\\projectscheduler\\projectscheduler\\models\\projectitem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{CA8D76CE-3A2D-8BF7-A0F3-861EE2F88DFF}|ProjectScheduler\\ProjectScheduler.csproj|solutionrelative:projectscheduler\\models\\projectitem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{CA8D76CE-3A2D-8BF7-A0F3-861EE2F88DFF}|ProjectScheduler\\ProjectScheduler.csproj|c:\\users\\mobot\\onedrive\\desktop\\programming\\vsc2026 code\\projectscheduler\\projectscheduler\\controls\\tasklistview.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{CA8D76CE-3A2D-8BF7-A0F3-861EE2F88DFF}|ProjectScheduler\\ProjectScheduler.csproj|solutionrelative:projectscheduler\\controls\\tasklistview.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     }
   ],
   "DocumentGroupContainers": [
@@ -25,46 +25,46 @@
           "SelectedChildIndex": 1,
           "Children": [
             {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "TaskListView.xaml",
+              "DocumentMoniker": "C:\\Users\\mobot\\OneDrive\\Desktop\\Programming\\VSC2026 Code\\ProjectScheduler\\ProjectScheduler\\Controls\\TaskListView.xaml",
+              "RelativeDocumentMoniker": "ProjectScheduler\\Controls\\TaskListView.xaml",
+              "ToolTip": "C:\\Users\\mobot\\OneDrive\\Desktop\\Programming\\VSC2026 Code\\ProjectScheduler\\ProjectScheduler\\Controls\\TaskListView.xaml",
+              "RelativeToolTip": "ProjectScheduler\\Controls\\TaskListView.xaml",
+              "ViewState": "AgIAAF8AAAAAAAAAAAAjwHAAAAAnAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2026-11-27T11:58:12.551Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "TaskListView.xaml.cs",
+              "DocumentMoniker": "C:\\Users\\mobot\\OneDrive\\Desktop\\Programming\\VSC2026 Code\\ProjectScheduler\\ProjectScheduler\\Controls\\TaskListView.xaml.cs",
+              "RelativeDocumentMoniker": "ProjectScheduler\\Controls\\TaskListView.xaml.cs",
+              "ToolTip": "C:\\Users\\mobot\\OneDrive\\Desktop\\Programming\\VSC2026 Code\\ProjectScheduler\\ProjectScheduler\\Controls\\TaskListView.xaml.cs",
+              "RelativeToolTip": "ProjectScheduler\\Controls\\TaskListView.xaml.cs",
+              "ViewState": "AgIAABgBAAAAAAAAAAAQwCYBAAANAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-11-27T11:56:20.323Z",
+              "EditorCaption": ""
+            },
+            {
               "$type": "Bookmark",
               "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "TaskListEntry.cs",
               "DocumentMoniker": "C:\\Users\\mobot\\OneDrive\\Desktop\\Programming\\VSC2026 Code\\ProjectScheduler\\ProjectScheduler\\Models\\TaskListEntry.cs",
               "RelativeDocumentMoniker": "ProjectScheduler\\Models\\TaskListEntry.cs",
               "ToolTip": "C:\\Users\\mobot\\OneDrive\\Desktop\\Programming\\VSC2026 Code\\ProjectScheduler\\ProjectScheduler\\Models\\TaskListEntry.cs",
               "RelativeToolTip": "ProjectScheduler\\Models\\TaskListEntry.cs",
-              "ViewState": "AgIAAA4AAAAAAAAAAAA3wCgAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAADwAAAAAAAAAAAAiwE0AAAAnAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-11-15T17:43:14.994Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "TaskItem.cs",
-              "DocumentMoniker": "C:\\Users\\mobot\\OneDrive\\Desktop\\Programming\\VSC2026 Code\\ProjectScheduler\\ProjectScheduler\\Models\\TaskItem.cs",
-              "RelativeDocumentMoniker": "ProjectScheduler\\Models\\TaskItem.cs",
-              "ToolTip": "C:\\Users\\mobot\\OneDrive\\Desktop\\Programming\\VSC2026 Code\\ProjectScheduler\\ProjectScheduler\\Models\\TaskItem.cs",
-              "RelativeToolTip": "ProjectScheduler\\Models\\TaskItem.cs",
-              "ViewState": "AgIAAB4AAAAAAAAAAAAowAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-11-15T17:43:06.18Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "ProjectItem.cs",
-              "DocumentMoniker": "C:\\Users\\mobot\\OneDrive\\Desktop\\Programming\\VSC2026 Code\\ProjectScheduler\\ProjectScheduler\\Models\\ProjectItem.cs",
-              "RelativeDocumentMoniker": "ProjectScheduler\\Models\\ProjectItem.cs",
-              "ToolTip": "C:\\Users\\mobot\\OneDrive\\Desktop\\Programming\\VSC2026 Code\\ProjectScheduler\\ProjectScheduler\\Models\\ProjectItem.cs",
-              "RelativeToolTip": "ProjectScheduler\\Models\\ProjectItem.cs",
-              "ViewState": "AgIAAA4AAAAAAAAAAAAAwBYAAABAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-11-15T17:41:33.568Z",
+              "WhenOpened": "2026-11-27T11:56:13.504Z",
               "EditorCaption": ""
             }
           ]

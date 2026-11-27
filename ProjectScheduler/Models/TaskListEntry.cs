@@ -1,12 +1,15 @@
-﻿using Microsoft.UI.Xaml;
+﻿using CommunityToolkit.Mvvm.ComponentModel;
+using Microsoft.UI.Xaml;
 using System;
-using System.Collections;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Diagnostics;
 using Thickness = Microsoft.UI.Xaml.Thickness;
 
 namespace ProjectScheduler.Models
 {
     public class TaskListEntry
+        : ObservableObject
     {
         public TaskItem Task { get; set; }
 
@@ -39,6 +42,7 @@ namespace ProjectScheduler.Models
                 : Task.CreatedDate.ToString("G");
 
 
+
         // [[ CONSTRUCTOR ]] //
 
         public TaskListEntry(TaskItem task, int depth)
@@ -46,6 +50,7 @@ namespace ProjectScheduler.Models
             Task = task;
             Depth = depth;
         }
+
 
 
         // [[ METHODS ]] //
@@ -68,6 +73,14 @@ namespace ProjectScheduler.Models
             }
 
             return count;
+        }
+
+        public void RefreshEntryDetails()
+        {
+            OnPropertyChanged(nameof(TotalSubtaskCount));
+            OnPropertyChanged(nameof(IncompleteSubtaskCount));
+            OnPropertyChanged(nameof(SubtaskProgress));
+            OnPropertyChanged(nameof(DateLabel));
         }
     }
 }
