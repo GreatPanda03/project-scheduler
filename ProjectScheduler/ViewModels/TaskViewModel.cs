@@ -1,10 +1,10 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 using ProjectScheduler.Interfaces;
 using ProjectScheduler.Models;
-using ProjectScheduler.Services;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Diagnostics;
 using System.Linq;
 
 namespace ProjectScheduler.ViewModels
@@ -14,10 +14,13 @@ namespace ProjectScheduler.ViewModels
     {
         // NOTE: no service used, just indexes Target's Tasks directly
         // * saving is performed by the service which owns the tasks
-        // * eg. if Target is ProjectItem, use ProjectService
+        // * eg. if Target is ProjectItem, use ProjectService to save
 
         [ObservableProperty]
-        private IHasTasks? selectedItem;
+        private IHasTasks? _target;
+
+        [ObservableProperty]
+        private TaskItem? _selectedTask;
 
         public ObservableCollection<TaskListEntry> FilteredTasks { get; } = new();
 
@@ -30,12 +33,23 @@ namespace ProjectScheduler.ViewModels
         private int dateSort;
 
 
-        public TaskViewModel(IHasTasks target)
+        public TaskViewModel()
         {
-            selectedItem = target;
-
             completionFilter = 0;
             dateSort = 0;
+        }
+
+
+
+        // [[ FILTERING METHODS ]] //
+        partial void OnCompletionFilterChanged(int oldValue, int newValue)
+        {
+            RefreshTasks();
+        }
+
+        partial void OnDateSortChanged(int oldValue, int newValue)
+        {
+            RefreshTasks();
         }
         
 
@@ -44,11 +58,11 @@ namespace ProjectScheduler.ViewModels
 
         public bool AddTask(TaskItem task)
         {
-            if (selectedItem is null) return false;
+            if (Target is null) return false;
             
-            if (!selectedItem.Tasks.Contains(task))
+            if (!Target.Tasks.Contains(task))
             {
-                selectedItem.Tasks.Add(task);
+                Target.Tasks.Add(task);
                 return true;
             }
 
@@ -59,7 +73,7 @@ namespace ProjectScheduler.ViewModels
         {
             if (!parent.Subtasks.Contains(subtask))
             {
-                parent.Subtasks.Add(subtask);
+                parent.AddSubtask(subtask);
                 return true;
             }
 
@@ -72,11 +86,16 @@ namespace ProjectScheduler.ViewModels
 
         public bool DeleteTask(TaskItem task)
         {
-            if (selectedItem is null) return false;
+            if (Target is null) return false;
 
-            bool removed = selectedItem.Tasks.Remove(task);
+            var siblings = task.Parent?.Subtasks ?? Target.Tasks;
 
-            selectedItem = null;
+            bool removed = siblings.Remove(task);
+
+            if (SelectedTask == task)
+            {
+                SelectedTask = null;
+            }
 
             return removed;
         }
@@ -89,12 +108,13 @@ namespace ProjectScheduler.ViewModels
         {
             FilteredTasks.Clear();
 
-            var allTasks = new List<TaskListEntry>();
+            if (Target is null) return;
 
+            var allTasks = new List<TaskListEntry>();
             bool descending = DateSort == 1;
 
             AddTaskAndSubtasksToList(
-                selectedItem.Tasks, 0, allTasks, descending);
+                Target.Tasks, 0, allTasks, descending);
 
             IEnumerable<TaskListEntry> filteredTasks = allTasks;
 

@@ -28,7 +28,7 @@
 
             <TextBlock
                 Grid.Row="0"
-                Text="TASKS"
+                Text="{x:Bind Title}"
                 FontSize="12"
                 FontWeight="SemiBold"
                 Foreground="{ThemeResource TextFillColorSecondaryBrush}"/>
@@ -80,8 +80,8 @@
                 HorizontalAlignment="Stretch"
                 SelectedIndex="{x:Bind ViewModel.DateSort, Mode=TwoWay}">
 
-                <ComboBoxItem Content="Ascending"/>
-                <ComboBoxItem Content="Descending"/>
+                <ComboBoxItem Content="Oldest"/>
+                <ComboBoxItem Content="Newest"/>
 
             </ComboBox>
 
@@ -90,13 +90,27 @@
         <!-- Task List -->
         <Grid Grid.Row="2">
 
+            <!-- Empty Task List Placeholder -->
+            <StackPanel 
+                x:Name="PlaceholderPanel"
+                Padding="0,0,0,24"
+                Background="{ThemeResource SystemFillColorAttentionBackgroundBrush}"
+                VerticalAlignment="Top">
+
+                <controls:PlaceholderView
+                    IconGlyph="&#xF0E3;"
+                    Header="No tasks"
+                    Body="Create a new task for the project"/>
+                
+            </StackPanel>
+
+            <!-- Task Entries -->
             <ListView
                 x:Name="TasksListView"
+                Background="{ThemeResource SystemFillColorAttentionBackgroundBrush}"
                 ItemsSource="{x:Bind ViewModel.FilteredTasks, Mode=OneWay}"
-                SelectedItem="{x:Bind ViewModel.SelectedItem, Mode=TwoWay}"
-                SelectionMode="Single"
-                VerticalAlignment="Stretch"
-                SelectionChanged="TasksListView_SelectionChanged">
+                SelectedItem="{x:Bind SelectedItem, Mode=TwoWay}"
+                SelectionMode="Single">
 
                 <ListView.ItemTemplate>
                     <DataTemplate x:DataType="models:TaskListEntry">
@@ -209,12 +223,6 @@
                 </ListView.ItemTemplate>
 
             </ListView>
-
-            <!-- Empty Task List Placeholder -->
-            <controls:PlaceholderView
-                IconGlyph="&#xF0E3;"
-                Header="No tasks"
-                Body="Create a new task for the project"/>
             
         </Grid>
 

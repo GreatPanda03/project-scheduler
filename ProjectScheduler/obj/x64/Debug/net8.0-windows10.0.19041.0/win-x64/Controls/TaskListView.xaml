@@ -26,15 +26,15 @@
                 <ColumnDefinition Width="Auto"/>
             </Grid.ColumnDefinitions>
 
-            <TextBlock
+            <TextBlock x:ConnectionId='18'
                 Grid.Row="0"
-                Text="TASKS"
+                                     
                 FontSize="12"
                 FontWeight="SemiBold"
                 Foreground="{ThemeResource TextFillColorSecondaryBrush}"/>
 
             <!-- Add Task -->
-            <Button x:ConnectionId='17'
+            <Button x:ConnectionId='19'
                 Grid.Column="1"
                 HorizontalAlignment="Stretch"
                                            >
@@ -61,7 +61,7 @@
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
             
-            <ComboBox x:ConnectionId='15'
+            <ComboBox x:ConnectionId='16'
                 Grid.Column="0"
                 Header="Completion Status"
                 HorizontalAlignment="Stretch"
@@ -73,15 +73,15 @@
 
             </ComboBox>
 
-            <ComboBox x:ConnectionId='16'
+            <ComboBox x:ConnectionId='17'
                 Grid.Column="1"
                 x:Name="TaskDateSortComboBox"
                 Header="Sort by Date"
                 HorizontalAlignment="Stretch"
                                                                         >
 
-                <ComboBoxItem Content="Ascending"/>
-                <ComboBoxItem Content="Descending"/>
+                <ComboBoxItem Content="Oldest"/>
+                <ComboBoxItem Content="Newest"/>
 
             </ComboBox>
 
@@ -90,18 +90,32 @@
         <!-- Task List -->
         <Grid Grid.Row="2">
 
-            <ListView x:ConnectionId='2'
+            <!-- Empty Task List Placeholder -->
+            <StackPanel x:ConnectionId='2' 
+                x:Name="PlaceholderPanel"
+                Padding="0,0,0,24"
+                Background="{ThemeResource SystemFillColorAttentionBackgroundBrush}"
+                VerticalAlignment="Top">
+
+                <controls:PlaceholderView
+                    IconGlyph="&#xF0E3;"
+                    Header="No tasks"
+                    Body="Create a new task for the project"/>
+                
+            </StackPanel>
+
+            <!-- Task Entries -->
+            <ListView x:ConnectionId='3'
                 x:Name="TasksListView"
+                Background="{ThemeResource SystemFillColorAttentionBackgroundBrush}"
                                                                            
-                                                                           
-                SelectionMode="Single"
-                VerticalAlignment="Stretch"
-                                                                 >
+                                                                 
+                SelectionMode="Single">
 
                 <ListView.ItemTemplate>
                     <DataTemplate                                  >
 
-                        <Grid x:ConnectionId='4'
+                        <Grid x:ConnectionId='5'
                             Padding="6"
                                                                        
                             ColumnSpacing="6">
@@ -115,7 +129,7 @@
                             </Grid.ColumnDefinitions>
 
                             <!-- Expand / Collapse Control -->
-                            <Button x:ConnectionId='5'
+                            <Button x:ConnectionId='6'
                                 Grid.Column="0"
                                 Width="28"
                                 Height="32"
@@ -126,14 +140,14 @@
                                                                                    
                                                                        >
 
-                                <FontIcon x:ConnectionId='14'
+                                <FontIcon x:ConnectionId='15'
                                                                              
                                     FontSize="12"/>
 
                             </Button>
 
                             <!-- Task Checkbox -->
-                            <CheckBox x:ConnectionId='6'
+                            <CheckBox x:ConnectionId='7'
                                 Grid.Column="1"
                                                                                   
                                 VerticalAlignment="Center"
@@ -146,7 +160,7 @@
                                 Grid.Column="3"
                                 VerticalAlignment="Center">
 
-                                <TextBlock x:ConnectionId='11'
+                                <TextBlock x:ConnectionId='12'
                                                                           
                                     TextWrapping="Wrap"
                                     FontWeight="SemiBold"/>
@@ -155,12 +169,12 @@
                                     Orientation="Horizontal"
                                     Spacing="8">
 
-                                    <TextBlock x:ConnectionId='12'
+                                    <TextBlock x:ConnectionId='13'
                                                                               
                                         FontSize="11"
                                         Foreground="{ThemeResource TextFillColorSecondaryBrush}"/>
 
-                                    <TextBlock x:ConnectionId='13'
+                                    <TextBlock x:ConnectionId='14'
                                                                                     
                                         FontSize="11"
                                         Foreground="{ThemeResource TextFillColorSecondaryBrush}"/>
@@ -177,7 +191,7 @@
                                 Spacing="5"
                                 Visibility="Collapsed">
 
-                                <Button x:ConnectionId='8'
+                                <Button x:ConnectionId='9'
                                                                   
                                     ToolTipService.ToolTip="Add Subtask"
                                     ToolTipService.Placement="Bottom">
@@ -185,7 +199,7 @@
                                     <SymbolIcon Symbol="Add"/>
                                 </Button>
 
-                                <Button x:ConnectionId='9'
+                                <Button x:ConnectionId='10'
                                                                 
                                     ToolTipService.ToolTip="Edit Task"
                                     ToolTipService.Placement="Bottom">
@@ -193,7 +207,7 @@
                                     <SymbolIcon Symbol="Edit"/>
                                 </Button>
 
-                                <Button x:ConnectionId='10'
+                                <Button x:ConnectionId='11'
                                                                   
                                     ToolTipService.ToolTip="Delete Task"
                                     ToolTipService.Placement="Bottom">
@@ -209,12 +223,6 @@
                 </ListView.ItemTemplate>
 
             </ListView>
-
-            <!-- Empty Task List Placeholder -->
-            <controls:PlaceholderView
-                IconGlyph="&#xF0E3;"
-                Header="No tasks"
-                Body="Create a new task for the project"/>
             
         </Grid>
 

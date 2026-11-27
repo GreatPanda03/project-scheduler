@@ -239,7 +239,10 @@ namespace ProjectScheduler.Pages
             NumberBox priorityNumberBox = new()
             {
                 Header = "Priority",
-                PlaceholderText = "Enter a project priority"
+                PlaceholderText = "Enter a project priority",
+                HorizontalAlignment = HorizontalAlignment.Left,
+                SpinButtonPlacementMode = NumberBoxSpinButtonPlacementMode.Inline,
+                ValidationMode = NumberBoxValidationMode.InvalidInputOverwritten
             };
 
             var dialogueContent = new StackPanel

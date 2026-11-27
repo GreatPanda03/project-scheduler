@@ -51,6 +51,8 @@
                             <TextBox
                                 Header="Name"
                                 PlaceholderText="No project name"
+                                MinWidth="300"
+                                HorizontalAlignment="Left"
                                 Text="{x:Bind Project.Name, Mode=TwoWay,
                                         UpdateSourceTrigger=PropertyChanged}"/>
 
@@ -68,7 +70,9 @@
                                 x:Name="ProjectPriorityNumberBox"
                                 Header="Priority"
                                 PlaceholderText="No project priority"
-                                HorizontalAlignment="Stretch"
+                                HorizontalAlignment="Left"
+                                SpinButtonPlacementMode="Inline"
+                                ValidationMode="InvalidInputOverwritten"
                                 Value="{x:Bind Project.Priority, Mode=TwoWay}"/>
 
                             <!-- Project Notes -->

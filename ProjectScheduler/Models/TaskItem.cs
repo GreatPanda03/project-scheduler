@@ -26,7 +26,20 @@ namespace ProjectScheduler.Models
 
         public DateTime? CompletedDate { get; set; }
 
-        public ObservableCollection<TaskItem> Subtasks { get; set; } = new();
+        private ObservableCollection<TaskItem> _subtasks = new();
+        public ObservableCollection<TaskItem> Subtasks
+        {
+            get => _subtasks;
+            set
+            {
+                _subtasks = value;
+
+                foreach (TaskItem task in value)
+                {
+                    task.Parent = this;
+                }
+            }
+        }
 
         [JsonIgnore]
         public TaskItem? Parent { get; set; }
@@ -47,7 +60,7 @@ namespace ProjectScheduler.Models
 
             subtask.Parent = this;
             Subtasks.Add(subtask);
-            OnPropertyChanged(nameof(Subtasks));
+
             return true;
         }
 
@@ -58,7 +71,6 @@ namespace ProjectScheduler.Models
                 return false;
             }
 
-            OnPropertyChanged(nameof(Subtasks));
             return true;
         }
     }

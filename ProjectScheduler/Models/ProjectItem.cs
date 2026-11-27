@@ -59,5 +59,16 @@ namespace ProjectScheduler.Models
 
             return count;
         }
+
+        public void UpdateResourceDetails()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void UpdateTaskDetails()
+        {
+            OnPropertyChanged(nameof(IncompleteTaskCount));
+            OnPropertyChanged(nameof(IncompleteTaskCountLabel));
+        }
     }    
 }

@@ -81,14 +81,4 @@ public sealed partial class ProjectDetailsView : UserControl
     {
         DeleteProjectRequested?.Invoke(this, EventArgs.Empty);
     }
-
-    private async void ResourceAssignView_AddRequested(object sender, EventArgs e)
-    {
-        SaveProjectRequested?.Invoke(this, EventArgs.Empty);
-    }
-
-    private async void ResourceAssignView_RemoveRequested(ResourceItem obj)
-    {
-        SaveProjectRequested?.Invoke(this, EventArgs.Empty);
-    }
 }

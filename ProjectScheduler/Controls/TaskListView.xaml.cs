@@ -1,11 +1,13 @@
 using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Controls;
+using Microsoft.UI.Xaml.Controls.Primitives;
 using Microsoft.UI.Xaml.Media;
 using ProjectScheduler.Interfaces;
 using ProjectScheduler.Models;
 using ProjectScheduler.ViewModels;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -19,7 +21,7 @@ namespace ProjectScheduler.Controls
         {
             InitializeComponent();
 
-            ViewModel = new(Target);
+            ViewModel = new();
         }
 
 
@@ -52,7 +54,66 @@ namespace ProjectScheduler.Controls
                 nameof(Target),
                 typeof(IHasTasks),
                 typeof(TaskListView),
-                new PropertyMetadata(null));
+                new PropertyMetadata(null, OnTargetChanged));
+
+        public static void OnTargetChanged(
+            DependencyObject sender,
+            DependencyPropertyChangedEventArgs e)
+        {
+            if (sender is TaskListView control)
+            {
+                control.ViewModel.Target = (IHasTasks)e.NewValue;
+                control.ViewModel.SelectedTask = null;
+                control.ViewModel.RefreshTasks();
+                control.RefreshPlaceholder();
+            }
+        }
+
+        // Selected Item
+        public TaskListEntry SelectedItem
+        {
+            get => (TaskListEntry)GetValue(SelectedItemProperty);
+            set => SetValue(SelectedItemProperty, value);
+        }
+
+        public static readonly DependencyProperty SelectedItemProperty =
+            DependencyProperty.Register(
+                nameof(SelectedItem),
+                typeof(TaskListEntry),
+                typeof(TaskListView),
+                new PropertyMetadata(null, OnSelectedItemChanged));
+
+        public static void OnSelectedItemChanged(
+            DependencyObject sender,
+            DependencyPropertyChangedEventArgs e)
+        {
+            if (sender is not TaskListView control) return;
+
+            var selectedEntry = e.NewValue as TaskListEntry;
+
+            control.ViewModel.SelectedTask = selectedEntry?.Task;
+
+            // Only show the actions of SelectedItem
+            foreach (var taskEntry in control.ViewModel.FilteredTasks)
+            {
+                var container = control.TasksListView
+                    .ContainerFromItem(taskEntry)
+                    as DependencyObject;
+
+                if (container == null) continue;
+
+                var actionsPanel = control.FindNamedElement<StackPanel>(
+                    container,
+                    "TaskActionsPanel");
+
+                if (actionsPanel != null)
+                {
+                    actionsPanel.Visibility = 
+                        control.TasksListView.SelectedItem == taskEntry
+                        ? Visibility.Visible : Visibility.Collapsed;
+                }
+            }
+        }
 
         // Task List
         public IEnumerable<TaskItem>? ItemsSource
@@ -69,6 +130,18 @@ namespace ProjectScheduler.Controls
                 new PropertyMetadata(null));
 
 
+        public void RefreshPlaceholder()
+        {
+            bool hasTasks = Target?.Tasks?.Any() == true;
+
+            PlaceholderPanel.Visibility = hasTasks
+                ? Visibility.Collapsed : Visibility.Visible;
+
+            TasksListView.Visibility = hasTasks
+                ? Visibility.Visible : Visibility.Collapsed;
+        }
+
+
 
         // [[ ADDING TASKS ]] //
 
@@ -77,7 +150,7 @@ namespace ProjectScheduler.Controls
             object sender,
             RoutedEventArgs e)
         {
-            if (ViewModel.SelectedItem is null) return;
+            if (Target is null) return;
 
             // Prompting for Task details
             var details = await PromptTaskDetails("New Task", null);
@@ -87,7 +160,7 @@ namespace ProjectScheduler.Controls
 
             var (name, description) = details.Value;
 
-            if (ViewModel.SelectedItem.Tasks.Any(task =>
+            if (Target.Tasks.Any(task =>
                 task.Name.Equals(
                     name,
                     StringComparison.OrdinalIgnoreCase)))
@@ -104,6 +177,7 @@ namespace ProjectScheduler.Controls
             };
 
             ViewModel.AddTask(task);
+            ViewModel.RefreshTasks();
         }
 
         // Add Subtask
@@ -111,13 +185,12 @@ namespace ProjectScheduler.Controls
             object sender,
             RoutedEventArgs e)
         {
-            if (ViewModel.SelectedItem is not TaskItem task) return;
+            if (ViewModel.SelectedTask is not TaskItem task)
+                return;
 
             // Prompting for the new subtask's name
             var details = await PromptTaskDetails("New Subtask", null);
-
-            if (!details.HasValue)
-                return;
+            if (!details.HasValue) return;
 
             var (name, description) = details.Value;
 
@@ -141,6 +214,7 @@ namespace ProjectScheduler.Controls
             };
 
             ViewModel.AddSubtask(task, subtask);
+            ViewModel.RefreshTasks();
         }
 
         // Edit Task
@@ -148,7 +222,7 @@ namespace ProjectScheduler.Controls
             object sender,
             RoutedEventArgs e)
         {
-            if (ViewModel.SelectedItem is not TaskItem task) return;
+            if (ViewModel.SelectedTask is not TaskItem task) return;
 
             // Prompting for updated task details
             var details = await PromptTaskDetails("Edit Task", task);
@@ -158,10 +232,10 @@ namespace ProjectScheduler.Controls
 
             var (name, description) = details.Value;
 
-            if (task.Parent is not TaskItem parent) return;
+            var siblings = task.Parent?.Subtasks ?? Target.Tasks;
 
             // Validating the new task details (local uniqueness)
-            if (parent.Subtasks.Any(other =>
+            if (siblings.Any(other =>
                 other.Id != task.Id &&
                 other.Name.Equals(
                     name,
@@ -184,66 +258,12 @@ namespace ProjectScheduler.Controls
             object sender,
             RoutedEventArgs e)
         {
-            if (ViewModel.SelectedItem is not TaskItem task) return;
+            if (ViewModel.SelectedTask is not TaskItem task) return;
 
             bool confirmed = await PromptDeleteTask(task);
             if (!confirmed) return;
 
             ViewModel.DeleteTask(task);
-        }
-
-        // Toggle Task Action Visibility
-        private void TasksListView_SelectionChanged(
-            object sender,
-            SelectionChangedEventArgs e)
-        {
-            // Hide the action buttons for every visible task
-            foreach (var taskEntry in ViewModel.FilteredTasks)
-            {
-                var container = TasksListView.ContainerFromItem(taskEntry)
-                    as DependencyObject;
-
-                if (container == null)
-                {
-                    continue;
-                }
-
-                var actionsPanel = FindNamedElement<StackPanel>(
-                    container,
-                    "TaskActionsPanel");
-
-                if (actionsPanel != null)
-                {
-                    actionsPanel.Visibility = Visibility.Collapsed;
-                }
-            }
-
-            // Display the action buttons for the selected task
-            if (TasksListView.SelectedItem is TaskListEntry selectedEntry)
-            {
-                var container = TasksListView.ContainerFromItem(selectedEntry)
-                    as DependencyObject;
-
-                if (container != null)
-                {
-                    var actionsPanel = FindNamedElement<StackPanel>(
-                        container,
-                        "TaskActionsPanel");
-
-                    if (actionsPanel != null)
-                    {
-                        actionsPanel.Visibility = Visibility.Visible;
-                    }
-                }
-            }
-        }
-
-        private async void TaskCompletionCheckBox_Click(
-            object sender,
-            RoutedEventArgs e)
-        {
-            if (ViewModel.SelectedItem is not TaskItem task) return;
-
             ViewModel.RefreshTasks();
         }
 
@@ -261,6 +281,26 @@ namespace ProjectScheduler.Controls
 
             // Toggle the task's collapsed state (find & add / remove)
             ViewModel.ToggleTaskExpansion(taskId);
+        }
+
+        public void TaskCompletionCheckBox_Click(
+            object sender,
+            RoutedEventArgs e)
+        {
+            if (Target is null) return;
+
+            RefreshEntries();
+
+            Target.UpdateTaskDetails();
+        }
+
+        public void RefreshEntries()
+        {
+            // TODO: is this the best way to do this?
+            foreach (TaskListEntry entry in ViewModel.FilteredTasks)
+            {
+                entry.RefreshEntryDetails();
+            }
         }
 
 
